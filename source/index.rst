@@ -3,8 +3,10 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to DocumentValidator's documentation!
-=============================================
+DocumentVlaidator: an inspection tool for technical documents
+==============================================================
+
+DocumentValidator is a tool to help a writer or programmer who writes technical documents or manuals that adheres to a writing standard. DocumentValidator automates the validation of input documents. It works as the same way as CheckStyle, a code inspection tool for Java Language. Users add the point to check in the configuration file, and the tool do validation following the settings.
 
 Contents:
 
