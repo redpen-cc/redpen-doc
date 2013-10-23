@@ -161,16 +161,75 @@ Some symbols need space before or after them. For example, we add add space left
 Setting characters (char-table.xml)
 -------------------------------------
 
-Users add configure settings for characters and symbols with char-table.xml. In the file we add the symbols to use in the document. The following is the sample.
+Users add configure settings for characters and symbols with char-table.xml. char-table.xml is used to override default setting of characters. default setting are described in the following section. In the file, we add the symbols to use in the document. Character table has one character-table element and the character-table element has many "character" elements. "character" element define the character used in the written documents.
+
+The following table is the properties of character element.
+
+.. table::
+
+  ==================== ============= ============= ===================================
+  Property             Mandatory     Default Value Description
+  ==================== ============= ============= ===================================
+  `name`               true          none          Name of the character
+  `value`              true          none          Value of the character
+  `before-space`       false         false         Need space before the character
+  `after-space`        false         false         Need space after the character
+  `invalid-chars`      false         ""            List of invalid characters
+  ==================== ============= ============= ===================================
+
+
+Sample: Setting characters
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In the following setting, we can see that character-table has define 6 characters. First character element define exlamation mark as '!'. Second element , FULL_STOP defines period as "." and in addition the character need space after the period. Third element define comma as ',' and also define invalid characters '、' and '，'. Here invalid characters represents the variations of registered character. For example, In japanese FULL_STOP can be not only '.' but also '。'. If we registered invalid-chars, we can prevents the mixture usages of character variations.
 
 ::
 
   <character-table>
-    <character name="EXCLAMATION_MARK" value="!" invalid-chars="！" after-space="true" />
-    <character name="LEFT_QUATATION_MARK" value="\'"  invalid-chars="“" before-space="true" />
-    <character name="RIGHT_QUATATION_MARK" value="\'"  invalid-chars="”" after-space="true" />
-    <character name="NUMBER_SIGN" value="#" invalid-chars="＃" after-space="true" />
-    <character name="FULL_STOP" value="." invalid-chars="．。" after-space="true" />
+    <character name="EXCLAMATION_MARK" value="!" />
+    <character name="FULL_STOP" value="." after-space="true" />
     <character name="COMMA" value="," invalid-chars="、，" after-space="true" />
   </character-table>
 
+Default Setting
+~~~~~~~~~~~~~~~~~
+
+The following is the defalt symbol settings. In the table, first column shows the names of symbols, second colums (Value) shows the character. Colums 'NeedBeforeSpace' and 'NeedAfterSpace' represent that the character should have space before or after it respectively.
+
+.. table::
+
+  ====================== ============= ================== ================== =============================================
+  Character              Value         NeedBeforeSpace    NeedAfterSpace     Description
+  ====================== ============= ================== ================== =============================================
+  `FULL_STOP`            '.'           false              true               Period of sentence
+  `SPACE`                ' '           false              false              White space between words
+  `EXCLAMATION_MARK`     '!'           false              true               Exclamation mark
+  `NUMBER_SIGN`          '#'           false              false              Number sign
+  `DOLLAR_SIGN`          '$'           false              false              Dollar sign
+  `PERCENT_SIGN`         '%'           false              false              Percent sign
+  `QUESTION_MARK`        '?'           false              true               Question mark
+  `AMPERSAND`            '&'           false              true               Ampersand
+  `LEFT_PARENTHESIS`     '('           true               false              Left parenthesis
+  `RIGHT_PARENTHESIS`    ')'           false              true               Right parenthesis
+  `ASTERISK`             '*'           false              false              Asterrisk
+  `COMMA`                ','           false              true               Comma
+  `PLUS_SIGN`            '+'           false              false              Plus sign
+  `HYPHEN_SIGN`          '-'           false              false              Hyphenation
+  `MINUS_SIGN`           '-'           false              false              Minus sign (NOTE: identical to HYPHEN_SIGN)
+  `SLASH`                '/'           false              false              Slash
+  `COLON`                ':'           false              true               Colon
+  `SEMICOLON`            ';'           false              true               Semicolon
+  `LESS_THAN_SIGN`       '<'           false              false              Less than sign
+  `GREATER_THAN_SIGN`    '>'           false              false              Greater than sign
+  `EQUAL_SIGN`           '='           false              false              Equal sign
+  `AT_MARK`              '@'           false              false              At mark
+  `LEFT_SQUARE_BRACKET`  '['           true               false              Left square bracket
+  `RIGHT_SQUARE_BRACKET` ']'           false              true               Right square bracket
+  `BACKSLASH`            '\'           false              false              Backslash
+  `CIRCUMFLEX_ACCENT`    '^'           false              false              Circumflex accent
+  `LOW_LINE`             '_'           false              false              Low line (under bar)
+  `LEFT_CURLY_BRACKET`   '{'           true               false              Left curly bracket
+  `RIGHT_CURLY_BRACKET`  '}'           true               false              Right curly bracket
+  `VERTICAL_VAR`         '|'           false              false              Vertical bar
+  `TILDE`                '~'           false              false              Tilde
+  ====================== ============= ================== ================== =============================================
