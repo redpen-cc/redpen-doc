@@ -198,38 +198,42 @@ The following is the defalt symbol settings. In the table, first column shows th
 
 .. table::
 
-  ====================== ============= ================== ================== =============================================
-  Character              Value         NeedBeforeSpace    NeedAfterSpace     Description
-  ====================== ============= ================== ================== =============================================
-  `FULL_STOP`            '.'           false              true               Period of sentence
-  `SPACE`                ' '           false              false              White space between words
-  `EXCLAMATION_MARK`     '!'           false              true               Exclamation mark
-  `NUMBER_SIGN`          '#'           false              false              Number sign
-  `DOLLAR_SIGN`          '$'           false              false              Dollar sign
-  `PERCENT_SIGN`         '%'           false              false              Percent sign
-  `QUESTION_MARK`        '?'           false              true               Question mark
-  `AMPERSAND`            '&'           false              true               Ampersand
-  `LEFT_PARENTHESIS`     '('           true               false              Left parenthesis
-  `RIGHT_PARENTHESIS`    ')'           false              true               Right parenthesis
-  `ASTERISK`             '*'           false              false              Asterrisk
-  `COMMA`                ','           false              true               Comma
-  `PLUS_SIGN`            '+'           false              false              Plus sign
-  `HYPHEN_SIGN`          '-'           false              false              Hyphenation
-  `MINUS_SIGN`           '-'           false              false              Minus sign (NOTE: identical to HYPHEN_SIGN)
-  `SLASH`                '/'           false              false              Slash
-  `COLON`                ':'           false              true               Colon
-  `SEMICOLON`            ';'           false              true               Semicolon
-  `LESS_THAN_SIGN`       '<'           false              false              Less than sign
-  `GREATER_THAN_SIGN`    '>'           false              false              Greater than sign
-  `EQUAL_SIGN`           '='           false              false              Equal sign
-  `AT_MARK`              '@'           false              false              At mark
-  `LEFT_SQUARE_BRACKET`  '['           true               false              Left square bracket
-  `RIGHT_SQUARE_BRACKET` ']'           false              true               Right square bracket
-  `BACKSLASH`            '\'           false              false              Backslash
-  `CIRCUMFLEX_ACCENT`    '^'           false              false              Circumflex accent
-  `LOW_LINE`             '_'           false              false              Low line (under bar)
-  `LEFT_CURLY_BRACKET`   '{'           true               false              Left curly bracket
-  `RIGHT_CURLY_BRACKET`  '}'           true               false              Right curly bracket
-  `VERTICAL_VAR`         '|'           false              false              Vertical bar
-  `TILDE`                '~'           false              false              Tilde
-  ====================== ============= ================== ================== =============================================
+  ============================= ============= ================== ================== =============================================
+  Character                     Value         NeedBeforeSpace    NeedAfterSpace     Description
+  ============================= ============= ================== ================== =============================================
+  `FULL_STOP`                   '.'           false              true               Period of sentence
+  `SPACE`                       ' '           false              false              White space between words
+  `EXCLAMATION_MARK`            '!'           false              true               Exclamation mark
+  `NUMBER_SIGN`                 '#'           false              false              Number sign
+  `DOLLAR_SIGN`                 '$'           false              false              Dollar sign
+  `PERCENT_SIGN`                '%'           false              false              Percent sign
+  `QUESTION_MARK`               '?'           false              true               Question mark
+  `AMPERSAND`                   '&'           false              true               Ampersand
+  `LEFT_PARENTHESIS`            '('           true               false              Left parenthesis
+  `RIGHT_PARENTHESIS`           ')'           false              true               Right parenthesis
+  `ASTERISK`                    '*'           false              false              Asterrisk
+  `COMMA`                       ','           false              true               Comma
+  `PLUS_SIGN`                   '+'           false              false              Plus sign
+  `HYPHEN_SIGN`                 '-'           false              false              Hyphenation
+  `MINUS_SIGN`                  '-'           false              false              Minus sign (NOTE: identical to HYPHEN_SIGN)
+  `SLASH`                       '/'           false              false              Slash
+  `COLON`                       ':'           false              true               Colon
+  `SEMICOLON`                   ';'           false              true               Semicolon
+  `LESS_THAN_SIGN`              '<'           false              false              Less than sign
+  `GREATER_THAN_SIGN`           '>'           false              false              Greater than sign
+  `EQUAL_SIGN`                  '='           false              false              Equal sign
+  `AT_MARK`                     '@'           false              false              At mark
+  `LEFT_SQUARE_BRACKET`         '['           true               false              Left square bracket
+  `RIGHT_SQUARE_BRACKET`        ']'           false              true               Right square bracket
+  `BACKSLASH`                   '\'           false              false              Backslash
+  `CIRCUMFLEX_ACCENT`           '^'           false              false              Circumflex accent
+  `LOW_LINE`                    '_'           false              false              Low line (under bar)
+  `LEFT_CURLY_BRACKET`          '{'           true               false              Left curly bracket
+  `RIGHT_CURLY_BRACKET`         '}'           true               false              Right curly bracket
+  `VERTICAL_VAR`                '|'           false              false              Vertical bar
+  `TILDE`                       '~'           false              false              Tilde
+  `LEFT_SINGLE_QUOTATION_MARK`  '‘'           false              false              left single quotation mark
+  `RIGHT_SINGLE_QUOTATION_MARK` '’'           false              false              right single quotation mark
+  `LEFT_DOUBLE_QUOTATION_MARK`  '“'           false              false              left double quotation mark
+  `RIGHT_DOUBLE_QUOTATION_MARK` '”'           false              false              right double quotation mark
+  ============================= ============= ================== ================== =============================================
