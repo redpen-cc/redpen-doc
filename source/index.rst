@@ -11,11 +11,11 @@ DocumentValidator is a tool to help a writer or programmer who writes technical 
 .. Note::
    This project is young, but I will update periodically as it is completed.
 
-Contents:
-==========
+Contents
+=========
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    quickstart
    command
@@ -26,9 +26,4 @@ Links
 
 - `Source <https://github.com/takahi-i/document-validator/>`_
 - `Issue <https://github.com/takahi-i/document-validator/issues?state=open>`_
-
-Search
-=======
-
-* :ref:`search`
 
