@@ -33,12 +33,14 @@ docvalid has the following options.
 
    The argument of this option represents the input format. Currently DocumentValidator supports the following formatts.
 
-   ========= ====================
-   Value     Description
-   ========= ====================
-   txt       plain text format
-   wiki      wiki fomat
-   ========= ====================
+   .. table::
+
+      ====== =====================
+      Value     Description
+      ====== =====================
+      txt       plain text format
+      wiki      wiki format
+      ====== =====================
 
 .. Note::
    DocumentValidator does not support all the elements of wiki format such as tables. The remaining elements would be supported in near future.
