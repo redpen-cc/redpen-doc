@@ -68,7 +68,7 @@ SentenceLength validator checks the length of sentences in input doucment. If th
   ==================== ============= ===================================
   Property             Default Value Description
   ==================== ============= ===================================
-  ``"max_lengh"``      50            Maximam length of sentence.
+  ``"max_lengh"``      50            Maximum length of sentence.
   ==================== ============= ===================================
 
 InvalidExpression
@@ -109,7 +109,7 @@ CommaNumber validator checks the number of commas.
   ==================== ============= ========================================
   Property             Default Value Description
   ==================== ============= ========================================
-  ``"max_num"``        4             Maximam number of commas in a sentence.
+  ``"max_num"``        4             Maximum number of commas in a sentence.
   ==================== ============= ========================================
 
 WordNumber
@@ -122,7 +122,7 @@ WordNumber validator checks the number of word in one setnece.
   ==================== ============= ========================================
   Property             Default Value Description
   ==================== ============= ========================================
-  ``"max_num"``        50             Maximam number of words in a sentence.
+  ``"max_num"``        50             Maximum number of words in a sentence.
   ==================== ============= ========================================
 
 SuggestExpression
