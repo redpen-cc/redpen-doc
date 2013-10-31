@@ -13,19 +13,19 @@ Download and install
 
 We can install DocumentValidator with the following steps.
 
-#. go to your home directory (/home/username if your account name is 'username')
+1. go to your home directory (/home/username if your account name is 'username')
 
 ::
 
  $ cd username
 
-#. clone the source code with git command
+2. clone the source code with git command
 
 ::
 
-  $ git clone it@github.com:takahi-i/document-validator.git
+  $ git clone git@github.com:takahi-i/document-validator.git
 
-#. build with maven
+3. build with maven
 
 ::
 

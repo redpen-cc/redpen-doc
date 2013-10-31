@@ -6,7 +6,7 @@
 DocumentVlaidator: an inspection tool for technical documents
 ==============================================================
 
-DocumentValidator is a tool to help a writer or programmer who writes technical documents or manuals that adheres to a writing standard. DocumentValidator automates the validation of input documents. It works as the same way as CheckStyle, a code inspection tool for Java Language. Users add the point to check in the configuration file, and the tool do validation following the settings.
+DocumentValidator is a tool to help a writer or programmer who writes technical documents or manuals that adheres to a writing standard. DocumentValidator automates the verfications of input documents written in natural languages (NOT computer languges such as C++ or Java). It works as the same way as CheckStyle, a code inspection tool for Java Language. Users add validators each of which checkes one aspect of the input document into the configuration file, and then following the configurations, this tool does the validation.
 
 .. Note::
    This project is young, but I will update periodically as it is completed.
@@ -24,8 +24,8 @@ Contents:
 Links
 ======
 
-- `Sources <https://github.com/takahi-i/document-validator/>`_
-- `Issues <https://github.com/takahi-i/document-validator/issues?state=open>`_
+- `Source <https://github.com/takahi-i/document-validator/>`_
+- `Issue <https://github.com/takahi-i/document-validator/issues?state=open>`_
 
 Search
 =======

@@ -3,8 +3,8 @@ Configuration
 
 DocumentValidator has two configuration files, one is for adding Validators (validator-conf.xml) and the other is for defining characters and symbols for input doucments (char-table.xml).
 
-Setting Validators (validator-conf.xml)
------------------------------------------
+Adding Validators
+------------------
 
 DocumentValidator has validator-conf.xml for registrating Validators. If a user add a validaor for one checking point into validator-conf.xml, then DocumentValidator applies the added Validator to the input document.
 
@@ -33,8 +33,8 @@ As we see some components have "property" to configure the validator specific se
 
 We will see the all the supported validators in the next section.
 
-Validators
-------------
+Validators in detail
+--------------------
 
 Document Validator supports following validators.
 
@@ -158,8 +158,8 @@ SpaceWithSymbol
 
 Some symbols need space before or after them. For example, we add add space left brancket "(". we add the setting in the character setting file (char-table.xml).
 
-Setting characters (char-table.xml)
--------------------------------------
+Setting characters 
+-------------------
 
 Users add configure settings for characters and symbols with char-table.xml. char-table.xml is used to override default setting of characters. default setting are described in the following section. In the file, we add the symbols to use in the document. Character table has one character-table element and the character-table element has many "character" elements. "character" element define the character used in the written documents.
 
@@ -237,3 +237,5 @@ The following table shows the defalt symbol settings. In the table, first column
   `LEFT_DOUBLE_QUOTATION_MARK`  '“'           false              false              left double quotation mark
   `RIGHT_DOUBLE_QUOTATION_MARK` '”'           false              false              right double quotation mark
   ============================= ============= ================== ================== =============================================
+
+The character setting are made use of seveal Validators such as InvalidCharacter, and SpaceValidator. If users want to change the character configuration settings. Users can override the settings adding character into character setting file described in the above section.
