@@ -11,11 +11,8 @@ DocumentValidator is a tool to help a writer or programmer who writes technical 
 .. Note::
    This project is young, but I will update periodically as it is completed.
 
-Contents
-=========
-
 .. toctree::
-   :maxdepth: 1
+   :hidden:
 
    quickstart
    command
