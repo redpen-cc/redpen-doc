@@ -13,7 +13,6 @@ The sources are available from https://github.com/takahi-i/document-validator/.
 .. Note::
    This project is young, but I will update periodically as it is completed.
 
-
 Contents:
 ------------
 
@@ -23,11 +22,8 @@ Contents:
    quickstart
    configuration
 
+Search
+=======
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
 
