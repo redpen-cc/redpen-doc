@@ -11,7 +11,7 @@ DocumentValidator is a tool to help a writer or programmer who writes technical 
 The sources are available from https://github.com/takahi-i/document-validator/.
 
 .. Note::
-   This project is young, but I will t will update periodically as it is completed.
+   This project is young, but I will update periodically as it is completed.
 
 
 Contents:
