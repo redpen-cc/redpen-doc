@@ -1,6 +1,8 @@
 QuickStart
 ==========
 
+DocumentValidator needs the following software.
+
 Requirements
 -------------
 - Java 1.6.0 or greater

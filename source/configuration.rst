@@ -6,7 +6,7 @@ DocumentValidator has two configuration files, one is for adding Validators (val
 Setting Validators (validator-conf.xml)
 -----------------------------------------
 
-DocumentValidator have validator-conf.xml for registrating Validators. When a user add a validaor for a checking point into validator-conf.xml, then Document validator apply the added Validator to the input document.
+DocumentValidator has validator-conf.xml for registrating Validators. If a user add a validaor for one checking point into validator-conf.xml, then DocumentValidator applies the added Validator to the input document.
 
 The following is the sample validator-conf.xml file.
 
@@ -27,9 +27,9 @@ The following is the sample validator-conf.xml file.
     <component name="ParagraphStartWith" />
   </configuration>
 
-A "component" blcok represents a validator, which check one aspect of the input document. For instance, Adding "SectionLength" component block into the configuration file, DocuemntValidator check the length of sections in input documents.
+A "component" block represents a validator, which checks one aspect of the input document. For instance, adding "SectionLength" component block into the configuration file, DocuemntValidator checks the length of sections in input documents.
 
-As we see some components have "property" to configure the validator specific settings. "SectionLength" validator has maximum character number in one section. Some validator has sub-validators. SentenceIterator which validates all the input sentences in the input documents, for example contains sub-validators such as "SentenceLentgh", "InvalidCharacters".
+As we see some components have "property" to configure the validator specific settings. For example, the "SectionLength" validator has maximum character number in one section. Some validator has sub-validators. In the above example, "SentenceIterator" which validates all the input sentences in the input documents, contains sub-validators such as "SentenceLentgh", "InvalidCharacters".
 
 We will see the all the supported validators in the next section.
 
@@ -68,13 +68,13 @@ SentenceLength validator checks the length of sentences in input doucment. If th
   ==================== ============= ===================================
   Property             Default Value Description
   ==================== ============= ===================================
-  ``"max_lenght"``     50            Maximam length of sentence.
+  ``"max_lengh"``      50            Maximam length of sentence.
   ==================== ============= ===================================
 
 InvalidExpression
 ^^^^^^^^^^^^^^^^^^
 
-InvalidExpression validator checks if input sentences use invalid expressions (words or phrases). If the input sentence contains invalid expressions, this validaor retuns the warning.
+InvalidExpression validator checks if input sentences contains invalid expressions (words or phrases). If the input sentence contains invalid expressions, this validaor retuns the warning.
 
 .. table::
 
@@ -194,7 +194,7 @@ In the following setting, we can see that character-table has define 6 character
 Default Setting
 ~~~~~~~~~~~~~~~~~
 
-The following is the defalt symbol settings. In the table, first column shows the names of symbols, second colums (Value) shows the character. Colums 'NeedBeforeSpace' and 'NeedAfterSpace' represent that the character should have space before or after it respectively.
+The following table shows the defalt symbol settings. In the table, first column shows the names of symbols, second colums (Value) shows the character. Colums 'NeedBeforeSpace' and 'NeedAfterSpace' represent that the character should have space before or after it respectively.
 
 .. table::
 
