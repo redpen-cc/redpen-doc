@@ -12,7 +12,7 @@ The following is the sample validator-conf.xml file.
 
 ::
 
-  <configuration name="Validator">
+  <component name="Validator">
     <component name="SentenceIterator">
       <component name="SentenceLength">
         <property name="max_length" value="50"/>
@@ -25,9 +25,9 @@ The following is the sample validator-conf.xml file.
       <property name="max_char_number" value="500"/>
     </component>
     <component name="ParagraphStartWith" />
-  </configuration>
+  </component>
 
-A "component" block represents a validator, which checks one aspect of the input document. For instance, adding "SectionLength" component block into the configuration file, DocuemntValidator checks the length of sections in input documents.
+All configurations are surrounded by one "component" block, which contains many inner component blocks. Each inner "component" block represents a validator, which checks one aspect of the input document. For instance, adding "SectionLength" component block into the configuration file, DocuemntValidator checks the length of sections in input documents.
 
 As we see some components have "property" to configure the validator specific settings. For example, the "SectionLength" validator has maximum character number in one section. Some validator has sub-validators. In the above example, "SentenceIterator" which validates all the input sentences in the input documents, contains sub-validators such as "SentenceLentgh", "InvalidCharacters".
 
