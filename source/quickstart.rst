@@ -46,7 +46,7 @@ Then, run the DocumentValidator command with the sample input and configuration 
 
 ::
 
-  $ bin/docvalid -i sample/doc/txt/en/sampledoc-en.txt -v sample/conf/validation-conf.xml -c sample/conf/symbol-conf-en.xml
+  $ bin/docvalid -c sample/conf/dv-conf.xml sample/doc/txt/en/sampledoc-en.txt
   14:32:37.639 [main] INFO  org.unigram.docvalidator.Main - loading character table file: sample/conf/symbol-conf-en.xml
   14:32:37.652 [main] INFO  o.u.docvalidator.util.CharacterTable - Succeeded to load character table
   14:32:37.654 [main] INFO  o.unigram.docvalidator.parser.Parser - comma is set to ","
