@@ -98,7 +98,8 @@ html_theme = 'agogo'
 # documentation.
 html_theme_options = {
     "linkcolor" : "green",
-    "headerlinkcolor" : "lightgreen"
+    "headerlinkcolor" : "lightgreen",
+    "textalign" : "left"
     }
 
 # Add any paths that contain custom themes here, relative to this directory.

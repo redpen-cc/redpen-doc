@@ -1,7 +1,7 @@
-Support Format
-===============
+Supported Formats
+=================
 
-DocumentValidator supports two types of input format, "Plain text" and "Wiki format". 
+DocumentValidator supports two types of input format, "Plain text" and "Wiki format".
 
 
 Plain text
@@ -13,7 +13,7 @@ Plain text just supoorts a set of paragraphs. Paragraphs are separated by two ne
 
   This is a first paragraph. This paragraph is for the introduction of this article.
   I will introduce the central issue discussed throughout the article.
-  
+
   Second paragraph describe the details of the issue and show the solution.
 
 Wiki format
@@ -53,8 +53,8 @@ Unerline
 
   __this is a underlined syntacs.__
 
-Strikethrough 
-^^^^^^^^^^^^^^^
+Strikethrough
+^^^^^^^^^^^^^^
 
 ::
 
@@ -80,11 +80,7 @@ To make a bullted list, start a line with a "asterrisks". The number of asterris
 Numbered List
 ^^^^^^^^^^^^^^
 
-To make a numbered list, start a line with a "sharp". The number of sharps represents the nest size of the list. ::
-
-  # Numbered list
-  # Numbered list
-  ## Sub Numbered list
+If you want to add numbered lists, use "sharp" insted of asterisks in Bulleted Lists.
 
 Comments
 ~~~~~~~~
@@ -94,9 +90,9 @@ The followings are a sample of comment.
 
 ::
 
-   [!-- 
+   [!--
      This is a comment.
-   --] 
+   --]
 
 
 

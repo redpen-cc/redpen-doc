@@ -19,6 +19,7 @@ DocumentValidator is a tool to help a writer or programmer who writes technical 
    quickstart
    command
    configuration
+   format
 
 Links
 ======
