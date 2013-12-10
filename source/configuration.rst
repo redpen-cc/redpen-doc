@@ -3,8 +3,24 @@ Configuration
 
 DocumentValidator has two configuration files, one is for adding Validators (validator-conf.xml) and the other is for defining characters and symbols for input doucments (char-table.xml).
 
-Adding Validators
-------------------
+Main configuration file
+------------------------
+
+DocumentValidator has the main configuraiton, which does the all settings needed to work DocumentValidator with input doucments.  The main configration file is a xml file which has the root block "configuration" and configuration block contains two sub blocks "validator-config" and "symbol-table".  Each block specifies sub configuration file. The block validator-config specifies a setting file to add validators, and symbol-table specifies the character setting file.
+
+The following is an example of main configuration file.
+
+::
+
+  <configuration>
+    <validator-config>sample/conf/validation-conf.xml</validator-config>
+    <symbol-table>sample/conf/symbol-conf-en.xml</symbol-table>
+  </configuration>
+
+In the next section, we will see the configuration of validators. Setting of character is described in Section "Setting characters".
+
+Validator configigurations
+---------------------------
 
 DocumentValidator has validator-conf.xml for registrating Validators. If a user add a validaor for one checking point into validator-conf.xml, then DocumentValidator applies the added Validator to the input document.
 
