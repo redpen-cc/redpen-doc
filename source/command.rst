@@ -13,23 +13,19 @@ We use docvalid command as follows.
   $docvalid [options] input-files
 
 In the above usage, input files is spaces splitted, and docvalid has the following supported options.
-
+conf
 Options
 --------
 
 docvalid has the following options.
 
-.. option:: -v <VALIDATOR_CONFIG_FILE>, --validator <VALIDATOR_CONFIG_FILE>
+.. option:: -c <CONFIG_FILE>, --configuration <CONFIG_FILE>
 
-   Validator configuration file.
+   Configuration file for DocumentValidator
 
-.. option:: -c <CHARACTER_CONFIG_FILE>, --character <CHARACTER_CONFIG_FILE>
+.. option:: -f <INPUT_FORMAT>, --input_format <INPUT_FORMAT>
 
-   Character configuration file which override default character configurations.
-
-.. option:: -f <INPUT_FORMAT>, -input_format <INPUT_FORMAT>
-
-   Format of Input files. [**Default**: txt]
+   Input file format. [**Default**: plain]
 
    The argument of this option represents the input format. Currently DocumentValidator supports the following formatts.
 
@@ -38,12 +34,27 @@ docvalid has the following options.
       ====== =====================
       Value     Description
       ====== =====================
-      txt       plain text format
+      plain    plain text format
       wiki      wiki format
       ====== =====================
 
 .. Note::
    DocumentValidator does not support all the elements of wiki format such as tables. The remaining elements would be supported in near future.
+
+.. option:: -r <RESULT_FORMAT>, --result_format <RESULT_FORMAT>
+
+   result format. [**Default**: plain]
+
+   The argument of this option represents the output format. Currently DocumentValidator supports the following output formatts.
+
+   .. table::
+
+      ====== =====================
+      Value     Description
+      ====== =====================
+      plain    plain text format
+      xml      xml format
+      ====== =====================
 
 .. option:: -h, --help
 

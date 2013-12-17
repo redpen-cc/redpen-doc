@@ -13,7 +13,7 @@ The following is an example of main configuration file.
 ::
 
   <configuration>
-    <validator-config>sample/conf/validation-conf.xml</validator-config>
+    <validator>sample/conf/validation-conf.xml</validator>
     <symbol-table>sample/conf/symbol-conf-en.xml</symbol-table>
   </configuration>
 
