@@ -13,7 +13,7 @@ We use docvalid command as follows.
   $docvalid [options] input-files
 
 In the above usage, input files is spaces splitted, and docvalid has the following supported options.
-conf
+
 Options
 --------
 
