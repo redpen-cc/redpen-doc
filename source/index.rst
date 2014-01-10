@@ -8,7 +8,7 @@ DocumentValidator is a tool to help a writer or programmer who writes technical 
 .. _CheckStyle:  http://checkstyle.sourceforge.net/
 
 .. Note::
-   This project is young, but I will update periodically as it is completed.
+   This project is young, but we will update periodically as it is completed.
 
 .. toctree::
    :hidden:

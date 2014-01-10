@@ -31,7 +31,7 @@ div.header, div.content, div.footer {
 }
 
 div.header-wrapper {
-  background: {{ theme_headerbg }};
+  background: {{ theme_footerbg }};
   border-bottom: 3px solid #2e3436;
 }
 
