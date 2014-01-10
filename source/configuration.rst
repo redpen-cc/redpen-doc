@@ -13,14 +13,14 @@ The following is an example of main configuration file.
 ::
 
   <configuration>
-    <validator-config>sample/conf/validation-conf.xml</validator-config>
+    <validator>sample/conf/validation-conf.xml</validator>
     <symbol-table>sample/conf/symbol-conf-en.xml</symbol-table>
   </configuration>
 
 In the next section, we will see the configuration of validators. Setting of character is described in Section "Setting characters".
 
-Validator configigurations
----------------------------
+Validator configuration
+------------------------
 
 DocumentValidator has validator-conf.xml for registrating Validators. If a user add a validaor for one checking point into validator-conf.xml, then DocumentValidator applies the added Validator to the input document.
 
