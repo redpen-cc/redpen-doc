@@ -10,7 +10,7 @@ DocumentValidator has the main configuraiton, which does the all settings needed
 
 The following is an example of main configuration file.
 
-::
+.. code-block:: xml
 
   <configuration>
     <validator>sample/conf/validation-conf.xml</validator>
@@ -26,7 +26,7 @@ DocumentValidator has validator-conf.xml for registrating Validators. If a user 
 
 The following is the sample validator-conf.xml file.
 
-::
+.. code-block:: xml
 
   <component name="Validator">
     <component name="SentenceIterator">
@@ -102,7 +102,7 @@ InvalidExpression validator checks if input sentences contains invalid expressio
 
 The dictionary is a set of words or exressions. The following is the example of the dictionary.
 
-::
+.. code-block:: text
 
   like
   you know
@@ -156,7 +156,7 @@ SuggestExpression validator works the sample as the InvalidExpression validator.
 
 The dictionary is a TSV file with two columns. First column contains the invalid expression, and the second expression is for suggested expression.
 
-::
+.. code-block:: text
 
   SVM    Support Vector Machine
   SFBD   Sedue for BigData
@@ -199,7 +199,7 @@ Sample: Setting characters
 
 In the following setting, we can see that character-table has define 6 characters. First character element define exlamation mark as '!'. Second element , FULL_STOP defines period as "." and in addition the character need space after the period. Third element define comma as ',' and also define invalid characters '、' and '，'. Here invalid characters represents the variations of registered character. For example, In japanese FULL_STOP can be not only '.' but also '。'. If we registered invalid-chars, we can prevents the mixture usages of character variations.
 
-::
+.. code-block:: xml
 
   <character-table>
     <character name="EXCLAMATION_MARK" value="!" />

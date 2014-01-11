@@ -15,19 +15,19 @@ We can install DocumentValidator with the following steps.
 
 1. go to your home directory (/home/username if your account name is 'username')
 
-::
+.. code-block:: bash
 
  $ cd username
 
 2. clone the source code with git command
 
-::
+.. code-block:: bash
 
   $ git clone git@github.com:takahi-i/document-validator.git
 
 3. build with maven
 
-::
+.. code-block:: bash
 
   $ cd document-validator
   $ mvn package
@@ -37,14 +37,14 @@ Running examples
 
 We extract the DocumentValidator zipped file.
 
-::
+.. code-block:: bash
 
   $ cd target
   $ tar zxvf  document-validator-*.tar.gz
 
 Then, run the DocumentValidator command with the sample input and configuration files.
 
-::
+.. code-block:: bash
 
   $ bin/docvalid -c sample/conf/dv-conf.xml sample/doc/txt/en/sampledoc-en.txt
   14:32:37.639 [main] INFO  org.unigram.docvalidator.Main - loading character table file: sample/conf/symbol-conf-en.xml

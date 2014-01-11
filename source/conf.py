@@ -98,7 +98,7 @@ html_theme = 'dv'
 # documentation.
 html_theme_options = {
     "linkcolor" : "green",
-    "headerlinkcolor" : "lightgreen",
+    "headerlinkcolor" : "olivedrab",
     "textalign" : "left"
     }
 

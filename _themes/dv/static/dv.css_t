@@ -131,14 +131,14 @@ div.header {
 div.header .headertitle {
   font-family: {{ theme_headerfont }};
   font-weight: normal;
-  font-size: 360%;
-  letter-spacing: .04em;
+  font-size: 400%;
+  letter-spacing: .03em;
   margin-bottom: 0.5em;
   margin-top: 0.5em;
 }
 
 div.header .headertitle a {
-  color: darkseagreen;
+  color: olive;
 }
 
 div.header div.rel {

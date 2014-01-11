@@ -9,7 +9,7 @@ Plain text
 
 Plain text just supoorts a set of paragraphs. Paragraphs are separated by two new lines. For example the following article has two paragraph.
 
-::
+.. code-block:: text
 
   This is a first paragraph. This paragraph is for the introduction of this article.
   I will introduce the central issue discussed throughout the article.
@@ -35,28 +35,28 @@ DocumentValidator supports the following inline formatting.
 Bold
 ^^^^^
 
-::
+.. code-block:: text
 
   **this is a Bold sentence.**
 
 Italic
 ^^^^^^^
 
-::
+.. code-block:: text
 
   //this is a italic syntacs.//
 
 Unerline
 ^^^^^^^^^
 
-::
+.. code-block:: text
 
   __this is a underlined syntacs.__
 
 Strikethrough
 ^^^^^^^^^^^^^^
 
-::
+.. code-block:: text
 
   --this is a strikethrough syntacs.--
 
@@ -71,7 +71,9 @@ Lists
 Bulleted Lists
 ^^^^^^^^^^^^^^^
 
-To make a bullted list, start a line with a "asterrisks". The number of asterrisks represents the indents of the list. ::
+To make a bullted list, start a line with a "asterrisks". The number of asterrisks represents the indents of the list. 
+
+.. code-block:: text
 
   * List
   * List
@@ -88,7 +90,7 @@ Comments
 To add a comment to the wiki source, add [!-- ... --] block.
 The followings are a sample of comment.
 
-::
+.. code-block:: text
 
    [!--
      This is a comment.

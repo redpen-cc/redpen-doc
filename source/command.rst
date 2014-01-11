@@ -8,7 +8,7 @@ Usage: docvalid
 
 We use docvalid command as follows.
 
-::
+.. code-block:: bash
 
   $docvalid [options] input-files
 
