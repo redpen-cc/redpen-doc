@@ -77,12 +77,14 @@ h1, h2, h3, h4 {
 }
 
 h1 {
+  font-size: 250%;
   color: {{ theme_headercolor1 }};
+  border-bottom: 1px solid {{ theme_headercolor1 }};
 }
 
 h2 {
   padding-bottom: .5em;
-  border-bottom: 1px solid {{ theme_headercolor2 }};
+  border-bottom: 1px dashed {{ theme_headercolor2 }};
 }
 
 a.headerlink {
@@ -109,12 +111,14 @@ div.admonition {
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 2px 7px 1px 7px;
-  border-left: 0.2em solid black;
+  border-left: 0.2em solid olive;
+  background-color: #eeeeec;
 }
 
 p.admonition-title {
   margin: 0px 10px 5px 0px;
   font-weight: bold;
+  color: olive;
 }
 
 dt:target, .highlighted {
@@ -131,8 +135,8 @@ div.header {
 div.header .headertitle {
   font-family: {{ theme_headerfont }};
   font-weight: normal;
-  font-size: 400%;
-  letter-spacing: .03em;
+  font-size: 450%;
+  letter-spacing: .02em;
   margin-bottom: 0.5em;
   margin-top: 0.5em;
 }
