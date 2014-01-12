@@ -31,8 +31,8 @@ div.header, div.content, div.footer {
 }
 
 div.header-wrapper {
-  background: {{ theme_footerbg }};
   border-bottom: 5px solid olive;
+  background-color: olive;
 }
 
 
@@ -78,6 +78,7 @@ h1, h2, h3, h4 {
 
 h1 {
   font-size: 250%;
+  font-weight: bold;
   color: {{ theme_headercolor1 }};
 }
 
@@ -133,15 +134,15 @@ div.header {
 
 div.header .headertitle {
   font-family: {{ theme_headerfont }};
-  font-weight: normal;
-  font-size: 450%;
+  font-weight: bold;
+  font-size: 550%;
   letter-spacing: .02em;
   margin-bottom: 0.5em;
   margin-top: 0.5em;
 }
 
 div.header .headertitle a {
-  color: olive;
+  color: white;
 }
 
 div.header div.rel {
