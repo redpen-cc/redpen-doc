@@ -32,7 +32,7 @@ div.header, div.content, div.footer {
 
 div.header-wrapper {
   background: {{ theme_footerbg }};
-  border-bottom: 3px solid #2e3436;
+  border-bottom: 5px solid olive;
 }
 
 
@@ -79,7 +79,6 @@ h1, h2, h3, h4 {
 h1 {
   font-size: 250%;
   color: {{ theme_headercolor1 }};
-  border-bottom: 1px solid {{ theme_headercolor1 }};
 }
 
 h2 {
@@ -325,7 +324,7 @@ div.sidebar input[type="submit"] {
 
 div.footer-wrapper {
   background: {{ theme_footerbg }};
-  border-top: 4px solid #babdb6;
+  border-top: 5px solid olive;
   padding-top: 10px;
   padding-bottom: 10px;
   min-height: 80px;
