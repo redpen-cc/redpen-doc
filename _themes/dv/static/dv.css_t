@@ -31,10 +31,16 @@ div.header, div.content, div.footer {
 }
 
 div.header-wrapper {
-  border-bottom: 5px solid olive;
-  background-color: olive;
+  border-bottom: 5px solid darkolivegreen;
+  background-color: darkolivegreen;
 }
 
+img.forkme {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 0;
+}
 
 /* Default body styles */
 a {
@@ -135,7 +141,7 @@ div.header {
 div.header .headertitle {
   font-family: {{ theme_headerfont }};
   font-weight: bold;
-  font-size: 550%;
+  font-size: 450%;
   letter-spacing: .02em;
   margin-bottom: 0.5em;
   margin-top: 0.5em;
@@ -171,6 +177,8 @@ div.content-wrapper {
   background-color: white;
   padding-top: 20px;
   padding-bottom: 20px;
+  background-image: url(background.gif);
+  background-repeat: repeat;
 }
 
 div.document {
@@ -325,7 +333,7 @@ div.sidebar input[type="submit"] {
 
 div.footer-wrapper {
   background: {{ theme_footerbg }};
-  border-top: 5px solid olive;
+  border-top: 5px solid darkolivegreen;
   padding-top: 10px;
   padding-bottom: 10px;
   min-height: 80px;
@@ -469,3 +477,4 @@ div.viewcode-block:target {
     border-top: 1px solid #ac9;
     border-bottom: 1px solid #ac9;
 }
+

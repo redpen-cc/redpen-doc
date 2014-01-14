@@ -3,20 +3,71 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-What is DocumentValidator?
-============================
+QuickStart
+==========
 
-DocumentValidator is a tool to help a writer or programmer who writes technical documents or manuals that adheres to a writing standard. DocumentValidator automates the verfications of input documents written in natural languages (**NOT** computer languges such as C++ or Java). It works as the same way as `CheckStyle`_ , a famous code inspection tool for Java. Users add validators each of which checkes one aspect of the input document into the configuration file, and then following the configurations, this tool does the validation.
+DocumentValidator needs the following software.
 
-.. _CheckStyle:  http://checkstyle.sourceforge.net/
+Requirements
+-------------
+- Java 1.6.0 or greater
+- Maven 3.0.0 or greater
 
-.. Note::
-   This project is young, but we will update periodically as it is completed.
+Download and install
+----------------------
+
+We can install DocumentValidator with the following steps.
+
+1. go to your home directory (/home/username if your account name is 'username')
+
+.. code-block:: bash
+
+ $ cd username
+
+2. clone the source code with git command
+
+.. code-block:: bash
+
+  $ git clone git@github.com:takahi-i/document-validator.git
+
+3. build with maven
+
+.. code-block:: bash
+
+  $ cd document-validator
+  $ mvn package
+
+Running examples
+------------------
+
+We extract the DocumentValidator zipped file.
+
+.. code-block:: bash
+
+  $ cd target
+  $ tar zxvf  document-validator-*.tar.gz
+
+Then, run the DocumentValidator command with the sample input and configuration files.
+
+.. code-block:: bash
+
+  $ bin/docvalid -c sample/conf/dv-conf.xml sample/doc/txt/en/sampledoc-en.txt
+  14:32:37.639 [main] INFO  org.unigram.docvalidator.Main - loading character table file: sample/conf/symbol-conf-en.xml
+  14:32:37.652 [main] INFO  o.u.docvalidator.util.CharacterTable - Succeeded to load character table
+  14:32:37.654 [main] INFO  o.unigram.docvalidator.parser.Parser - comma is set to ","
+  14:32:37.655 [main] INFO  o.unigram.docvalidator.parser.Parser - full stop is set to "."
+  14:32:37.663 [main] INFO  o.u.d.v.s.ParagraphStartWithValidator - Using the default valude of paragraph_start_with.
+  CheckError[sample/doc/txt/en/sampledoc-en.txt: 0] = The length of the line exceeds the maximum 265 in line: ln bibliometrics and link analysis studies many attempts have been made to analyze the \
+  relationship amongscientific papers, authors andjoumals and recently, these research results have been found to be effective for analyzing the link structure ofweb pages as we11.
+  CheckError[sample/doc/txt/en/sampledoc-en.txt: 0] = The length of the line exceeds the maximum 161 in line:  In addition,  Most of these methods are concernedwith the two link analysis measures: \
+  relatedness between documenatsndglobal importance of individual documents.
+  ...
+
+
 
 .. toctree::
    :hidden:
 
-   quickstart
    command
    configuration
    format
