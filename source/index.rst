@@ -70,6 +70,7 @@ Then, run the DocumentValidator command with the sample input and configuration 
 
    command
    configuration
+   validator
    format
 
 Links
