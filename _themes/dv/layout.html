@@ -8,6 +8,8 @@
 #}
 {%- extends "basic/layout.html" %}
 
+<div class="total-wrapper">
+
 {% block header %}
     <div class="header-wrapper">
       <a href="http://github.com/takahi-i/document-validator"><img class="forkme" src="http://nodejs.org/images/forkme.png" alt="Fork me on GitHub"></a>
@@ -23,7 +25,6 @@
 	An inspection tool for technical documents 
         {%- endblock %}
        </div>
-      
     </div>
 {% endblock %}
 
@@ -69,5 +70,6 @@
     </div>
 {% endblock %}
 
+</div>
 {% block relbar1 %}{% endblock %}
 {% block relbar2 %}{% endblock %}

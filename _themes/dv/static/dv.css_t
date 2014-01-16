@@ -85,7 +85,7 @@ h1, h2, h3, h4 {
 h1 {
   font-size: 250%;
   font-weight: bold;
-  padding-bottom: 1em;
+  padding-bottom: .5em;
   color: {{ theme_headercolor1 }};
 }
 
@@ -186,8 +186,14 @@ img.logo {
     margin-top: 0.5em;
 }
 
-
 /* Content */
+
+div.total-wrapper {
+  position: relative;
+  min-height: 100%;
+  height: 100%;
+}
+
 div.content-wrapper {
   background-color: white;
   padding-top: 20px;
@@ -351,7 +357,8 @@ div.footer-wrapper {
   border-top: 5px solid darkolivegreen;
   padding-top: 10px;
   padding-bottom: 10px;
-  min-height: 80px;
+  min-height: 2em;
+  height: 3em;
 }
 
 div.footer, div.footer a {
@@ -365,7 +372,6 @@ div.footer .right {
 div.footer .left {
   text-transform: uppercase;
 }
-
 
 /* Styles copied from basic theme */
 
