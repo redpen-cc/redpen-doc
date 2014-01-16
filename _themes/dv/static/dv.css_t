@@ -85,12 +85,27 @@ h1, h2, h3, h4 {
 h1 {
   font-size: 250%;
   font-weight: bold;
+  padding-bottom: 1em;
   color: {{ theme_headercolor1 }};
 }
 
 h2 {
+  font-size: 150%;
+  font-weight: bold;
   padding-bottom: .5em;
   border-bottom: 1px dashed {{ theme_headercolor2 }};
+}
+
+h3 {
+  font-size: 150%;
+  font-weight: bold;
+  padding-bottom: .5em;
+}
+
+h4 {
+  font-size: 150%;
+  font-weight: bold;
+  padding-bottom: .5em;
 }
 
 a.headerlink {
