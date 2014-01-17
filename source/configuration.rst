@@ -1,12 +1,18 @@
 Configuration
 ==============
 
-DocumentValidator has two configuration files, one is for adding Validators (validator-conf.xml) and the other is for defining characters and symbols for input doucments (char-table.xml).
+DocumentValidator has two configuration files, one is for adding Validators (validator-conf.xml) and
+the other is for defining characters and symbols for input doucments (char-table.xml).
 
 Main configuration file
 ------------------------
 
-DocumentValidator has the main configuraiton, which does the all settings needed to work DocumentValidator with input doucments.  The main configration file is a xml file which has the root block "configuration" and configuration block contains two sub blocks "validator-config" and "symbol-table".  Each block specifies sub configuration file. The block validator-config specifies a setting file to add validators, and symbol-table specifies the character setting file.
+DocumentValidator has the main configuraiton, which does the all settings needed to work DocumentValidator with input doucments.
+The main configration file is a xml file which has the root block "configuration" and configuration block contains
+two sub blocks "validator-config" and "symbol-table".
+
+Each block specifies sub configuration file. The block validator-config specifies a setting file to add validators, and
+symbol-table specifies the character setting file.
 
 The following is an example of main configuration file.
 
@@ -17,12 +23,16 @@ The following is an example of main configuration file.
     <symbol-table>sample/conf/symbol-conf-en.xml</symbol-table>
   </configuration>
 
-In the next section, we will see the configuration of validators. Setting of character is described in Section "Setting characters".
+In the next section, we will see the configuration of validators.
+The symbol-table settings are described in the :ref:`setting-characters-section` section.
+
+Let' go into the details of validator configration.
 
 Validator configuration
 ------------------------
 
-DocumentValidator has validator-conf.xml for registrating Validators. If a user add a validaor for one checking point into validator-conf.xml, then DocumentValidator applies the added Validator to the input document.
+DocumentValidator has validator-conf.xml for registrating Validators. If a user add a validaor for one checking point into validator-conf.xml,
+then DocumentValidator applies the added Validator to the input document.
 
 The following is the sample validator-conf.xml file.
 
@@ -43,16 +53,28 @@ The following is the sample validator-conf.xml file.
     <component name="ParagraphStartWith" />
   </component>
 
-All configurations are surrounded by one "component" block, which contains many inner component blocks. Each inner "component" block represents a validator, which checks one aspect of the input document. For instance, adding "SectionLength" component block into the configuration file, DocuemntValidator checks the length of sections in input documents.
+All configurations are surrounded by one "component" block, which contains many inner component blocks. Each inner "component"
+block represents a validator, which checks one aspect of the input document. For instance, adding
+"SectionLength" component block into the configuration file, DocuemntValidator checks the length of sections in input documents.
 
-As we see some components have "property" to configure the validator specific settings. For example, the "SectionLength" validator has maximum character number in one section. Some validator has sub-validators. In the above example, "SentenceIterator" which validates all the input sentences in the input documents, contains sub-validators such as "SentenceLentgh", "InvalidCharacters".
+As we see some components have "property" to configure the validator specific settings. For example,
+the "SectionLength" validator has maximum character number in one section. Some validator has sub-validators.
+In the above example, "SentenceIterator" which validates all the input sentences in the input documents,
+contains sub-validators such as "SentenceLentgh", "InvalidCharacters".
 
 We will see the all the supported validators in the :doc:`validator` page.
+
+.. _setting-characters-section:
 
 Setting characters 
 -------------------
 
-Users add configure settings for characters and symbols with char-table.xml. char-table.xml is used to override default setting of characters. default setting are described in the following section. In the file, we add the symbols to use in the document. Character table has one character-table element and the character-table element has many "character" elements. "character" element define the character used in the written documents.
+Users add configure settings for characters and symbols with char-table.xml. char-table.xml is used to
+override default setting of characters.
+Default settings are described in the following section.
+In the character configuration file, we add the symbols to use in the document. Character table has one character-table block
+and the character-table block has many "character" elements.
+"character" element define the character used in the written documents.
 
 The following table is the properties of character element.
 
@@ -72,7 +94,11 @@ The following table is the properties of character element.
 Sample: Setting characters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In the following setting, we can see that character-table has define 6 characters. First character element define exlamation mark as '!'. Second element , FULL_STOP defines period as "." and in addition the character need space after the period. Third element define comma as ',' and also define invalid characters '、' and '，'. Here invalid characters represents the variations of registered character. For example, In japanese FULL_STOP can be not only '.' but also '。'. If we registered invalid-chars, we can prevents the mixture usages of character variations.
+In the following setting, we can see that character-table has define 6 characters. First character element defines
+exlamation mark as '!'. Second element , FULL_STOP defines period as "." and in addition the character need space
+after the period. Third element defines comma as ',' and also define invalid characters '、' and '，'. Here invalid
+characters represents the variations of registered character. For example, In japanese FULL_STOP can be not only '.'
+but also '。'. If we registered invalid-chars, we can prevents the mixture usages of character variations.
 
 .. code-block:: xml
 
@@ -85,7 +111,9 @@ In the following setting, we can see that character-table has define 6 character
 Default Setting
 ~~~~~~~~~~~~~~~~~
 
-The following table shows the defalt symbol settings. In the table, first column shows the names of symbols, second colums (Value) shows the character. Colums 'NeedBeforeSpace' and 'NeedAfterSpace' represent that the character should have space before or after it respectively.
+The following table shows the defalt symbol settings. In the table, first column shows the names of symbols,
+second colums (Value) shows the character. Colums 'NeedBeforeSpace' and 'NeedAfterSpace' represent that the
+character should have space before or after it respectively.
 
 .. table::
 
@@ -129,4 +157,5 @@ The following table shows the defalt symbol settings. In the table, first column
   `RIGHT_DOUBLE_QUOTATION_MARK` '”'           false              false              right double quotation mark
   ============================= ============= ================== ================== =============================================
 
-The character setting are made use of seveal Validators such as InvalidCharacter, and SpaceValidator. If users want to change the character configuration settings. Users can override the settings adding character into character setting file described in the above section.
+The character setting are made use of seveal Validators such as InvalidCharacter, and SpaceValidator. If users want to change the
+character configuration settings. Users can override the settings adding character into character setting file described in the above section.
