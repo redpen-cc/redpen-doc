@@ -162,6 +162,17 @@ div.header .headertitle {
   margin-top: 0.5em;
 }
 
+div.header .headersubtitle {
+  font-family: "Didot", "Times New Roman", serif;
+  font-weight: normal;
+  font-size: 150%;
+  letter-spacing: .02em;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+  color: #c6c6c6;
+}
+
+
 div.header .headertitle a {
   color: white;
 }
