@@ -6,10 +6,13 @@
 QuickStart
 ==========
 
-DocumentValidator needs the following software.
+This quickstart guide would help you get started. Let's go through some of the basics of DocumentValidator.
 
 Requirements
 -------------
+
+DocumentValidator needs the following software.
+
 - Java 1.6.0 or greater
 - Maven 3.0.0 or greater
 
@@ -64,7 +67,6 @@ Then, run the DocumentValidator command with the sample input and configuration 
   ...
 
 
-
 .. toctree::
    :hidden:
 
@@ -72,10 +74,4 @@ Then, run the DocumentValidator command with the sample input and configuration 
    configuration
    validator
    format
-
-Links
-======
-
-- `Source <https://github.com/takahi-i/document-validator/>`_
-- `Issues <https://github.com/takahi-i/document-validator/issues?state=open>`_
-- `Index <genindex.html>`_
+   links
