@@ -47,8 +47,9 @@ We extract the DocumentValidator zipped file.
 
 .. code-block:: bash
 
-  $ cd target
-  $ tar zxvf  document-validator-*.tar.gz
+  $ cd document-validator-app/target/
+  $ tar xzvf document-validator-app-VERSION-assembled.tar.gz
+  $ cd document-validator-app-VERSION
 
 Then, run the DocumentValidator command with the sample input and configuration files.
 
