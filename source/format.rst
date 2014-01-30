@@ -150,16 +150,22 @@ DocumentValidator supports the following inline formatting.
 Bold
 ^^^^^
 
+Wrap characters with double asterisks or underscores for bold. The followings a sample of bold sentences.
+
 .. code-block:: none
 
   **this is a Bold sentence.**
+  __this is also a Bold sentence.__
 
 Italic
 ^^^^^^^
 
+Wrap characters with a single asterisk or underscore for italic. The following is a sample italic sentences.
+
 .. code-block:: none
 
-  _this is a italic syntacs._
+  *this is a italic syntax.*
+  _this is also a italic syntax._
 
 Links
 ~~~~~
@@ -179,7 +185,8 @@ Markdown parser used in DocumentValidator supports two types of lists (Bulleted 
 Bulleted Lists
 ^^^^^^^^^^^^^^^
 
-To make a bullted list, start a line with a "asterrisks". the lists are nested with the heading spaces.
+To make a bullted list, start a line with a "asterrisks" or "hypens". The lists are nested with the heading spaces.
+The following is a example of bulleted list with asterrisks.
 
 .. code-block:: none
 
