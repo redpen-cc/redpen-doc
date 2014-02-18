@@ -11,8 +11,8 @@ DocumentValidator has the main configuraiton, which does the all settings needed
 The main configration file is a xml file which has the root block "configuration" and configuration block contains
 two sub blocks "validator-config" and "symbol-table".
 
-Each block specifies sub configuration file. The block validator-config specifies a setting file to add validators, and
-symbol-table specifies the character setting file.
+Each block specifies sub configuration block. The validator block specifies a setting file to add validators, and
+lang block specifies the input language such as en, ja and the character setting file.
 
 The following is an example of main configuration file.
 
@@ -20,11 +20,11 @@ The following is an example of main configuration file.
 
   <configuration>
     <validator>sample/conf/validation-conf.xml</validator>
-    <symbol-table>sample/conf/symbol-conf-en.xml</symbol-table>
+    <lang char-conf="sample/conf/symbol-conf-en.xml">en</lang>
   </configuration>
 
 In the next section, we will see the configuration of validators.
-The symbol-table settings are described in the :ref:`setting-characters-section` section.
+The char-conf settings are described in the :ref:`setting-characters-section` section.
 
 Let' go into the details of validator configration.
 
