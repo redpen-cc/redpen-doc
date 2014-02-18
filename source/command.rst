@@ -31,12 +31,13 @@ docvalid has the following options.
 
    .. table::
 
-      ====== =====================
-      Value     Description
-      ====== =====================
-      plain    plain text format
-      wiki      wiki format
-      ====== =====================
+      ======== =====================
+      Value    Description
+      ======== =====================
+      plain    Plain text format
+      wiki     Wiki (Textile) format
+      markdown Markdown format
+      ======== =====================
 
 .. Note::
    DocumentValidator does not support all the elements of wiki format such as tables. The remaining elements would be supported in near future.
