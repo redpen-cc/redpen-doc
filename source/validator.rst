@@ -13,6 +13,7 @@ Document Validator supports following validators.
  - SuggestExpression
  - InvalidCharacter
  - SpaceWithSymbol
+ - KatakanaEndHyphen
 
 - SectionLength
 - MaxParagraphNumber
@@ -90,6 +91,19 @@ WordNumber validator checks the number of word in one setnece.
   ``"max_num"``        50             Maximum number of words in a sentence.
   ==================== ============= ========================================
 
+KatakanaEndHyphen
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+KatakanaEndHyphen validator checks  the end hyphens of Katakana words in **Japanese** documents.
+Japanese Katakana words have variations in end hyphen. For example, "computer" is written in Katakana by 
+"コンピュータ (without hyphen) ", and "コンピューター (with hypen) ".
+This validator check if Katakana words ending format is match the predefined standard. See JIS Z8301, G.6.2.2 b) G.3.
+
+- a: Words of 3 characters or more can not have the end hyphen.
+- b: Words of 2 characters or less can have the end hyphen.
+- c: A compound word applies **a** and **b** for each component.
+- d: In the cases from **a** to **c**, the length of a syllable which are represented as a hyphen, flip syllable, and stuffed syllable is 1 except for Youon.
+
 SuggestExpression
 -------------------
 
@@ -123,3 +137,5 @@ SpaceWithSymbol
 ------------------
 
 Some symbols need space before or after them. For example, we add add space left brancket "(". we add the setting in the character setting file (char-table.xml).
+
+
