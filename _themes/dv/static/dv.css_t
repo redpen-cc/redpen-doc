@@ -31,8 +31,8 @@ div.header, div.content, div.footer {
 }
 
 div.header-wrapper {
-  border-bottom: 5px solid darkolivegreen;
-  background-color: darkolivegreen;
+  border-bottom: 5px solid #7F0120;
+  background-color: #7F0120;
 }
 
 img.forkme {
@@ -132,8 +132,8 @@ div.admonition {
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 2px 7px 1px 7px;
-  border-left: 0.2em solid olive;
-  background-color: #eeeeec;
+  border-left: 0.2em solid #7F0120;
+  background-color: #7F0120;
 }
 
 p.admonition-title {
@@ -206,11 +206,9 @@ div.total-wrapper {
 }
 
 div.content-wrapper {
-  background-color: white;
+  background-color: #c7c5b6;
   padding-top: 20px;
   padding-bottom: 20px;
-  background-image: url(background.gif);
-  background-repeat: repeat;
 }
 
 div.document {
