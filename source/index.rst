@@ -1,4 +1,4 @@
-.. DocumentValidator documentation master file, created by
+.. RedPen documentation master file, created by
    sphinx-quickstart on Sun Oct 13 13:50:32 2013.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
@@ -6,12 +6,12 @@
 QuickStart
 ==========
 
-This quickstart guide would help you get started. Let's go through some of the basics of DocumentValidator.
+This quickstart guide would help you get started. Let's go through some of the basics of RedPen.
 
 Requirements
 -------------
 
-DocumentValidator needs the following software.
+RedPen needs the following software.
 
 - Java 1.6.0 or greater
 - Maven 3.0.0 or greater
@@ -19,7 +19,7 @@ DocumentValidator needs the following software.
 Download and install
 ----------------------
 
-We can install DocumentValidator with the following steps.
+We can install RedPen with the following steps.
 
 1. go to your home directory (/home/username if your account name is 'username')
 
@@ -43,7 +43,7 @@ We can install DocumentValidator with the following steps.
 Running examples
 ------------------
 
-We extract the DocumentValidator zipped file.
+We extract the RedPen zipped file.
 
 .. code-block:: bash
 
@@ -51,7 +51,7 @@ We extract the DocumentValidator zipped file.
   $ tar xzvf document-validator-app-VERSION-assembled.tar.gz
   $ cd document-validator-app-VERSION
 
-Then, run the DocumentValidator command with the sample input and configuration files.
+Then, run the RedPen command with the sample input and configuration files.
 
 .. code-block:: bash
 

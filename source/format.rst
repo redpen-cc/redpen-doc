@@ -1,7 +1,7 @@
 Supported Formats
 =================
 
-DocumentValidator supports three types of input formats ("Plain text", "Wiki", and "Markdown" format).
+RedPen supports three types of input formats ("Plain text", "Wiki", and "Markdown" format).
 
 
 Plain text
@@ -19,7 +19,7 @@ Plain text just supoorts a set of paragraphs. Paragraphs are separated by two ne
 Wiki format
 -------------
 
-DocumentValidator supports the fraction of Wiki syntacs. The followings the supported elements of Wiki syntacs.
+RedPen supports the fraction of Wiki syntacs. The followings the supported elements of Wiki syntacs.
 
 Headings
 ~~~~~~~~~
@@ -30,7 +30,7 @@ For making a heading, we add a line starts with a "h[1234]. ". The digits after 
 Inline Formatting
 ~~~~~~~~~~~~~~~~~~~
 
-DocumentValidator supports the following inline formatting.
+RedPen supports the following inline formatting.
 
 Bold
 ^^^^^
@@ -109,7 +109,7 @@ Paragraphs are separated by two new lines the syntacs are the samme as plain tex
 Markdown
 -----------
 
-DocumentValidator currently supports the following Markdown elements.
+RedPen currently supports the following Markdown elements.
 
 Headings
 ~~~~~~~~~
@@ -145,7 +145,7 @@ For example:
 Inline Formatting
 ~~~~~~~~~~~~~~~~~~~
 
-DocumentValidator supports the following inline formatting.
+RedPen supports the following inline formatting.
 
 Bold
 ^^^^^
@@ -180,7 +180,7 @@ This is a example.
 Lists
 ~~~~~
 
-Markdown parser used in DocumentValidator supports two types of lists (Bulleted lists and Numbered lists).
+Markdown parser used in RedPen supports two types of lists (Bulleted lists and Numbered lists).
 
 Bulleted Lists
 ^^^^^^^^^^^^^^^

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# DocumentValidator documentation build configuration file, created by
+# RedPen documentation build configuration file, created by
 # sphinx-quickstart on Sun Oct 13 13:50:32 2013.
 #
 # This file is execfile()d with the current directory set to its containing dir.
@@ -40,7 +40,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'DocumentValidator'
+project = u'RedPen'
 copyright = u'2013, Takahiko Ito'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -168,7 +168,7 @@ html_show_sphinx = False
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'DocumentValidatordoc'
+htmlhelp_basename = 'RedPendoc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -187,7 +187,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'DocumentValidator.tex', u'DocumentValidator Documentation',
+  ('index', 'RedPen.tex', u'RedPen Documentation',
    u'Takahiko Ito', 'manual'),
 ]
 
@@ -217,7 +217,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'documentvalidator', u'DocumentValidator Documentation',
+    ('index', 'documentvalidator', u'RedPen Documentation',
      [u'Takahiko Ito'], 1)
 ]
 
@@ -231,8 +231,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'DocumentValidator', u'DocumentValidator Documentation',
-   u'Takahiko Ito', 'DocumentValidator', 'One line description of project.',
+  ('index', 'RedPen', u'RedPen Documentation',
+   u'Takahiko Ito', 'RedPen', 'One line description of project.',
    'Miscellaneous'),
 ]
 

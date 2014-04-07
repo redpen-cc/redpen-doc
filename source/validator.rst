@@ -1,7 +1,7 @@
 Supported Validators
 =============================
 
-Document Validator supports following validators.
+RedPen supports the following validators.
 
 - SentenceIterator
 
