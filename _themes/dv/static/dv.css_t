@@ -21,18 +21,39 @@ body {
   background-color: {{ theme_bgcolor }};
 }
 
-
 /* Page layout */
 
-div.header, div.content, div.footer {
+div.header, div.content, div.footer, div.header-nav {
   width: {{ theme_pagewidth }};
   margin-left: auto;
   margin-right: auto;
 }
 
 div.header-wrapper {
-  border-bottom: 5px solid #7F0120;
+  #border-bottom: 5px solid #7F0120;
   background-color: #7F0120;
+}
+
+div.header-nav-wrapper {
+  background-color: #F6F6F0;
+}
+
+div.header-wrapper nav {
+    background-color: #F6F6F0;
+    text-align: left;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    font-weight: normal;
+}
+
+div.header-wrapper .nav li {
+    display: inline;
+    text-transform: uppercase;
+    font-size: 150%;
+}
+
+div.header-wrapper .nav li a {
+    margin: 0 3px;
 }
 
 img.forkme {
