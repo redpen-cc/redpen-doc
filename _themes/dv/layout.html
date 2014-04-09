@@ -21,7 +21,11 @@
         {%- endif %}
         {%- block headertitle %}
         <div class="headertitle"><a
-          href="{{ pathto(master_doc) }}">{{ project }} {{ version }}</a></div>
+	  {%- if pagename == 'index' %}
+          href="{{ pathto(master_doc) }}">{{ project }} {{ version }} </a></div>
+         {% else %}
+          href="{{ pathto(master_doc) }}">{{ project }} {{ version }}: {{ pagename }} </a></div>
+         {% endif %}
 	<div class="headersubtitle"> An inspection tool for technical documents</div>
         {%- endblock %}
        </div>
