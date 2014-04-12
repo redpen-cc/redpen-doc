@@ -14,6 +14,17 @@
   padding: 0px;
 }
 
+pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    white-space: pre-line;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -hp-pre-wrap;
+    word-wrap: break-word;
+}
+
 body {
   font-family: {{ theme_bodyfont }};
   line-height: 1.4em;
