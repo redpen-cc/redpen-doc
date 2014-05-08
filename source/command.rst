@@ -1,7 +1,7 @@
 Command
 =========
 
-DocumentValidator provides a command to check input document named 'docvalid'.
+RedPen provides a command to check input document named 'docvalid'.
 
 Usage: docvalid
 ---------------
@@ -21,13 +21,13 @@ docvalid has the following options.
 
 .. option:: -c <CONFIG_FILE>, --configuration <CONFIG_FILE>
 
-   Configuration file for DocumentValidator
+   Configuration file for RedPen
 
 .. option:: -f <INPUT_FORMAT>, --input_format <INPUT_FORMAT>
 
    Input file format. [**Default**: plain]
 
-   The argument of this option represents the input format. Currently DocumentValidator supports the following formatts.
+   The argument of this option represents the input format. Currently RedPen supports the following formatts.
 
    .. table::
 
@@ -40,13 +40,13 @@ docvalid has the following options.
       ======== =====================
 
 .. Note::
-   DocumentValidator does not support all the elements of wiki format such as tables. The remaining elements would be supported in near future.
+   RedPen does not support all the elements of wiki format such as tables. The remaining elements would be supported in near future.
 
 .. option:: -r <RESULT_FORMAT>, --result_format <RESULT_FORMAT>
 
    result format. [**Default**: plain]
 
-   The argument of this option represents the output format. Currently DocumentValidator supports the following output formatts.
+   The argument of this option represents the output format. Currently RedPen supports the following output formatts.
 
    .. table::
 

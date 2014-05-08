@@ -1,13 +1,13 @@
 Configuration
 ==============
 
-DocumentValidator has two configuration files, one is for adding Validators (validator-conf.xml) and
+RedPen has two configuration files, one is for adding Validators (validator-conf.xml) and
 the other is for defining characters and symbols for input doucments (char-table.xml).
 
 Main configuration file
 ------------------------
 
-DocumentValidator has the main configuraiton, which does the all settings needed to work DocumentValidator with input doucments.
+RedPen has the main configuraiton, which does the all settings needed to work RedPen with input doucments.
 The main configration file is a xml file which has the root block "configuration" and configuration block contains
 two sub blocks "validator-config" and "symbol-table".
 
@@ -31,8 +31,8 @@ Let' go into the details of validator configration.
 Validator configuration
 ------------------------
 
-DocumentValidator has validator-conf.xml for registrating Validators. If a user add a validaor for one checking point into validator-conf.xml,
-then DocumentValidator applies the added Validator to the input document.
+RedPen has validator-conf.xml for registrating Validators. If a user add a validaor for one checking point into validator-conf.xml,
+then RedPen applies the added Validator to the input document.
 
 The following is the sample validator-conf.xml file.
 

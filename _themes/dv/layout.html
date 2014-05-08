@@ -12,7 +12,7 @@
 
 {% block header %}
     <div class="header-wrapper">
-      <a href="http://github.com/takahi-i/document-validator"><img class="forkme" src="http://nodejs.org/images/forkme.png" alt="Fork me on GitHub"></a>
+      <a href="http://github.com/takahi-i/document-validator"></a>
       <div class="header">
         {%- if logo %}
           <p class="logo"><a href="{{ pathto(master_doc) }}">
@@ -21,9 +21,24 @@
         {%- endif %}
         {%- block headertitle %}
         <div class="headertitle"><a
-          href="{{ pathto(master_doc) }}">{{ project }} {{ version }}</a></div>
+	  {%- if pagename == 'index' %}
+          href="{{ pathto(master_doc) }}">{{ project }} {{ version }} </a></div>
+         {% else %}
+          href="{{ pathto(master_doc) }}">{{ project }} {{ version }}: {{ pagename }} </a></div>
+         {% endif %}
 	<div class="headersubtitle"> An inspection tool for technical documents</div>
         {%- endblock %}
+       </div>
+       <div class="header-nav-wrapper">
+          <div class="header-nav">
+            <nav class="width">
+              <ul class="nav">
+                <li><a href="http://document-validator.org">Home Page</a></li>
+                <li><a href="https://github.com/recruit-tech/document-validator/">Source</a></li>
+                <li><a href="https://github.com/recruit-tech/document-validator/issues?state=open">Issues</a></li>
+              </ul>
+            </nav>
+          </div>
        </div>
     </div>
 {% endblock %}
