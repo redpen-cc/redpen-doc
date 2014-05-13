@@ -31,13 +31,13 @@ We can install RedPen with the following steps.
 
 .. code-block:: bash
 
-  $ git clone git@github.com:takahi-i/document-validator.git
+  $ git clone git@github.com:recruit-tech/redpen.git
 
 3. build with maven
 
 .. code-block:: bash
 
-  $ cd document-validator
+  $ cd redpen
   $ mvn package
 
 Running examples
@@ -47,15 +47,15 @@ We extract the RedPen zipped file.
 
 .. code-block:: bash
 
-  $ cd document-validator-app/target/
-  $ tar xzvf document-validator-app-VERSION-assembled.tar.gz
-  $ cd document-validator-app-VERSION
+  $ cd redpen-app/target/
+  $ tar xzvf redpen-app-VERSION-assembled.tar.gz
+  $ cd redpen-app-VERSION
 
 Then, run the RedPen command with the sample input and configuration files.
 
 .. code-block:: bash
 
-  $ bin/docvalid -c sample/conf/dv-conf.xml sample/doc/txt/en/sampledoc-en.txt
+  $ bin/redpen -c conf/dv-conf-en.xml doc/txt/en/sampledoc-en.txt
   14:32:37.639 [main] INFO  org.unigram.docvalidator.Main - loading character table file: sample/conf/symbol-conf-en.xml
   14:32:37.652 [main] INFO  o.u.docvalidator.util.CharacterTable - Succeeded to load character table
   14:32:37.654 [main] INFO  o.unigram.docvalidator.parser.Parser - comma is set to ","
