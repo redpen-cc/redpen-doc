@@ -21,19 +21,19 @@ Download and install
 
 We can install RedPen with the following steps.
 
-1. go to your home directory (/home/username if your account name is 'username')
+1. Go to your home directory (/home/username if your account name is 'username')
 
 .. code-block:: bash
 
  $ cd username
 
-2. clone the source code with git command
+2. Clone the source code with git command
 
 .. code-block:: bash
 
   $ git clone git@github.com:recruit-tech/redpen.git
 
-3. build with maven
+3. Build with maven
 
 .. code-block:: bash
 
@@ -43,7 +43,7 @@ We can install RedPen with the following steps.
 Running examples
 ------------------
 
-We extract the RedPen zipped file.
+First, we extract the RedPen zipped file.
 
 .. code-block:: bash
 

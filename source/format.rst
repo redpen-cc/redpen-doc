@@ -3,7 +3,6 @@ Supported Formats
 
 RedPen supports three types of input formats ("Plain text", "Wiki", and "Markdown" format).
 
-
 Plain text
 -----------
 

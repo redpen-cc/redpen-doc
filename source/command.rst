@@ -1,23 +1,23 @@
 Command
 =========
 
-RedPen provides a command to check input document named 'docvalid'.
+RedPen provides a command to check input document named 'redpen'.
 
-Usage: docvalid
+Usage: redpen
 ---------------
 
-We use docvalid command as follows.
+We use redpen command as follows.
 
 .. code-block:: bash
 
-  $docvalid [options] input-files
+  $redpen [options] input-files
 
-In the above usage, input files is spaces splitted, and docvalid has the following supported options.
+In the above usage, input files is spaces splitted, and redpen has the following supported options.
 
 Options
 --------
 
-docvalid has the following options.
+redpen has the following options.
 
 .. option:: -c <CONFIG_FILE>, --configuration <CONFIG_FILE>
 

@@ -1,18 +1,18 @@
 Configuration
 ==============
 
-RedPen has two configuration files, one is for adding Validators (validator-conf.xml) and
-the other is for defining characters and symbols for input doucments (char-table.xml).
+RedPen has three configuration files, central configurration (dv-conf.xml), validators configuration (validator-conf.xml) and overriding characters and symbols for input doucments (char-table.xml).
 
 Main configuration file
 ------------------------
 
 RedPen has the main configuraiton, which does the all settings needed to work RedPen with input doucments.
 The main configration file is a xml file which has the root block "configuration" and configuration block contains
-two sub blocks "validator-config" and "symbol-table".
+two sub blocks "validator" and "lang".
 
 Each block specifies sub configuration block. The validator block specifies a setting file to add validators, and
-lang block specifies the input language such as en, ja and the character setting file.
+lang block specifies the input language such as en, ja and the character setting file. For overriding the default character set for the specified language,
+we can specify the character configuration file to override the default character settings.
 
 The following is an example of main configuration file.
 
@@ -111,7 +111,7 @@ but also '。'. If we registered invalid-chars, we can prevents the mixture usag
 Default Setting
 ~~~~~~~~~~~~~~~~~
 
-The following table shows the defalt symbol settings. In the table, first column shows the names of symbols,
+The following table shows the defalt symbol settings for English documents. In the table, first column shows the names of symbols,
 second colums (Value) shows the character. Colums 'NeedBeforeSpace' and 'NeedAfterSpace' represent that the
 character should have space before or after it respectively.
 
