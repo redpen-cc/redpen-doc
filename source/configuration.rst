@@ -1,13 +1,13 @@
 Configuration
 ==============
 
-RedPen has three configuration files, central configurration (dv-conf.xml), validators configuration (validator-conf.xml) and overriding characters and symbols for input doucments (char-table.xml).
+RedPen has three configuration files, central configuration (dv-conf.xml), validators configuration (validator-conf.xml) and overriding characters and symbols for input documents (char-table.xml).
 
 Main configuration file
 ------------------------
 
-RedPen has the main configuraiton, which does the all settings needed to work RedPen with input doucments.
-The main configration file is a xml file which has the root block "configuration" and configuration block contains
+RedPen has the main configuration, which does the all settings needed to work RedPen with input documents.
+The main configuration file is a xml file which has the root block "configuration" and configuration block contains
 two sub blocks "validator" and "lang".
 
 Each block specifies sub configuration block. The validator block specifies a setting file to add validators, and
@@ -26,12 +26,12 @@ The following is an example of main configuration file.
 In the next section, we will see the configuration of validators.
 The char-conf settings are described in the :ref:`setting-characters-section` section.
 
-Let' go into the details of validator configration.
+Let's go into the details of validator configuration.
 
 Validator configuration
 ------------------------
 
-RedPen has validator-conf.xml for registrating Validators. If a user add a validaor for one checking point into validator-conf.xml,
+RedPen has validator-conf.xml for registrating Validators. If a user adds a validaor for one checking point into validator-conf.xml,
 then RedPen applies the added Validator to the input document.
 
 The following is the sample validator-conf.xml file.
@@ -111,7 +111,7 @@ but also '。'. If we registered invalid-chars, we can prevents the mixture usag
 Default Setting
 ~~~~~~~~~~~~~~~~~
 
-The following table shows the defalt symbol settings for English documents. In the table, first column shows the names of symbols,
+The following table shows the default symbol settings for English documents. In the table, first column shows the names of symbols,
 second colums (Value) shows the character. Colums 'NeedBeforeSpace' and 'NeedAfterSpace' represent that the
 character should have space before or after it respectively.
 
