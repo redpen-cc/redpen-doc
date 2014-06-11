@@ -75,4 +75,6 @@ Then, run the RedPen command with the sample input and configuration files.
    configuration
    validator
    format
+   language
    links
+
