@@ -60,7 +60,7 @@ Then, run the RedPen command with the sample input and configuration files.
   14:32:37.652 [main] INFO  o.u.docvalidator.util.CharacterTable - Succeeded to load character table
   14:32:37.654 [main] INFO  o.unigram.docvalidator.parser.Parser - comma is set to ","
   14:32:37.655 [main] INFO  o.unigram.docvalidator.parser.Parser - full stop is set to "."
-  14:32:37.663 [main] INFO  o.u.d.v.s.ParagraphStartWithValidator - Using the default valude of paragraph_start_with.
+  14:32:37.663 [main] INFO  o.u.d.v.s.ParagraphStartWithValidator - Using the default value of paragraph_start_with.
   CheckError[sample/doc/txt/en/sampledoc-en.txt: 0] = The length of the line exceeds the maximum 265 in line: ln bibliometrics and link analysis studies many attempts have been made to analyze the \
   relationship amongscientific papers, authors andjoumals and recently, these research results have been found to be effective for analyzing the link structure ofweb pages as we11.
   CheckError[sample/doc/txt/en/sampledoc-en.txt: 0] = The length of the line exceeds the maximum 161 in line:  In addition,  Most of these methods are concernedwith the two link analysis measures: \
