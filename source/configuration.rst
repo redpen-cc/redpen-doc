@@ -104,10 +104,10 @@ but also '。'. If we registered invalid-chars, we can prevents the mixture usag
     <character name="COMMA" value="," invalid-chars="、，" after-space="true" />
   </character-table>
 
-Default Setting
-~~~~~~~~~~~~~~~~~
+English Default Setting
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The following table shows the default symbol settings for English documents. In the table, first column shows the names of symbols,
+The following table shows the default symbol settings for English and other latin based documents. In the table, first column shows the names of symbols,
 second colums (Value) shows the character. Colums 'NeedBeforeSpace' and 'NeedAfterSpace' represent that the
 character should have space before or after it respectively.
 
@@ -147,6 +147,58 @@ character should have space before or after it respectively.
   `RIGHT_CURLY_BRACKET`         '}'           true               false              Right curly bracket
   `VERTICAL_VAR`                '|'           false              false              Vertical bar
   `TILDE`                       '~'           false              false              Tilde
+  `LEFT_SINGLE_QUOTATION_MARK`  '‘'           false              false              left single quotation mark
+  `RIGHT_SINGLE_QUOTATION_MARK` '’'           false              false              right single quotation mark
+  `LEFT_DOUBLE_QUOTATION_MARK`  '“'           false              false              left double quotation mark
+  `RIGHT_DOUBLE_QUOTATION_MARK` '”'           false              false              right double quotation mark
+  ============================= ============= ================== ================== =============================================
+
+The character setting are made use of seveal Validators such as InvalidCharacter, and SpaceValidator. If users want to change the
+character configuration settings. Users can override the settings adding character into character setting file described in the above section.
+
+Japanese Default Setting
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following table shows the default symbol settings for Japanese documents. In the table, first column shows the names of symbols,
+second colums (Value) shows the character. Colums 'NeedBeforeSpace' and 'NeedAfterSpace' represent that the
+character should have space before or after it respectively.
+
+.. table::
+
+  ============================= ============= ================== ================== =============================================
+  Character                     Value         NeedBeforeSpace    NeedAfterSpace     Description
+  ============================= ============= ================== ================== =============================================
+  `FULL_STOP`                   '。'          false              false              Period of sentence
+  `SPACE`                       '　'          false              false              White space between words
+  `EXCLAMATION_MARK`            '！'          false              false              Exclamation mark
+  `NUMBER_SIGN`                 '＃'          false              false              Number sign
+  `DOLLAR_SIGN`                 '＄'          false              false              Dollar sign
+  `PERCENT_SIGN`                '％'          false              false              Percent sign
+  `QUESTION_MARK`               '？'          false              false              Question mark
+  `AMPERSAND`                   '＆'          false              false              Ampersand
+  `LEFT_PARENTHESIS`            '（'          false              false              Left parenthesis
+  `RIGHT_PARENTHESIS`           '）'          false              false              Right parenthesis
+  `ASTERISK`                    '*'           false              false              Asterrisk
+  `COMMA`                       ','           false              false              Comma
+  `PLUS_SIGN`                   '+'           false              false              Plus sign
+  `HYPHEN_SIGN`                 '-'           false              false              Hyphenation
+  `MINUS_SIGN`                  '-'           false              false              Minus sign (NOTE: identical to HYPHEN_SIGN)
+  `SLASH`                       '/'           false              false              Slash
+  `COLON`                       '：'           false             false              Colon
+  `SEMICOLON`                   '；'           false             false              Semicolon
+  `LESS_THAN_SIGN`              '＜'           false             false              Less than sign
+  `GREATER_THAN_SIGN`           '＞'           false             false              Greater than sign
+  `EQUAL_SIGN`                  '＝'           false             false              Equal sign
+  `AT_MARK`                     '＠'           false             false              At mark
+  `LEFT_SQUARE_BRACKET`         '「'           true              false              Left square bracket
+  `RIGHT_SQUARE_BRACKET`        '」'           false             false              Right square bracket
+  `BACKSLASH`                   '￥'           false             false              Backslash
+  `CIRCUMFLEX_ACCENT`           '＾'           false             false              Circumflex accent
+  `LOW_LINE`                    '＿'           false             false              Low line (under bar)
+  `LEFT_CURLY_BRACKET`          '｛'           true              false              Left curly bracket
+  `RIGHT_CURLY_BRACKET`         '｝'           true              false              Right curly bracket
+  `VERTICAL_VAR`                '｜'           false             false              Vertical bar
+  `TILDE`                       '〜'           false             false              Tilde
   `LEFT_SINGLE_QUOTATION_MARK`  '‘'           false              false              left single quotation mark
   `RIGHT_SINGLE_QUOTATION_MARK` '’'           false              false              right single quotation mark
   `LEFT_DOUBLE_QUOTATION_MARK`  '“'           false              false              left double quotation mark
