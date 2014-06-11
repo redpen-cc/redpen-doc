@@ -39,14 +39,12 @@ The following is the sample validator-conf.xml file.
 .. code-block:: xml
 
   <component name="Validator">
-    <component name="SentenceIterator">
-      <component name="SentenceLength">
-        <property name="max_length" value="50"/>
-      </component>
-      <component name="SpaceAfterPeriod" />
-      <component name="InvalidCharacter" />
-      <component name="SpaceWithSymbol" />
+    <component name="SentenceLength">
+      <property name="max_length" value="50"/>
     </component>
+    <component name="SpaceAfterPeriod" />
+    <component name="InvalidCharacter" />
+    <component name="SpaceWithSymbol" />
     <component name="SectionLength">
       <property name="max_char_number" value="500"/>
     </component>
@@ -59,8 +57,6 @@ block represents a validator, which checks one aspect of the input document. For
 
 As we see some components have "property" to configure the validator specific settings. For example,
 the "SectionLength" validator has maximum character number in one section. Some validator has sub-validators.
-In the above example, "SentenceIterator" which validates all the input sentences in the input documents,
-contains sub-validators such as "SentenceLentgh", "InvalidCharacters".
 
 We will see the all the supported validators in the :doc:`validator` page.
 

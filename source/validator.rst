@@ -3,27 +3,19 @@ Supported Validators
 
 RedPen supports the following validators.
 
-- SentenceIterator
-
- - SentenceLength
- - InvalidExpression
- - SpaceAfterPeriod
- - CommaNumber
- - WordNumber
- - SuggestExpression
- - InvalidCharacter
- - SpaceWithSymbol
- - KatakanaEndHyphen
- - KatakanaSpellCheck
-
+- SentenceLength
+- InvalidExpression
+- SpaceAfterPeriod
+- CommaNumber
+- WordNumber
+- SuggestExpression
+- InvalidCharacter
+- SpaceWithSymbol
+- KatakanaEndHyphen
+- KatakanaSpellCheck
 - SectionLength
 - ParagraphNumber
 - ParagraphStartWith
-
-SentenceIterator
-------------------
-
-SentenceIterator is a meta validator, which contains sub-validators. Sub-validators focus on checking sentences one by one, and never use document global information.  Let's see the supported sub-validators.
 
 SentenceLength
 ~~~~~~~~~~~~~~~~~
@@ -145,7 +137,8 @@ KatakanaSpellCheck validator checks the Katakana words has the very similar word
 For example when there is a Katakana word "インデックス" and the variation "インデクス" in the same document, this validator returns the warning.
 
 SectionLength
------------------
+~~~~~~~~~~~~~~
+
 
 SectionLength validator checks the length of input seciton.
 
@@ -158,7 +151,7 @@ SectionLength validator checks the length of input seciton.
   ==================== ============= ========================================
 
 ParagraphNumber
-----------------
+~~~~~~~~~~~~~~~~
 
 ParagraphNumber validator checks the number of paragraph in one input section.
 
@@ -171,9 +164,11 @@ ParagraphNumber validator checks the number of paragraph in one input section.
   ====================== ============= ========================================
 
 ParagraphStartWith
--------------------
+~~~~~~~~~~~~~~~~~~~
 
 ParagraphStartWith validator checks if the characters in the beggning of paragraphs follows the style.
+
+.. table::
 
   ======================== ============= ========================================
   Property                 Default Value Description
