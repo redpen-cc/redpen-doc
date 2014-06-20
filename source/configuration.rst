@@ -1,57 +1,71 @@
 Configuration
 ==============
 
-RedPen has three configuration files, central configuration (dv-conf.xml), validators configuration (validator-conf.xml) and overriding characters and symbols for input documents (char-table.xml).
+RedPen has a configuration file, which has two blocks. One is for validators configuration and the other is for overriding characters and symbols for input documents.
 
-Main configuration file
+Configuration file
 ------------------------
 
-RedPen has the main configuration, which does the all settings needed to work RedPen with input documents.
-The main configuration file is a xml file which has the root block "configuration" and configuration block contains
-two sub blocks "validator" and "lang".
+RedPen has one configuration file, which does the all settings needed to work RedPen with input documents.
+The main configuration file is a xml file which has the root block "redpen-conf" and configuration block contains
+two sub blocks "validator-list" and "character-table".
 
-Each block specifies sub configuration block. The validator block specifies a setting file to add validators, and
-lang block specifies the input language such as en, ja and the character setting file. For overriding the default character set for the specified language,
+The validator-list block specifies a setting file to add validators, and
+character-table block specifies the input language such as en, ja and the character setting file.
+For overriding the default character set for the specified language,
 we can specify the character configuration file to override the default character settings.
 
 The following is an example of main configuration file.
 
 .. code-block:: xml
 
-  <configuration>
-    <validator>sample/conf/validation-conf.xml</validator>
-    <lang char-conf="sample/conf/symbol-conf-en.xml">en</lang>
-  </configuration>
+    <redpen-conf>
+        <validator-list>
+            <validator name="SentenceLength">
+                 <property name="max_length" value="200"/>
+            </validator>
+            <validator name="InvalidCharacter" />
+            <validator name="SpaceWithSymbol" />
+            <validator name="SectionLength">
+                 <property name="max_char_num" value="2000"/>
+            </validator>
+            <validator name="MaxParagraphNumber" />
+         </validator-list>
+         <character-table lang="en">
+             <character name="EXCLAMATION_MARK" value="!" invalid-chars="！" after-space="true" />
+            <character name="LEFT_QUOTATION_MARK" value="\'"  invalid-chars="“" before-space="true" />
+        </character-table>
+    </redpen-conf>
 
 In the next section, we will see the configuration of validators.
-The char-conf settings are described in the :ref:`setting-characters-section` section.
+The character settings are described in the :ref:`setting-characters-section` section.
 
 Let's go into the details of validator configuration.
 
 Validator configuration
 ------------------------
 
-RedPen has validator-conf.xml for registrating Validators. If a user adds a validaor for one checking point into validator-conf.xml,
+RedPen configuration file contains "validator-list" block for registrating Validators.
+If a user adds a validaor for one checking point into validator-conf.xml,
 then RedPen applies the added Validator to the input document.
 
-The following is the sample validator-conf.xml file.
+The following is the sample validator-list block.
 
 .. code-block:: xml
 
-  <component name="Validator">
-    <component name="SentenceLength">
-      <property name="max_length" value="50"/>
-    </component>
-    <component name="SpaceAfterPeriod" />
-    <component name="InvalidCharacter" />
-    <component name="SpaceWithSymbol" />
-    <component name="SectionLength">
-      <property name="max_char_number" value="500"/>
-    </component>
-    <component name="ParagraphStartWith" />
-  </component>
+    <validator-list>
+        <validator name="SentenceLength">
+            <property name="max_length" value="200"/>
+        </validator>
+        <validator name="InvalidCharacter" />
+        <validator name="SpaceWithSymbol" />
+        <validator name="SectionLength">
+             <property name="max_char_num" value="2000"/>
+        </validator>
+        <validator name="MaxParagraphNumber" />
+    </validator-list>
 
-All configurations are surrounded by one "component" block, which contains many inner component blocks. Each inner "component"
+All configurations are surrounded by one "validator" block, which contains many inner component blocks. Each inner "component"
 block represents a validator, which checks one aspect of the input document. For instance, adding
 "SectionLength" component block into the configuration file, DocuemntValidator checks the length of sections in input documents.
 
@@ -65,12 +79,13 @@ We will see the all the supported validators in the :doc:`validator` page.
 Setting characters 
 -------------------
 
-Users add configure settings for characters and symbols with char-table.xml. char-table.xml is used to
-override default setting of characters.
-Default settings are described in the following section.
-In the character configuration file, we add the symbols to use in the document. Character table has one character-table block
-and the character-table block has many "character" elements.
-"character" element define the character used in the written documents.
+To override default setting of characters, Users can add configure settings for characters and symbols
+with "character-table" block in the RedPen configuration file.
+
+Default settings are described in the following sections.
+In the character-table configuration block, we add the symbols to use in the document. 
+The character-table block has many "character" elements.
+"character" element overrides the character used in the written documents.
 
 The following table is the properties of character element.
 
@@ -206,4 +221,4 @@ character should have space before or after it respectively.
   ============================= ============= ================== ================== =============================================
 
 The character setting are made use of seveal Validators such as InvalidCharacter, and SpaceValidator. If users want to change the
-character configuration settings. Users can override the settings adding character into character setting file described in the above section.
+character configuration settings. Users can override the settings adding character into character setting described in the above section.
