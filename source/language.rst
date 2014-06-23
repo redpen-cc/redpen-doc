@@ -12,16 +12,19 @@ Override Language
 Currently there are two language settings, "en" and "ja". "en" is for Latin based languages such as English, German.
 "ja" is for Japanese input.
 
-In order to orverride the language setting, we will change the lang field of in the configuration file.
-For example, to process the Japanese input documents. the char-conf is a optional attribute,
-and the configuration is described in the next section.
+In order to orverride the language setting, we will change the lang property of "character-table block" in the configuration file.
+In the follwoing example, the config file specify input language as Japanese ("ja").
 
 .. code-block:: xml
 
-  <configuration>
-    <validator>sample/conf/validation-conf.xml</validator>
-    <lang char-conf="sample/conf/symbol-conf-ja.xml">ja</lang>
-  </configuration>
+    <character-table lang="ja">
+        <character name="EXCLAMATION_MARK" value="!" invalid-chars="！" after-space="true" />
+        <character name="LEFT_QUOTATION_MARK" value="\'"  invalid-chars="“" before-space="true" />
+        <character name="RIGHT_QUOTATION_MARK" value="\'"  invalid-chars="”" after-space="true" />
+        <character name="NUMBER_SIGN" value="#" invalid-chars="＃" after-space="true" />
+        <character name="FULL_STOP" value="。" invalid-chars="．." after-space="true" />
+        <character name="COMMA" value="、" invalid-chars="," after-space="true" />
+    </character-table>
 
 Override Character Settings
 -----------------------------
