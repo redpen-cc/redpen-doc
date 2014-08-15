@@ -13,7 +13,7 @@ Requirements
 
 RedPen needs the following software.
 
-- Java 1.6.0 or greater
+- Java 1.8.0 or greater
 - Maven 3.0.0 or greater
 
 Download and install
