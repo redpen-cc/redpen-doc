@@ -47,15 +47,15 @@ First, we extract the RedPen zipped file.
 
 .. code-block:: bash
 
-  $ cd redpen-app/target/
-  $ tar xzvf redpen-app-VERSION-assembled.tar.gz
-  $ cd redpen-app-VERSION
+  $ cd redpen-cli/target/
+  $ tar xzvf redpen-cli-VERSION-assembled.tar.gz
+  $ cd redpen-cli-VERSION
 
 Then, run the RedPen command with the sample input and configuration files.
 
 .. code-block:: bash
 
-  $ bin/redpen -c conf/dv-conf-en.xml doc/txt/en/sampledoc-en.txt
+  $ bin/redpen -c conf/redpen-conf-en.xml doc/txt/en/sampledoc-en.txt
   14:32:37.639 [main] INFO  org.unigram.docvalidator.Main - loading character table file: sample/conf/symbol-conf-en.xml
   14:32:37.652 [main] INFO  o.u.docvalidator.util.CharacterTable - Succeeded to load character table
   14:32:37.654 [main] INFO  o.unigram.docvalidator.parser.Parser - comma is set to ","
