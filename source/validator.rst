@@ -14,6 +14,7 @@ RedPen supports the following validators.
 - KatakanaEndHyphen
 - KatakanaSpellCheck
 - SectionLength
+- SpaceBetweenAlphabeticalWord
 - ParagraphNumber
 - ParagraphStartWith
 
@@ -176,3 +177,8 @@ ParagraphStartWith validator checks if the characters in the beggning of paragra
   ``paragraph_start_with`` " "           Characters in the beggning of paragraphs.
   ======================== ============= ========================================
 
+SpaceBetweenAlphabeticalWord
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+SpaceBetweenAlphabeticalWord validator checks if the alphabet words are surrounded with white spaces. This validator
+is used in Non-latin languages such as Japanese or Chrinese.
