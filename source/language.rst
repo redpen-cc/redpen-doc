@@ -12,21 +12,21 @@ Override Language
 Currently there are two language settings, "en" and "ja". "en" is for Latin based languages such as English, German.
 "ja" is for Japanese input.
 
-In order to orverride the language setting, we will change the lang property of "character-table block" in the configuration file.
+In order to orverride the language setting, we will change the lang property of "symbol-table block" in the configuration file.
 In the follwoing example, the config file specify input language as Japanese ("ja").
 
 .. code-block:: xml
 
-    <character-table lang="ja">
-        <character name="EXCLAMATION_MARK" value="!" invalid-chars="！" after-space="true" />
-        <character name="LEFT_QUOTATION_MARK" value="\'"  invalid-chars="“" before-space="true" />
-        <character name="RIGHT_QUOTATION_MARK" value="\'"  invalid-chars="”" after-space="true" />
-        <character name="NUMBER_SIGN" value="#" invalid-chars="＃" after-space="true" />
-        <character name="FULL_STOP" value="。" invalid-chars="．." after-space="true" />
-        <character name="COMMA" value="、" invalid-chars="," after-space="true" />
-    </character-table>
+    <symbol-table lang="ja">
+        <symbol name="EXCLAMATION_MARK" value="!" invalid-chars="！" after-space="true" />
+        <symbol name="LEFT_QUOTATION_MARK" value="\'"  invalid-chars="“" before-space="true" />
+        <symbol name="RIGHT_QUOTATION_MARK" value="\'"  invalid-chars="”" after-space="true" />
+        <symbol name="NUMBER_SIGN" value="#" invalid-chars="＃" after-space="true" />
+        <symbol name="FULL_STOP" value="。" invalid-chars="．." after-space="true" />
+        <symbol name="COMMA" value="、" invalid-chars="," after-space="true" />
+    </symbol-table>
 
-Override Character Settings
+Override Symbol Settings
 -----------------------------
 
 Depending of the documents or writers, the used characters and symbols are different.
@@ -41,8 +41,8 @@ The followings are override the setting of single quotation marks to use ascii q
 
 .. code-block:: xml
 
-  <character-table>
-    <character name="LEFT_SINGLE_QUOTATION_MARK" value="'"  invalid-chars="‘" />
-    <character name="RIGHT_SINGLE_QUOTATION_MARK" value="'" invalid-chars="’"/>
-  </character-table>
+  <symbol-table>
+    <symbol name="LEFT_SINGLE_QUOTATION_MARK" value="'"  invalid-chars="‘" />
+    <symbol name="RIGHT_SINGLE_QUOTATION_MARK" value="'" invalid-chars="’"/>
+  </symbol-table>
 
