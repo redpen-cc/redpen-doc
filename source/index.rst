@@ -76,5 +76,6 @@ Then, run the RedPen command with the sample input and configuration files.
    validator
    format
    language
+   faq
    links
 
