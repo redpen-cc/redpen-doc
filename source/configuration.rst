@@ -22,18 +22,18 @@ The following is an example of main configuration file.
     <redpen-conf>
         <validator-list>
             <validator name="SentenceLength">
-                 <property name="max_length" value="200"/>
+                <property name="max_length" value="200"/>
             </validator>
-            <validator name="InvalidCharacter" />
+            <validator name="InvalidSymbol" />
             <validator name="SpaceWithSymbol" />
             <validator name="SectionLength">
-                 <property name="max_char_num" value="2000"/>
+                <property name="max_char_num" value="2000"/>
             </validator>
-            <validator name="MaxParagraphNumber" />
-         </validator-list>
-         <symbol-table lang="en">
-            <symbol name="EXCLAMATION_MARK" value="!" invalid-chars="！" after-space="true" />
-            <symbol name="LEFT_QUOTATION_MARK" value="\'"  invalid-chars="“" before-space="true" />
+            <validator name="ParagraphNumber" />
+        </validator-list>
+        <symbol-table lang="en">
+             <symbol name="EXCLAMATION_MARK" value="!" invalid-chars="！" after-space="true" />
+             <symbol name="LEFT_QUOTATION_MARK" value="\'"  invalid-chars="“" before-space="true" />
         </symbol-table>
     </redpen-conf>
 
@@ -57,13 +57,13 @@ The following is the sample validator-list block.
         <validator name="SentenceLength">
             <property name="max_length" value="200"/>
         </validator>
-        <validator name="InvalidCharacter" />
+        <validator name="InvalidSymbol" />
         <validator name="SpaceWithSymbol" />
         <validator name="SectionLength">
-             <property name="max_char_num" value="2000"/>
+            <property name="max_char_num" value="2000"/>
         </validator>
-        <validator name="MaxParagraphNumber" />
-    </validator-list>
+        <validator name="ParagraphNumber" />
+     </validator-list>
 
 All configurations are surrounded by one "validator" block, which contains many inner component blocks. Each inner "component"
 block represents a validator, which checks one aspect of the input document. For instance, adding
@@ -167,7 +167,7 @@ second colums (Value) shows the symbol character. Colums 'NeedBeforeSpace' and '
   `RIGHT_DOUBLE_QUOTATION_MARK` '”'           false              false              right double quotation mark
   ============================= ============= ================== ================== =============================================
 
-The symbol setting are made use of seveal Validators such as InvalidCharacter, and SpaceValidator. If users want to change the
+The symbol setting are made use of seveal Validators such as InvalidSymbol, and SpaceValidator. If users want to change the
 symbol configuration settings. Users can override the settings adding symbol element into symbol-table block in the redpen configuration file.
 
 Japanese Default Setting

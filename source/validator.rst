@@ -9,7 +9,7 @@ RedPen supports the following validators.
 - CommaNumber
 - WordNumber
 - SuggestExpression
-- InvalidCharacter
+- InvalidSymbol
 - SpaceWithSymbol
 - KatakanaEndHyphen
 - KatakanaSpellCheck
@@ -17,6 +17,8 @@ RedPen supports the following validators.
 - SpaceBetweenAlphabeticalWord
 - ParagraphNumber
 - ParagraphStartWith
+- Contraction
+- Spelling
 
 SentenceLength
 ~~~~~~~~~~~~~~~~~
@@ -106,11 +108,11 @@ The dictionary is a TSV file with two columns. First column contains the invalid
   LLVM   Low Level Virtual Machine
   ...
 
-InvalidCharacter
+InvalidSymbol
 ~~~~~~~~~~~~~~~~~~
 
 Some symbols or characters have the difference characters with the same role. For example question mark "? (0x003F)" have another variation "？(0xFF1F)" in the unicode table.
-InvalidCharacter checks if input sentences contains invalid characters or symbols. We write the symbols and character settings into character setting file (char-table.xml).
+InvalidSymbol checks if input sentences contains invalid characters or symbols. We write the symbols and character settings into character setting file (char-table.xml).
 In the setting file, we write the symbols we should use in the document, and in addition the invalid symbols. The details of the character settings are described in the next section.
 
 SpaceWithSymbol
@@ -182,3 +184,13 @@ SpaceBetweenAlphabeticalWord
 
 SpaceBetweenAlphabeticalWord validator checks if the alphabet words are surrounded with white spaces. This validator
 is used in Non-latin languages such as Japanese or Chrinese.
+
+Contraction
+~~~~~~~~~~~~
+
+Contraction validator throws errors when contractions are used in the documents in which more than half of verbs are written in non contracted form.
+
+Spelling
+~~~~~~~~~~~~
+
+Spelling validator throws if threre are spelling mistaks in the input documents. This validator works only in English documents.
