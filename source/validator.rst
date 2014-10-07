@@ -19,6 +19,7 @@ RedPen supports the following validators.
 - ParagraphStartWith
 - Contraction
 - Spelling
+- DoubledWord
 
 SentenceLength
 ~~~~~~~~~~~~~~~~~
@@ -188,9 +189,28 @@ is used in Non-latin languages such as Japanese or Chrinese.
 Contraction
 ~~~~~~~~~~~~
 
-Contraction validator throws errors when contractions are used in the documents in which more than half of verbs are written in non contracted form.
+Contraction validator throws a error when contractions are used in the documents in which more than half of verbs are written in non contracted form.
 
 Spelling
 ~~~~~~~~~~~~
 
-Spelling validator throws if threre are spelling mistaks in the input documents. This validator works only in English documents.
+Spelling validator throws a error if threre are spelling mistaks in the input documents. This validator works only in English documents.
+
+
+DoubledWord
+~~~~~~~~~~~~~~
+
+DoubledWord validator throws a erro if a word is used more than once. For example a input document has a following sentence, the validator reports a error since **good** is used twice.
+
+.. code-block:: text
+
+  the good item is very good. 
+
+.. table::
+
+  ======================== ============= ========================================
+  Property                 Default Value Description
+  ======================== ============= ========================================
+  ``"dictionary"``         None          File name of skip list dictionary.
+  ======================== ============= ========================================
+

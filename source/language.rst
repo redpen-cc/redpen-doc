@@ -1,5 +1,5 @@
-Language Setings
-=================
+Language Setitngs
+==================
 
 RedPen process documents with any languages such as German, French or Japanese.
 The default setting of the RedPen is for processing documents written in English or other Latin based languages.
