@@ -31,7 +31,7 @@ SentenceLength validator checks the length of sentences in input doucment. If th
   ==================== ============= ===================================
   Property             Default Value Description
   ==================== ============= ===================================
-  ``"max_lengh"``      50            Maximum length of sentence.
+  ``"max_len"``        50            Maximum length of sentence.
   ==================== ============= ===================================
 
 InvalidExpression
@@ -144,14 +144,14 @@ SectionLength
 ~~~~~~~~~~~~~~
 
 
-SectionLength validator checks the length of input seciton.
+SectionLength validator checks the character number of input seciton.
 
 .. table::
 
   ==================== ============= ========================================
   Property             Default Value Description
   ==================== ============= ========================================
-  ``"max_char_num"``   1000           Maximum number of words in a seciton.
+  ``"max_num"``        1000           Maximum number of words in a seciton.
   ==================== ============= ========================================
 
 ParagraphNumber
@@ -164,7 +164,7 @@ ParagraphNumber validator checks the number of paragraph in one input section.
   ====================== ============= ========================================
   Property               Default Value Description
   ====================== ============= ========================================
-  ``max_paragraph_num"`` 5             Maximum number of paragraphs in a seciton.
+  ``max_num"``           5             Maximum number of paragraphs in a seciton.
   ====================== ============= ========================================
 
 ParagraphStartWith
@@ -177,7 +177,7 @@ ParagraphStartWith validator checks if the characters in the beggning of paragra
   ======================== ============= ========================================
   Property                 Default Value Description
   ======================== ============= ========================================
-  ``paragraph_start_with`` " "           Characters in the beggning of paragraphs.
+  ``start_with``           " "           Characters in the beggning of paragraphs.
   ======================== ============= ========================================
 
 SpaceBetweenAlphabeticalWord
@@ -211,6 +211,6 @@ DoubledWord validator throws a erro if a word is used more than once. For exampl
   ======================== ============= ========================================
   Property                 Default Value Description
   ======================== ============= ========================================
-  ``"dictionary"``         None          File name of skip list dictionary.
+  ``"dict"``               None          File name of skip list dictionary.
   ======================== ============= ========================================
 
