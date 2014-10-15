@@ -22,12 +22,12 @@ The following is an example of main configuration file.
     <redpen-conf>
         <validator-list>
             <validator name="SentenceLength">
-                <property name="max_length" value="200"/>
+                <property name="max_len" value="200"/>
             </validator>
             <validator name="InvalidSymbol" />
             <validator name="SpaceWithSymbol" />
             <validator name="SectionLength">
-                <property name="max_char_num" value="2000"/>
+                <property name="max_num" value="2000"/>
             </validator>
             <validator name="ParagraphNumber" />
         </validator-list>
@@ -55,12 +55,12 @@ The following is the sample validator-list block.
 
     <validator-list>
         <validator name="SentenceLength">
-            <property name="max_length" value="200"/>
+            <property name="max_len" value="200"/>
         </validator>
         <validator name="InvalidSymbol" />
         <validator name="SpaceWithSymbol" />
         <validator name="SectionLength">
-            <property name="max_char_num" value="2000"/>
+            <property name="max_num" value="2000"/>
         </validator>
         <validator name="ParagraphNumber" />
      </validator-list>

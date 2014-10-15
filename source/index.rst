@@ -55,7 +55,7 @@ Then, run the RedPen command with the sample input and configuration files.
 
 .. code-block:: bash
 
-  $ bin/redpen -c conf/redpen-conf-en.xml doc/txt/en/sampledoc-en.txt
+  $ bin/redpen -c conf/redpen-conf-en.xml sample-doc/en/sampledoc-en.txt
   14:32:37.639 [main] INFO  org.unigram.docvalidator.Main - loading character table file: sample/conf/symbol-conf-en.xml
   14:32:37.652 [main] INFO  o.u.docvalidator.util.CharacterTable - Succeeded to load character table
   14:32:37.654 [main] INFO  o.unigram.docvalidator.parser.Parser - comma is set to ","
