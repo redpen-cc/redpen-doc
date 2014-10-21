@@ -8,19 +8,22 @@ Configuration file
 
 RedPen has one configuration file, which does the all settings needed to work RedPen with input documents.
 The main configuration file is a xml file which has the root block "redpen-conf" and configuration block contains
-two sub blocks "validator-list" and "symbol-table".
+two sub blocks "validators" and "symbols".
 
-The validator-list block specifies a setting file to add validators, and
-symbol-table block specifies the input language such as en, ja and the character setting file.
-For overriding the default character set for the specified language,
-we can specify the character configuration file to override the default character settings.
+In order to fit the default validaotrs and character settings for the target language such as Japanese or English,
+we can specify **lang** in the **redpen-conf** attribute to override the default character settings.
+
+The **validators** block specifies a setting file to add validators, and
+symbols block specifies the input language such as en, ja and the character setting file.
+
+**symbols** block override the default symbol settings of target language.
 
 The following is an example of main configuration file.
 
 .. code-block:: xml
 
-    <redpen-conf>
-        <validator-list>
+    <redpen-conf lang="en">
+        <validators>
             <validator name="SentenceLength">
                 <property name="max_len" value="200"/>
             </validator>
@@ -30,11 +33,11 @@ The following is an example of main configuration file.
                 <property name="max_num" value="2000"/>
             </validator>
             <validator name="ParagraphNumber" />
-        </validator-list>
-        <symbol-table lang="en">
+        </validators>
+        <symbols>
              <symbol name="EXCLAMATION_MARK" value="!" invalid-chars="！" after-space="true" />
              <symbol name="LEFT_QUOTATION_MARK" value="\'"  invalid-chars="“" before-space="true" />
-        </symbol-table>
+        </symbols>
     </redpen-conf>
 
 In the next section, we will see the configuration of validators.
@@ -45,15 +48,15 @@ Let's go into the details of validator configuration.
 Validator configuration
 ------------------------
 
-RedPen configuration file contains "validator-list" block for registrating Validators.
+RedPen configuration file contains "validators" block for registrating Validators.
 If a user adds a validaor for one checking point into validator-conf.xml,
 then RedPen applies the added Validator to the input document.
 
-The following is the sample validator-list block.
+The following is the sample validators block.
 
 .. code-block:: xml
 
-    <validator-list>
+    <validators>
         <validator name="SentenceLength">
             <property name="max_len" value="200"/>
         </validator>
@@ -63,7 +66,7 @@ The following is the sample validator-list block.
             <property name="max_num" value="2000"/>
         </validator>
         <validator name="ParagraphNumber" />
-     </validator-list>
+     </validators>
 
 All configurations are surrounded by one "validator" block, which contains many inner component blocks. Each inner "component"
 block represents a validator, which checks one aspect of the input document. For instance, adding
@@ -79,12 +82,15 @@ We will see the all the supported validators in the :doc:`validator` page.
 Setting symbols
 -------------------
 
-To override default setting of symbols, Users can add configure settings for characters and symbols
-with "symbol-table" block in the RedPen configuration file.
+Default settings of symbols is provided by language, the target language is specified in the **redpen-conf** attribute, **lang**. 
+RedPen supports defualt symbols for "en" and "ja", which are described in :ref:`en-defualt-symbol-setting` and :ref:`ja-defualt-symbol-setting`. 
+
+To override defult setting of symbols defined for the target language, Users can add configure settings for characters and symbols
+with "symbols" block in the RedPen configuration file.
 
 Default settings are described in the following sections.
-In the symbol-table configuration block, we add the symbols to use in the document. 
-The symbol-table block has multiple **symbol** elements.
+In the symbols configuration block, we add the symbols to use in the document. 
+The symbols block has multiple **symbol** elements.
 "symbol" element overrides the character used in the written documents.
 
 The following table is the properties of symbol element.
@@ -101,11 +107,10 @@ The following table is the properties of symbol element.
   `invalid-chars`      false         ""            List of invalid symbols
   ==================== ============= ============= ===================================
 
-
 Sample: Setting symbols
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In the following setting, we can see that symbol-table has define 3 symbols. First element defines
+In the following setting, we can see that symbols has define 3 symbols. First element defines
 exlamation mark as '!'. Second element , FULL_STOP defines period as "." and in addition the sybmol need space
 after the period. Third element defines comma as ',' and also define invalid symbols '、' and '，'. Here invalid
 symbols represents the variations of the target symbol. For example, In japanese FULL_STOP can be not only '.'
@@ -113,11 +118,13 @@ but also '。'. If we registered invalid-chars, we can prevents the mixture usag
 
 .. code-block:: xml
 
-  <symbol-table>
-    <symbol name="EXCLAMATION_MARK" value="!" />
-    <symbol name="FULL_STOP" value="." after-space="true" />
-    <symbol name="COMMA" value="," invalid-chars="、，" after-space="true" />
-  </symbol-table>
+  <symbols>
+      <symbol name="EXCLAMATION_MARK" value="!" />
+      <symbol name="FULL_STOP" value="." after-space="true" />
+      <symbol name="COMMA" value="," invalid-chars="、，" after-space="true" />
+  </symbols>
+
+.. _en-defualt-symbol-setting:
 
 English Default Setting
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -168,7 +175,9 @@ second colums (Value) shows the symbol character. Colums 'NeedBeforeSpace' and '
   ============================= ============= ================== ================== =============================================
 
 The symbol setting are made use of seveal Validators such as InvalidSymbol, and SpaceValidator. If users want to change the
-symbol configuration settings. Users can override the settings adding symbol element into symbol-table block in the redpen configuration file.
+symbol configuration settings. Users can override the settings adding symbol element into the symbols block in the redpen configuration file.
+
+.. _ja-defualt-symbol-setting:
 
 Japanese Default Setting
 ~~~~~~~~~~~~~~~~~~~~~~~~~~

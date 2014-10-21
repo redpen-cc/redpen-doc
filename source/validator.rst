@@ -5,6 +5,7 @@ RedPen supports the following validators.
 
 - SentenceLength
 - InvalidExpression
+- InvalidWord
 - SpaceAfterPeriod
 - CommaNumber
 - WordNumber
@@ -41,11 +42,12 @@ InvalidExpression validator checks if input sentences contains invalid expressio
 
 .. table::
 
-  ==================== ============= ===================================
+  ==================== ============= ===========================================
   Property             Default Value Description
-  ==================== ============= ===================================
+  ==================== ============= ===========================================
   ``"dict"``           None          File name of dictionary.
-  ==================== ============= ===================================
+  ``"list"``           None          list of invalid expression split by comma
+  ==================== ============= ===========================================
 
 The dictionary is a set of words or exressions. The following is the example of the dictionary.
 
@@ -55,6 +57,30 @@ The dictionary is a set of words or exressions. The following is the example of 
   you know
   hey
   kidding
+  why is hell
+  ...
+
+InvalidWord
+~~~~~~~~~~~~~~~~~~~~~
+
+InvalidWord validator checks if input sentences contains invalid words. If the input sentence contains invalid words, this validaor retuns the warning.
+
+.. table::
+
+  ==================== ============= ===========================================
+  Property             Default Value Description
+  ==================== ============= ===========================================
+  ``"dict"``           None          File name of dictionary.
+  ``"list"``           None          list of invalid expression split by comma
+  ==================== ============= ===========================================
+
+The dictionary is a set of words. The following is the example of the dictionary.
+
+.. code-block:: text
+
+  like
+  hey
+  wow
   ...
 
 SpaceAfterPeriod
@@ -212,5 +238,6 @@ DoubledWord validator throws a erro if a word is used more than once. For exampl
   Property                 Default Value Description
   ======================== ============= ========================================
   ``"dict"``               None          File name of skip list dictionary.
+  ``"list"``               None          list of skip list split by comma
   ======================== ============= ========================================
 
