@@ -46,7 +46,7 @@ InvalidExpression validator checks if input sentences contains invalid expressio
   Property             Default Value Description
   ==================== ============= ===========================================
   ``"dict"``           None          File name of dictionary.
-  ``"list"``           None          list of invalid expression split by comma
+  ``"list"``           None          List of invalid expression split by comma.
   ==================== ============= ===========================================
 
 The dictionary is a set of words or exressions. The following is the example of the dictionary.
@@ -71,7 +71,7 @@ InvalidWord validator checks if input sentences contains invalid words. If the i
   Property             Default Value Description
   ==================== ============= ===========================================
   ``"dict"``           None          File name of dictionary.
-  ``"list"``           None          list of invalid expression split by comma
+  ``"list"``           None          List of invalid expression split by comma.
   ==================== ============= ===========================================
 
 The dictionary is a set of words. The following is the example of the dictionary.
@@ -238,6 +238,6 @@ DoubledWord validator throws a erro if a word is used more than once. For exampl
   Property                 Default Value Description
   ======================== ============= ========================================
   ``"dict"``               None          File name of skip list dictionary.
-  ``"list"``               None          list of skip list split by comma
+  ``"list"``               None          List of skip words split by comma.
   ======================== ============= ========================================
 
