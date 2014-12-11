@@ -16,42 +16,18 @@ RedPen needs the following software.
 - Java 1.8.0 or greater
 - Maven 3.0.0 or greater
 
-Download and install
-----------------------
+Run example
+-------------
 
-We can install RedPen with the following steps.
-
-1. Go to your home directory (/home/username if your account name is 'username')
-
-.. code-block:: bash
-
- $ cd username
-
-2. Clone the source code with git command
+First, we the RedPen package from the `release page <https://github.com/recruit-tech/redpen/releases/tag/v1.0-experimental-1>`_,
+and then decompress the package with the following commands.
 
 .. code-block:: bash
 
-  $ git clone git@github.com:recruit-tech/redpen.git
+  $ tar xvf redpen-cli-1.0-assembled.tar.gz
+  $ cd redpen-cli-1.0
 
-3. Build with maven
-
-.. code-block:: bash
-
-  $ cd redpen
-  $ mvn package
-
-Running examples
-------------------
-
-First, we extract the RedPen zipped file.
-
-.. code-block:: bash
-
-  $ cd redpen-cli/target/
-  $ tar xzvf redpen-cli-VERSION-assembled.tar.gz
-  $ cd redpen-cli-VERSION
-
-Then, run the RedPen command with the sample input and configuration files.
+Then, run the RedPen command with the attached sample input and configuration file.
 
 .. code-block:: bash
 

@@ -4,8 +4,8 @@ Extend RedPen
 RedPen users can extend RedPen writing new validators. This page describes the way to create your validators and the document internal model.
 The knowledge of model is useful to write your validators.
 
-Writing Validators
--------------------
+Write your Validators
+-----------------------
 
 RedPen users can create new validators needed for themselves or their organizations. 
 Adding validator is simple. Users just add a class which extends one abstract class, **Validator**.
@@ -33,8 +33,8 @@ By contrast, creating plugin is a bit more tedious but you can create and manage
 
 In the next sections, I will explain how to add validator into Redpen source and then create a plugin.
 
-Adding a validator in Redpen source
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Add a validator in Redpen source
+------------------------------------
 
 Let's define a plain validator (PlainSentenceLengthValidator), which check if the input sentence is over 100 characters and then apply it.
 
@@ -77,10 +77,10 @@ we just add the PlainSentenceLength in the configuration file as follows. Then r
         </validator-list>
     </redpen-conf>
 
-Creating validator plugin
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creatie a validator plugin
+------------------------------
 
-In order to make plugin, it make easy to use another plugin project as the reference. As a example, I (takahi-i) have made a simple validator pluign in `hankaku_kana_validator <https://github.com/takahi-i/hankaku-kana-validator>`_. 
+In order to make a plugin, it make easy to use another plugin project as the reference. As a example, I (takahi-i) have made a simple validator pluign in `hankaku_kana_validator <https://github.com/takahi-i/hankaku-kana-validator>`_. 
 
 The most important file of the plugin is pom.xml which exists in the top of the project. The file is the configuration file of Maven, which is a software project management tool for Java. 
 
