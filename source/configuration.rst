@@ -130,12 +130,13 @@ English Default Setting
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The following table shows the default symbol settings for English and other latin based documents. In the table, first column shows the names of symbols,
-second colums (Value) shows the symbol character. Colums 'NeedBeforeSpace' and 'NeedAfterSpace' represent that the symbol should have space before or after it respectively.
+second colums (Value) shows the symbol character. Colums 'NeedBeforeSpace', 'NeedAfterSpace' 'InvalidChars' represent that the symbol should have space
+before or after the symbol and the invalid symbols respectively.
 
 .. table::
 
   ============================= ============= ================== ================== ================== =============================================
-  Symbol                        Value         NeedBeforeSpace    NeedAfterSpace     Invalid Chars      Description
+  Symbol                        Value         NeedBeforeSpace    NeedAfterSpace     InvalidChars       Description
   ============================= ============= ================== ================== ================== =============================================
   `FULL_STOP`                   '.'           false              true               '．', '。'         Period of sentence
   `SPACE`                       ' '           false              false              '　'               White space between words
@@ -182,13 +183,13 @@ Japanese Default Setting
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The following table shows the default symbol settings for Japanese documents. In the table, first column shows the names of symbols,
-second colums (Value) shows the symbol. Colums 'NeedBeforeSpace' and 'NeedAfterSpace' represent that the
-symbol should have space before or after it respectively.
+second colums (Value) shows the symbol. Colums 'NeedBeforeSpace', 'NeedAfterSpace' 'InvalidChars' represent that the symbol should have space
+before or after the symbol and the invalid symbols respectively.
 
 .. table::
 
   ============================= ============= ================== ==================  ================== =============================================
-  Symbol                        Value         NeedBeforeSpace    NeedAfterSpace      NeedAfterSpace     Description
+  Symbol                        Value         NeedBeforeSpace    NeedAfterSpace      InvalidChars       Description
   ============================= ============= ================== ==================  ================== =============================================
   `FULL_STOP`                   '。'          false              false               '．','.'           Period of sentence
   `SPACE`                       '　'          false              false                                  White space between words
