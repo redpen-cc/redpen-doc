@@ -58,8 +58,9 @@ redpen has the following options.
       ====== =====================
       Value     Description
       ====== =====================
-      plain    plain text format
-      xml      xml format
+      plain  plain text format
+      xml    xml format
+      json   json format
       ====== =====================
 
 .. option:: -h, --help

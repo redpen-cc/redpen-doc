@@ -21,6 +21,8 @@ RedPen supports the following validators.
 - Contraction
 - Spelling
 - DoubledWord
+- SuccessiveWord
+- DuplicatedSection
 
 SentenceLength
 ~~~~~~~~~~~~~~~~~
@@ -226,7 +228,7 @@ Spelling validator throws a error if threre are spelling mistaks in the input do
 DoubledWord
 ~~~~~~~~~~~~~~
 
-DoubledWord validator throws a erro if a word is used more than once. For example a input document has a following sentence, the validator reports a error since **good** is used twice.
+DoubledWord validator throws a error if a word is used more than once. For example a input document has a following sentence, the validator reports a error since **good** is used twice.
 
 .. code-block:: text
 
@@ -240,4 +242,20 @@ DoubledWord validator throws a erro if a word is used more than once. For exampl
   ``"dict"``               None          File name of skip list dictionary.
   ``"list"``               None          List of skip words split by comma.
   ======================== ============= ========================================
+
+SuccessiveWord
+~~~~~~~~~~~~~~~
+
+SuccessiveWord validator throws a error if a word is used in succession. For example a input document has a following sentence, the validator reports a error since **is** is used in succession.
+
+.. code-block:: text
+
+  the item is is very good. 
+
+
+
+DuplicatedSection
+~~~~~~~~~~~~~~~~~~
+
+DuplicatedSection validator throws a error if there are section pairs which have almost the same contents.
 
