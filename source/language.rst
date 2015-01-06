@@ -12,19 +12,19 @@ Override Language
 Currently there are two language settings, "en" and "ja". "en" is for Latin based languages such as English, German.
 "ja" is for Japanese input.
 
-In order to orverride the language setting, we will change the lang property of "symbol-table block" in the configuration file.
+In order to orverride the language setting, we will change the lang property of "symbols block" in the configuration file.
 In the follwoing example, the config file specify input language as Japanese ("ja").
 
 .. code-block:: xml
 
-    <symbol-table lang="ja">
+    <symbols lang="ja">
         <symbol name="EXCLAMATION_MARK" value="!" invalid-chars="！" after-space="true" />
         <symbol name="LEFT_QUOTATION_MARK" value="\'"  invalid-chars="“" before-space="true" />
         <symbol name="RIGHT_QUOTATION_MARK" value="\'"  invalid-chars="”" after-space="true" />
         <symbol name="NUMBER_SIGN" value="#" invalid-chars="＃" after-space="true" />
         <symbol name="FULL_STOP" value="。" invalid-chars="．." after-space="true" />
         <symbol name="COMMA" value="、" invalid-chars="," after-space="true" />
-    </symbol-table>
+    </symbols>
 
 Override Symbol Settings
 -----------------------------
@@ -41,8 +41,8 @@ The followings are override the setting of single quotation marks to use ascii q
 
 .. code-block:: xml
 
-  <symbol-table>
+  <symbols>
     <symbol name="LEFT_SINGLE_QUOTATION_MARK" value="'"  invalid-chars="‘" />
     <symbol name="RIGHT_SINGLE_QUOTATION_MARK" value="'" invalid-chars="’"/>
-  </symbol-table>
+  </symbols>
 
