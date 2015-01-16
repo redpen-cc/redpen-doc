@@ -51,6 +51,7 @@ Then, run the RedPen command with the attached sample input and configuration fi
    configuration
    validator
    format
+   output
    language
    extend
    developers
