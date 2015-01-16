@@ -18,12 +18,27 @@ The error block has the following sub-blocks.
 
 .. table::
 
-  ==================== ============= ==================================================
-  Block                Optional      Description
-  ==================== ============= =================================================
-  `validator`          false         Validator name           
-  `message`            false         Error message 
-  `lineNum`            false         Line Number
-  `sentence`           false         Sentence containing error
-  `file`               true          File name
-  ==================== ============= =================================================
+    ==================== ============= =================================================
+    Block                Optional      Description
+    ==================== ============= =================================================
+    `validator`          false         Validator name           
+    `message`            false         Error message 
+    `lineNum`            false         Line Number
+    `sentence`           false         Sentence containing error
+    `file`               true          File name
+    ==================== ============= =================================================
+
+JSON
+-----
+
+.. table::
+
+    ==================== ============= =================================================
+    Block                Optional      Description
+    ==================== ============= =================================================
+    `validator`          false         Validator name           
+    `message`            false         Error message 
+    `lineNum`            false         Line Number
+    `sentence`           false         Sentence containing error
+    `file`               true          File name
+    ==================== ============= =================================================
