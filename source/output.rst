@@ -1,20 +1,22 @@
 Output Formats
 ===============
 
-RedPen supports three types of output formats ("Plain text", "XML", and "JSON" format).
+RedPen supports three basic output formats  - "Plain text", "XML", and "JSON".
 
 Plain text
 -----------
-Plain text output format consists of the following blocks.
+Plain text output format consists of the following lines.
 
 .. code-block:: none
 
     FILE_NAME:LINE_NUM: ValidationError[ERROR_TYPE], ERROR_MESSAGE at line: SENTENCE
 
+An alternate plain text form (plain2) prints each sentence, followed by all of the errors found that relate to that sentence.
+
 XML
 ----
-The top block of the XML output format is **validation-result** block which contains multiple **error** blocks.
-The error block has the following sub-blocks.
+The top section of the XML output format is **validation-result** element which contains multiple **error** sections.
+Each error seciton has the following sub-elements.
 
 .. table::
 
@@ -42,3 +44,5 @@ JSON
     `sentence`           false         Sentence containing error
     `file`               true          File name
     ==================== ============= =================================================
+
+The alternative JSON output format (json2) collates each error by the sentence it relates to.

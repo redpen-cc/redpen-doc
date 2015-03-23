@@ -6,24 +6,24 @@ RedPen supports three types of input formats ("Plain text", "Wiki", and "Markdow
 Plain text
 -----------
 
-Plain text just supoorts a set of paragraphs. Paragraphs are separated by two new lines. For example the following article has two paragraph.
+Plain text supports a set of paragraphs. Paragraphs are separated by two new lines. For example, the following article has two paragraphs.
 
 .. code-block:: none
 
-  This is a first paragraph. This paragraph is for the introduction of this article.
-  I will introduce the central issue discussed throughout the article.
+  This is a first paragraph. This paragraph is the introduction of this article.
+  It introduces the central issue discussed throughout the rest of the article.
 
-  Second paragraph describe the details of the issue and show the solution.
+  Second paragraph describes the details of the issue and attempts to present a solution.
 
 Wiki format
 -------------
 
-RedPen supports the fraction of Wiki syntacs. The followings the supported elements of Wiki syntacs.
+RedPen supports a subset of Wiki syntax. Currently, the supported elements of Wiki syntax are as follows.
 
 Headings
 ~~~~~~~~~
 
-For making a heading, we add a line starts with a "h[1234]. ". The digits after h represents levels of the heding (section).
+To create a heading, add a line starting with "h[1234]. ". The number after h represents level of the heading (section).
 
 
 Inline Formatting
@@ -43,26 +43,26 @@ Italic
 
 .. code-block:: none
 
-  //this is a italic syntacs.//
+  //this is an italic sentence.//
 
 Unerline
 ^^^^^^^^^
 
 .. code-block:: none
 
-  __this is a underlined syntacs.__
+  __this is an underlined sentence.__
 
 Strikethrough
 ^^^^^^^^^^^^^^
 
 .. code-block:: none
 
-  --this is a strikethrough syntacs.--
+  --this is a strikethrough sentence.--
 
 Links
 ~~~~~
 
-Links elements are included in the Wiki formatted documents.
+Links elements are included in Wiki formatted documents.
 
 Lists
 ~~~~~
@@ -72,7 +72,7 @@ Wiki syntax supports two types of lists.
 Bulleted Lists
 ^^^^^^^^^^^^^^^
 
-To make a bullted list, start a line with a "asterrisks". The number of asterrisks represents the indents of the list. 
+To enter a bulleted list, start a line with an asterisk. The number of asterisks denotes the indent level of the list.
 
 .. code-block:: none
 
@@ -83,13 +83,13 @@ To make a bullted list, start a line with a "asterrisks". The number of asterris
 Numbered List
 ^^^^^^^^^^^^^^
 
-If you want to add numbered lists, use "sharp" insted of asterisks in Bulleted Lists.
+If you want to add numbered lists, use the hash/pound symbol (#) instead of the asterisk used by Bulleted Lists.
 
 Comments
 ~~~~~~~~
 
-To add a comment to the wiki source, add [!-- ... --] block.
-The followings are a sample of comment.
+To add a comment to the wiki source, add a [!-- ... --] block.
+The following shows a sample comment.
 
 .. code-block:: none
 
@@ -102,7 +102,7 @@ The followings are a sample of comment.
 Paragraphs
 ~~~~~~~~~~
 
-Paragraphs are separated by two new lines the syntacs are the samme as plain text.
+Paragraphs are separated by two new lines. This syntax is the same as for plain text.
 
 
 Markdown
@@ -113,33 +113,33 @@ RedPen currently supports the following Markdown elements.
 Headings
 ~~~~~~~~~
 
-Two styles of headers are supported.
+Two styles of headings are supported.
 
-- Underlined headers
+- Underlined headings
 
-First and second level headers can be written with underlines.
-
-.. code-block:: none
-
-  First-level header
-  ==================
+First and second level headings can be specified using underlines.
 
 .. code-block:: none
 
-  second-level header
-  -------------------
+  First-level headings
+  ====================
 
-- Atx style headers
+.. code-block:: none
 
-1-6 sharp characters at the begginig of line.
+  second-level headings
+  ---------------------
+
+- Atx style headings
+
+1-6 hash or pound characters (#) at the beginning of a line.
 
 For example:
 
 .. code-block:: none
 
-  # First-level header
-  ## Second-levle header
-  ### Thrid-level header
+  # First-level heading
+  ## Second-level heading
+  ### Third-level heading
 
 Inline Formatting
 ~~~~~~~~~~~~~~~~~~~
@@ -149,7 +149,7 @@ RedPen supports the following inline formatting.
 Bold
 ^^^^^
 
-Wrap characters with double asterisks or underscores for bold. The followings a sample of bold sentences.
+Wrap characters with double asterisks or underscores for bold. The following are samples of bold sentences.
 
 .. code-block:: none
 
@@ -159,7 +159,7 @@ Wrap characters with double asterisks or underscores for bold. The followings a 
 Italic
 ^^^^^^^
 
-Wrap characters with a single asterisk or underscore for italic. The following is a sample italic sentences.
+Wrap characters with a single asterisk or underscore for italics. The following are samples of italic sentences.
 
 .. code-block:: none
 
@@ -169,8 +169,8 @@ Wrap characters with a single asterisk or underscore for italic. The following i
 Links
 ~~~~~
 
-To create the links, we wrap square brackets around the link label, and then round brackets around the URL.
-This is a example.
+To create a link, wrap square brackets around the link's label and parentheses around the URL.
+For example.
 
 .. code-block:: none
 
@@ -179,13 +179,13 @@ This is a example.
 Lists
 ~~~~~
 
-Markdown parser used in RedPen supports two types of lists (Bulleted lists and Numbered lists).
+The Markdown parser used by RedPen supports two types of lists - Bulleted lists and Numbered lists.
 
 Bulleted Lists
 ^^^^^^^^^^^^^^^
 
-To make a bullted list, start a line with a "asterrisks" or "hypens". The lists are nested with the heading spaces.
-The following is a example of bulleted list with asterrisks.
+To create a bulleted list, start a line with an asterisk or a hyphen. The lists are nested according to how many leading spaces there are.
+The following is a example of a bulleted list using asterisks.
 
 .. code-block:: none
 
@@ -197,8 +197,7 @@ The following is a example of bulleted list with asterrisks.
 Numbered List
 ^^^^^^^^^^^^^^
 
-If you want to add numbered lists, use "number and period" insted of asterisks in Bulleted Lists.
-Follwoins are a example.
+If you want to create a numbered list, use a number followed by a period, as in the following example.
 
 .. code-block:: none
 
@@ -208,4 +207,4 @@ Follwoins are a example.
 Paragraphs
 ~~~~~~~~~~
 
-Paragraphs are separated by two new lines the syntacs are the samme as plain text.
+Paragraphs are separated by two new lines. This syntax is the same as for plain text.

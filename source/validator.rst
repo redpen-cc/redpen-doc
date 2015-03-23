@@ -27,7 +27,7 @@ RedPen supports the following validators.
 SentenceLength
 ~~~~~~~~~~~~~~~~~
 
-SentenceLength validator checks the length of sentences in input doucment. If the length of the sentence is over the specified maximum length, the validator returns the warning.
+SentenceLength validator checks the length of sentences in the input document. If the length of the sentence is greater than the specified maximum length, the validator generates a warning.
 
 .. table::
 
@@ -40,7 +40,7 @@ SentenceLength validator checks the length of sentences in input doucment. If th
 InvalidExpression
 ~~~~~~~~~~~~~~~~~~~~~
 
-InvalidExpression validator checks if input sentences contains invalid expressions (words or phrases). If the input sentence contains invalid expressions, this validaor retuns the warning.
+InvalidExpression validator checks if input sentences contain invalid expressions (words or phrases). If the input sentence contains invalid expressions, the validator generates a warning.
 
 .. table::
 
@@ -51,7 +51,7 @@ InvalidExpression validator checks if input sentences contains invalid expressio
   ``"list"``           None          List of invalid expression split by comma.
   ==================== ============= ===========================================
 
-The dictionary is a set of words or exressions. The following is the example of the dictionary.
+The dictionary is a set of words or expressions. The following is an example of a dictionary.
 
 .. code-block:: text
 
@@ -59,13 +59,13 @@ The dictionary is a set of words or exressions. The following is the example of 
   you know
   hey
   kidding
-  why is hell
+  what the hell
   ...
 
 InvalidWord
 ~~~~~~~~~~~~~~~~~~~~~
 
-InvalidWord validator checks if input sentences contains invalid words. If the input sentence contains invalid words, this validaor retuns the warning.
+InvalidWord validator checks if input sentences contain invalid words. If the input sentence contains invalid words, the validator generates a warning.
 
 .. table::
 
@@ -76,7 +76,7 @@ InvalidWord validator checks if input sentences contains invalid words. If the i
   ``"list"``           None          List of invalid expression split by comma.
   ==================== ============= ===========================================
 
-The dictionary is a set of words. The following is the example of the dictionary.
+The dictionary is a set of words. The following is an example of a dictionary.
 
 .. code-block:: text
 
@@ -88,12 +88,12 @@ The dictionary is a set of words. The following is the example of the dictionary
 SpaceAfterPeriod
 ~~~~~~~~~~~~~~~~~~~
 
-SpaceAfterPeriod validator checks if there is a white space after the end of input sentences (except for the last sentence of paragraph). If the input sentence does not contain the white space returns the wanring.
+SpaceAfterPeriod validator checks if there is a white space at the end of input sentences (except for the very last sentence of paragraph). If the input sentence does end with a white space, a warning is given.
 
 CommaNumber
 ~~~~~~~~~~~~~
 
-CommaNumber validator checks the number of commas.
+CommaNumber validator checks the number of commas in a sentence.
 
 .. table::
 
@@ -106,7 +106,7 @@ CommaNumber validator checks the number of commas.
 WordNumber
 ~~~~~~~~~~~~~~~
 
-WordNumber validator checks the number of word in one setnece.
+WordNumber validator checks the number of words in one setnece.
 
 .. table::
 
@@ -119,7 +119,7 @@ WordNumber validator checks the number of word in one setnece.
 SuggestExpression
 ~~~~~~~~~~~~~~~~~~~~
 
-SuggestExpression validator works the sample as the InvalidExpression validator. If the input sentence contains invalid expressions, this validaor retuns the warning and suggest the correct expression.
+SuggestExpression validator works in a similar way to the InvalidExpression validator. If the input sentence contains invalid expressions, this validator returns a warning suggesting the correct expression.
 
 .. table::
 
@@ -129,7 +129,7 @@ SuggestExpression validator works the sample as the InvalidExpression validator.
   ``"dict"``           None          File name of dictionary.
   ==================== ============= ===================================
 
-The dictionary is a TSV file with two columns. First column contains the invalid expression, and the second expression is for suggested expression.
+The dictionary is a TSV file with two columns. First column contains the invalid expression, and the second column contains a suggested replacement expression.
 
 .. code-block:: text
 
@@ -140,52 +140,52 @@ The dictionary is a TSV file with two columns. First column contains the invalid
 InvalidSymbol
 ~~~~~~~~~~~~~~~~~~
 
-Some symbols or characters have the difference characters with the same role. For example question mark "? (0x003F)" have another variation "？(0xFF1F)" in the unicode table.
-InvalidSymbol checks if input sentences contains invalid characters or symbols. We write the symbols and character settings into character setting file (char-table.xml).
-In the setting file, we write the symbols we should use in the document, and in addition the invalid symbols. The details of the character settings are described in the next section.
+Some symbols or characters have alternate characters with the same role. For example question mark "? (0x003F)" has another unicode variation "？(0xFF1F)".
+InvalidSymbol checks if input sentences contains invalid characters or symbols. The symbols and character settings are entered into the character setting file (char-table.xml).
+In this file, we write the symbols we should use in the document and their invalid counterparts. The details of these settings is described in the next section.
 
 SpaceWithSymbol
 ~~~~~~~~~~~~~~~~
 
-Some symbols need space before or after them. For example, we add add space left brancket "(". we add the setting in the character setting file (char-table.xml).
+Some symbols need space before or after them. For example, if we want to ensure a space is added before a left parentheses "(", we could add this preference to the character setting file (char-table.xml).
 
 KatakanaEndHyphen
 ~~~~~~~~~~~~~~~~~~
 
 KatakanaEndHyphen validator checks the end hyphens of Katakana words in **Japanese** documents.
-Japanese Katakana words have variations in end hyphen. For example, "computer" is written in Katakana by 
-"コンピュータ (without hyphen) ", and "コンピューター (with hypen) ".
-This validator check if Katakana words ending format is match the predefined standard. See JIS Z8301, G.6.2.2 b) G.3.
+Japanese Katakana words have variations in their end hyphen. For example, "computer" is written in Katakana as
+"コンピュータ" (without hyphen), and "コンピューター" (with hypen).
+This validator checks to ensure that Katakana words match the predefined standard. See JIS Z8301, G.6.2.2 b) G.3.
 
-- a: Words of 3 characters or more can not have the end hyphen.
-- b: Words of 2 characters or less can have the end hyphen.
-- c: A compound word applies **a** and **b** for each component.
-- d: In the cases from **a** to **c**, the length of a syllable which are represented as a hyphen, flip syllable, and stuffed syllable is 1 except for Youon.
+- a: Words of 3 characters or more cannot have an end hyphen.
+- b: Words of 2 characters or less can have an end hyphen.
+- c: A compound word should apply **a** and **b** to each component word.
+- d: In the cases from **a** to **c**, the length of a syllable which is represented by a hyphen is 1 except for Youon.
 
 KatakanaSpellCheck
 ~~~~~~~~~~~~~~~~~~~~~
 
-KatakanaSpellCheck validator checks the Katakana words has the very similar words in the document.
-For example when there is a Katakana word "インデックス" and the variation "インデクス" in the same document, this validator returns the warning.
+KatakanaSpellCheck validator checks if Katakana words have very similar words with different spellings in the document.
+For example, if there is the Katakana word "インデックス" and the variation "インデクス" in the same document, this validator returns a warning.
 
 SectionLength
 ~~~~~~~~~~~~~~
 
 
-SectionLength validator checks the character number of input seciton.
+SectionLength validator checks the maximum number of words allowed in an section.
 
 .. table::
 
   ==================== ============= ========================================
   Property             Default Value Description
   ==================== ============= ========================================
-  ``"max_num"``        1000           Maximum number of words in a seciton.
+  ``"max_num"``        1000           Maximum number of words in a section.
   ==================== ============= ========================================
 
 ParagraphNumber
 ~~~~~~~~~~~~~~~~
 
-ParagraphNumber validator checks the number of paragraph in one input section.
+ParagraphNumber validator checks the maximum number of paragraphs allowed in one section.
 
 .. table::
 
@@ -198,41 +198,41 @@ ParagraphNumber validator checks the number of paragraph in one input section.
 ParagraphStartWith
 ~~~~~~~~~~~~~~~~~~~
 
-ParagraphStartWith validator checks if the characters in the beggning of paragraphs follows the style.
+ParagraphStartWith validator checks to see if the characters at the beginning of paragraphs conforms to the correct style.
 
 .. table::
 
   ======================== ============= ========================================
   Property                 Default Value Description
   ======================== ============= ========================================
-  ``start_with``           " "           Characters in the beggning of paragraphs.
+  ``start_with``           " "           Characters in the beginning of paragraphs.
   ======================== ============= ========================================
 
 SpaceBetweenAlphabeticalWord
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-SpaceBetweenAlphabeticalWord validator checks if the alphabet words are surrounded with white spaces. This validator
-is used in Non-latin languages such as Japanese or Chrinese.
+SpaceBetweenAlphabeticalWord validator checks that alphabetic words are surrounded with whitespace. This validator
+is used in non-latin languages such as Japanese or Chinese.
 
 Contraction
 ~~~~~~~~~~~~
 
-Contraction validator throws a error when contractions are used in the documents in which more than half of verbs are written in non contracted form.
+Contraction validator throws an error when contractions are used in a document in which more than half of the verbs are written in non-contracted form.
 
 Spelling
 ~~~~~~~~~~~~
 
-Spelling validator throws a error if threre are spelling mistaks in the input documents. This validator works only in English documents.
+Spelling validator throws an error if there are spelling mistakes in the input documents. This validator only works for English documents.
 
 
 DoubledWord
 ~~~~~~~~~~~~~~
 
-DoubledWord validator throws a error if a word is used more than once. For example a input document has a following sentence, the validator reports a error since **good** is used twice.
+DoubledWord validator throws an error if a word is used more than once in a sentence. For example, if an input document contains the following sentence, the validator will report an error since **good** is used twice.
 
 .. code-block:: text
 
-  the good item is very good. 
+  this good item is very good.
 
 .. table::
 
@@ -246,7 +246,7 @@ DoubledWord validator throws a error if a word is used more than once. For examp
 SuccessiveWord
 ~~~~~~~~~~~~~~~
 
-SuccessiveWord validator throws a error if a word is used in succession. For example a input document has a following sentence, the validator reports a error since **is** is used in succession.
+SuccessiveWord validator throws an error if the same word is used twice in succession. For example, if an input document contains thefollowing sentence, the validator will report an error since **is** is used twice in succession.
 
 .. code-block:: text
 
@@ -257,5 +257,5 @@ SuccessiveWord validator throws a error if a word is used in succession. For exa
 DuplicatedSection
 ~~~~~~~~~~~~~~~~~~
 
-DuplicatedSection validator throws a error if there are section pairs which have almost the same contents.
+DuplicatedSection validator throws an error if there are section pairs which have almost the same content.
 

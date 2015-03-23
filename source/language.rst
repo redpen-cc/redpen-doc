@@ -1,19 +1,19 @@
 Language Setitngs
 ==================
 
-RedPen process documents with any languages such as German, French or Japanese.
-The default setting of the RedPen is for processing documents written in English or other Latin based languages.
-Therefore, to make RedPen proces the input document written in a language, users need to specify
-the language in the RedPen configuration file.
+RedPen processes documents written in any language, such as German, French or Japanese.
+RedPen default configuration will process documents written in English or other Latin-based languages.
+Therefore, to make RedPen process documents written in other languages, users need to specify
+that language in the RedPen configuration file.
 
 Override Language
 ----------------------
 
-Currently there are two language settings, "en" and "ja". "en" is for Latin based languages such as English, German.
-"ja" is for Japanese input.
+Currently there are two language settings, "en" and "ja". "en" is for documents written in Latin-based languages such as English and German.
+"ja" is for Japanese documents.
 
-In order to orverride the language setting, we will change the lang property of "symbols block" in the configuration file.
-In the follwoing example, the config file specify input language as Japanese ("ja").
+In order to override the language, you must change the "lang" property of the "symbols" section of the configuration file.
+In the following example, the config file specifies Japanese ("ja") as the document language.
 
 .. code-block:: xml
 
@@ -29,15 +29,15 @@ In the follwoing example, the config file specify input language as Japanese ("j
 Override Symbol Settings
 -----------------------------
 
-Depending of the documents or writers, the used characters and symbols are different.
-For example, a writer uses "'" for left qsingle uotation mark, but another
-writer uses "‘" for leftquotation mark.
+Depending on the documents and authors, the characters and symbols used may differ.
+For example, one author might use "'" for a left single quotation mark, whereas another
+author might use "‘" for a left single quotation mark.
 
 For such cases, RedPen provides the way to override the default symbols (
 see :ref:`setting-characters-section` section) used in the document,
-and in addition specify the symbols which should not used in the input documents.
+and in addition, specify which symbols should not used in the input documents.
 
-The followings are override the setting of single quotation marks to use ascii quotation mark "'".
+The following overrides the setting for single quotation marks to enforce the use of the ascii quotation mark "'".
 
 .. code-block:: xml
 
