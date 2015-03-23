@@ -29,7 +29,7 @@ In the following example, the config file specifies Japanese ("ja") as the docum
 Override Symbol Settings
 -----------------------------
 
-Depending on the documents and authors, the characters and symbols used may differ.
+Depending on the documents and their authors, the characters and symbols used may differ.
 For example, one author might use "'" for a left single quotation mark, whereas another
 author might use "‘" for a left single quotation mark.
 

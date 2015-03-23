@@ -16,7 +16,7 @@ An alternate plain text form (plain2) prints each sentence, followed by all of t
 XML
 ----
 The top section of the XML output format is **validation-result** element which contains multiple **error** sections.
-Each error seciton has the following sub-elements.
+Each error section has the following sub-elements.
 
 .. table::
 

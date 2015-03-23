@@ -23,7 +23,7 @@ RedPen supports a subset of Wiki syntax. Currently, the supported elements of Wi
 Headings
 ~~~~~~~~~
 
-To create a heading, add a line starting with "h[1234]. ". The number after h represents level of the heading (section).
+To create a heading, add a line starting with "h[1234]. ". The number after h represents the level of the heading or section.
 
 
 Inline Formatting

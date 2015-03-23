@@ -166,7 +166,7 @@ KatakanaSpellCheck
 ~~~~~~~~~~~~~~~~~~~~~
 
 KatakanaSpellCheck validator checks if Katakana words have very similar words with different spellings in the document.
-For example, if there is the Katakana word "インデックス" and the variation "インデクス" in the same document, this validator returns a warning.
+For example, if the Katakana word "インデックス" and the variation "インデクス" exist within the same document, this validator will return a warning.
 
 SectionLength
 ~~~~~~~~~~~~~~
@@ -246,7 +246,7 @@ DoubledWord validator throws an error if a word is used more than once in a sent
 SuccessiveWord
 ~~~~~~~~~~~~~~~
 
-SuccessiveWord validator throws an error if the same word is used twice in succession. For example, if an input document contains thefollowing sentence, the validator will report an error since **is** is used twice in succession.
+SuccessiveWord validator throws an error if the same word is used twice in succession. For example, if an input document contains the following sentence, the validator will report an error since **is** is used twice in succession.
 
 .. code-block:: text
 

@@ -9,7 +9,7 @@ Configuration file
 RedPen has a single configuration file, which contains all the settings RedPen require to work with different types of input documents.
 The main configuration file is an xml file with a root element of "redpen-conf". Within this element there are two sub elements named "validators" and "symbols".
 
-In order to match the default validators and character settings to a target language such as Japanese or English,
+In order to match the default validators and character settings to a target language, such as Japanese or English,
 we can specify a **lang** attribute in the **redpen-conf** element to override the default character settings.
 
 The **validators** section specifies which validators are to be loaded by RedPen. Each **validator** within this section can have their property values overriden.
@@ -47,7 +47,7 @@ Validator configuration
 The RedPen configuration file contains a "validators" section for registering Validators.
 RedPen will apply each validator specified in this section to the to the input document.
 
-The following is a sample validators section.
+The following is a sample "validators" section.
 
 .. code-block:: xml
 
@@ -72,7 +72,7 @@ Some validator components can be configured using "property" elements. For examp
 you can override the maxmimum character count used by the "SectionLength" validator by specifying a "max_num" property.
 Some validators also have "sub-validators" which can also be configured within the validator section.
 
-We will cover all supported validators on the :doc:`validator` page.
+We will cover all supported validators in the :doc:`validator` page.
 
 .. _setting-characters-section:
 

@@ -11,7 +11,8 @@ RedPen users can create new validators for themselves or their organization.
 Adding validator is simple - just write a class that extends the abstract class **Validator**.
 
 Minimally, we just need to implement the "validate" template method.
-The following is the interface.
+
+The interface is as follows.
 
 .. code-block:: java
 
@@ -45,7 +46,7 @@ PlainSentenceLengthValidator
 We create a PlainSentenceLengthValidator class and specify the package 'cc.redpen.validator.sentence'.
 Therefore the class is stored in the 'redpen/redpen-core/src/main/java/cc/redpen/validator/sentence/' directory.
 
-The following is the implementation of this class.
+The following is an implementation of this class.
 
 .. code-block:: java
 
@@ -63,22 +64,22 @@ The following is the implementation of this class.
         }
     }
 
-The class has a validate method that takes a Sentence object as its parameter. When this class is registered in the configuration file, RedPen automaitcally applies
-this validate method to each sentence in each input document.
+The class has a validate method that takes a Sentence object as its parameter. When this class is registered in the configuration file, RedPen automatically applies
+the validate method to each sentence in each input document.
 
 Include a new Validator
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 To include the Validator in your RedPen configuration, add the Validator's name, without the "Validator" suffix, to a RedPen configuration file.
-For example, to activate our newly created Validator PlainSentenceLengthValidator, we would include the validator element as follows:
+For example, to activate our newly created Validator PlainSentenceLengthValidator, include the validator element as follows:
 
 .. code-block:: xml
 
     <redpen-conf>
         <validator-list>
-            ..
+            ...
             <validator name="PlainSentenceLength" />
-            ..
+            ...
         </validator-list>
     </redpen-conf>
 
@@ -89,12 +90,12 @@ Create a Validator plugin
 
 When creating a Validator plugin, it is often easier to start by using another plugin's project as a template.
 
-As a example, I (takahi-i) have made the simple Validator plugin `hankaku_kana_validator <https://github.com/takahi-i/hankaku-kana-validator>`_.
+As an example, I (takahi-i) have written a simple Validator plugin `hankaku_kana_validator <https://github.com/takahi-i/hankaku-kana-validator>`_.
 
 The most significant file for the plugin is pom.xml which exists at the top of the project. This file is the Maven configuration file,
 which is a popular software project management tool for Java.
 
-The following are the contents of pom.xml:
+The following is the content of pom.xml:
 
 .. code-block:: xml
 
@@ -150,7 +151,7 @@ Generated RedPen documents consist of several blocks, which represent the elemen
 * **Paragraph** contains one or more sentences.
 * **ListBlock** contains a set of ListElement objects.
 
-The following image describes the document model used by RedPen.
+The following image shows the document model used by RedPen.
 
 .. image:: model.jpg
    :height: 500

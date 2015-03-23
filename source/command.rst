@@ -17,7 +17,7 @@ We use the redpen command as follows.
 
   $redpen [options] input-files
 
-By default, input files are delimited by whitespace and then analysed. The redpen command has the following supported options.
+By default, input files are delimited by whitespace and then analysed. The redpen command supports the following options.
 
 Options
 ~~~~~~~~
@@ -32,7 +32,7 @@ redpen has the following options.
 
    Input file format. [**Default**: plain]
 
-   The argument specifies the input format. Currently RedPen supports the following formats.
+   This argument specifies the input format. Currently RedPen supports the following formats.
 
    .. table::
 
@@ -45,13 +45,13 @@ redpen has the following options.
       ======== =====================
 
 .. Note::
-   RedPen does not currently support all elements of the wiki format, such as tables. The remaining elements will be supported in near future.
+   RedPen does not currently support every element of the wiki format, such as tables. The remaining elements will be supported in the near future.
 
 .. option:: -r <RESULT_FORMAT>, --result_format <RESULT_FORMAT>
 
    Result format. [**Default**: plain]
 
-   The argument determines the output format. Currently RedPen supports the following output formats.
+   This argument determines the output format. Currently RedPen supports the following output formats.
 
    .. table::
 
@@ -67,7 +67,7 @@ redpen has the following options.
 
 .. option:: -h, --help
 
-   Display some help.
+   Display help.
 
 .. option:: --version
 
@@ -82,7 +82,7 @@ RedPen also provides a sample server.
 Usage: redpen-server
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-We start the redpen server as follows.
+We can start the redpen server with the following command.
 
 .. code-block:: bash
 
