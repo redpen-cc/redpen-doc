@@ -1,24 +1,22 @@
 Configuration
 ==============
 
-RedPen has a configuration file, which has two blocks. One is for validators configuration and the other is for overriding characters and symbols for input documents.
+RedPen's configuration file consists of two separate blocks. One block configures the RedPen validators and the other lets you override characters and symbols for the input documents.
 
 Configuration file
 ------------------------
 
-RedPen has one configuration file, which does the all settings needed to work RedPen with input documents.
-The main configuration file is a xml file which has the root block "redpen-conf" and configuration block contains
-two sub blocks "validators" and "symbols".
+RedPen has a single configuration file, which contains all the settings RedPen require to work with different types of input documents.
+The main configuration file is an xml file with a root element of "redpen-conf". Within this element there are two sub elements named "validators" and "symbols".
 
-In order to fit the default validaotrs and character settings for the target language such as Japanese or English,
-we can specify **lang** in the **redpen-conf** attribute to override the default character settings.
+In order to match the default validators and character settings to a target language, such as Japanese or English,
+we can specify a **lang** attribute in the **redpen-conf** element to override the default character settings.
 
-The **validators** block specifies a setting file to add validators, and
-symbols block specifies the input language such as en, ja and the character setting file.
+The **validators** section specifies which validators are to be loaded by RedPen. Each **validator** within this section can have their property values overriden.
 
-**symbols** block override the default symbol settings of target language.
+**symbols** section overrides the default symbol settings for the target language.
 
-The following is an example of main configuration file.
+The following is an example of a RedPen configuration file.
 
 .. code-block:: xml
 
@@ -40,19 +38,16 @@ The following is an example of main configuration file.
         </symbols>
     </redpen-conf>
 
-In the next section, we will see the configuration of validators.
-The character settings are described in the :ref:`setting-characters-section` section.
-
-Let's go into the details of validator configuration.
+In the next section we will cover the configuration of validators in greater detail.
+The settings for the symbols section are described in :ref:`setting-characters-section`.
 
 Validator configuration
 ------------------------
 
-RedPen configuration file contains "validators" block for registrating Validators.
-If a user adds a validaor for one checking point into validator-conf.xml,
-then RedPen applies the added Validator to the input document.
+The RedPen configuration file contains a "validators" section for registering Validators.
+RedPen will apply each validator specified in this section to the to the input document.
 
-The following is the sample validators block.
+The following is a sample "validators" section.
 
 .. code-block:: xml
 
@@ -68,32 +63,32 @@ The following is the sample validators block.
         <validator name="ParagraphNumber" />
      </validators>
 
-All configurations are surrounded by one "validator" block, which contains many inner component blocks. Each inner "component"
-block represents a validator, which checks one aspect of the input document. For instance, adding
-"SectionLength" component block into the configuration file, DocuemntValidator checks the length of sections in input documents.
+Each validator is configured within its own "validator" element. The "name" attribute of this element specifies the name of the validator,
+which is essentially the validator's class name without the trailing "Validator".
+Each validator is responsible for checking a particular aspect of the input document. For example, if the "SectionLength" validator is included in
+the configuration, then RedPen's DocumentValidator will check the length of each 'section' of each input document.
 
-As we see some components have "property" to configure the validator specific settings. For example,
-the "SectionLength" validator has maximum character number in one section. Some validator has sub-validators.
+Some validator components can be configured using "property" elements. For example,
+you can override the maxmimum character count used by the "SectionLength" validator by specifying a "max_num" property.
+Some validators also have "sub-validators" which can also be configured within the validator section.
 
-We will see the all the supported validators in the :doc:`validator` page.
+We will cover all supported validators in the :doc:`validator` page.
 
 .. _setting-characters-section:
 
 Setting symbols
--------------------
+---------------
 
-Default settings of symbols is provided by language, the target language is specified in the **redpen-conf** attribute, **lang**. 
-RedPen supports defualt symbols for "en" and "ja", which are described in :ref:`en-defualt-symbol-setting` and :ref:`ja-defualt-symbol-setting`. 
+The **lang** attribute of the **redpen-conf** element determines how various symbols are handled by RedPen.
+RedPen supports default symbols for "en" and "ja", which are described in :ref:`en-default-symbol-setting` and :ref:`ja-default-symbol-setting`. 
 
-To override defult setting of symbols defined for the target language, Users can add configure settings for characters and symbols
-with "symbols" block in the RedPen configuration file.
+The default symbol settings for a target language can be overridden by configuring the "symbols" section of the RedPen configuration file.
 
-Default settings are described in the following sections.
-In the symbols configuration block, we add the symbols to use in the document. 
-The symbols block has multiple **symbol** elements.
-"symbol" element overrides the character used in the written documents.
+The default settings are described in the following sections.
+Within the symbols configuration section we can use **symbol** elements to specify which symbols to use when validating documents.
+Each "symbol" element overrides a character found in the documents.
 
-The following table is the properties of symbol element.
+The following table describes the properties of the symbol element.
 
 .. table::
 
@@ -110,11 +105,10 @@ The following table is the properties of symbol element.
 Sample: Setting symbols
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In the following setting, we can see that symbols has define 3 symbols. First element defines
-exlamation mark as '!'. Second element , FULL_STOP defines period as "." and in addition the sybmol need space
-after the period. Third element defines comma as ',' and also define invalid symbols '、' and '，'. Here invalid
-symbols represents the variations of the target symbol. For example, In japanese FULL_STOP can be not only '.'
-but also '。'. If we registered invalid-chars, we can prevents the mixture usages of symbol variations.
+In the following example, we can see a symbols section that defines 3 symbols. The first element defines
+exlamation mark as '!'. Then, FULL_STOP defines a period as the character "." and specifies that the symbol must be followed by a space.
+The third element defines comma as ',' and also defines '、' and '，' as invalid comma characters. This is because some characters have equivalent symbolic meanings.
+For example, in Japanese both '.' and '。' can represent a FULL_STOP. The invalid-chars setting allows us to restrict which character alternatives are permitted in our documents.
 
 .. code-block:: xml
 
@@ -124,21 +118,21 @@ but also '。'. If we registered invalid-chars, we can prevents the mixture usag
       <symbol name="COMMA" value="," invalid-chars="、，" after-space="true" />
   </symbols>
 
-.. _en-defualt-symbol-setting:
+.. _en-default-symbol-setting:
 
-English Default Setting
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Default Settings for English
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The following table shows the default symbol settings for English and other latin based documents. In the table, first column shows the names of symbols,
-second colums (Value) shows the symbol character. Colums 'NeedBeforeSpace', 'NeedAfterSpace' 'InvalidChars' represent that the symbol should have space
-before or after the symbol and the invalid symbols respectively.
+The following table shows the default symbol settings for English and other latin based documents. In the table, the first column contains the name of each symbol and
+the second column (Value) shows the symbol's character value. The columns 'NeedBeforeSpace', 'NeedAfterSpace' 'InvalidChars' indicate if the symbol
+should be followed by or preceded by a space and the symbol's invalid characters, respectively.
 
 .. table::
 
   ============================= ============= ================== ================== ================== =============================================
   Symbol                        Value         NeedBeforeSpace    NeedAfterSpace     InvalidChars       Description
   ============================= ============= ================== ================== ================== =============================================
-  `FULL_STOP`                   '.'           false              true               '．', '。'         Period of sentence
+  `FULL_STOP`                   '.'           false              true               '．', '。'         Sentence period
   `SPACE`                       ' '           false              false              '　'               White space between words
   `EXCLAMATION_MARK`            '!'           false              true               '！'               Exclamation mark
   `NUMBER_SIGN`                 '#'           false              false              '＃'               Number sign
@@ -174,24 +168,24 @@ before or after the symbol and the invalid symbols respectively.
   `RIGHT_DOUBLE_QUOTATION_MARK` '"'           false              false                                 Right double quotation mark
   ============================= ============= ================== ================== ================== =============================================
 
-The symbol setting are made use of seveal Validators such as InvalidSymbol, and SpaceValidator. If users want to change the
-symbol configuration settings. Users can override the settings adding symbol element into the symbols block in the redpen configuration file.
+These settings are used by several Validators such as InvalidSymbol and SpaceValidator. If you want to change the
+symbol definitions used by these Validators, you can override the settings by adding symbol elements to the symbols section of the redpen configuration file.
 
-.. _ja-defualt-symbol-setting:
+.. _ja-default-symbol-setting:
 
-Japanese Default Setting
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Default Settings for Japanese
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The following table shows the default symbol settings for Japanese documents. In the table, first column shows the names of symbols,
-second colums (Value) shows the symbol. Colums 'NeedBeforeSpace', 'NeedAfterSpace' 'InvalidChars' represent that the symbol should have space
-before or after the symbol and the invalid symbols respectively.
+The following table shows the default symbol settings for Japanese documents. In the table, the first column contains the name of each symbol and
+the second column (Value) shows the symbol's character value. The columns 'NeedBeforeSpace', 'NeedAfterSpace' 'InvalidChars' indicate if the symbol
+should be followed by or preceded by a space and the symbol's invalid characters, respectively.
 
 .. table::
 
   ============================= ============= ================== ==================  ================== =============================================
   Symbol                        Value         NeedBeforeSpace    NeedAfterSpace      InvalidChars       Description
   ============================= ============= ================== ==================  ================== =============================================
-  `FULL_STOP`                   '。'          false              false               '．','.'           Period of sentence
+  `FULL_STOP`                   '。'          false              false               '．','.'           Sentence period
   `SPACE`                       '　'          false              false                                  White space between words
   `EXCLAMATION_MARK`            '！'          false              false               '!'                Exclamation mark
   `NUMBER_SIGN`                 '＃'          false              false               '#'                Number sign
@@ -227,3 +221,5 @@ before or after the symbol and the invalid symbols respectively.
   `RIGHT_DOUBLE_QUOTATION_MARK` '”'           false              false                                  Right double quotation mark
   ============================= ============= ================== ==================  ================== =============================================
 
+These settings are used by several Validators such as InvalidSymbol and SpaceValidator. If you want to change the
+symbol definitions used by these Validators, you can override the settings by adding symbol elements to the symbols section of the redpen configuration file.

@@ -6,20 +6,20 @@
 QuickStart
 ==========
 
-This quickstart guide would help you get started. Let's go through some of the basics of RedPen.
+This quickstart guide is to help you get started with RedPen. Let's go through some of the basics.
 
 Requirements
--------------
+------------
 
-RedPen needs the following software.
+RedPen requires the following software.
 
 - Java 1.8.0 or greater
 - Maven 3.0.0 or greater
 
-Run example
--------------
+Example run
+-----------
 
-First, we the download RedPen package from the `release page <https://github.com/recruit-tech/redpen/releases/tag/v1.0.1>`_,
+First, download the RedPen package from `release page <https://github.com/recruit-tech/redpen/releases/tag/v1.0.1>`_,
 and then decompress the package with the following commands.
 
 .. code-block:: bash
@@ -27,7 +27,7 @@ and then decompress the package with the following commands.
   $ tar xvf redpen-cli-1.0-assembled.tar.gz
   $ cd redpen-cli-1.0
 
-Then, run the RedPen command with the attached sample input and configuration file.
+Then, run the redpen command with the supplied sample document and configuration file.
 
 .. code-block:: bash
 

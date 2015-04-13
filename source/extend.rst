@@ -1,52 +1,56 @@
-Extend RedPen
-==============
+Extending RedPen
+================
 
-RedPen users can extend RedPen writing new validators. This page describes the way to create your validators and the document internal model.
-The knowledge of model is useful to write your validators.
+RedPen users can extend RedPen by creating new Validators. This page describes how to construct your Validators and covers the
+basics of the internal document model used by Validators.
 
 Write your Validators
 -----------------------
 
-RedPen users can create new validators needed for themselves or their organizations. 
-Adding validator is simple. Users just add a class which extends one abstract class, **Validator**.
+RedPen users can create new validators for themselves or their organization.
+Adding validator is simple - just write a class that extends the abstract class **Validator**.
 
-Specifically we just need to add the "validate" method, which is a templete method.
-The following is the interface.
+Minimally, we just need to implement the "validate" template method.
+
+The interface is as follows.
 
 .. code-block:: java
 
     public List<ValidationError> validate(E block);
 
-In the above interface, E is a template which represents a block type in a Document. Current RedPen supports
-Sentence and Section class as the block template class.
+In the above interface, E is a template that represents a specific block type within a Document. Currently, RedPen supports the
+block template classes **Section** and **Sentence**.
 
-Note that the package of implemented class need to be one of the packages,
+Note that the implemented class needs to be in one of the following packages:
 'cc.redpen.validator', 'cc.redpen.validator.sentence' or 'cc.redpen.validator.section.'
 
-There are two way to create your validator in RedPen. One is adding a validator source file to the RedPen source.
-Another is crate a validator plugin. Note that in the both way, the suffix of the validators name must be **Validator**.
+There are two ways to add your Validator to RedPen.
 
-Adding validator files are simple. Just add the new validator source to the redpen and then build, but the source of validators
-are need to be bundled in RedPen source.
+One way is to add the Validator source file to the RedPen source tree and then build RedPen normally.
+This method is simple, but involves bundling the source code for the Validators with the source code for RedPen.
 
-By contrast, creating plugin is a bit more tedious but you can create and manage source of validator as your project. 
+The second way is to create a Validator plugin. Creating a plugin is a little more complicated, but has the advantage that you can then independently manage the source code for your Validator.
 
-In the next sections, I will explain how to add validator into Redpen source and then create a plugin.
+Note that in both cases, your Validator's class name must have the suffix **Validator**.
 
-Add a validator in Redpen source
-------------------------------------
+In the next section, we will explain how to add a new Validator to Redpen's source tree, and how to construct a Validator plugin.
 
-Let's define a plain validator (PlainSentenceLengthValidator), which check if the input sentence is over 100 characters and then apply it.
+Add a Validator in Redpen source
+--------------------------------
+
+Let's define a plain Validator (PlainSentenceLengthValidator) - which check if the input sentence is over 100 characters long - and then apply it to RedPen's source tree.
 
 PlainSentenceLengthValidator
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We define  a PlainSentenceLengthValidator class. We store the class in the 'cc.redpen.validator.sentence',
-and therefore the class is store in 'redpen/redpen-core/src/main/java/cc/redpen/validator/sentence/' directory.
+We create a PlainSentenceLengthValidator class and specify the package 'cc.redpen.validator.sentence'.
+Therefore the class is stored in the 'redpen/redpen-core/src/main/java/cc/redpen/validator/sentence/' directory.
 
-The following is the implemented class.
+The following is an implementation of this class.
 
 .. code-block:: java
+
+    package cc.redpen.validator.sentence;
 
     public class PlainSentenceLengthValidator extends Validator<Sentence> {
         public List<ValidationError> validate(Sentence sentence) {
@@ -54,37 +58,44 @@ The following is the implemented class.
             if (sentence.content.length() > 100) {
                errors.add(new ValidationError(
                         this.getClass(),
-                        "The length of the line exceeds the maximum "));
+                        "The length of the line exceeds the maximum"));
             }
             return errors;
         }
     }
 
-As we see, the this class has a validate method taking a Sentence object as the parameter. When this class is registered in the configuration file,
-the validate method is automatically applied to all of the sentences in the input documents by RedPen.
+The class has a validate method that takes a Sentence object as its parameter. When this class is registered in the configuration file, RedPen automatically applies
+the validate method to each sentence in each input document.
 
-Apply user defined validators
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Include a new Validator
+~~~~~~~~~~~~~~~~~~~~~~~
 
-To apply the validtor, user just add the validator name removing the Validator suffix. For example, To activate the newly created the validator, PlainSentenceLengthValidator,
-we just add the PlainSentenceLength in the configuration file as follows. Then run RedPen with the confiration file.
+To include the Validator in your RedPen configuration, add the Validator's name, without the "Validator" suffix, to a RedPen configuration file.
+For example, to activate our newly created Validator PlainSentenceLengthValidator, include the validator element as follows:
 
 .. code-block:: xml
 
     <redpen-conf>
         <validator-list>
+            ...
             <validator name="PlainSentenceLength" />
+            ...
         </validator-list>
     </redpen-conf>
 
-Creatie a validator plugin
-------------------------------
+We would then run RedPen normally, using this configuration file.
 
-In order to make a plugin, it make easy to use another plugin project as the reference. As a example, I (takahi-i) have made a simple validator pluign in `hankaku_kana_validator <https://github.com/takahi-i/hankaku-kana-validator>`_. 
+Create a Validator plugin
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The most important file of the plugin is pom.xml which exists in the top of the project. The file is the configuration file of Maven, which is a software project management tool for Java. 
+When creating a Validator plugin, it is often easier to start by using another plugin's project as a template.
 
-The following is the main content of the file.
+As an example, I (takahi-i) have written a simple Validator plugin `hankaku_kana_validator <https://github.com/takahi-i/hankaku-kana-validator>`_.
+
+The most significant file for the plugin is pom.xml which exists at the top of the project. This file is the Maven configuration file,
+which is a popular software project management tool for Java.
+
+The following is the content of pom.xml:
 
 .. code-block:: xml
 
@@ -107,37 +118,40 @@ The following is the main content of the file.
         </dependencies>
     </project>
 
-Usually you do not need to change the pom.xml file except for the **artifact-id** and **name**. You can change the name to fit the function of the validator.
+Usually you do not need to change the pom.xml file, except for the contents of the **artifact-id** and **name** elements. You should alter the name to fit the
+function of your Validator.
 
-Then remove the the existing validator file (HankakuKanaValidator.java) "main/java/cc/redpen/validator/sentence", and put your validator source file in "main/java/cc/redpen/validator/sentence" or "main/java/cc/redpen/validator/section." The class of the validator source is needed to inherit Validator class as the same as adding validators into RedPen source.
+After changing pom.xml, you should delete the the existing validator file (HankakuKanaValidator.java) from "main/java/cc/redpen/validator/sentence". Then, put your
+Validator's source file in "main/java/cc/redpen/validator/sentence" or "main/java/cc/redpen/validator/section". As mentioned above, your Validator must extend the RedPen Validator class.
 
-After you finish the implementation, you build the plugin.
+Once you have included your Validator implementation, you can build the plugin.
 
 .. code-block:: bash
 
   $ mvn install
 
-Apply user defined plugin
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Including a user-defined Validator plugin
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-When you scceeded to build a validator plugin, you can use it copying the plugin jar file in **target** directory to RedPen class path ($REDPEN_HOME/lib). 
-After the copy you can apply the validator adding the prefix of the validator (removing **Validator** suffix) into the redpen-config.xml file.
+When you have successfully built your Validator plugin, you can use it by copying the plugin's jar file from the **target** directory to
+a directory in RedPen's classpath, such as the RedPen library directory ($REDPEN_HOME/lib).
+Once copied, you can add your Validator to the configuration file as described above. Remember to remove the **Validator** suffix from the name you enter in redpen-config.xml.
 
 Model Structure
 -----------------
 
-This section describes the internal document model structure generated by parser objects. 
+This section describes the internal document model structure generated by parser objects.
 
-Generated RedPen docuemnts consist of several blocks, which represent a element of a document. 
+Generated RedPen documents consist of several blocks, which represent the elements of a document.
 
-* **DocumentCollection** represents one whole document consists of files, which constains more than one Document.
-* **Document** represents one file which contains more than one Seciton.
-* **Section** contains several blocks (Header, Paragraph, ListBlock). Except for Header, Section can have multiple blocks. Section also has a space to specify the section level and subsections.
-* **Header** represents a header sentences which contains a list of Sentence objects.
-* **Paragraph** contains more than one sentence.
-* **ListBlock** constains a sett of ListElement objects.
+* **DocumentCollection** represents a set of one or more files that contain a Document.
+* **Document** represents a single file which contains one or more Sections.
+* **Section** contains several blocks (Header, Paragraph, ListBlock). Except for Header, each Section can contain multiple blocks. A Section may also specify the section level and its subsections.
+* **Header** represents header sentences that contain a list of Sentence objects.
+* **Paragraph** contains one or more sentences.
+* **ListBlock** contains a set of ListElement objects.
 
-The following image shows the document model in RedPen.
+The following image shows the document model used by RedPen.
 
 .. image:: model.jpg
    :height: 500
