@@ -54,6 +54,7 @@ Then, run the redpen command with the supplied sample document and configuration
    output
    language
    extend
+   server
    developers
    faq
    links

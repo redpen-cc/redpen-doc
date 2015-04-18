@@ -1,4 +1,4 @@
-Language Setitngs
+Language Settings
 ==================
 
 RedPen processes documents written in any language, such as German, French or Japanese.
