@@ -15,7 +15,7 @@ We use the redpen command as follows.
 
 .. code-block:: bash
 
-  $redpen [options] input-files
+  $ redpen [options] input-files
 
 By default, input files are delimited by whitespace and then analysed. The redpen command supports the following options.
 
@@ -86,7 +86,7 @@ We can start the redpen server with the following command.
 
 .. code-block:: bash
 
-  $java -jar redpen-server.war [options]
+  $ java -jar redpen-server.war [options]
 
 Options
 ~~~~~~~~
@@ -109,3 +109,4 @@ redpen-server has the following options.
 
    Show the redpen version.
 
+The functionality of the RedPen server is described on the :doc:`server` page.
