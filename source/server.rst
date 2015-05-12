@@ -112,44 +112,65 @@ Request format:
 
     {
       "document": "Theyre is a blak rownd borl.",
-      "lang": "en",
       "format": "json2",
       "documentParser": "PLAIN",
       "config": {
-        "CommaNumber": {},
-        "Contraction": {},
-        "DoubledWord": {},
-        "EndOfSentence": {},
-        "InvalidExpression": {},
-        "InvalidSymbol": {},
-        "InvalidWord": {},
-        "ParagraphNumber": {},
-        "Quotation": {},
-        "SectionLength": {
-          "properties": {
-            "max_char_num": "2000"
-          }
+        "lang": "en",
+        "validators": {
+          "CommaNumber": {},
+          "Contraction": {},
+          "DoubledWord": {},
+          "EndOfSentence": {},
+          "InvalidExpression": {},
+          "InvalidSymbol": {},
+          "InvalidWord": {},
+          "ParagraphNumber": {},
+          "Quotation": {},
+          "SectionLength": {
+            "properties": {
+              "max_char_num": "2000"
+            }
+          },
+          "SentenceLength": {
+            "properties": {
+              "max_len": "200"
+            }
+          },
+          "SpaceBetweenAlphabeticalWord": {},
+          "Spelling": {},
+          "StartWithCapitalLetter": {},
+          "SuccessiveWord": {},
+          "SymbolWithSpace": {},
+          "WordNumber": {}
         },
-        "SentenceLength": {
-          "properties": {
-            "max_len": "200"
+        "symbols": {
+          "AMPERSAND": {
+            "after_space": false,
+            "before_space": true,
+            "invalid_chars": "＆",
+            "value": "&"
+          },
+          "ASTERISK": {
+            "after_space": true,
+            "before_space": true,
+            "invalid_chars": "＊",
+            "value": "*"
           }
-        },
-        "SpaceBetweenAlphabeticalWord": {},
-        "Spelling": {},
-        "StartWithCapitalLetter": {},
-        "SuccessiveWord": {},
-        "SymbolWithSpace": {},
-        "WordNumber": {}
+        }
       }
     }
 
 
 - The *document* property specifies the text of the document to validate
-- The *lang* property indicates the language of the document. It determines how the document will be tokenized by RedPen.
 - The *documentParser* property should contain the name of a valid RedPen documentparser (ie: PLAIN, MARKDOWN or WIKI)
 - The *format* property determines the format for the results. It can be one of json, json2, plain, plain2 or xml.
-- The *config* object specifies the validator configuration for the request. It consists of a series of objects that are named after a RedPen validator. If the object is present, the validator will be configured. Within this named object, a *properties* object can be used to set the name and values of any property used by the validator, as described in :doc:`validator`
+- The *config* object specifies the validator configuration for the request. This consists of:
+    - A *config* object, consisting of a series of objects that are named after a RedPen validator. If the object is present, the validator will be configured. Within this named object, a *properties* object can be used to set the name and values of any property used by the validator, as described in :doc:`validator`
+    - The *lang* property indicates the language of the document. It determines how the document will be tokenized by RedPen.
+    - A *symbols* object containing overridden symbols, as described in :doc:`configuration`. Each entry must be a validate symbol name, and can contain the following elements:
+        - *value* specifies the Symbol's value
+        - *invalid_chars* is a string of invalid alternatives for this Symbol
+        - *before_space* and *after_space* specify if a space is required before or after the Symbol.
 
 Response (json2 format):
 
