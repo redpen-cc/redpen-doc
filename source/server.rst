@@ -14,7 +14,7 @@ RedPen Server API
 Configuration
 ~~~~~~~~~~~~~
 
-**/rest//config/redpens**
+**/rest/config/redpens**
 
 Return the configuration for available, preconfigured redpens.
 
@@ -91,7 +91,7 @@ Document Validation
 
 **/document/validate**
 
-This POST request validates a document and returns the errors as JSON.
+This POST request validates a document and returns the errors.
 
 POST Parameters:
 
@@ -101,6 +101,55 @@ POST Parameters:
     - MARKDOWN
     - WIKI
 - *lang* specifies the language used to tokenize the document. Currently, values of **ja** (Japanese) and **en** (English/Whitespace) are supported.
+- The optional *format* field determines the format for the results. It can be one of json (the default), json2, plain, plain2 or xml.
+- The optional *config* field contains the contents of a RedPen XML configuration file
+
+
+**Examples using curl and document/validate**
+
+.. code-block:: bash
+
+    $ curl --data document="Twas brillig and the slithy toves did gyre and gimble in the wabe" \
+         --data lang=en --data format=PLAIN2 \
+         --data config="`cat ./redpen-server/target/classes/conf/redpen-conf.xml`" \
+         localhost:8080/rest/document/validate/
+    Line: 1, Offset: 0
+        Sentence: Twas brillig and the slithy toves did gyre and gimble in the wabe
+            Spelling: Found possibly misspelled word "brillig".
+            Spelling: Found possibly misspelled word "slithy".
+            Spelling: Found possibly misspelled word "toves".
+            Spelling: Found possibly misspelled word "gyre".
+            Spelling: Found possibly misspelled word "gimble".
+            Spelling: Found possibly misspelled word "wabe".
+            DoubledWord: Found repeated word "and".
+
+
+.. code-block:: bash
+
+    $ curl -s --data document="古池や,蛙飛び込む水の音" \
+              --data config="`cat ./redpen-server/target/classes/conf/redpen-conf-ja.xml`" \
+              localhost:8080/rest/document/validate/ | json_reformat
+    {
+        "errors": [
+            {
+                "sentence": "古池や,蛙飛び込む水の音",
+                "endPosition": {
+                    "offset": 4,
+                    "lineNum": 1
+                },
+                "validator": "InvalidSymbol",
+                "lineNum": 1,
+                "sentenceStartColumnNum": 0,
+                "message": "Found invalid symbol \",\".",
+                "startPosition": {
+                    "offset": 3,
+                    "lineNum": 1
+                }
+            }
+        ]
+    }
+
+
 
 **/document/validate/json**
 
@@ -269,8 +318,8 @@ Response (json2 format):
     }
 
 
-Some examples using curl
--------------------------
+**Some examples using curl and document/validate/json**
+
 
 .. code-block:: bash
 
@@ -357,4 +406,3 @@ Some examples using curl
     1: ValidationError[Spelling], Found possibly misspelled word "fisch". at line: fisch and chipps
     1: ValidationError[Spelling], Found possibly misspelled word "chipps". at line: fisch and chipps
     1: ValidationError[SentenceLength], The length of the sentence (16) exceeds the maximum of 6. at line: fisch and chipps
-
