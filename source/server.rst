@@ -401,7 +401,7 @@ Response (json2 format):
 .. code-block:: bash
 
     curl -s -H "Content-Type: application/json" \
-         --data '{document:"fisch and chipps",format:"plain",config:{Spelling:{},SentenceLength:{properties:{max_len:6}}}}' \
+         --data '{document:"fisch and chipps",format:"plain",config:{validators:{Spelling:{},SentenceLength:{properties:{max_len:6}}}}}' \
          http://localhost:8080/rest/document/validate/json
     1: ValidationError[Spelling], Found possibly misspelled word "fisch". at line: fisch and chipps
     1: ValidationError[Spelling], Found possibly misspelled word "chipps". at line: fisch and chipps
