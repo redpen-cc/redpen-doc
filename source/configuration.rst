@@ -4,13 +4,13 @@ Configuration
 RedPen's configuration file consists of two separate blocks. One block configures the RedPen validators and the other lets you override characters and symbols for the input documents.
 
 Configuration file
-------------------------
+--------------------
 
 RedPen has a single configuration file, which contains all the settings RedPen require to work with different types of input documents.
 The main configuration file is an xml file with a root element of "redpen-conf". Within this element there are two sub elements named "validators" and "symbols".
 
 In order to match the default validators and character settings to a target language, such as Japanese or English,
-we can specify a **lang** attribute in the **redpen-conf** element to override the default character settings.
+we can specify **lang** and **type** attributes in the **redpen-conf** element to override the default character settings.
 
 The **validators** section specifies which validators are to be loaded by RedPen. Each **validator** within this section can have their property values overriden.
 
@@ -80,7 +80,7 @@ Setting symbols
 ---------------
 
 The **lang** attribute of the **redpen-conf** element determines how various symbols are handled by RedPen.
-RedPen supports default symbols for "en" and "ja", which are described in :ref:`en-default-symbol-setting` and :ref:`ja-default-symbol-setting`. 
+RedPen supports default symbols for "en" and "ja", which are described in :ref:`en-default-symbol-setting` and :ref:`ja-default-symbol-setting`.
 
 The default symbol settings for a target language can be overridden by configuring the "symbols" section of the RedPen configuration file.
 
@@ -108,6 +108,7 @@ Sample: Setting symbols
 In the following example, we can see a symbols section that defines 3 symbols. The first element defines
 exlamation mark as '!'. Then, FULL_STOP defines a period as the character "." and specifies that the symbol must be followed by a space.
 The third element defines comma as ',' and also defines '、' and '，' as invalid comma characters. This is because some characters have equivalent symbolic meanings.
+
 For example, in Japanese both '.' and '。' can represent a FULL_STOP. The invalid-chars setting allows us to restrict which character alternatives are permitted in our documents.
 
 .. code-block:: xml
@@ -223,3 +224,32 @@ should be followed by or preceded by a space and the symbol's invalid characters
 
 These settings are used by several Validators such as InvalidSymbol and SpaceValidator. If you want to change the
 symbol definitions used by these Validators, you can override the settings by adding symbol elements to the symbols section of the redpen configuration file.
+
+Japanese Symbol Valiations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Symbols in Japanese has vary by the author and the writing group. RedPen provide the two defalut symbol settings for Japanese.
+The valiations are specified with **type** attribute. Currently there are two variation for Japanese symbol settings ("zenkaku2" and "hankaku").
+
+For example the following is the sample of configuration file for Japanese text with the "zenkaku2" setting.
+
+.. code-block:: xml
+
+    <redpen-conf lang="ja" type="zenkaku2">
+        <validators>
+            <validator name="InvalidSymbol" />
+            <validator name="SpaceWithSymbol" />
+            <validator name="SectionLength" />
+            <validator name="ParagraphNumber" />
+        </validators>
+    </redpen-conf>
+
+The symbols of "hankaku" type is the same as the symbol settings as "en." The symbols of "zenkaku2" is almost
+the same as normal type of "ja" with the following exceptions.
+
+  ============================= ============= ================== ================== ================== =============================================
+  Symbol                        Value         NeedBeforeSpace    NeedAfterSpace     InvalidChars       Description
+  ============================= ============= ================== ================== ================== =============================================
+  `FULL_STOP`                   '．'          false              false              '.', '。'          Sentence period
+  `COMMA`                       '，'           false              false              ',','、'          Comma
+  ============================= ============= ================== ================== ================== =============================================
