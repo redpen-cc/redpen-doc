@@ -1,7 +1,7 @@
-dv-doc
+redpen-doc
 ==========
 
-This repository is for the user manual of DocumentValidator.
+This repository is for the user manual of RedPen.
 
 Requirements
 -------------
@@ -18,9 +18,9 @@ We dowonload and build the manual with the following steps.
 
 2. clone the source code with git command
 
-    $ git clone git@github.com:recruit-tech/dv-doc
+    $ git clone git@github.com:recruit-tech/redpen-doc
 
 3. compile the user manual
 
-    $ cd dv-doc
+    $ cd redpen-doc
     $ make html
