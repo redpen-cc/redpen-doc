@@ -10,7 +10,7 @@ Requirements
 Download and Build
 ----------------------
 
-We dowonload and build the manual with the following steps.
+We download and build the manual with the following steps.
 
 1. go to your home directory (/home/username if your account name is 'username')
 
