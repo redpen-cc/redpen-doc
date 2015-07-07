@@ -24,8 +24,8 @@ and then decompress the package with the following commands.
 
 .. code-block:: bash
 
-  $ tar xvf redpen-cli-*-assembled.tar.gz
-  $ cd redpen-cli-*
+  $ tar xvf redpen-*-assembled.tar.gz
+  $ cd redpen-*
 
 Then, run the redpen command with the supplied sample document and configuration file.
 
