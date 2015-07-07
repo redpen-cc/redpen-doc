@@ -19,13 +19,13 @@ RedPen requires the following software.
 Example run
 -----------
 
-First, download the RedPen package from `release page <https://github.com/recruit-tech/redpen/releases/tag/v1.0.1>`_,
+First, download the RedPen package from `release page <https://github.com/recruit-tech/redpen/releases/>`_,
 and then decompress the package with the following commands.
 
 .. code-block:: bash
 
-  $ tar xvf redpen-cli-1.0-assembled.tar.gz
-  $ cd redpen-cli-1.0
+  $ tar xvf redpen-cli-*-assembled.tar.gz
+  $ cd redpen-cli-*
 
 Then, run the redpen command with the supplied sample document and configuration file.
 

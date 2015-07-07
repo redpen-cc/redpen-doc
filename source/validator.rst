@@ -23,6 +23,7 @@ RedPen supports the following validators.
 - DoubledWord
 - SuccessiveWord
 - DuplicatedSection
+- JapaneseStyle
 
 SentenceLength
 ~~~~~~~~~~~~~~~~~
@@ -252,10 +253,12 @@ SuccessiveWord validator throws an error if the same word is used twice in succe
 
   the item is is very good. 
 
-
-
 DuplicatedSection
 ~~~~~~~~~~~~~~~~~~
 
 DuplicatedSection validator throws an error if there are section pairs which have almost the same content.
 
+JapaneseStyle
+~~~~~~~~~~~~~~~~
+
+JapaneseStyle validator reports errors if the input file contains both "dearu" and "desu-masu" style.

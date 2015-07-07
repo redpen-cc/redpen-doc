@@ -42,6 +42,7 @@ redpen has the following options.
       plain    Plain text format
       wiki     Wiki (Textile) format
       markdown Markdown format
+      asciidoc AsciiDoc format
       ======== =====================
 
 .. Note::
@@ -82,31 +83,23 @@ RedPen also provides a sample server.
 Usage: redpen-server
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-We can start the redpen server with the following command.
+We can start and stop the redpen server with the following command.
 
 .. code-block:: bash
 
-  $ java -jar redpen-server.war [options]
+  $ redpen-server [start|stop]
 
-Options
-~~~~~~~~
+Configuration
+~~~~~~~~~~~~~~~
 
-redpen-server has the following options.
+redpen-server is able to be configured with editing the variables in **redpen-server** file itself.
+The following table shows the configuration variables and the default values.
 
-.. option:: -c <CONFIG_FILE>, --configuration <CONFIG_FILE>
-
-   Specify the RedPen configuration file
-
-.. option:: -p <PORT_NUMBER>, --port <PORT_NUMBER>
-
-   Port number. [**Default**: 8080]
-
-.. option:: -h, --help
-
-   Display help messages.
-
-.. option:: --version
-
-   Show the redpen version.
+  ============================= ============== ==============================================================================================================================
+  Configuration                 Default Value  Description
+  ============================= ============== ==============================================================================================================================
+  `REDPEN_PORT`                 8080           Specify Port number of RedPen server.
+  `STOP_KEY`                    redpen.stop    RedPen server is able to stop with Stop key with http access. If you do not want to stop with stop key comment out the value.
+  ============================= ============== ==============================================================================================================================
 
 The functionality of the RedPen server is described on the :doc:`server` page.

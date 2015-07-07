@@ -4,32 +4,123 @@ Extending RedPen
 RedPen users can extend RedPen by creating new Validators. This page describes how to construct your Validators and covers the
 basics of the internal document model used by Validators.
 
-Write your Validators
------------------------
-
 RedPen users can create new validators for themselves or their organization.
 Adding validator is simple - just write a class that extends the abstract class **Validator**.
 
+Extending Validators
+---------------------
+
+There are several methods which users can implment for their methods (validate, prevalidate and init).
+
+validate methods
+~~~~~~~~~~~~~~~~~
+
 Minimally, we just need to implement the "validate" template method.
 
-The interface is as follows.
+Users need to implement the one of validate methods provided by the Validator class.
+Currently there are three validate methods with three different parameters. 
 
 .. code-block:: java
 
-    public List<ValidationError> validate(E block);
-
-In the above interface, E is a template that represents a specific block type within a Document. Currently, RedPen supports the
-block template classes **Section** and **Sentence**.
+    /**
+     * validate the input document and returns the invalid points.
+     * {@link cc.redpen.validator.Validator} provides empty implementation. Validator implementation validates documents can override this method.
+     *
+     * @param document input
+     */
+     public void validate(Document document)
+     
+     /**
+      * validate the input document and returns the invalid points.
+      * {@link cc.redpen.validator.Validator} provides empty implementation. Validator implementation validates sentences can override this method.
+      *
+      * @param sentence input
+      */
+      public void validate(Sentence sentence)
+      
+     /**
+      * validate the input document and returns the invalid points.
+      * {@link cc.redpen.validator.Validator} provides empty implementation. Validator implementation validates sections can override this method.
+      *
+      * @param section input
+      */
+      public void validate(Section section)
 
 Note that the implemented class needs to be in one of the following packages:
 'cc.redpen.validator', 'cc.redpen.validator.sentence' or 'cc.redpen.validator.section.'
+
+prevalidate method
+~~~~~~~~~~~~~~~~~~~~
+
+the preValidate method called before validate method is run. This method is useful to create the prerequisite to run validate method.
+There are two prevalidte methods variations which have different parameters.
+
+.. code-block:: java
+
+    /**
+     * Process input blocks before run validation. This method is used to store
+     * the information needed to run Validator before the validation process.
+     *
+     * @param sentence input sentence
+     */
+     public void preValidate(Sentence sentence)
+     
+     /**
+      * Process input blocks before run validation. This method is used to store
+      * the information needed to run Validator before the validation process.
+      *
+      * @param section input section
+      */
+      public void preValidate(Section section)
+
+init method
+~~~~~~~~~~~~
+
+The init method is used to load the confiuration for the Validators.
+
+.. code-block:: java
+
+     /**
+      * Validation initialization, called after the configuration and symbol tables have been assigned
+      *
+      * @throws RedPenException
+      */
+      protected void init() throws RedPenException
+
+For example, **SentencelengthValidator** has a configuration **max_len**, which to specifies the maximum length of sentences in input documents.
+Following configuration specifies the maximum length to 200.
+
+.. code-block:: xml
+
+    <redpen-conf>
+        <validators>
+            ...
+            <validator name="SentenceLength">
+                <property name="max_len" value="200"/>
+	    </validator>
+            ...
+        </validators>
+    </redpen-conf>
+
+SentenceLengthValidator load the max_len value with init methods as follows.
+
+.. code-block:: java
+
+	protected void init() throws RedPenException {
+	        this.maxLength = getConfigAttributeAsInt("max_len", DEFAULT_MAX_LENGTH);
+	 }
+
+In the above code, getConfigAttributeAsInt loads the value of the max_len property as integer.
+
+Implement Validators
+---------------------
 
 There are two ways to add your Validator to RedPen.
 
 One way is to add the Validator source file to the RedPen source tree and then build RedPen normally.
 This method is simple, but involves bundling the source code for the Validators with the source code for RedPen.
 
-The second way is to create a Validator plugin. Creating a plugin is a little more complicated, but has the advantage that you can then independently manage the source code for your Validator.
+The second way is to create a Validator plugin. Creating a plugin has the advantage that you can then independently manage the source code for your Validator.
 
 Note that in both cases, your Validator's class name must have the suffix **Validator**.
 
@@ -38,9 +129,9 @@ In the next section, we will explain how to add a new Validator to Redpen's sour
 Add a Validator in Redpen source
 --------------------------------
 
-Let's define a plain Validator (PlainSentenceLengthValidator) - which check if the input sentence is over 100 characters long - and then apply it to RedPen's source tree.
+Let's define a plain Validator (SentenceLengthValidator) - which check if the input sentence is over 100 characters long - and then apply it to RedPen's source tree.
 
-PlainSentenceLengthValidator
+SentenceLengthValidator
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We create a PlainSentenceLengthValidator class and specify the package 'cc.redpen.validator.sentence'.
@@ -52,19 +143,31 @@ The following is an implementation of this class.
 
     package cc.redpen.validator.sentence;
 
-    public class PlainSentenceLengthValidator extends Validator<Sentence> {
-        public List<ValidationError> validate(Sentence sentence) {
-            List<ValidationError> errors = new ArrayList<>();
-            if (sentence.content.length() > 100) {
-               errors.add(new ValidationError(
-                        this.getClass(),
-                        "The length of the line exceeds the maximum"));
-            }
-            return errors;
-        }
-    }
+    /**
+     * Validate input sentences contain more characters more than specified.
+     */
+     final public class PlainSentenceLengthValidator extends Validator {
+         /**
+          * Default maximum length of sentences.
+	  */
+	  public static final int DEFAULT_MAX_LENGTH = 30;
+          private int maxLength = DEFAULT_MAX_LENGTH;
+	  
+          @Override
+	  public void validate(Sentence sentence) {
+	       if (sentence.getContent().length() > maxLength) {
+	           addValidationError(sentence, sentence.getContent().length(), maxLength);
+	        }
+	  }
+	  
+          @Override
+          protected void init() throws RedPenException {
+                this.maxLength = getConfigAttributeAsInt("max_len", DEFAULT_MAX_LENGTH);
+          }
+     }
 
-The class has a validate method that takes a Sentence object as its parameter. When this class is registered in the configuration file, RedPen automatically applies
+The class has a validate method that takes a Sentence object as its parameter.
+When this class is registered in the configuration file, RedPen automatically applies
 the validate method to each sentence in each input document.
 
 Include a new Validator
@@ -76,11 +179,11 @@ For example, to activate our newly created Validator PlainSentenceLengthValidato
 .. code-block:: xml
 
     <redpen-conf>
-        <validator-list>
+        <validator>
             ...
             <validator name="PlainSentenceLength" />
             ...
-        </validator-list>
+        </validator>
     </redpen-conf>
 
 We would then run RedPen normally, using this configuration file.
@@ -111,7 +214,7 @@ The following is the content of pom.xml:
              <dependency>
                  <groupId>redpen.cc</groupId>
                  <artifactId>redpen-core</artifactId>
-                 <version>0.6</version>
+                 <version>1.2</version>
                  <scope>system</scope>
                  <systemPath>${project.basedir}/lib/redpen-core-0.6.jar</systemPath>
              </dependency>
