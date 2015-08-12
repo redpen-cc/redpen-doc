@@ -6,12 +6,12 @@ RedPen supports the following validators.
 - SentenceLength
 - InvalidExpression
 - InvalidWord
-- SpaceAfterPeriod
+- SpaceBeginningOfSentence
 - CommaNumber
 - WordNumber
 - SuggestExpression
 - InvalidSymbol
-- SpaceWithSymbol
+- SymbolWithSpace
 - KatakanaEndHyphen
 - KatakanaSpellCheck
 - SectionLength
@@ -86,10 +86,10 @@ The dictionary is a set of words. The following is an example of a dictionary.
   wow
   ...
 
-SpaceAfterPeriod
-~~~~~~~~~~~~~~~~~~~
+SpaceBeginningOfSentenceValidator
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-SpaceAfterPeriod validator checks if there is a white space at the end of input sentences (except for the very last sentence of paragraph). If the input sentence does end with a white space, a warning is given.
+SpaceBeginningOfSentenceValidator validator checks if there is a white space at the end of input sentences (except for the very last sentence of paragraph). If the input sentence does end with a white space, a warning is given.
 
 CommaNumber
 ~~~~~~~~~~~~~
@@ -145,8 +145,8 @@ Some symbols or characters have alternate characters with the same role. For exa
 InvalidSymbol checks if input sentences contains invalid characters or symbols. The symbols and character settings are entered into the character setting file (char-table.xml).
 In this file, we write the symbols we should use in the document and their invalid counterparts. The details of these settings is described in the next section.
 
-SpaceWithSymbol
-~~~~~~~~~~~~~~~~
+SymbolWithSpace
+~~~~~~~~~~~~~~~
 
 Some symbols need space before or after them. For example, if we want to ensure a space is added before a left parentheses "(", we could add this preference to the character setting file (char-table.xml).
 
