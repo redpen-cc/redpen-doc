@@ -24,6 +24,7 @@ RedPen supports the following validators.
 - SuccessiveWord
 - DuplicatedSection
 - JapaneseStyle
+- DoubleNegative
 
 SentenceLength
 ~~~~~~~~~~~~~~~~~
@@ -169,6 +170,17 @@ KatakanaSpellCheck
 KatakanaSpellCheck validator checks if Katakana words have very similar words with different spellings in the document.
 For example, if the Katakana word "インデックス" and the variation "インデクス" exist within the same document, this validator will return a warning.
 
+.. table::
+
+  ==================== ============= ========================================
+  Property             Default Value Description
+  ==================== ============= ========================================
+  ``"dict"``           None          Path to a user dictionary for skip list of Katakana words.
+  ``"min_ratio"``      0.2           Threshold of the minimum similarity. KatakanaSpellCheck reports an error when there is a pair of words of which the similarity is more than the min_ratio.
+  ``"min_freq"``       5             Threshold of the minimum word frequency. KatakanaSpellCheck checks words of which frequencies are less than min_freq.
+  ==================== ============= ========================================
+
+
 SectionLength
 ~~~~~~~~~~~~~~
 
@@ -262,3 +274,8 @@ JapaneseStyle
 ~~~~~~~~~~~~~~~~
 
 JapaneseStyle validator reports errors if the input file contains both "dearu" and "desu-masu" style.
+
+DoubleNegative
+~~~~~~~~~~~~~~~~
+
+DoubleNegative validator reports errors when input sentence contains double negative expression.
