@@ -15,6 +15,19 @@ Plain text supports a set of paragraphs. Paragraphs are separated by two new lin
 
   Second paragraph describes the details of the issue and attempts to present a solution.
 
+AsciiDoc
+---------
+
+See the `AsciiDoctor reference <http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/>`_
+
+
+LaTeX
+---------
+
+.. Note::
+   RedPen does not supports Macros defined by writers.
+
+
 Wiki format
 -------------
 

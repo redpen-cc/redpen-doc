@@ -43,6 +43,7 @@ redpen has the following options.
       wiki     Wiki (Textile) format
       markdown Markdown format
       asciidoc AsciiDoc format
+      latex    LaTeX format
       ======== =====================
 
 .. Note::
