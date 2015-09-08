@@ -25,6 +25,13 @@ RedPen supports the following validators.
 - DuplicatedSection
 - JapaneseStyle
 - DoubleNegative
+- FrequentSentenceStart
+- UnexpandedAcronym
+- WordFrequency
+- Hyphenation
+- NumberFormat
+- ParenthesizedSentence
+- WeakExpression
 
 SentenceLength
 ~~~~~~~~~~~~~~~~~
@@ -36,7 +43,7 @@ SentenceLength validator checks the length of sentences in the input document. I
   ==================== ============= ===================================
   Property             Default Value Description
   ==================== ============= ===================================
-  ``"max_len"``        50            Maximum length of sentence.
+  ``max_len``          50            Maximum length of sentence.
   ==================== ============= ===================================
 
 InvalidExpression
@@ -49,8 +56,8 @@ InvalidExpression validator checks if input sentences contain invalid expression
   ==================== ============= ===========================================
   Property             Default Value Description
   ==================== ============= ===========================================
-  ``"dict"``           None          File name of dictionary.
-  ``"list"``           None          List of invalid expression split by comma.
+  ``dict``             None          File name of dictionary.
+  ``list``             None          List of invalid expression split by comma.
   ==================== ============= ===========================================
 
 The dictionary is a set of words or expressions. The following is an example of a dictionary.
@@ -74,8 +81,8 @@ InvalidWord validator checks if input sentences contain invalid words. If the in
   ==================== ============= ===========================================
   Property             Default Value Description
   ==================== ============= ===========================================
-  ``"dict"``           None          File name of dictionary.
-  ``"list"``           None          List of invalid expression split by comma.
+  ``dict``             None          File name of dictionary.
+  ``list``             None          List of invalid expression split by comma.
   ==================== ============= ===========================================
 
 The dictionary is a set of words. The following is an example of a dictionary.
@@ -102,7 +109,7 @@ CommaNumber validator checks the number of commas in a sentence.
   ==================== ============= ========================================
   Property             Default Value Description
   ==================== ============= ========================================
-  ``"max_num"``        4             Maximum number of commas in a sentence.
+  ``max_num``          4             Maximum number of commas in a sentence.
   ==================== ============= ========================================
 
 WordNumber
@@ -115,7 +122,7 @@ WordNumber validator checks the number of words in one setnece.
   ==================== ============= ========================================
   Property             Default Value Description
   ==================== ============= ========================================
-  ``"max_num"``        50             Maximum number of words in a sentence.
+  ``max_num``          50             Maximum number of words in a sentence.
   ==================== ============= ========================================
 
 SuggestExpression
@@ -128,7 +135,7 @@ SuggestExpression validator works in a similar way to the InvalidExpression vali
   ==================== ============= ===================================
   Property             Default Value Description
   ==================== ============= ===================================
-  ``"dict"``           None          File name of dictionary.
+  ``dict``             None          File name of dictionary.
   ==================== ============= ===================================
 
 The dictionary is a TSV file with two columns. First column contains the invalid expression, and the second column contains a suggested replacement expression.
@@ -175,9 +182,9 @@ For example, if the Katakana word "インデックス" and the variation "イン
   ==================== ============= ========================================
   Property             Default Value Description
   ==================== ============= ========================================
-  ``"dict"``           None          Path to a user dictionary for skip list of Katakana words.
-  ``"min_ratio"``      0.2           Threshold of the minimum similarity. KatakanaSpellCheck reports an error when there is a pair of words of which the similarity is more than the min_ratio.
-  ``"min_freq"``       5             Threshold of the minimum word frequency. KatakanaSpellCheck checks words of which frequencies are less than min_freq.
+  ``dict``             None          Path to a user dictionary for skip list of Katakana words.
+  ``min_ratio``        0.2           Threshold of the minimum similarity. KatakanaSpellCheck reports an error when there is a pair of words of which the similarity is more than the min_ratio.
+  ``min_freq``         5             Threshold of the minimum word frequency. KatakanaSpellCheck checks words of which frequencies are less than min_freq.
   ==================== ============= ========================================
 
 
@@ -192,7 +199,7 @@ SectionLength validator checks the maximum number of words allowed in an section
   ==================== ============= ========================================
   Property             Default Value Description
   ==================== ============= ========================================
-  ``"max_num"``        1000           Maximum number of words in a section.
+  ``max_num``          1000           Maximum number of words in a section.
   ==================== ============= ========================================
 
 ParagraphNumber
@@ -205,7 +212,7 @@ ParagraphNumber validator checks the maximum number of paragraphs allowed in one
   ====================== ============= ========================================
   Property               Default Value Description
   ====================== ============= ========================================
-  ``max_num"``           5             Maximum number of paragraphs in a seciton.
+  ``max_num``             5             Maximum number of paragraphs in a seciton.
   ====================== ============= ========================================
 
 ParagraphStartWith
@@ -252,8 +259,8 @@ DoubledWord validator throws an error if a word is used more than once in a sent
   ======================== ============= ========================================
   Property                 Default Value Description
   ======================== ============= ========================================
-  ``"dict"``               None          File name of skip list dictionary.
-  ``"list"``               None          List of skip words split by comma.
+  ``dict``                 None          File name of skip list dictionary.
+  ``list``                 None          List of skip words split by comma.
   ======================== ============= ========================================
 
 SuccessiveWord
@@ -279,3 +286,88 @@ DoubleNegative
 ~~~~~~~~~~~~~~~~
 
 DoubleNegative validator reports errors when input sentence contains double negative expression.
+
+FrequentSentenceStart
+~~~~~~~~~~~~~~~~~~~~~
+
+This validator reports an error if too many sentences start with the same sequence of words.
+
+.. table::
+
+  =========================== ============= ========================================
+  Property                    Default Value Description
+  =========================== ============= ========================================
+  ``leading_word_limit``      3              Number of words starting each sentence to consider.
+  ``percentage_threshold``    25             Maximum percentage of sentences that can start with the same words.
+  ``min_sentence_count``      5              Minimum number of sentences required for the validator to report errors.
+  =========================== ============= ========================================
+
+UnexpandedAcronym
+~~~~~~~~~~~~~~~~~
+
+This validator ensures that there are candidates for expanded versions of acronyms somewhere in the document.
+
+That is, if there exists an acronym ABC in the document, then there must also exist a sequence of capitalized words such as Axxx Bxx Cxxx.
+
+.. table::
+
+  =========================== ============= ========================================
+  Property                    Default Value Description
+  =========================== ============= ========================================
+  ``min_acronym_length``       3             Minimum size for the acronym
+  =========================== ============= ========================================
+
+WordFrequency
+~~~~~~~~~~~~~
+
+This validator ensures that usage of specific words in the document don't occur too frequently. It calculates the frequency that words are used and compares them the a reference histogram of word frequency for written English.
+
+Excessive deviation from normal usage generates a validation error.
+
+.. table::
+
+  =========================== ============= ========================================
+  Property                    Default Value Description
+  =========================== ============= ========================================
+  ``deviation_factor``         3             Permitted factor of deviation from the norm. So if a word is normally used 3% of the time, your document can use it up to 9% of the time.
+  ``min_word_count``           200           Minimum number of words in a document before this validator starts to validate
+  =========================== ============= ========================================
+
+Hyphenation
+~~~~~~~~~~~
+
+This validator ensures that sequences of words that are hyphenated in the dictionary are hyphenated in your document.
+
+NumberFormat
+~~~~~~~~~~~~
+
+This validator ensures that numbers in a sentence are formatted using commas (ie: 12,000 instead of 120000), and don't have excessive decimal points.
+
+.. table::
+
+  ================================= ============= ========================================
+  Property                          Default Value Description
+  ================================= ============= ========================================
+  ``decimal_delimiter_is_comma``    false          Change the decimal delimiter from . to , (as in Europe)
+  ``ignore_years``                  false          Ignore 4 digit integers (2015, 1998)
+  ================================= ============= ========================================
+
+ParenthesizedSentence
+~~~~~~~~~~~~~~~~~~~~~
+
+This validator generates errors if parenthesized sentences (such as this) are used too frequently, or are nested too heavily.
+
+.. table::
+
+  ================================= ============= ========================================
+  Property                          Default Value Description
+  ================================= ============= ========================================
+  ``max_nesting_level``             2              The limit on how many parenthesized expressions are permitted
+  ``max_count``                     1              The number of parenthesized expressions allowed
+  ``max_length``                    4              The maximum number of words in a parenthesized expression
+  ================================= ============= ========================================
+
+WeakExpression
+~~~~~~~~~~~~~~
+
+This validator generates errors if sequences of words form what is generally considered to be a "weak expression".
