@@ -19,7 +19,7 @@ RedPen requires the following software.
 Example run
 -----------
 
-First, download the RedPen package from `release page <https://github.com/recruit-tech/redpen/releases/>`_,
+First, download the RedPen package from `release page <https://github.com/redpen-cc/redpen/releases/>`_,
 and then decompress the package with the following commands.
 
 .. code-block:: bash

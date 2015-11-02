@@ -1,0 +1,15 @@
+[[faq]]
+FAQ
+---
+
+* Does RedPen check LaTeX documents for common style errors?
++
+--
+RedPen supports LaTex format from version 1.4. The following is
+a sample of the redpen command.
+
+[source,bash]
+----
+$ redpen -c redpen-conf.xml -f latex content.tex
+----
+--
