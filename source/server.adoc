@@ -1,24 +1,22 @@
-[[redpen-server]]
-RedPen Server
--------------
+= RedPen Server
+:toc: right
 
 The RedPen server delivers the majority of RedPen's functionality via a
 simple HTTP REST API.
 
 [[starting-the-redpen-server]]
 Starting the RedPen server
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------
 
-Please refer to the command page for details on how to start the RedPen
-server.
+Please refer to the <<command.adoc#,command>> page for details on how to start the RedPen server.
 
 [[redpen-server-api]]
 RedPen Server API
-~~~~~~~~~~~~~~~~~
+-----------------
 
 [[configuration]]
 Configuration
-^^^^^^^^^^^^^
+~~~~~~~~~~~~~
 
 */rest/config/redpens*
 
@@ -97,7 +95,7 @@ properties for this validator, as described in validator
 
 [[document-validation]]
 Document Validation
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 */document/validate*
 

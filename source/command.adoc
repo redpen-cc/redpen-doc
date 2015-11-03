@@ -1,19 +1,17 @@
-[[commands]]
-Commands
---------
+= RedPen Commands
+:toc: right
 
 RedPen provides both a simple standalone command line tool and a server.
 
 [[command-line-tool]]
 Command line tool
-~~~~~~~~~~~~~~~~~
+-----------------
 
-RedPen provides a simple command line tool called 'redpen' to check
-documents.
+RedPen provides a simple command line tool called 'redpen' to check documents.
 
 [[usage-redpen]]
-Usage: redpen
-^^^^^^^^^^^^^
+Using redpen
+~~~~~~~~~~~~
 
 We use the redpen command as follows.
 
@@ -27,7 +25,7 @@ The redpen command supports the following options.
 
 [[options]]
 Options
-^^^^^^^
+~~~~~~~
 
 redpen has the following options.
 
@@ -85,13 +83,13 @@ This argument determines the output format. Currently RedPen supports the follow
 
 [[sample-server]]
 Sample server
-~~~~~~~~~~~~~
+-------------
 
 RedPen also provides a sample server.
 
 [[usage-redpen-server]]
 Usage: redpen-server
-^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~
 
 We can start and stop the redpen server with the following command.
 
@@ -102,7 +100,7 @@ $ redpen-server [start|stop]
 
 [[configuration]]
 Configuration
-^^^^^^^^^^^^^
+~~~~~~~~~~~~~
 
 redpen-server is able to be configured with editing the variables in
 *redpen-server* file itself. The following table shows the configuration
@@ -115,4 +113,4 @@ variables and the default values.
 |STOP_KEY      |redpen.stop   |RedPen server is able to stop with Stop key with http access. If you do not want to stop with stop key comment out the value.
 |=======================================================================
 
-The functionality of the RedPen server is described on the server page.
+The functionality of the RedPen server is described on the <<server.adoc#,server>> page.

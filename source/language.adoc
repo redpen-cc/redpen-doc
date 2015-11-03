@@ -1,6 +1,5 @@
-[[language-settings]]
-Language Settings
------------------
+= RedPen Language Settings
+:toc: right
 
 RedPen processes documents written in any language, such as German,
 French or Japanese. RedPen default configuration will process documents
@@ -10,7 +9,7 @@ specify that language in the RedPen configuration file.
 
 [[override-language]]
 Override Language
-~~~~~~~~~~~~~~~~~
+-----------------
 
 Currently there are two language settings, "en" and "ja". "en" is for
 documents written in Latin-based languages such as English and German.
@@ -21,8 +20,8 @@ of the "symbols" section of the configuration file. In the following
 example, the config file specifies Japanese ("ja") as the document
 language.
 
-code,sourceCode,xml-------------------------------------------------------------------------------------------
-code,sourceCode,xml
+[source,xml]
+----
 <symbols lang="ja">
     <symbol name="EXCLAMATION_MARK" value="!" invalid-chars="！" after-space="true" />
     <symbol name="LEFT_QUOTATION_MARK" value="\'"  invalid-chars="“" before-space="true" />
@@ -31,11 +30,11 @@ code,sourceCode,xml
     <symbol name="FULL_STOP" value="。" invalid-chars="．." after-space="true" />
     <symbol name="COMMA" value="、" invalid-chars="," after-space="true" />
 </symbols>
--------------------------------------------------------------------------------------------
+----
 
 [[override-symbol-settings]]
 Override Symbol Settings
-~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------
 
 Depending on the documents and their authors, the characters and symbols
 used may differ. For example, one author might use "'" for a left single
@@ -43,16 +42,16 @@ quotation mark, whereas another author might use "‘" for a left single
 quotation mark.
 
 For such cases, RedPen provides the way to override the default symbols
-( see setting-characters-section section) used in the document, and in
+(see <<configuration.adoc#setting-symbols,Setting Symbols>> section) used in the document, and in
 addition, specify which symbols should not used in the input documents.
 
 The following overrides the setting for single quotation marks to
 enforce the use of the ascii quotation mark "'".
 
-code,sourceCode,xml---------------------------------------------------------------------------
-code,sourceCode,xml
+[source,xml]
+----
 <symbols>
   <symbol name="LEFT_SINGLE_QUOTATION_MARK" value="'"  invalid-chars="‘" />
   <symbol name="RIGHT_SINGLE_QUOTATION_MARK" value="'" invalid-chars="’"/>
 </symbols>
----------------------------------------------------------------------------
+----

@@ -1,6 +1,5 @@
-[[configuration]]
-Configuration
--------------
+= RedPen Configuration
+:toc: right
 
 RedPen's configuration file consists of two separate blocks. One block
 configures the RedPen validators and the other lets you override
@@ -8,7 +7,7 @@ characters and symbols for the input documents.
 
 [[configuration-file]]
 Configuration file
-~~~~~~~~~~~~~~~~~~
+------------------
 
 RedPen has a single configuration file, which contains all the settings
 RedPen require to work with different types of input documents. The main
@@ -52,12 +51,12 @@ The following is an example of a RedPen configuration file.
 ----
 
 In the next section we will cover the configuration of validators in
-greater detail. The settings for the symbols section are described in
-setting-characters-section.
+greater detail. The settings for the symbols section are described in the
+<<setting-symbols,Setting Symbols>> section.
 
 [[validator-configuration]]
 Validator configuration
-~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------
 
 The RedPen configuration file contains a "validators" section for
 registering Validators. RedPen will apply each validator specified in
@@ -95,19 +94,19 @@ For example, you can override the maxmimum character count used by the
 validators also have "sub-validators" which can also be configured
 within the validator section.
 
-We will cover all supported validators in the validator page.
+We will cover all supported validators in the <<validator.adoc#,validator>> page.
 
 [[setting-symbols]]
 Setting symbols
-~~~~~~~~~~~~~~~
+---------------
 
 The *lang* attribute of the *redpen-conf* element determines how various
 symbols are handled by RedPen. RedPen supports default symbols for "en"
-and "ja", which are described in en-default-symbol-setting and
-ja-default-symbol-setting.
+and "ja", which are described in <<en-default-symbol-setting,English symbols>> and
+<<ja-default-symbol-setting,Japanese Symbols>>.
 
 The default symbol settings for a target language can be overridden by
-configuring the "symbols" section of the RedPen configuration file.
+configuring the symbols section of the RedPen configuration file.
 
 The default settings are described in the following sections. Within the
 symbols configuration section we can use *symbol* elements to specify
@@ -128,7 +127,7 @@ The following table describes the properties of the symbol element.
 
 [[sample-setting-symbols]]
 Sample: Setting symbols
-^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~
 
 In the following example, we can see a symbols section that defines 3
 symbols. The first element defines exlamation mark as '!'. Then,
@@ -152,7 +151,7 @@ alternatives are permitted in our documents.
 
 [[default-settings-for-english]]
 Default Settings for English
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The following table shows the default symbol settings for English and
 other latin based documents. In the table, the first column contains the
@@ -207,7 +206,7 @@ elements to the symbols section of the redpen configuration file.
 
 [[default-settings-for-japanese]]
 Default Settings for Japanese
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The following table shows the default symbol settings for Japanese
 documents. In the table, the first column contains the name of each
@@ -260,12 +259,12 @@ SpaceValidator. If you want to change the symbol definitions used by
 these Validators, you can override the settings by adding symbol
 elements to the symbols section of the redpen configuration file.
 
-[[japanese-symbol-valiations]]
-Japanese Symbol Valiations
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+[[japanese-symbol-validations]]
+Japanese Symbol Validations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Symbols in Japanese has vary by the author and the writing group. RedPen
-provide the two defalut symbol settings for Japanese. The valiations are
+provide the two defalut symbol settings for Japanese. The validations are
 specified with *type* attribute. Currently there are two variation for
 Japanese symbol settings ("zenkaku2" and "hankaku").
 

@@ -1,47 +1,28 @@
-[[quickstart]]
-QuickStart
-----------
+= RedPen Documentation
+:toc: right
 
-This quickstart guide is to help you get started with RedPen. Let's go
-through some of the basics.
+RedPen is an open source proofreading tool to check if your technical documents meet writing standards.
 
-[[requirements]]
-Requirements
-~~~~~~~~~~~~
+include::quickstart.adoc[]
 
-RedPen requires the following software.
+include::command.adoc[]
 
-* Java 1.8.0 or greater
-* Maven 3.0.0 or greater
+include::output.adoc[]
 
-[[example-run]]
-Example run
-~~~~~~~~~~~
+include::validator.adoc[]
 
-First, download the RedPen package from
-https://github.com/redpen-cc/redpen/releases/[release page], and then
-decompress the package with the following commands.
+include::configuration.adoc[]
 
-[source,bash]
-----
-$ tar xvf redpen-*-assembled.tar.gz
-$ cd redpen-*
-----
+include::format.adoc[]
 
-Then, run the redpen command with the supplied sample document and
-configuration file.
+include::extend.adoc[]
 
-[source,bash]
-----
-$ bin/redpen -c conf/redpen-conf-en.xml sample-doc/en/sampledoc-en.txt
-14:32:37.639 [main] INFO  org.unigram.docvalidator.Main - loading character table file: sample/conf/symbol-conf-en.xml
-14:32:37.652 [main] INFO  o.u.docvalidator.util.CharacterTable - Succeeded to load character table
-14:32:37.654 [main] INFO  o.unigram.docvalidator.parser.Parser - comma is set to ","
-14:32:37.655 [main] INFO  o.unigram.docvalidator.parser.Parser - full stop is set to "."
-14:32:37.663 [main] INFO  o.u.d.v.s.ParagraphStartWithValidator - Using the default value of paragraph_start_with.
-CheckError[sample/doc/txt/en/sampledoc-en.txt: 0] = The length of the line exceeds the maximum 265 in line: ln bibliometrics and link analysis studies many attempts have been made to analyze the \
-relationship amongscientific papers, authors andjoumals and recently, these research results have been found to be effective for analyzing the link structure ofweb pages as we11.
-CheckError[sample/doc/txt/en/sampledoc-en.txt: 0] = The length of the line exceeds the maximum 161 in line:  In addition,  Most of these methods are concernedwith the two link analysis measures: \
-relatedness between documenatsndglobal importance of individual documents.
-...
-----
+include::language.adoc[]
+
+include::server.adoc[]
+
+include::faq.adoc[]
+
+include::developers.adoc[]
+
+include::links.adoc[]

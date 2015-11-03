@@ -1,6 +1,5 @@
-[[supported-validators]]
-Supported Validators
---------------------
+= RedPen Supported Validators
+:toc: right
 
 RedPen supports the following validators.
 
@@ -36,7 +35,7 @@ RedPen supports the following validators.
 
 [[sentencelength]]
 SentenceLength
-~~~~~~~~~~~~~~
+--------------
 
 [options="header"]
 |====
@@ -50,17 +49,17 @@ maximum length, the validator generates a warning.
 
 [[properties]]
 Properties
-^^^^^^^^^^
+~~~~~~~~~~
 
 [[supported-languages]]
 Supported languages
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 SentenceLength can be applied to any language.
 
 [[invalidexpression]]
 InvalidExpression
-~~~~~~~~~~~~~~~~~
+-----------------
 
 InvalidExpression validator checks if input sentences contain invalid
 expressions (words or phrases). If the input sentence contains invalid
@@ -68,7 +67,7 @@ expressions, the validator generates a warning.
 
 [[properties-1]]
 Properties
-^^^^^^^^^^
+~~~~~~~~~~
 
 [options="header"]
 |====
@@ -90,13 +89,13 @@ kidding
 
 [[supported-languages-1]]
 Supported languages
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 InvalidExpression can be applied to any language.
 
 [[invalidword]]
 InvalidWord
-~~~~~~~~~~~
+-----------
 
 InvalidWord validator checks if input sentences contain invalid words.
 If the input sentence contains invalid words, the validator generates a
@@ -104,7 +103,7 @@ warning.
 
 [[properties-2]]
 Properties
-^^^^^^^^^^
+~~~~~~~~~~
 
 [options="header"]
 |====
@@ -125,14 +124,14 @@ wow
 
 [[supported-languages]]
 Supported Languages
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 InvalidWord can be any of languages (but the default dictionaries are
 supplied only for English and Japanese).
 
 [[spacebeginningofsentencevalidator]]
 SpaceBeginningOfSentenceValidator
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------
 
 SpaceBeginningOfSentenceValidator validator checks if there is a white
 space at the end of input sentences (except for the very last sentence
@@ -141,19 +140,19 @@ warning is given.
 
 [[supported-languages-2]]
 Supported languages
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 SpaceBeginningOfSentenceValidator can be applied to any language.
 
 [[commanumber]]
 CommaNumber
-~~~~~~~~~~~
+-----------
 
 CommaNumber validator checks the number of commas in a sentence.
 
 [[properties-3]]
 Properties
-^^^^^^^^^^
+~~~~~~~~~~
 
 [options="header"]
 |====
@@ -163,19 +162,19 @@ Properties
 
 [[supported-languages-1]]
 Supported languages
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 CommaNumber can be applied to any language.
 
 [[wordnumber]]
 WordNumber
-~~~~~~~~~~
+----------
 
 WordNumber validator checks the number of words in one setnece.
 
 [[properties-4]]
 Properties
-^^^^^^^^^^
+~~~~~~~~~~
 
 [options="header"]
 |====
@@ -185,7 +184,7 @@ Properties
 
 [[supported-languages-3]]
 Supported languages
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 WordNumber can be applied to any languages except for some Asian
 languages (Chinese or Thai), since RedPen does not have the tokenizer
@@ -193,7 +192,7 @@ for the unspported languages.
 
 [[suggestexpression]]
 SuggestExpression
-~~~~~~~~~~~~~~~~~
+-----------------
 
 SuggestExpression validator works in a similar way to the
 InvalidExpression validator. If the input sentence contains invalid
@@ -202,7 +201,7 @@ expression.
 
 [[properties-5]]
 Properties
-^^^^^^^^^^
+~~~~~~~~~~
 
 [options="header"]
 |====
@@ -222,14 +221,14 @@ LLVM   Low Level Virtual Machine
 
 [[supported-languages-4]]
 Supported languages
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 SuggestExpression can be any of languages but the default dictionaries
 are provided only for English and Japanese.
 
 [[invalidsymbol]]
 InvalidSymbol
-~~~~~~~~~~~~~
+-------------
 
 Some symbols or characters have alternate characters with the same role.
 For example question mark "? (0x003F)" has another unicode variation
@@ -242,14 +241,14 @@ section.
 
 [[supported-languages-2]]
 Supported languages
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 InvalidSymbol works for any langugages. See the settings of symbols in
-the configuration page.
+the <<configuration.adoc#,configuration>> page.
 
 [[symbolwithspace]]
 SymbolWithSpace
-~~~~~~~~~~~~~~~
+---------------
 
 Some symbols need space before or after them. For example, if we want to
 ensure a space is added before a left parentheses "(", we could add this
@@ -257,13 +256,13 @@ preference to the character setting file (char-table.xml).
 
 [[supported-languages-3]]
 Supported languages
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 InvalidSymbol works for any language.
 
 [[katakanaendhyphen]]
 KatakanaEndHyphen
-~~~~~~~~~~~~~~~~~
+-----------------
 
 KatakanaEndHyphen validator checks the end hyphens of Katakana words in
 *Japanese* documents. Japanese Katakana words have variations in their
@@ -280,13 +279,13 @@ represented by a hyphen is 1 except for Youon.
 
 [[supported-languages-4]]
 Supported languages
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 KatakanaEndSymbol works only for Japanees texts.
 
 [[katakanaspellcheck]]
 KatakanaSpellCheck
-~~~~~~~~~~~~~~~~~~
+------------------
 
 KatakanaSpellCheck validator checks if Katakana words have very similar
 words with different spellings in the document. For example, if the
@@ -294,7 +293,7 @@ Katakana word "インデックス" and the variation "インデクス" exist wit
 the same document, this validator will return a warning.
 
 Properties
-^^^^^^^^^^
+~~~~~~~~~~
 
 [options="header"]
 |====
@@ -306,20 +305,20 @@ Properties
 
 [[supported-languages-5]]
 Supported languages
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 KatakanaSpellCheck works only for Japanesee texts.
 
 [[sectionlength]]
 SectionLength
-~~~~~~~~~~~~~
+-------------
 
 SectionLength validator checks the maximum number of words allowed in an
 section.
 
 [[properties-6]]
 Properties
-^^^^^^^^^^
+~~~~~~~~~~
 
 [options="header"]
 |====
@@ -329,20 +328,20 @@ Properties
 
 [[supported-languages]]
 Supported languages
-^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~
 
 SectionLength works for any language.
 
 [[paragraphnumber]]
 ParagraphNumber
-~~~~~~~~~~~~~~~
+---------------
 
 ParagraphNumber validator checks the maximum number of paragraphs
 allowed in one section.
 
 [[properties]]
 Properties
-^^^^^^^^^^
+~~~~~~~~~~
 
 [options="header"]
 |====
@@ -352,20 +351,20 @@ Properties
 
 [[supported-languages-1]]
 Supported languages
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 ParagraphNumber works for any language.
 
 [[paragraphstartwith]]
 ParagraphStartWith
-~~~~~~~~~~~~~~~~~~
+------------------
 
 ParagraphStartWith validator checks to see if the characters at the
 beginning of paragraphs conforms to the correct style.
 
 [[properties-7]]
 Properties
-^^^^^^^^^^
+~~~~~~~~~~
 
 [options="header"]
 |====
@@ -375,13 +374,13 @@ Properties
 
 [[supported-languages-6]]
 Supported languages
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 ParagraphStartWith works for any langugaes.
 
 [[spacebetweenalphabeticalword]]
 SpaceBetweenAlphabeticalWord
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------
 
 SpaceBetweenAlphabeticalWord validator checks that alphabetic words are
 surrounded with whitespace. This validator is used in non-latin
@@ -389,14 +388,14 @@ languages such as Japanese or Chinese.
 
 [[supported-languages-7]]
 Supported languages
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 SpaceBetweenAlphabeticalWord works for languages whose words are not
 split by white spaces such as Japanese or Chinese.
 
 [[contraction]]
 Contraction
-~~~~~~~~~~~
+-----------
 
 Contraction validator throws an error when contractions are used in a
 document in which more than half of the verbs are written in
@@ -404,26 +403,26 @@ non-contracted form.
 
 [[supported-languages-8]]
 Supported languages
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 Contraction works only for English texts.
 
 [[spelling]]
 Spelling
-~~~~~~~~
+--------
 
 Spelling validator throws an error if there are spelling mistakes in the
 input documents. This validator only works for English documents.
 
 [[supported-languages-9]]
 Supported languages
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 Spelling works only for English texts.
 
 [[doubledword]]
 DoubledWord
-~~~~~~~~~~~
+-----------
 
 DoubledWord validator throws an error if a word is used more than once
 in a sentence. For example, if an input document contains the following
@@ -435,7 +434,7 @@ this good item is very good.
 
 [[properties-8]]
 Properties
-^^^^^^^^^^
+~~~~~~~~~~
 
 [options="header"]
 |====
@@ -446,7 +445,7 @@ Properties
 
 [[supported-languages-10]]
 Supported languages
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 DoubledWord works for any langages except for Chiense or other Asian
 languages. Note that the default dictionaries are supplied for Japanese
@@ -454,7 +453,7 @@ and English.
 
 [[successiveword]]
 SuccessiveWord
-~~~~~~~~~~~~~~
+--------------
 
 SuccessiveWord validator throws an error if the same word is used twice
 in succession. For example, if an input document contains the following
@@ -467,59 +466,59 @@ the item is is very good.
 
 [[supported-languages-11]]
 Supported languages
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 SuccessiveWord works for any langages except for Chiense or other Asian
 languages.
 
 [[duplicatedsection]]
 DuplicatedSection
-~~~~~~~~~~~~~~~~~
+-----------------
 
 DuplicatedSection validator throws an error if there are section pairs
 which have almost the same content.
 
 [[supported-languages-12]]
 Supported languages
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 DuplicatedSection works for any language.
 
 [[japanesestyle]]
 JapaneseStyle
-~~~~~~~~~~~~~
+-------------
 
 JapaneseStyle validator reports errors if the input file contains both
 "dearu" and "desu-masu" style.
 
 [[supported-languages-13]]
 Supported languages
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 JapaneseStyle works only for Japanese
 
 [[doublenegative]]
 DoubleNegative
-~~~~~~~~~~~~~~
+--------------
 
 DoubleNegative validator reports errors when input sentence contains
 double negative expression.
 
 [[supported-languages-14]]
 Supported languages
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 DoubleNegative works only for English and Japanese texts.
 
 [[frequentsentencestart]]
 FrequentSentenceStart
-~~~~~~~~~~~~~~~~~~~~~
+---------------------
 
 This validator reports an error if too many sentences start with the
 same sequence of words.
 
 Properties
-^^^^^^^^^^
+~~~~~~~~~~
 
 [options="header"]
 |====
@@ -531,13 +530,13 @@ Properties
 
 [[supported-languages-15]]
 Supported languages
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 FrequentSentenceStart works for any language.
 
 [[unexpandedacronym]]
 UnexpandedAcronym
-~~~~~~~~~~~~~~~~~
+-----------------
 
 This validator ensures that there are candidates for expanded versions
 of acronyms somewhere in the document.
@@ -547,7 +546,7 @@ also exist a sequence of capitalized words such as Axxx Bxx Cxxx.
 
 [[properties-9]]
 Properties
-^^^^^^^^^^
+~~~~~~~~~~
 
 [options="header"]
 |====
@@ -557,13 +556,13 @@ Properties
 
 [[supported-languages-16]]
 Supported languages
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 UnexpandedAcronym works only for English text.
 
 [[wordfrequency]]
 WordFrequency
-~~~~~~~~~~~~~
+-------------
 
 This validator ensures that usage of specific words in the document
 don't occur too frequently. It calculates the frequency that words are
@@ -574,7 +573,7 @@ Excessive deviation from normal usage generates a validation error.
 
 [[properties-10]]
 Properties
-^^^^^^^^^^
+~~~~~~~~~~
 
 [options="header"]
 |====
@@ -585,26 +584,26 @@ Properties
 
 [[supported-languages-17]]
 Supported languages
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 WordFrequency works only for English text.
 
 [[hyphenation]]
 Hyphenation
-~~~~~~~~~~~
+-----------
 
 This validator ensures that sequences of words that are hyphenated in
 the dictionary are hyphenated in your document.
 
 [[supported-languages-18]]
 Supported languages
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 Hyphenation works only for English texts.
 
 [[numberformat]]
 NumberFormat
-~~~~~~~~~~~~
+------------
 
 This validator ensures that numbers in a sentence are formatted using
 commas (ie: 12,000 instead of 120000), and don't have excessive decimal
@@ -612,7 +611,7 @@ points.
 
 [[properties-11]]
 Properties
-^^^^^^^^^^
+~~~~~~~~~~
 
 [options="header"]
 |====
@@ -623,21 +622,21 @@ Properties
 
 [[supported-languages-19]]
 Supported languages
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 NumberFormat works for texts written in European languages such as
 English or French.
 
 [[parenthesizedsentence]]
 ParenthesizedSentence
-~~~~~~~~~~~~~~~~~~~~~
+---------------------
 
 This validator generates errors if parenthesized sentences (such as
 this) are used too frequently, or are nested too heavily.
 
 [[properties-12]]
 Properties
-^^^^^^^^^^
+~~~~~~~~~~
 
 [options="header"]
 |====
@@ -649,20 +648,20 @@ Properties
 
 [[supported-languages-20]]
 Supported languages
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 ParenthesizedSentence works only for texts written in Eurpopean
 languages.
 
 [[weakexpression]]
 WeakExpression
-~~~~~~~~~~~~~~
+--------------
 
 This validator generates errors if sequences of words form what is
 generally considered to be a "weak expression".
 
 [[supported-languages-21]]
 Supported languages
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 WeakExpression works only for English.
