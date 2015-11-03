@@ -6,6 +6,7 @@ This repository is for the user manual of RedPen.
 Requirements
 -------------
 - AsciiDoctor
+- rubygem-coderay
 
 Download and Build
 ----------------------

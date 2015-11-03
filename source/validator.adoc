@@ -307,7 +307,7 @@ Properties
 Supported languages
 ~~~~~~~~~~~~~~~~~~~
 
-KatakanaSpellCheck works only for Japanesee texts.
+KatakanaSpellCheck works only for Japanese texts.
 
 [[sectionlength]]
 SectionLength

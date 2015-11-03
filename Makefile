@@ -16,5 +16,6 @@ clean:
 
 html:
 	mkdir -p $(BUILDDIR)/html
-	$(ASCIIDOCTOR) -d book -b html5 source/*.adoc -D$(BUILDDIR)/html
+	cp source/*.jpg source/*.png $(BUILDDIR)/html/
+	$(ASCIIDOCTOR) -a source-highlighter=coderay -d book -b html5 source/*.adoc -D$(BUILDDIR)/html
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html"

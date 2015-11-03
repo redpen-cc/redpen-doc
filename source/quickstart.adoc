@@ -44,10 +44,3 @@ CheckError[sample/doc/txt/en/sampledoc-en.txt: 0] = The length of the line excee
 relatedness between documenatsndglobal importance of individual documents.
 ...
 ----
-
-
-include::validator.adoc[]
-
-include::configuration.adoc[]
-
-include::format.adoc[]
