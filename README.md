@@ -5,7 +5,7 @@ This repository is for the user manual of RedPen.
 
 Requirements
 -------------
-- Sphinx 1.2
+- AsciiDoctor
 
 Download and Build
 ----------------------
