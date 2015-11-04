@@ -1,0 +1,287 @@
+== RedPen Configuration
+
+RedPen's configuration file consists of two separate blocks. One block
+configures the RedPen validators and the other lets you override
+characters and symbols for the input documents.
+
+[[configuration-file]]
+=== Configuration file
+
+RedPen has a single configuration file, which contains all the settings
+RedPen require to work with different types of input documents. The main
+configuration file is an xml file with a root element of "redpen-conf".
+Within this element there are two sub elements named "validators" and
+"symbols".
+
+In order to match the default validators and character settings to a
+target language, such as Japanese or English, we can specify *lang* and
+*type* attributes in the *redpen-conf* element to override the default
+character settings.
+
+The *validators* section specifies which validators are to be loaded by
+RedPen. Each *validator* within this section can have their property
+values overriden.
+
+*symbols* section overrides the default symbol settings for the target
+language.
+
+The following is an example of a RedPen configuration file.
+
+[source,xml]
+----
+<redpen-conf lang="en">
+    <validators>
+        <validator name="SentenceLength">
+            <property name="max_len" value="200"/>
+        </validator>
+        <validator name="InvalidSymbol" />
+        <validator name="SpaceWithSymbol" />
+        <validator name="SectionLength">
+            <property name="max_num" value="2000"/>
+        </validator>
+        <validator name="ParagraphNumber" />
+    </validators>
+    <symbols>
+         <symbol name="EXCLAMATION_MARK" value="!" invalid-chars="！" after-space="true" />
+         <symbol name="LEFT_QUOTATION_MARK" value="\'"  invalid-chars="“" before-space="true" />
+    </symbols>
+</redpen-conf>
+----
+
+In the next section we will cover the configuration of validators in
+greater detail. The settings for the symbols section are described in the
+<<setting-symbols,Setting Symbols>> section.
+
+[[validator-configuration]]
+=== Validator configuration
+
+The RedPen configuration file contains a "validators" section for
+registering Validators. RedPen will apply each validator specified in
+this section to the to the input document.
+
+The following is a sample "validators" section.
+
+[source,xml]
+----
+<validators>
+    <validator name="SentenceLength">
+        <property name="max_len" value="200"/>
+    </validator>
+    <validator name="InvalidSymbol" />
+    <validator name="SpaceWithSymbol" />
+    <validator name="SectionLength">
+        <property name="max_num" value="2000"/>
+    </validator>
+    <validator name="ParagraphNumber" />
+ </validators>
+----
+
+Each validator is configured within its own "validator" element. The
+"name" attribute of this element specifies the name of the validator,
+which is essentially the validator's class name without the trailing
+"Validator". Each validator is responsible for checking a particular
+aspect of the input document. For example, if the "SectionLength"
+validator is included in the configuration, then RedPen's
+DocumentValidator will check the length of each 'section' of each input
+document.
+
+Some validator components can be configured using "property" elements.
+For example, you can override the maxmimum character count used by the
+"SectionLength" validator by specifying a "max_num" property. Some
+validators also have "sub-validators" which can also be configured
+within the validator section.
+
+We will cover all supported validators in the <<validator.adoc#,validator>> page.
+
+[[setting-symbols]]
+=== Setting symbols
+
+The *lang* attribute of the *redpen-conf* element determines how various
+symbols are handled by RedPen. RedPen supports default symbols for "en"
+and "ja", which are described in <<en-default-symbol-setting,English symbols>> and
+<<ja-default-symbol-setting,Japanese Symbols>>.
+
+The default symbol settings for a target language can be overridden by
+configuring the symbols section of the RedPen configuration file.
+
+The default settings are described in the following sections. Within the
+symbols configuration section we can use *symbol* elements to specify
+which symbols to use when validating documents. Each "symbol" element
+overrides a character found in the documents.
+
+The following table describes the properties of the symbol element.
+
+[options="header"]
+|====
+|Property             |Mandatory     |Default Value |Description
+|`name`               |true          |none          |Name of the symbol
+|`value`              |true          |none          |Value of the symbol
+|`before-space`       |false         |false         |Need space before the symbol
+|`after-space`        |false         |false         |Need space after the symbol
+|`invalid-chars`      |false         |""            |List of invalid symbols
+|====
+
+[[sample-setting-symbols]]
+==== Sample: Setting symbols
+
+In the following example, we can see a symbols section that defines 3
+symbols. The first element defines exlamation mark as '!'. Then,
+FULL_STOP defines a period as the character "." and specifies that the
+symbol must be followed by a space. The third element defines comma as
+',' and also defines '、' and '，' as invalid comma characters. This is
+because some characters have equivalent symbolic meanings.
+
+For example, in Japanese both '.' and '。' can represent a FULL_STOP.
+The invalid-chars setting allows us to restrict which character
+alternatives are permitted in our documents.
+
+[source,xml]
+----
+<symbols>
+    <symbol name="EXCLAMATION_MARK" value="!" />
+    <symbol name="FULL_STOP" value="." after-space="true" />
+    <symbol name="COMMA" value="," invalid-chars="、，" after-space="true" />
+</symbols>
+----
+
+[[default-settings-for-english]]
+==== Default Settings for English
+
+The following table shows the default symbol settings for English and
+other latin based documents. In the table, the first column contains the
+name of each symbol and the second column (Value) shows the symbol's
+character value. The columns 'NeedBeforeSpace', 'NeedAfterSpace'
+'InvalidChars' indicate if the symbol should be followed by or preceded
+by a space and the symbol's invalid characters, respectively.
+
+[options="header"]
+|====
+|Symbol                        |Value         |NeedBeforeSpace    |NeedAfterSpace     |InvalidChars     |  Description
+|`FULL_STOP`                   |'.'           |false              |true               |'．', '。'       |  Sentence period
+|`SPACE`                       |' '           |false              |false              |'　'             |  White space between words
+|`EXCLAMATION_MARK`            |'!'           |false              |true               |'！'             |  Exclamation mark
+|`NUMBER_SIGN`                 |'#'           |false              |false              |'＃'             |  Number sign
+|`DOLLAR_SIGN`                 |'$'           |false              |false              |'＄'             |  Dollar sign
+|`PERCENT_SIGN`                |'%'           |false              |false              |'％'             |  Percent sign
+|`QUESTION_MARK`               |'?'           |false              |true               |'？'             |  Question mark
+|`AMPERSAND`                   |'&'           |false              |true               |'＆'             |  Ampersand
+|`LEFT_PARENTHESIS`            |'('           |true               |false              |'（'             |  Left parenthesis
+|`RIGHT_PARENTHESIS`           |')'           |false              |true               |'）'             |  Right parenthesis
+|`ASTERISK`                    |'*'           |false              |false              |'＊'             |  Asterrisk
+|`COMMA`                       |','           |false              |true               |'、','，'        |  Comma
+|`PLUS_SIGN`                   |'+'           |false              |false              |'＋'             |  Plus sign
+|`HYPHEN_SIGN`                 |'-'           |false              |false              |'ー'             |  Hyphenation
+|`SLASH`                       |'/'           |false              |false              |'／'             |  Slash
+|`COLON`                       |':'           |false              |true               |'：'             |  Colon
+|`SEMICOLON`                   |';'           |false              |true               |'；'             |  Semicolon
+|`LESS_THAN_SIGN`              |'<'           |false              |false              |'＜'             |  Less than sign
+|`GREATER_THAN_SIGN`           |'>'           |false              |false              |'＞'             |  Greater than sign
+|`EQUAL_SIGN`                  |'='           |false              |false              |'＝'             |  Equal sign
+|`AT_MARK`                     |'@'           |false              |false              |'＠'             |  At mark
+|`LEFT_SQUARE_BRACKET`         |'['           |true               |false              |                 |  Left square bracket
+|`RIGHT_SQUARE_BRACKET`        |']'           |false              |true               |                 |  Right square bracket
+|`BACKSLASH`                   |'\'           |false              |false              |                 |  Backslash
+|`CIRCUMFLEX_ACCENT`           |'^'           |false              |false              |'＾'             |  Circumflex accent
+|`LOW_LINE`                    |'_'           |false              |false              |'＿'             |  Low line (under bar)
+|`LEFT_CURLY_BRACKET`          |'{'           |true               |false              |'｛'             |  Left curly bracket
+|`RIGHT_CURLY_BRACKET`         |'}'           |true               |false              |'｝'             |  Right curly bracket
+|`VERTICAL_VAR`                |'|'           |false              |false              |'｜'             |  Vertical bar
+|`TILDE`                       |'~'           |false              |false              |'〜'             |  Tilde
+|`LEFT_SINGLE_QUOTATION_MARK`  |'''           |false              |false              |                 |  Left single quotation mark
+|`RIGHT_SINGLE_QUOTATION_MARK` |'''           |false              |false              |                 |  Right single quotation mark
+|`LEFT_DOUBLE_QUOTATION_MARK`  |'"'           |false              |false              |                 |  Left double quotation mark
+|`RIGHT_DOUBLE_QUOTATION_MARK` |'"'           |false              |false              |                 |  Right double quotation mark
+|====
+
+These settings are used by several Validators such as InvalidSymbol and
+SpaceValidator. If you want to change the symbol definitions used by
+these Validators, you can override the settings by adding symbol
+elements to the symbols section of the redpen configuration file.
+
+[[default-settings-for-japanese]]
+==== Default Settings for Japanese
+
+The following table shows the default symbol settings for Japanese
+documents. In the table, the first column contains the name of each
+symbol and the second column (Value) shows the symbol's character value.
+The columns 'NeedBeforeSpace', 'NeedAfterSpace' 'InvalidChars' indicate
+if the symbol should be followed by or preceded by a space and the
+symbol's invalid characters, respectively.
+
+[options="header"]
+|====
+|Symbol                        |Value        | NeedBeforeSpace  |  NeedAfterSpace    |  InvalidChars     |  Description
+|`FULL_STOP`                   |'。'         | false            |  false             |  '．','.'         |  Sentence period
+|`SPACE`                       |'　'         | false            |  false             |                   |  White space between words
+|`EXCLAMATION_MARK`            |'！'         | false            |  false             |  '!'              |  Exclamation mark
+|`NUMBER_SIGN`                 |'＃'         | false            |  false             |  '#'              |  Number sign
+|`DOLLAR_SIGN`                 |'＄'         | false            |  false             |  '$'              |  Dollar sign
+|`PERCENT_SIGN`                |'％'         | false            |  false             |  '%'              |  Percent sign
+|`QUESTION_MARK`               |'？'         | false            |  false             |  '?'              |  Question mark
+|`AMPERSAND`                   |'＆'         | false            |  false             |  '&'              |  Ampersand
+|`LEFT_PARENTHESIS`            |'（'         | false            |  false             |  '('              |  Left parenthesis
+|`RIGHT_PARENTHESIS`           |'）'         | false            |  false             |  ')'              |  Right parenthesis
+|`ASTERISK`                    |'＊'         | false            |  false             |  '*'              |  Asterrisk
+|`COMMA`                       |'、'         | false            |  false             |  '，',','         |  Comma
+|`PLUS_SIGN`                   |'＋'         | false            |  false             |  '+'              |  Plus sign
+|`HYPHEN_SIGN`                 |'ー'         | false            |  false             |  '-'              |  Hyphenation
+|`SLASH`                       |'／'         | false            |  false             |  '/'              |  Slash
+|`COLON`                       |'：'         | false            |  false             |  ':'              |  Colon
+|`SEMICOLON`                   |'；'         | false            |  false             |  ';'              |  Semicolon
+|`LESS_THAN_SIGN`              |'＜'         | false            |  false             |  '<'              |  Less than sign
+|`GREATER_THAN_SIGN`           |'＞'         | false            |  false             |  '>'              |  Greater than sign
+|`EQUAL_SIGN`                  |'＝'         | false            |  false             |  '='              |  Equal sign
+|`AT_MARK`                     |'＠'         | false            |  false             |  '@'              |  At mark
+|`LEFT_SQUARE_BRACKET`         |'「'         | true             |  false             |                   |  Left square bracket
+|`RIGHT_SQUARE_BRACKET`        |'」'         | false            |  false             |                   |  Right square bracket
+|`BACKSLASH`                   |'￥'         | false            |  false             |                   |  Backslash
+|`CIRCUMFLEX_ACCENT`           |'＾'         | false            |  false             |  '^'              |  Circumflex accent
+|`LOW_LINE`                    |'＿'         | false            |  false             |  '_'              |  Low line (under bar)
+|`LEFT_CURLY_BRACKET`          |'｛'         | true             |  false             |  '{'              |  Left curly bracket
+|`RIGHT_CURLY_BRACKET`         |'｝'         | true             |  false             |  '}'              |  Right curly bracket
+|`VERTICAL_VAR`                |'｜'         | false            |  false             |  '|'              |  Vertical bar
+|`TILDE`                       |'〜'         | false            |  false             |  '~'              |  Tilde
+|`LEFT_SINGLE_QUOTATION_MARK`  |'‘'          | false            |  false             |                   |  Left single quotation mark
+|`RIGHT_SINGLE_QUOTATION_MARK` |'’'          | false            |  false             |                   |  Right single quotation mark
+|`LEFT_DOUBLE_QUOTATION_MARK`  |'“'          | false            |  false             |                   |  Left double quotation mark
+|`RIGHT_DOUBLE_QUOTATION_MARK` |'”'          | false            |  false             |                   |  Right double quotation mark
+|====
+
+These settings are used by several Validators such as InvalidSymbol and
+SpaceValidator. If you want to change the symbol definitions used by
+these Validators, you can override the settings by adding symbol
+elements to the symbols section of the redpen configuration file.
+
+[[japanese-symbol-validations]]
+==== Japanese Symbol Validations
+
+Symbols in Japanese has vary by the author and the writing group. RedPen
+provide the two defalut symbol settings for Japanese. The validations are
+specified with *type* attribute. Currently there are two variation for
+Japanese symbol settings ("zenkaku2" and "hankaku").
+
+For example the following is the sample of configuration file for
+Japanese text with the "zenkaku2" setting.
+
+[source,xml]
+----
+<redpen-conf lang="ja" type="zenkaku2">
+    <validators>
+        <validator name="InvalidSymbol" />
+        <validator name="SpaceWithSymbol" />
+        <validator name="SectionLength" />
+        <validator name="ParagraphNumber" />
+    </validators>
+</redpen-conf>
+----
+
+The symbols of "hankaku" type is the same as the symbol settings as
+"en." The symbols of "zenkaku2" is almost the same as normal type of
+"ja" with the following exceptions.
+
+[options="header"]
+|====
+|Symbol    |Value |NeedBeforeSpace |NeedAfterSpace |InvalidChars |Description
+|FULL_STOP |'．'  |false           |false          |' .', '。'   |Sentence period
+|COMMA     |'，'  |false           |false          |',','、'     |Comma
+|====
