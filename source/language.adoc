@@ -1,5 +1,4 @@
-= RedPen Language Settings
-:toc: right
+== RedPen Language Settings
 
 RedPen processes documents written in any language, such as German,
 French or Japanese. RedPen default configuration will process documents
@@ -8,8 +7,7 @@ RedPen process documents written in other languages, users need to
 specify that language in the RedPen configuration file.
 
 [[override-language]]
-Override Language
------------------
+=== Override Language
 
 Currently there are two language settings, "en" and "ja". "en" is for
 documents written in Latin-based languages such as English and German.
@@ -33,8 +31,7 @@ language.
 ----
 
 [[override-symbol-settings]]
-Override Symbol Settings
-------------------------
+=== Override Symbol Settings
 
 Depending on the documents and their authors, the characters and symbols
 used may differ. For example, one author might use "'" for a left single

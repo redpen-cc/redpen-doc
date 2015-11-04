@@ -1,17 +1,14 @@
-= RedPen Commands
-:toc: right
+== RedPen Commands
 
 RedPen provides both a simple standalone command line tool and a server.
 
 [[command-line-tool]]
-Command line tool
------------------
+=== Command line tool
 
 RedPen provides a simple command line tool called 'redpen' to check documents.
 
 [[usage-redpen]]
-Using redpen
-~~~~~~~~~~~~
+==== Using redpen
 
 We use the redpen command as follows.
 
@@ -24,17 +21,18 @@ By default, input files are delimited by whitespace and then analysed.
 The redpen command supports the following options.
 
 [[options]]
-Options
-~~~~~~~
+==== Options
 
 redpen has the following options.
 
-.Specify the RedPen configuration file
+===== Specify the RedPen configuration file
+
 ----
 -c <CONFIG_FILE>, --configuration <CONFIG_FILE>
 ----
 
-.Input file format. [**Default**: plain]
+===== Input file format [**default**: plain]
+
 ----
 -f <INPUT_FORMAT>, --input_format <INPUT_FORMAT>
 ----
@@ -54,7 +52,8 @@ This argument specifies the input format. Currently RedPen supports the followin
 [NOTE]
 RedPen does not currently support every element of the wiki format, such as tables. The remaining elements will be supported in the near future.
 
-.Result format. [**Default**: plain]
+===== Result format [**default**: plain]
+
 ----
 option:: -r <RESULT_FORMAT>, --result_format <RESULT_FORMAT>
 ----
@@ -71,25 +70,24 @@ This argument determines the output format. Currently RedPen supports the follow
 |json2  |an alternate json format collated by sentence
 |====
 
-.Display help.
+===== Display help
+
 ----
 -h, --help
 ----
 
-.Show the redpen version.
+==== Show the redpen version
 ----
 --version
 ----
 
 [[sample-server]]
-Sample server
--------------
+=== Sample server
 
 RedPen also provides a sample server.
 
 [[usage-redpen-server]]
-Usage: redpen-server
-~~~~~~~~~~~~~~~~~~~~
+==== Usage: redpen-server
 
 We can start and stop the redpen server with the following command.
 
@@ -99,8 +97,7 @@ $ redpen-server [start|stop]
 ----------------------------
 
 [[configuration]]
-Configuration
-~~~~~~~~~~~~~
+=== Configuration
 
 redpen-server is able to be configured with editing the variables in
 *redpen-server* file itself. The following table shows the configuration
@@ -113,4 +110,4 @@ variables and the default values.
 |STOP_KEY      |redpen.stop   |RedPen server is able to stop with Stop key with http access. If you do not want to stop with stop key comment out the value.
 |=======================================================================
 
-The functionality of the RedPen server is described on the <<server.adoc#,server>> page.
+The functionality of the RedPen server is described in the <<server>> section.

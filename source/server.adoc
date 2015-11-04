@@ -1,28 +1,24 @@
-= RedPen Server
-:toc: right
+== RedPen Server
 
 The RedPen server delivers the majority of RedPen's functionality via a
 simple HTTP REST API.
 
 [[starting-the-redpen-server]]
-Starting the RedPen server
---------------------------
+=== Starting the RedPen server
 
 Please refer to the <<command.adoc#,command>> page for details on how to start the RedPen server.
 
 [[redpen-server-api]]
-RedPen Server API
------------------
+=== RedPen Server API
 
 [[configuration]]
-Configuration
-~~~~~~~~~~~~~
+==== Configuration
 
 */rest/config/redpens*
 
 Return the configuration for available, preconfigured redpens.
 
-GET Parameters:
+===== GET Parameters
 
 * _lang=xx_ restricts the returned configurations to those that match
 the specified language. By default, all configurations are returned.
@@ -94,14 +90,13 @@ validator is suitable. An empty array indicates all languages.
 properties for this validator, as described in validator
 
 [[document-validation]]
-Document Validation
-~~~~~~~~~~~~~~~~~~~
+==== Document Validation
 
 */document/validate*
 
 This POST request validates a document and returns the errors.
 
-POST Parameters:
+===== POST Parameters
 
 * _document_ contains the text of the document RedPen is to validate
 * _documentParser_ specifies which parser should be used to parse the
@@ -117,7 +112,7 @@ can be one of json (the default), json2, plain, plain2 or xml.
 * The optional _config_ field contains the contents of a RedPen XML
 configuration file
 
-*Examples using curl and document/validate*
+====== Examples using curl and document/validate
 
 [source,bash]
 ----
@@ -167,7 +162,7 @@ $ curl -s --data document="古池や,蛙飛び込む水の音" \
 This POST request processes a redpen validation request, specified in
 JSON, and returns redpen errors in a supported RedPen format.
 
-Request format:
+===== Request format
 
 [source,json]
 ----
@@ -336,7 +331,7 @@ Response (json2 format):
 }
 ----
 
-*Some examples using curl and document/validate/json*
+====== Some examples using curl and document/validate/json
 
 [source,bash]
 ----

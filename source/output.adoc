@@ -1,11 +1,9 @@
-= RedPen Output Formats
-:toc: right
+== RedPen Output Formats
 
 RedPen supports three basic output formats - "Plain text", "XML", and "JSON".
 
 [[plain-text]]
-Plain text
-----------
+=== Plain text
 
 Plain text output format consists of the following lines.
 
@@ -17,8 +15,7 @@ An alternate plain text form (plain2) prints each sentence, followed by
 all of the errors found that relate to that sentence.
 
 [[xml]]
-XML
----
+=== XML
 
 The top section of the XML output format is *validation-result* element
 which contains multiple *error* sections. Each error section has the
@@ -35,8 +32,8 @@ following sub-elements.
 |====
 
 [[json]]
-JSON
-----
+=== JSON
+
 [option="header"]
 |====
 |Block             |   Optional   |   Description

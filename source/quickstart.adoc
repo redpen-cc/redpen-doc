@@ -1,12 +1,10 @@
-= RedPen Quickstart
-:toc: right
+== RedPen Quickstart
 
 This quickstart guide is to help you get started with RedPen. Let's go
 through some of the basics.
 
 [[requirements]]
-Requirements
-------------
+=== Requirements
 
 RedPen requires the following software.
 
@@ -14,8 +12,7 @@ RedPen requires the following software.
 * Maven 3.0.0 or greater
 
 [[example-run]]
-Example run
------------
+=== Example run
 
 First, download the RedPen package from
 https://github.com/redpen-cc/redpen/releases/[release page], and then

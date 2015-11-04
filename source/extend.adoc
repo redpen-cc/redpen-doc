@@ -1,5 +1,4 @@
-= Extending RedPen
-:toc: right
+== Extending RedPen
 
 RedPen users can extend RedPen by creating new Validators. This page
 describes how to construct your Validators and covers the basics of the
@@ -10,15 +9,13 @@ organization. Adding validator is simple - just write a class that
 extends the abstract class **Validator**.
 
 [[extending-validators]]
-Extending Validators
---------------------
+=== Extending Validators
 
 There are several methods which users can implment for their methods
 (validate, prevalidate and init).
 
 [[validate-methods]]
-validate methods
-~~~~~~~~~~~~~~~~
+==== validate methods
 
 Minimally, we just need to implement the "validate" template method.
 
@@ -58,8 +55,7 @@ packages: 'cc.redpen.validator', 'cc.redpen.validator.sentence' or
 'cc.redpen.validator.section.'
 
 [[prevalidate-method]]
-prevalidate method
-~~~~~~~~~~~~~~~~~~
+==== prevalidate method
 
 the preValidate method called before validate method is run. This method
 is useful to create the prerequisite to run validate method. There are
@@ -85,8 +81,7 @@ two prevalidte methods variations which have different parameters.
 ----
 
 [[init-method]]
-init method
-~~~~~~~~~~~
+==== init method
 
 The init method is used to load the confiuration for the Validators.
 
@@ -130,9 +125,8 @@ protected void init() throws RedPenException {
 In the above code, getConfigAttributeAsInt loads the value of the
 max_len property as integer.
 
-[[implement-validators]]
-Implement Validators
---------------------
+[[adding-validators]]
+=== Adding Validators
 
 There are two ways to add your Validator to RedPen.
 
@@ -152,16 +146,14 @@ In the next section, we will explain how to add a new Validator to
 Redpen's source tree, and how to construct a Validator plugin.
 
 [[add-a-validator-in-redpen-source]]
-Add a Validator in Redpen source
---------------------------------
+==== Add a Validator to Redpen's source
 
 Let's define a plain Validator (SentenceLengthValidator) - which check
 if the input sentence is over 100 characters long - and then apply it to
 RedPen's source tree.
 
 [[sentencelengthvalidator]]
-SentenceLengthValidator
-~~~~~~~~~~~~~~~~~~~~~~~
+===== SentenceLengthValidator
 
 We create a PlainSentenceLengthValidator class and specify the package
 'cc.redpen.validator.sentence'. Therefore the class is stored in the
@@ -204,8 +196,7 @@ RedPen automatically applies the validate method to each sentence in
 each input document.
 
 [[include-a-new-validator]]
-Include a new Validator
-~~~~~~~~~~~~~~~~~~~~~~~
+===== Include a new Validator
 
 To include the Validator in your RedPen configuration, add the
 Validator's name, without the "Validator" suffix, to a RedPen
@@ -226,8 +217,7 @@ PlainSentenceLengthValidator, include the validator element as follows:
 We would then run RedPen normally, using this configuration file.
 
 [[create-a-validator-plugin]]
-Create a Validator plugin
-~~~~~~~~~~~~~~~~~~~~~~~~~
+==== Create a Validator plugin
 
 When creating a Validator plugin, it is often easier to start by using
 another plugin's project as a template.
@@ -283,8 +273,7 @@ $ mvn install
 ----
 
 [[including-a-user-defined-validator-plugin]]
-Including a user-defined Validator plugin
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+===== Including a user-defined Validator plugin
 
 When you have successfully built your Validator plugin, you can use it
 by copying the plugin's jar file from the *target* directory to a
@@ -294,8 +283,7 @@ configuration file as described above. Remember to remove the
 *Validator* suffix from the name you enter in redpen-config.xml.
 
 [[model-structure]]
-Model Structure
----------------
+=== Model Structure
 
 This section describes the internal document model structure generated
 by parser objects.

@@ -1,5 +1,4 @@
-= RedPen FAQ
-:toc: right
+== RedPen FAQ
 
 * Does RedPen check LaTeX documents for common style errors?
 +

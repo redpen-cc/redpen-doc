@@ -1,11 +1,9 @@
-= RedPen Input Formats
-:toc: right
+== RedPen Input Formats
 
 RedPen supports three types of input formats ("Plain Text", "Wiki", and "Markdown").
 
 [[plain-text]]
-Plain text
-----------
+=== Plain text
 
 Plain text supports a set of paragraphs. Paragraphs are separated by two
 new lines. For example, the following article has two paragraphs.
@@ -18,83 +16,71 @@ Second paragraph describes the details of the issue and attempts to present a so
 ----
 
 [[asciidoc]]
-AsciiDoc
---------
+=== AsciiDoc
 
 See the http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/[AsciiDoctor reference]
 
 [[latex]]
-LaTeX
------
+=== LaTeX
 
 NOTE: RedPen does not supports Macros defined by writers.
 
 [[wiki-format]]
-Wiki format
------------
+=== Wiki format
 
 RedPen supports a subset of Wiki syntax. Currently, the supported
 elements of Wiki syntax are as follows.
 
 [[headings]]
-Headings
-~~~~~~~~
+==== Headings
 
 To create a heading, add a line starting with "h[1234]. ". The number after h represents the level of the heading or section.
 
 [[inline-formatting]]
-Inline Formatting
-~~~~~~~~~~~~~~~~~
+==== Inline Formatting
 
 RedPen supports the following inline formatting.
 
 [[bold]]
-Bold
-^^^^
+==== Bold
 
 ----
 **this is a Bold sentence.**
 ----
 
 [[italic]]
-Italic
-^^^^^^
+==== Italic
 
 ----
 //this is an italic sentence.//
 ----
 
-[[unerline]]
-Unerline
-^^^^^^^^
+[[underline]]
+==== Underline
 
 ----
 __this is an underlined sentence.__
 ----
 
 [[strikethrough]]
-Strikethrough
-^^^^^^^^^^^^^
+==== Strikethrough
 
 ----
 --this is a strikethrough sentence.--
 ----
 
 [[links]]
-Links
-~~~~~
+==== Links
 
 Links elements are included in Wiki formatted documents.
 
 [[lists]]
-Lists
-~~~~~
+==== Lists
 
 Wiki syntax supports two types of lists.
 
 [[bulleted-lists]]
-Bulleted Lists
-^^^^^^^^^^^^^^
+===== Bulleted Lists
 
 To enter a bulleted list, start a line with an asterisk. The number of
 asterisks denotes the indent level of the list.
@@ -106,15 +92,13 @@ asterisks denotes the indent level of the list.
 ----
 
 [[numbered-list]]
-Numbered List
-^^^^^^^^^^^^^
+===== Numbered List
 
 If you want to add numbered lists, use the hash/pound symbol (#) instead
 of the asterisk used by Bulleted Lists.
 
 [[comments]]
-Comments
-~~~~~~~~
+==== Comments
 
 To add a comment to the wiki source, add a [!-- ... --] block. The
 following shows a sample comment.
@@ -126,21 +110,18 @@ following shows a sample comment.
 ----
 
 [[paragraphs]]
-Paragraphs
-~~~~~~~~~~
+==== Paragraphs
 
 Paragraphs are separated by two new lines. This syntax is the same as
 for plain text.
 
 [[markdown]]
-Markdown
---------
+=== Markdown
 
 RedPen currently supports the following Markdown elements.
 
 [[headings-1]]
-Headings
-~~~~~~~~
+==== Headings
 
 Two styles of headings are supported.
 
@@ -171,14 +152,12 @@ For example:
 ----
 
 [[inline-formatting-1]]
-Inline Formatting
-~~~~~~~~~~~~~~~~~
+==== Inline Formatting
 
 RedPen supports the following inline formatting.
 
 [[bold-1]]
-Bold
-^^^^
+===== Bold
 
 Wrap characters with double asterisks or underscores for bold. The
 following are samples of bold sentences.
@@ -189,8 +168,7 @@ __this is also a Bold sentence.__
 ----
 
 [[italic-1]]
-Italic
-^^^^^^
+===== Italic
 
 Wrap characters with a single asterisk or underscore for italics. The
 following are samples of italic sentences.
@@ -201,8 +179,7 @@ _this is also a italic syntax._
 ----
 
 [[links-1]]
-Links
-~~~~~
+==== Links
 
 To create a link, wrap square brackets around the link's label and
 parentheses around the URL. For example.
@@ -212,15 +189,13 @@ parentheses around the URL. For example.
 ----
 
 [[lists-1]]
-Lists
-~~~~~
+==== Lists
 
 The Markdown parser used by RedPen supports two types of lists -
 Bulleted lists and Numbered lists.
 
 [[bulleted-lists-1]]
-Bulleted Lists
-^^^^^^^^^^^^^^
+===== Bulleted Lists
 
 To create a bulleted list, start a line with an asterisk or a hyphen.
 The lists are nested according to how many leading spaces there are. The
@@ -234,8 +209,7 @@ following is a example of a bulleted list using asterisks.
 ----
 
 [[numbered-list-1]]
-Numbered List
-^^^^^^^^^^^^^
+===== Numbered List
 
 If you want to create a numbered list, use a number followed by a
 period, as in the following example.
@@ -246,7 +220,6 @@ period, as in the following example.
 ----
 
 [[paragraphs-1]]
-Paragraphs
-~~~~~~~~~~
+==== Paragraphs
 
 Paragraphs are separated by two new lines. This syntax is the same as for plain text.
