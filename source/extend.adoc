@@ -1,3 +1,4 @@
+[[extending]]
 == Extending RedPen
 
 RedPen users can extend RedPen by creating new Validators. This page

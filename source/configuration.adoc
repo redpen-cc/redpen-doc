@@ -1,3 +1,4 @@
+[[configuration]]
 == RedPen Configuration
 
 RedPen's configuration file consists of two separate blocks. One block
@@ -91,15 +92,15 @@ For example, you can override the maxmimum character count used by the
 validators also have "sub-validators" which can also be configured
 within the validator section.
 
-We will cover all supported validators in the <<validator.adoc#,validator>> page.
+We cover all supported validators in the <<validator,Validator>> section.
 
 [[setting-symbols]]
 === Setting symbols
 
 The *lang* attribute of the *redpen-conf* element determines how various
 symbols are handled by RedPen. RedPen supports default symbols for "en"
-and "ja", which are described in <<en-default-symbol-setting,English symbols>> and
-<<ja-default-symbol-setting,Japanese Symbols>>.
+and "ja", which are described in <<default-settings-for-english,English symbols>> and
+<<default-settings-for-japanese,Japanese Symbols>>.
 
 The default symbol settings for a target language can be overridden by
 configuring the symbols section of the RedPen configuration file.

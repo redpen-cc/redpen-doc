@@ -1,3 +1,4 @@
+[[validator]]
 == RedPen Supported Validators
 
 RedPen supports the following validators.
@@ -220,7 +221,7 @@ section.
 ==== Supported languages
 
 InvalidSymbol works for any langugages. See the settings of symbols in
-the <<configuration.adoc#,configuration>> page.
+the <<configuration,Configuration>> section.
 
 [[symbolwithspace]]
 === SymbolWithSpace

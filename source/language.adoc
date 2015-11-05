@@ -1,3 +1,4 @@
+[[language]]
 == RedPen Language Settings
 
 RedPen processes documents written in any language, such as German,
@@ -39,7 +40,7 @@ quotation mark, whereas another author might use "‘" for a left single
 quotation mark.
 
 For such cases, RedPen provides the way to override the default symbols
-(see <<configuration.adoc#setting-symbols,Setting Symbols>> section) used in the document, and in
+(see <<setting-symbols,Setting Symbols>> section) used in the document, and in
 addition, specify which symbols should not used in the input documents.
 
 The following overrides the setting for single quotation marks to
