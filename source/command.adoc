@@ -1,3 +1,4 @@
+[[commands]]
 == RedPen Commands
 
 RedPen provides both a simple standalone command line tool and a server.

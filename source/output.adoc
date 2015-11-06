@@ -1,3 +1,4 @@
+[[output]]
 == RedPen Output Formats
 
 RedPen supports three basic output formats - "Plain text", "XML", and "JSON".
