@@ -9,7 +9,7 @@ through some of the basics.
 
 RedPen requires the following software.
 
-* Java 1.8.0 or greater
+* Java 1.8.40 or greater
 * Maven 3.0.0 or greater
 
 [[example-run]]
