@@ -1,6 +1,7 @@
 [[index]]
 = RedPen Documentation
 :toc: right
+:stylesheet: redpen.css
 
 == Overview
 RedPen is an open source proofreading tool to check if your technical documents meet writing standards.
