@@ -1,0 +1,22 @@
+language: ruby
+
+rvm:
+  - 2.0.0-p598
+
+jdk:
+    - oraclejdk8
+
+env:
+  - URL=https://github.com/redpen-cc/redpen/releases/download/v1.4.1
+
+install:
+  - wget $URL/redpen-1.4.1.tar.gz
+  - tar xvf redpen-1.4.1.tar.gz
+  - export PATH=$PATH:$PWD/redpen-distribution-1.4.1/bin
+
+script:
+  - gem install asciidoctor
+  - sudo apt-get update && sudo apt-get install oracle-java8-installer
+  - asciidoctor --version
+  - java -version
+  - make check html

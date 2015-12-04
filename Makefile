@@ -5,7 +5,7 @@
 BUILDDIR              = build
 
 ASCIIDOCTOR           = asciidoctor
-.PHONY: help clean html 
+.PHONY: help clean check html 
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
@@ -13,6 +13,9 @@ help:
 
 clean:
 	-rm -rf $(BUILDDIR)/*
+
+check:
+	redpen -f asciidoc source/*.adoc
 
 html:
 	mkdir -p $(BUILDDIR)/html
