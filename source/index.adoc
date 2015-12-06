@@ -1,5 +1,5 @@
 [[index]]
-= RedPen Documentation
+= RedPen {target-version} Documentation
 :toc: right
 :stylesheet: redpen.css
 
