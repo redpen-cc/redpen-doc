@@ -16,7 +16,7 @@ Within this element there are two sub elements named "validators" and
 
 In order to match the default validators and character settings to a
 target language, such as Japanese or English, we can specify *lang* and
-*type* attributes in the *redpen-conf* element to override the default
+*variant* attributes in the *redpen-conf* element to override the default
 character settings.
 
 The *validators* section specifies which validators are to be loaded by
@@ -257,16 +257,16 @@ elements to the symbols section of the redpen configuration file.
 ==== Japanese Symbol Validations
 
 Symbols in Japanese has vary by the author and the writing group. RedPen
-provide the two defalut symbol settings for Japanese. The validations are
-specified with *type* attribute. Currently there are two variation for
-Japanese symbol settings ("zenkaku2" and "hankaku").
+provides three default symbol settings for Japanese. The validations are
+specified with *variant* attribute. Currently there are three variants for
+Japanese symbol settings ("zenkaku" (default), "zenkaku2" and "hankaku").
 
 For example the following is the sample of configuration file for
 Japanese text with the "zenkaku2" setting.
 
 [source,xml]
 ----
-<redpen-conf lang="ja" type="zenkaku2">
+<redpen-conf lang="ja" variant="zenkaku2">
     <validators>
         <validator name="InvalidSymbol" />
         <validator name="SpaceWithSymbol" />
@@ -276,9 +276,9 @@ Japanese text with the "zenkaku2" setting.
 </redpen-conf>
 ----
 
-The symbols of "hankaku" type is the same as the symbol settings as
-"en." The symbols of "zenkaku2" is almost the same as normal type of
-"ja" with the following exceptions.
+The symbols of "hankaku" variant is the same as the symbol settings as
+"en." The symbols of "zenkaku2" is almost the same as default "zenkaku"
+variant of "ja" with the following exceptions.
 
 [options="header"]
 |====
