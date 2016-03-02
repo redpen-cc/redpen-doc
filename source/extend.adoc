@@ -302,6 +302,34 @@ To enable JavaScriptValidator, simply add `<validator name="JavaScript"/>` in yo
 
 [[javascript-validator]]
 ===== Write your own validator in JavaScript
+JavaScriptValidator will load all files with .js suffix from `$REDPEN_HOME/js` directory. This location can be overriden with `script-path` property of JavaScriptValidator.
+
+Functions with the following signature will be called upon validation time:
+[source,javascript]
+----
+function preValidateSentence(sentence) {
+}
+
+function preValidateSection(section) {
+}
+
+function validateDocument(document) {
+  // your validation logic for document here
+}
+
+function validateSentence(sentence) {
+  // if(your validation logic for sentence here) {
+  //   addError('validation error message', sentence);
+  // }
+}
+
+function validateSection(section) {
+  // your validation logic for section here
+}
+----
+
+[[javascript-example]]
+===== Example
 Here is a JavaScript version of NumberOfCharacterValidator:
 
 [source,javascript]
@@ -320,7 +348,7 @@ function validateSentence(sentence) {
   }
 }
 ----
-The code looks pretty much similar with the Java version. But due to the difference in the type system, the callback method `validate(Sentence sentence)` is referred as `validateSentence(sentence)` in the JavaScript version.
+The code looks pretty much similar to the Java version. But due to the difference in the type system, the callback method `validate(Sentence sentence)` is referred as `validateSentence(sentence)` in the JavaScript version.
 
 [[javascript-run]]
 ===== Run
