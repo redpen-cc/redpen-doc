@@ -81,22 +81,21 @@ two prevalidte methods variations which have different parameters.
   public void preValidate(Section section)
 ----
 
-[[init-method]]
-==== init method
+[[conf-properties]]
+==== Configuration properties
 
-The init method is used to load the confiuration for the Validators.
+If validator needs Configuration properties, validator constructor can be used to define them.
+This way RedPen will know that your validator supports these properties and various plugins can show them in a GUI.
 
 [source,java]
 ----
 /**
- * Validation initialization, called after the configuration and symbol tables have been assigned
- *
- * @throws RedPenException
+ * @param keyValues String key and Object value pairs for supported config properties.
  */
- protected void init() throws RedPenException
+public Validator(Object...keyValues)
 ----
 
-For example, *SentencelengthValidator* has a configuration **max_len**,
+For example, *SentencelengthValidator* has a configuration property **max_len**,
 which to specifies the maximum length of sentences in input documents.
 Following configuration specifies the maximum length to 200.
 
@@ -107,24 +106,27 @@ Following configuration specifies the maximum length to 200.
         ...
         <validator name="SentenceLength">
             <property name="max_len" value="200"/>
-    </validator>
+        </validator>
         ...
     </validators>
 </redpen-conf>
 ----
 
-SentenceLengthValidator load the max_len value with init methods as
-follows.
+SentenceLengthValidator loads the value of max_len automatically if it is defined in validator's constructor.
+If max_len is missing from the config, the value is left as default.
 
 [source,java]
 ----
-protected void init() throws RedPenException {
-        this.maxLength = getConfigAttributeAsInt("max_len", DEFAULT_MAX_LENGTH);
- }
+
+public SentenceLengthValidator() {
+  super("max_len", 30); // Default maximum length of sentences.
+}
+
 ----
 
-In the above code, getConfigAttributeAsInt loads the value of the
-max_len property as integer.
+Later configuration value can be accessed via `getInt("max_len")` or similar methods.
+
+In case you need to process config properties before they can be used in `validate()` method, you can override the `init()` method.
 
 [[adding-validators]]
 === Adding Validators
@@ -170,25 +172,22 @@ package cc.redpen.validator.sentence;
 /**
  * Validate input sentences contain more characters more than specified.
  */
- final public class PlainSentenceLengthValidator extends Validator {
-     /**
-      * Default maximum length of sentences.
-  */
-  public static final int DEFAULT_MAX_LENGTH = 30;
-      private int maxLength = DEFAULT_MAX_LENGTH;
+public class PlainSentenceLengthValidator extends Validator {
 
-      @Override
-  public void validate(Sentence sentence) {
-       if (sentence.getContent().length() > maxLength) {
-           addValidationError(sentence, sentence.getContent().length(), maxLength);
-        }
+  /**
+   * Default constructor initializes properties with their default values.
+   */
+  public PlainSentenceLengthValidator() {
+    super("max_len", 30); // Default maximum length of sentences.
   }
 
-      @Override
-      protected void init() throws RedPenException {
-            this.maxLength = getConfigAttributeAsInt("max_len", DEFAULT_MAX_LENGTH);
-      }
- }
+  @Override
+  public void validate(Sentence sentence) {
+    if (sentence.getContent().length() > getInt("max_len")) {
+      addValidationError(sentence, sentence.getContent().length(), maxLength);
+    }
+  }
+}
 ----
 
 The class has a validate method that takes a Sentence object as its
