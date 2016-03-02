@@ -282,6 +282,57 @@ directory in RedPen's classpath, such as the RedPen library directory
 configuration file as described above. Remember to remove the
 *Validator* suffix from the name you enter in redpen-config.xml.
 
+[[javascript]]
+==== Extending RedPen in JavaScript
+For those who are unfamiliar with Java, RedPen v1.3 introduced JavaScriptValidator, which is a special validator that loads Validator implementations written in JavaScript.
+
+[[enable-javascript]]
+===== Enabling JavaScriptValidator
+To enable JavaScriptValidator, simply add `<validator name="JavaScript"/>` in your `redpen-conf.xml` as follows:
+
+[source,xml]
+----
+<redpen-conf lang="en">
+　　<validators>
+       ...snip...
+　　　　<validator name="JavaScript" />
+　　</validators>
+</redpen-conf>
+----
+
+[[javascript-validator]]
+===== Write your own validator in JavaScript
+Here is a JavaScript version of NumberOfCharacterValidator:
+
+[source,javascript]
+----
+var MIN_LENGTH = 100;
+var MAX_LENGTH = 1000;
+
+function validateSentence(sentence) {
+  if (sentence.getContent().length() < MIN_LENGTH) {
+    addError("Sentence is shorter than "
+      + MIN_LENGTH + " characters long.", sentence);
+  }
+  if (sentence.getContent().length() > MAX_LENGTH) {
+    addError("Sentence is longer than " + MAX_LENGTH
+      + " characters long.", sentence);
+  }
+}
+----
+The code looks pretty much similar with the Java version. But due to the difference in the type system, the callback method `validate(Sentence sentence)` is referred as `validateSentence(sentence)` in the JavaScript version.
+
+[[javascript-run]]
+===== Run
+Of course, it’s JavaScript and there is no need to compile / package your validator (Actually your JavaScript code will be compiled into Java byte-code by Nashorn, and it runs very fast than you expect). JavaScriptValidator will pick any *.js file located in `$REDPEN_HOME/js` directory.
+You can simply run the redpen command to get your file validated by the js validator.
+
+[source,bash]
+----
+$ ./bin/redpen -c myredpen-conf.xml 2be-validated.txt
+2be-validated.txt:1: ValidationError[JavaScript], [NumberOfCharacter.js] Sentence is shorter than 100 characters long. at line: very short sentence.
+----
+
 [[model-structure]]
 === Model Structure
 
