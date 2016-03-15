@@ -50,9 +50,6 @@ This argument specifies the input format. Currently RedPen supports the followin
 |latex    |LaTeX format
 |====
 
-[NOTE]
-RedPen does not currently support every element of the wiki format, such as tables. The remaining elements will be supported in the near future.
-
 ===== Result format [**default**: plain]
 
 ----
