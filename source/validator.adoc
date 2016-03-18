@@ -370,6 +370,16 @@ Contraction works only for English texts.
 Spelling validator throws an error if there are spelling mistakes in the
 input documents. This validator only works for English documents.
 
+[[properties-spelling]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``dict``        |None           |File name of known word dictionary.
+|``list``        |None           |List of known words delimited by commas.
+|====
+
 [[supported-languages-9]]
 ==== Supported languages
 
