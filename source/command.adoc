@@ -42,12 +42,13 @@ This argument specifies the input format. Currently RedPen supports the followin
 
 [options="header",]
 |====
-|Value    |Description
-|plain    |Plain text format
-|wiki     |Wiki (Textile) format
-|markdown |Markdown format
-|asciidoc |AsciiDoc format
-|latex    |LaTeX format
+|Value      |Description
+|plain      |Plain text format
+|wiki       |Wiki (Textile) format
+|markdown   |Markdown format
+|asciidoc   |AsciiDoc format
+|latex      |LaTeX format
+|properties |Java property file format
 |====
 
 ===== Result format [**default**: plain]
