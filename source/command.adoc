@@ -90,9 +90,12 @@ option:: -l <LIMIT NUMBER>, --limit  <LIMIT NUMBER>
 ----
 
 [[sample-server]]
-=== Sample server
+=== RedPen server
 
-RedPen also provides a sample server.
+RedPen also provides the server. RedPen server provides not only UI but also practical REST API (see <<server>> section).
+The following is an image of RedPen server UI.
+
+image:redpen-ui.png[image]
 
 [[usage-redpen-server]]
 ==== Usage: redpen-server
@@ -105,7 +108,7 @@ $ redpen-server [start|stop]
 ----------------------------
 
 [[configuration]]
-=== Configuration
+==== Configuration
 
 redpen-server is able to be configured with editing the variables in
 *redpen-server* file itself. The following table shows the configuration
