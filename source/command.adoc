@@ -69,13 +69,22 @@ This argument determines the output format. Currently RedPen supports the follow
 |json2  |an alternate json format collated by sentence
 |====
 
+===== Specify the limit of error number [**default**: 1]
+
+redpen command returns 0 when the the number of found errors are less than the specified limit.
+
+----
+option:: -l <LIMIT NUMBER>, --limit  <LIMIT NUMBER>
+----
+
 ===== Display help
 
 ----
 -h, --help
 ----
 
-==== Show the redpen version
+===== Show the redpen version
+
 ----
 --version
 ----
