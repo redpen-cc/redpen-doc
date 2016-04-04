@@ -3,36 +3,6 @@
 
 RedPen supports the following validators.
 
-* SentenceLength
-* InvalidExpression
-* InvalidWord
-* SpaceBeginningOfSentence
-* CommaNumber
-* WordNumber
-* SuggestExpression
-* InvalidSymbol
-* SymbolWithSpace
-* KatakanaEndHyphen
-* KatakanaSpellCheck
-* SectionLength
-* SpaceBetweenAlphabeticalWord
-* ParagraphNumber
-* ParagraphStartWith
-* Contraction
-* Spelling
-* DoubledWord
-* SuccessiveWord
-* DuplicatedSection
-* JapaneseStyle
-* DoubleNegative
-* FrequentSentenceStart
-* UnexpandedAcronym
-* WordFrequency
-* Hyphenation
-* NumberFormat
-* ParenthesizedSentence
-* WeakExpression
-
 [[sentencelength]]
 === SentenceLength
 
