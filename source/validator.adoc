@@ -383,6 +383,27 @@ DoubledWord works for any langages except for Chiense or other Asian
 languages. Note that the default dictionaries are supplied for Japanese
 and English.
 
+[[doubledjoshi]]
+=== DoubledJoshi
+
+DoubledJoshi throws an error if a Joshi (Japanese part-of-speech) is used more than once
+in a Japanese sentence.
+
+[[properties-doubled-joshi]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``dict``        |None           |File name of skip list dictionary.
+|``list``        |None           |List of skip words delimited by commas.
+|====
+
+[[supported-languages-doubled-joshi]]
+==== Supported languages
+
+DoubledJoshi works only for Japanese
+
 [[successiveword]]
 === SuccessiveWord
 
@@ -557,8 +578,7 @@ this) are used too frequently, or are nested too heavily.
 [[supported-languages-20]]
 ==== Supported languages
 
-ParenthesizedSentence works only for texts written in Eurpopean
-languages.
+ParenthesizedSentence works for any langugages.
 
 [[weakexpression]]
 === WeakExpression
@@ -570,3 +590,44 @@ generally considered to be a "weak expression".
 ==== Supported languages
 
 WeakExpression works only for English.
+
+[[endofsentence]]
+=== EndOfSentenceSentence
+
+This validator generates errors if the style end of sentence is American style.
+
+[[supported-languages-end-of-sentence]]
+==== Supported languages
+
+EndOfSentence works for English.
+
+[[HankakuKana]]
+=== HankakuKana
+
+This validator generates errors if the Hankaku Kana characters are used in input document.
+
+[[supported-languages-hankaku-kana]]
+==== Supported languages
+
+HanakakuKana works only for Japanese.
+
+[[okurigana]]
+=== Okurigana
+
+This validator generates errors if input sentence uses invalid Okurigana Style (Japanese).
+
+[[supported-languages-okurigana]]
+==== Supported languages
+
+Okurigana works for Japanese.
+
+[[startwithcapitalcharacter]]
+=== StartWithCapitalLetterValidator
+
+This validator generates errors if input sentence start with a capital character.
+
+[[supported-languages-okurigana]]
+==== Supported languages
+
+This vlaidator works for English or other european langugages.
+
