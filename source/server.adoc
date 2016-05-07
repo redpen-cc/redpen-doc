@@ -5,10 +5,17 @@ The RedPen server delivers the majority of RedPen's functionality via a
 simple HTTP REST API.
 
 [[starting-the-redpen-server]]
-=== Starting the RedPen server
+=== Starting and stopping the RedPen server
 
 Please refer to the <<commands,Commands>> section for details on how to start the RedPen server.
 
+[[heroku-button]]
+=== Heroku Button
+RedPen server is also launch in the Heroku environment with few clicks. In the bottom of https://github.com/redpen-cc/redpen[RedPen README], there is a Heroku Button.
+
+image:heroku-button.png[image]
+
+Clicking the buttom, a RedPen server get started in Heroku. Actually the http://redpen.herokuapp.com/[RedPen sample server] in the RedPen home page is working in Heroku environment.
 [[redpen-server-api]]
 === RedPen Server API
 
@@ -93,7 +100,7 @@ properties for this validator, as described in validator
 [[document-validation]]
 ==== Document Validation
 
-*/document/validate*
+*/rest/document/validate*
 
 This POST request validates a document and returns the errors.
 
@@ -158,7 +165,7 @@ $ curl -s --data document="古池や,蛙飛び込む水の音" \
 }
 ----
 
-*/document/validate/json*
+*/rest/document/validate/json*
 
 This POST request processes a redpen validation request, specified in
 JSON, and returns redpen errors in a supported RedPen format.

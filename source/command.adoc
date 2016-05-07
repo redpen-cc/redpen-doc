@@ -42,16 +42,14 @@ This argument specifies the input format. Currently RedPen supports the followin
 
 [options="header",]
 |====
-|Value    |Description
-|plain    |Plain text format
-|wiki     |Wiki (Textile) format
-|markdown |Markdown format
-|asciidoc |AsciiDoc format
-|latex    |LaTeX format
+|Value      |Description
+|plain      |Plain text format
+|wiki       |Wiki (Textile) format
+|markdown   |Markdown format
+|asciidoc   |AsciiDoc format
+|latex      |LaTeX format
+|properties |Java property file format
 |====
-
-[NOTE]
-RedPen does not currently support every element of the wiki format, such as tables. The remaining elements will be supported in the near future.
 
 ===== Result format [**default**: plain]
 
@@ -71,21 +69,33 @@ This argument determines the output format. Currently RedPen supports the follow
 |json2  |an alternate json format collated by sentence
 |====
 
+===== Specify the limit of error number [**default**: 1]
+
+redpen command returns 0 when the the number of found errors are less than the specified limit.
+
+----
+option:: -l <LIMIT NUMBER>, --limit  <LIMIT NUMBER>
+----
+
 ===== Display help
 
 ----
 -h, --help
 ----
 
-==== Show the redpen version
+===== Show the redpen version
+
 ----
 --version
 ----
 
 [[sample-server]]
-=== Sample server
+=== RedPen server
 
-RedPen also provides a sample server.
+RedPen also provides the server. RedPen server provides not only UI but also practical REST API (see <<server>> section).
+The following is an image of RedPen server UI.
+
+image:redpen-ui.png[image]
 
 [[usage-redpen-server]]
 ==== Usage: redpen-server
@@ -98,7 +108,7 @@ $ redpen-server [start|stop]
 ----------------------------
 
 [[configuration]]
-=== Configuration
+==== Configuration
 
 redpen-server is able to be configured with editing the variables in
 *redpen-server* file itself. The following table shows the configuration

@@ -1,7 +1,14 @@
 [[formats]]
 == RedPen Input Formats
 
-RedPen supports three types of input formats ("Plain Text", "Wiki", and "Markdown").
+RedPen supports several types of input formats:
+
+- Plain Text
+- Markdown
+- AsciiDoc
+- Wiki
+- LaTeX
+- Java Properties
 
 [[plain-text]]
 === Plain text
@@ -224,3 +231,11 @@ period, as in the following example.
 ==== Paragraphs
 
 Paragraphs are separated by two new lines. This syntax is the same as for plain text.
+
+[[java-properties]]
+=== Java Properties
+
+Properties files or Resource Bundles are commonly used for internalization in Java.
+RedPen treats every property as a section, which can have one or more sentences. Comments and values, but not keys are validated.
+
+See the https://docs.oracle.com/javase/7/docs/api/java/util/Properties.html#load(java.io.Reader)[Properties Javadoc] for more information on file format.

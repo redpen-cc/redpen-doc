@@ -5,7 +5,7 @@
 BUILDDIR              = build
 
 ASCIIDOCTOR           = asciidoctor
-.PHONY: help clean html 
+.PHONY: help clean check html 
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
@@ -14,9 +14,12 @@ help:
 clean:
 	-rm -rf $(BUILDDIR)/*
 
+check:
+	redpen -f asciidoc source/*.adoc
+
 html:
 	mkdir -p $(BUILDDIR)/html
 	cp source/*.jpg source/*.png $(BUILDDIR)/html/
 	cp -r source/styles/redpen $(BUILDDIR)/html/
-	$(ASCIIDOCTOR) -a source-highlighter=coderay -a stylesdir=styles -d book -b html5 source/index.adoc -D$(BUILDDIR)/html
+	$(ASCIIDOCTOR) -a source-highlighter=coderay -a stylesdir=styles -a target-version=1.5 -d book -b html5 source/index.adoc -D$(BUILDDIR)/html
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html"

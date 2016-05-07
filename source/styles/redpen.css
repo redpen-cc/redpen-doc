@@ -698,6 +698,8 @@ table.tableblock.grid-all th.tableblock, table.tableblock.grid-all td.tableblock
 
 #toc a { color: white; }
 
+#content ol, #content ul, #content dl { margin-left: 2em; }
+
 #footer { background-color: #585146; padding: 2em; }
 
 #footer-text { color: #eee; font-size: 0.8em; text-align: center; }
