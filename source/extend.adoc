@@ -314,7 +314,7 @@ JavaScriptValidator will load all files with .js suffix from `$REDPEN_HOME/js` d
 <redpen-conf lang="en">
 　　<validators>
        ...snip...
-　　　　<validator name="JavaScript" >
+     <validator name="JavaScript" >
        <property name="script-path" value="/path/to/your/validator/directory-a" />
      </validator>
      <validator name="JavaScript" >
