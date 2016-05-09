@@ -32,6 +32,8 @@ redpen has the following options.
 -c <CONFIG_FILE>, --configuration <CONFIG_FILE>
 ----
 
+RedPen CLI (redpen command) search the configuration file when users do not specify the configuration file with -c option. First RedPen loads redpen-conf.xml in the current directory. If redpen-conf.xml does not exist in the current directory, RedPen loads the localized setting file, redpen-conf-**{lang}**.xml in current directory, where {lang} is language code in  ISO 639-1. The language codes are selected with the locale setting of the users computer. When there is no localized setting file, RedPen try to load the configration file in $REDPEN_HOME/conf.
+
 ===== Input file format [**default**: plain]
 
 ----
