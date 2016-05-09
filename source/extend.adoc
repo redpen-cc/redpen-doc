@@ -307,7 +307,23 @@ To enable JavaScriptValidator, simply add `<validator name="JavaScript"/>` in yo
 
 [[javascript-validator]]
 ==== Write your own validator in JavaScript
-JavaScriptValidator will load all files with .js suffix from `$REDPEN_HOME/js` directory. This location can be overriden with `script-path` property of JavaScriptValidator.
+JavaScriptValidator will load all files with .js suffix from `$REDPEN_HOME/js` directory. This location can be overriden with `script-path` property of JavaScriptValidator. You can set multiple 'script-path' property.
+
+[source,javascript]
+----
+<redpen-conf lang="en">
+　　<validators>
+       ...snip...
+     <validator name="JavaScript" >
+       <property name="script-path" value="/path/to/your/validator/directory-a" />
+     </validator>
+     <validator name="JavaScript" >
+       <property name="script-path" value="/path/to/your/validator/directory-b" />
+     </validator>
+　　</validators>
+</redpen-conf>
+----
+
 
 Functions with the following signature will be called upon validation time:
 [source,javascript]
