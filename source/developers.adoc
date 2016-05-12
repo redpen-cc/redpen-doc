@@ -8,10 +8,10 @@ in the form of pull requests are easy to integrate to the master branch.
 
 To build RedPen, you need to install the following tools.
 
-* JDK
-* Git client
-* Maven (v3 or later)
-* PhantomJS
+* http://www.oracle.com/technetwork/java/javase/downloads/index.html[JDK]
+* https://git-scm.com/book/en/v2/Getting-Started-Installing-Git[Git client]
+* http://www.dowdandassociates.com/blog/content/howto-install-maven/[Maven (v3 or later)]
+* http://phantomjs.org/download.html[PhantomJS]
 
 === Build RedPen
 
@@ -25,7 +25,8 @@ The built RedPen package is output in `redpen/redpen-distribution/target/redpen-
 After you get the built RedPen package, you unzip it with the following command.
 
 ....
-tar xvf redpen-distribution-*.*.*-SNAPSHOT-assembled.tar.gz
+$ cd redpen/redpen-distribution/target
+$ tar xvf redpen-distribution-*.*.*-SNAPSHOT-assembled.tar.gz
 x redpen-distribution-*.*.*-SNAPSHOT/bin/
 x redpen-distribution-*.*.*-SNAPSHOT/conf/
 x redpen-distribution-*.*.*-SNAPSHOT/js/
@@ -34,4 +35,29 @@ x redpen-distribution-*.*.*-SNAPSHOT/lib/
 ...
 ....
 
-=== Important files
+Now the RedPen package is ready to use.
+
+....
+$cd redpen-distribution-*.*.*-SNAPSHOT
+$bin/redpen -h
+usage: redpen-cli [Options] [<INPUT FILE>]
+  -c,--conf <CONF FILE>                Configuration file (REQUIRED)
+  -f,--format <FORMAT>                 Input file format
+                                       (markdown,plain,wiki,asciidoc,latex)
+  -h,--help                            Displays this help information and exits
+  -l,--limit <LIMIT NUMBER>            error limit number
+  -r,--result-format <RESULT FORMAT>   Output result format
+                                       (json,json2,plain,plain2,xml)
+  -v,--version                         Displays version information and exits
+....
+
+=== Testing
+
+When you modify RedPen source files, please make sure to add the test cases to make the
+reviewer understand the expected behaviors. In addition run whole test cases before making the Pull Request.
+RedPen test cases are run with the following command.
+
+....
+$mvn test
+....
+
