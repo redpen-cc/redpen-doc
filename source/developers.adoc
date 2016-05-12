@@ -1,1 +1,37 @@
+== Development RedPen
 
+Feature requests are warm welcome through the GitHub. If you are interested in joining the development team.
+The following instructions help you to understand building RedPen development environment. Contributions
+in the form of pull requests are easy to integrate to the master branch.
+
+=== Preliminary
+
+To build RedPen, you need to install the following tools.
+
+* JDK
+* Git client
+* Maven (v3 or later)
+* PhantomJS
+
+=== Build RedPen
+
+Building all the RedPen package is simple. You just run the following command.
+
+....
+$ mvn install
+....
+
+The built RedPen package is output in `redpen/redpen-distribution/target/redpen-distribution-*.*.*-SNAPSHOT-assembled.tar.gz`.
+After you get the built RedPen package, you unzip it with the following command.
+
+....
+tar xvf redpen-distribution-*.*.*-SNAPSHOT-assembled.tar.gz
+x redpen-distribution-*.*.*-SNAPSHOT/bin/
+x redpen-distribution-*.*.*-SNAPSHOT/conf/
+x redpen-distribution-*.*.*-SNAPSHOT/js/
+x redpen-distribution-*.*.*-SNAPSHOT/js/test/
+x redpen-distribution-*.*.*-SNAPSHOT/lib/
+...
+....
+
+=== Important files
