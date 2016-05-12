@@ -13,6 +13,12 @@ To build RedPen, you need to install the following tools.
 * http://www.dowdandassociates.com/blog/content/howto-install-maven/[Maven (v3 or later)]
 * http://phantomjs.org/download.html[PhantomJS]
 
+=== Development Policy
+
+We will develop this tiny tool slow but steady. Therefore We would not be able to accept drastic changes,
+even when the proposed change gives us the gain. This policy is needed us to enjoy writing and coding in
+our daily life.
+
 === Build RedPen
 
 Building all the RedPen package is simple. You just run the following command.

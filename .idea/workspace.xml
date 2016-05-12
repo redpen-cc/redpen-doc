@@ -52,12 +52,12 @@
       </file>
       <file leaf-file-name="developers.adoc" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/developers.adoc">
-          <provider selected="true" editor-type-id="AsciiDocPreviewEditor">
+          <provider editor-type-id="AsciiDocPreviewEditor">
             <state />
           </provider>
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -611,12 +611,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1463030135583</updated>
-      <workItem from="1463030137254" duration="4988000" />
+      <workItem from="1463030137254" duration="5472000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4988000" />
+    <option name="totallyTimeSpent" value="5472000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1245" height="777" extended-state="6" />
@@ -690,12 +690,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/developers.adoc">
-      <provider selected="true" editor-type-id="AsciiDocPreviewEditor">
+      <provider editor-type-id="AsciiDocPreviewEditor">
         <state />
       </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
         </state>
       </provider>
