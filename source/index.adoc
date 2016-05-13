@@ -24,8 +24,8 @@ include::language.adoc[]
 
 include::server.adoc[]
 
-include::faq.adoc[]
+include::developers.adoc[]
 
-// include::developers.adoc[]
+include::faq.adoc[]
 
 include::links.adoc[]

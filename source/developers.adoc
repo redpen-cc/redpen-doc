@@ -1,8 +1,8 @@
-== Development RedPen
+== For Developers
 
 Feature requests are warm welcome through the GitHub. If you are interested in joining the development team.
-The following instructions help you to understand building RedPen development environment. Contributions
-in the form of pull requests are easy to integrate to the master branch.
+The following instructions help you to understand building RedPen development environment. Contributions in the
+form of pull requests are easy to integrate to the master branch.
 
 === Preliminary
 
@@ -15,9 +15,8 @@ To build RedPen, you need to install the following tools.
 
 === Development Policy
 
-We will develop this tiny tool slow but steady. Therefore We would not be able to accept drastic changes,
-even when the proposed change gives us the gain. This policy is needed us to enjoy writing and coding in
-our daily life.
+We will develop this tiny tool slowly but steadily. Therefore sometimes we would not be able to accept the proposal containing drastic changes,
+even when the proposed change gives us the gain. This policy is needed us to enjoy writing and coding in our daily life.
 
 === Build RedPen
 
@@ -59,11 +58,25 @@ usage: redpen-cli [Options] [<INPUT FILE>]
 
 === Testing
 
-When you modify RedPen source files, please make sure to add the test cases to make the
-reviewer understand the expected behaviors. In addition run whole test cases before making the Pull Request.
+When you modify RedPen source files, please make sure to add the test cases to make the reviewer understand
+the expected behaviors. In addition run whole test cases before making the Pull Request.
 RedPen test cases are run with the following command.
 
 ....
 $mvn test
 ....
+
+=== Misc Information
+
+* Twitter account
+
+https://twitter.com/redpen_news/
+
+* Source repository (git)
+
+https://github.com/redpen-cc/redpen
+
+* Issue tracker
+
+https://github.com/redpen-cc/redpen/issues
 
