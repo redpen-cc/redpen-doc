@@ -186,7 +186,7 @@ by a space and the symbol's invalid characters, respectively.
 |`LOW_LINE`                    |'_'           |false              |false              |'＿'             |  Low line (under bar)
 |`LEFT_CURLY_BRACKET`          |'{'           |true               |false              |'｛'             |  Left curly bracket
 |`RIGHT_CURLY_BRACKET`         |'}'           |true               |false              |'｝'             |  Right curly bracket
-|`VERTICAL_VAR`                |'|'           |false              |false              |'｜'             |  Vertical bar
+|`VERTICAL_BAR`                |'|'           |false              |false              |'｜'             |  Vertical bar
 |`TILDE`                       |'~'           |false              |false              |'〜'             |  Tilde
 |`LEFT_SINGLE_QUOTATION_MARK`  |'''           |false              |false              |                 |  Left single quotation mark
 |`RIGHT_SINGLE_QUOTATION_MARK` |'''           |false              |false              |                 |  Right single quotation mark
