@@ -626,8 +626,17 @@ Okurigana works for Japanese.
 
 This validator generates errors if input sentence start with a capital character.
 
-[[supported-languages-okurigana]]
+[[supported-languages-startwithcapitalcharacter]]
 ==== Supported languages
 
 This vlaidator works for English or other european langugages.
 
+[[voidsection]]
+=== VoidSection
+
+This validator generates errors if sections in input documents do not have any paragraphs or sentences.
+
+[[supported-languages-okurigana]]
+==== Supported languages
+
+VoidSection works for any languages.
