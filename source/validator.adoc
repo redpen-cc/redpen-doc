@@ -316,7 +316,16 @@ SpaceBetweenAlphabeticalWord validator checks that alphabetic words are
 surrounded with whitespace. This validator is used in non-latin
 languages such as Japanese or Chinese.
 
-[[supported-languages-7]]
+[[properties-spacebetweenalphabeticalword]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``forbidden``  | false          | Speces are enforce (false) or forbidden.
+|====
+
+[[supported-languages-spacebetweenalphabeticalword]]
 ==== Supported languages
 
 SpaceBetweenAlphabeticalWord works for languages whose words are not
