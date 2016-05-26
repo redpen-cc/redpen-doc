@@ -712,3 +712,19 @@ This validator generates errors when input documents contains smaller sections t
 
 SectionLevel works for any languages.
 
+[[japanese-ambiguous-noun-conjunction]]
+=== JapaneseAmbiguousNounConjunction
+
+This validator generates errors when Japanese documents contains the ambiguous noun conjunction pattern.
+The ambigous pattern is that two nouns are conjuncted with Joshi, **no (の)**.
+
+The following is a sample of this pattern.
+
+----
+弊社の経営方針の説明を受けた。
+----
+
+[[supported-language-japanese-ambiguous-noun-conjunction]]
+==== Supported languages
+
+JapaneseAmbigousNounConjunction works for Japanese.
