@@ -636,7 +636,29 @@ This vlaidator works for English or other european langugages.
 
 This validator generates errors if sections in input documents do not have any paragraphs or sentences.
 
-[[supported-languages-okurigana]]
+[[supported-languages-voidsection]]
 ==== Supported languages
 
 VoidSection works for any languages.
+
+
+[[gappedsection]]
+=== GappedSection
+
+This validator generates errors when the level of child sections (chapters) has the gap.
+For example, The following is a misplaced section sample.
+
+----
+= chapter 1
+...
+=== section 1.1.1
+=== section 1.1.2
+...
+----
+
+In the above example, chapter 1 should have section 1.1 before subsection 1.1.1.
+
+[[supported-languages-gappedsection]]
+==== Supported languages
+
+GappedSection works for any languages.
