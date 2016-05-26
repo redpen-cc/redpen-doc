@@ -53,6 +53,20 @@ This argument specifies the input format. Currently RedPen supports the followin
 |properties |Java property file format
 |====
 
+NOTE: When users do not specify the input format with `-f`, redpen command guess the format from file extensions.
+The followings table shows the list of file extensions, which redpen command understand.
+
+[options="header",]
+|====
+|Value      |Extension
+|plain      |txt
+|wiki       |wiki
+|markdown   |md, markdown
+|asciidoc   |adoc, asciidoc
+|latex      |tex, latex
+|properties |properties
+|====
+
 ===== Result format [**default**: plain]
 
 ----
