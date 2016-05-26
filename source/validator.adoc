@@ -684,3 +684,22 @@ In the above example, chapter 1 should have section 1.1 before subsection 1.1.1.
 
 GappedSection works for Japanese text.
 
+[[section-level]]
+=== SectionLevel
+
+This validator generates errors when input documents contains smaller sections than specified.
+
+[[properties-section-level]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``max_num``     |5              |The limit of the sub-section level.
+|====
+
+[[supported-language-section-level]]
+==== Supported languages
+
+SectionLevel works for any languages.
+
