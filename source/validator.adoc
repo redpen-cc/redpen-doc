@@ -662,3 +662,25 @@ In the above example, chapter 1 should have section 1.1 before subsection 1.1.1.
 ==== Supported languages
 
 GappedSection works for any languages.
+
+[[long-kanji-chain]]
+=== LongKanjiChain
+
+This validator generates errors when input sentences has a words consist of too many Kanji characters.
+
+In the above example, chapter 1 should have section 1.1 before subsection 1.1.1.
+
+[[properties-long-kanji-chain]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``max_len``  |2  |The limit on how many characters are used in succession.
+|====
+
+[[supported-language-long-kanji-chain]]
+==== Supported languages
+
+GappedSection works for Japanese text.
+
