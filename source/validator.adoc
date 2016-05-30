@@ -728,3 +728,33 @@ The following is a sample of this pattern.
 ==== Supported languages
 
 JapaneseAmbigousNounConjunction works for Japanese.
+
+[[japanese-number-expression]]
+=== JapaneseNumberExpression
+
+JapaneseNumberExpression checks if the number expressions in the input text are in the consistent style.
+
+[[properties-section-level]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``mode``        |numeric        |Style of number expression. There is four types of styles ("numeric", "numeric-zenkaku", "kansuji", "hiragana").
+|====
+
+Each style expects the following number expression.
+
+[options="header"]
+|====
+|Style                | Sample
+|``numeric``          | 1つ、2つ
+|``numeric-zenkaku``  | １つ、２つ
+|``kansuji``          | 一つ、二つ
+|``hiragana``         | ひとつ、ふたつ
+|====
+
+[[supported-language-japanese-number-expression]]
+==== Supported languages
+
+JapaneseNumberExpression works only for Japanese text.
