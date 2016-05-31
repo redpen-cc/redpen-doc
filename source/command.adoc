@@ -49,6 +49,7 @@ This argument specifies the input format. Currently RedPen supports the followin
 |wiki       |Wiki (Textile) format
 |markdown   |Markdown format
 |asciidoc   |AsciiDoc format
+|review     |Re:VIEW format
 |latex      |LaTeX format
 |properties |Java property file format
 |====
@@ -63,6 +64,7 @@ The followings table shows the list of file extensions, which redpen command und
 |wiki       |wiki
 |markdown   |md, markdown
 |asciidoc   |adoc, asciidoc
+|review     |re, review
 |latex      |tex, latex
 |properties |properties
 |====
