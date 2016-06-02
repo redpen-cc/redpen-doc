@@ -8,6 +8,7 @@ RedPen supports several types of input formats:
 - AsciiDoc
 - Wiki
 - LaTeX
+- Re:VIEW
 - Java Properties
 
 [[plain-text]]
@@ -231,6 +232,11 @@ period, as in the following example.
 ==== Paragraphs
 
 Paragraphs are separated by two new lines. This syntax is the same as for plain text.
+
+[[review-format]]
+=== Re:VIEW format
+
+See the https://github.com/kmuto/review/blob/master/doc/format.md[Re:VIEW reference]
 
 [[java-properties]]
 === Java Properties
