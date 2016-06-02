@@ -18,6 +18,8 @@ include::configuration.adoc[]
 
 include::format.adoc[]
 
+include::suppress.adoc[]
+
 include::extend.adoc[]
 
 include::language.adoc[]
