@@ -1,7 +1,7 @@
 [[editor-support]]
 == Text Editor / IDE
-Software engineers who use ReePen develop RedPen packages for various editors such as Emacs or Atom.
-This section introduces the RedPen packages. This the following packages, we can enjoy the linting texts in the editors or IDEs.
+Some software engineers develop RedPen packages for various editors such as Emacs or Atom.
+This section introduces the RedPen packages. With the following packages, we can enjoy the linting texts in the editors or IDEs.
 
 === Atom
 
