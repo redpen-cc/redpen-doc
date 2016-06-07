@@ -22,7 +22,9 @@ https://github.com/rhysd/unite-redpen.vim[A unite.vim integration of redpen for 
 
 === IntelliJ IDEA
 
-https://intellij-support.jetbrains.com[IntelliJ IDEA] is an IDE for Java provided Jetbrains, but this IDE provides many plugins for supporting markdup texts such as AsiiDoc or Markdown.
-We have been developing https://plugins.jetbrains.com/plugin/8210[IntelliJ IDEA plugin]. The following image shows the IntelliJ IDEA RedPen plugin.
-
 image:quick-fix.png[image]
+
+https://intellij-support.jetbrains.com[IntelliJ IDEA] is an IDE for Java provided Jetbrains, but this IDE provides many plugins for supporting markup texts such as AsiiDoc or Markdown.
+We have been developing https://plugins.jetbrains.com/plugin/8210[IntelliJ IDEA plugin]. 
+
+
