@@ -28,6 +28,8 @@ include::server.adoc[]
 
 include::developers.adoc[]
 
+include::editor.adoc[]
+
 include::faq.adoc[]
 
 include::links.adoc[]

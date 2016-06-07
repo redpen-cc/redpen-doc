@@ -1,0 +1,28 @@
+[[editor-support]]
+== Text Editor / IDE
+Software engineers who use ReePen develop RedPen packages for various editors such as Emacs or Atom.
+This section introduces the RedPen packages. This the following packages, we can enjoy the linting texts in the editors or IDEs.
+
+=== Atom
+
+Atom is a modern text editor, which works in various platforms such as OS X,
+Linux, and Windows. https://atom.io/packages/linter-redpen[linter-redpen] is an sophisticated
+Atom package created by https://atom.io/users/griffin-stewie[griffin-stewie]. This provides
+real-time checking of texts.
+
+=== Emacs
+
+Emacs is a real-time display text editor. Many software engineers love this editor for the customisablity.
+https://github.com/karronoli/redpen-paragraph.el[redpen-paragraph] is a Emacs package for RedPen created by
+https://github.com/karronoli[karronoli].
+
+=== Vim
+
+https://github.com/rhysd/unite-redpen.vim[A unite.vim integration of redpen for automatic proofreading] is created by https://github.com/rhysd[rhysd]
+
+=== IntelliJ IDEA
+
+https://intellij-support.jetbrains.com[IntelliJ IDEA] is an IDE for Java provided Jetbrains, but this IDE provides many plugins for supporting markdup texts such as AsiiDoc or Markdown.
+We have been developing https://plugins.jetbrains.com/plugin/8210[IntelliJ IDEA plugin]. The following image shows the IntelliJ IDEA RedPen plugin.
+
+image:quick-fix.png[image]
