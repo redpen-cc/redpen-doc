@@ -43,7 +43,7 @@ elements of Wiki syntax are as follows.
 [[headings]]
 ==== Headings
 
-To create a heading, add a line starting with "h[1234]. ". The number after h represents the level of the heading or section.
+To create a heading, add a line starting with **h[1234]**. The number after h represents the level of the heading or section.
 
 [[inline-formatting]]
 ==== Inline Formatting
@@ -109,7 +109,7 @@ of the asterisk used by Bulleted Lists.
 [[comments]]
 ==== Comments
 
-To add a comment to the wiki source, add a [!-- ... --] block. The
+To add a comment to the wiki source, add a ``[!-- ... --]`` block. The
 following shows a sample comment.
 
 ----

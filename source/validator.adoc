@@ -92,10 +92,9 @@ supplied only for English and Japanese).
 [[spacebeginningofsentencevalidator]]
 === SpaceBeginningOfSentenceValidator
 
-SpaceBeginningOfSentenceValidator validator checks if there is a white
-space at the end of input sentences (except for the very last sentence
-of paragraph). If the input sentence does end with a white space, a
-warning is given.
+This validator checks if there is a white
+space at the end of sentences (except for the last sentence of paragraph).
+If the input sentence does end with a white space, a warning is given.
 
 [[supported-languages-2]]
 ==== Supported languages
@@ -138,9 +137,9 @@ WordNumber validator checks the number of words in one setnece.
 [[supported-languages-3]]
 ==== Supported languages
 
-WordNumber can be applied to any languages except for some Asian
-languages (Chinese or Thai), since RedPen does not have the tokenizer
-for the unspported languages.
+WordNumber can be applied to any languages except for several Asian
+languages (Chinese or Thai). RedPen does not have the tokenizer
+for the languages.
 
 [[suggestexpression]]
 === SuggestExpression
@@ -176,16 +175,16 @@ SuggestExpression can be any of languages but the default dictionaries
 are provided only for English and Japanese.
 
 [[invalidsymbol]]
+[suppress='InvalidSymbol']
 === InvalidSymbol
 
 Some symbols or characters have alternate characters with the same role.
-For example question mark "? (0x003F)" has another unicode variation
-"？(0xFF1F)". InvalidSymbol checks if input sentences contains invalid
-characters or symbols. The symbols and character settings are entered
-into the character setting file (char-table.xml). In this file, we write
-the symbols we should use in the document and their invalid
-counterparts. The details of these settings is described in the next
-section.
+For example question mark **? (0x003F)** has another unicode variation
+**？(0xFF1F)**. InvalidSymbol checks if input sentences contains invalid
+characters or symbols. The symbols settings are added
+into the character setting block int the configuration file.
+In this file, we write the symbols we should use in the document and their invalid
+counterparts. The details of these settings is described in the next section.
 
 [[supported-languages-2]]
 ==== Supported languages
@@ -197,8 +196,7 @@ the <<configuration,Configuration>> section.
 === SymbolWithSpace
 
 Some symbols need space before or after them. For example, if we want to
-ensure a space is added before a left parentheses "(", we could add this
-preference to the character setting file (char-table.xml).
+ensure a space before a left parentheses, we can add the preference to the symbol setting block (see <<setting-symbols>>)
 
 [[supported-languages-3]]
 ==== Supported languages
@@ -206,6 +204,7 @@ preference to the character setting file (char-table.xml).
 InvalidSymbol works for any language.
 
 [[katakanaendhyphen]]
+[suppress='InvalidSymbol']
 === KatakanaEndHyphen
 
 KatakanaEndHyphen validator checks the end hyphens of Katakana words in
@@ -389,8 +388,9 @@ this good item is very good.
 ==== Supported languages
 
 DoubledWord works for any langages except for Chiense or other Asian
-languages. Note that the default dictionaries are supplied for Japanese
-and English.
+languages.
+
+NOTE: The default dictionaries are supplied only for Japanese and English.
 
 [[doubledjoshi]]
 === DoubledJoshi

@@ -22,32 +22,32 @@
 		<validator name="DoubleNegative"/>
 		<validator name="EndOfSentence"/>
 		<validator name="Hyphenation">
-			<property name="dict" value=""/>
 			<property name="list" value=""/>
+			<property name="dict" value=""/>
 		</validator>
 		<validator name="InvalidExpression">
-			<property name="dict" value=""/>
 			<property name="list" value=""/>
+			<property name="dict" value=""/>
 		</validator>
 		<validator name="InvalidSymbol"/>
 		<validator name="InvalidWord">
-			<property name="dict" value=""/>
 			<property name="list" value=""/>
+			<property name="dict" value=""/>
 		</validator>
 		<validator name="NumberFormat">
-			<property name="ignore_years" value="true"/>
 			<property name="decimal_delimiter_is_comma" value="false"/>
+			<property name="ignore_years" value="true"/>
 		</validator>
 		<validator name="Quotation">
 			<property name="use_ascii" value="false"/>
 		</validator>
 		<validator name="SentenceLength">
-			<property name="max_len" value="120"/>
+			<property name="max_len" value="140"/>
 		</validator>
 		<validator name="SpaceBeginningOfSentence"/>
 		<validator name="StartWithCapitalLetter">
-			<property name="dict" value=""/>
 			<property name="list" value=""/>
+			<property name="dict" value=""/>
 		</validator>
 		<validator name="SuccessiveWord"/>
 		<validator name="SuggestExpression">

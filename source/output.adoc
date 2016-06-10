@@ -1,7 +1,7 @@
 [[output]]
 == RedPen Output Formats
 
-RedPen supports three basic output formats - "Plain text", "XML", and "JSON".
+RedPen supports three basic output formats - **Plain text**, **XML**, and **JSON**.
 
 [[plain-text]]
 === Plain text
@@ -13,7 +13,7 @@ FILE_NAME:LINE_NUM: ValidationError[ERROR_TYPE], ERROR_MESSAGE at line: SENTENCE
 ----
 
 An alternate plain text form (plain2) prints each sentence, followed by
-all of the errors found that relate to that sentence.
+all of the errors found in the sentence.
 
 [[xml]]
 === XML
@@ -33,6 +33,7 @@ following sub-elements.
 |====
 
 [[json]]
+[suppress='UnexpandedAcronym']
 === JSON
 
 [option="header"]

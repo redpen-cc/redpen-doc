@@ -7,13 +7,13 @@ simple HTTP REST API.
 [[starting-the-redpen-server]]
 === Starting and stopping the RedPen server
 
-Please refer to the <<commands,Commands>> section for details on how to start the RedPen server.
+Please refer to the <<commands,Commands>> section for details on how-to start the RedPen server.
 
 [[heroku-button]]
 === Heroku Button
 RedPen server is also launch in the Heroku environment with few clicks. In the bottom of https://github.com/redpen-cc/redpen[RedPen README], there is a Heroku Button.
 
-image:heroku-button.png[image]
+image:heroku-button.png[Image]
 
 Clicking the buttom, a RedPen server get started in Heroku. Actually the http://redpen.herokuapp.com/[RedPen sample server] in the RedPen home page is working in Heroku environment.
 [[redpen-server-api]]
@@ -104,6 +104,7 @@ properties for this validator, as described in validator
 
 This POST request validates a document and returns the errors.
 
+[suppress=='CommaNumber']
 ===== POST Parameters
 
 * _document_ contains the text of the document RedPen is to validate
@@ -170,6 +171,7 @@ $ curl -s --data document="古池や,蛙飛び込む水の音" \
 This POST request processes a redpen validation request, specified in
 JSON, and returns redpen errors in a supported RedPen format.
 
+[suppress='CommaNumber']
 ===== Request format
 
 [source,json]
@@ -234,8 +236,7 @@ one of json, json2, plain, plain2 or xml.
 ** A _config_ object, consisting of a series of objects that are named
   after a RedPen validator. If the object is present, the validator will
   be configured. Within this named object, a _properties_ object can be
-  used to set the name and values of any property used by the validator,
-  as described in validator
+  used to set the name and values of any property used by the validator.
 ** The _lang_ property indicates the language of the document. It determines how the document will be tokenized by RedPen.
 ** A _symbols_ object containing overridden symbols, as described in configuration. Each entry must be a validate symbol name, and can contain the following elements:
 *** _value_ specifies the Symbol's value

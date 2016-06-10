@@ -1,11 +1,14 @@
 [[editor-support]]
+[suppress='WeakExpression']
 == Text Editor / IDE
 Some software engineers develop RedPen packages for various editors such as Emacs or Atom.
-This section introduces the RedPen packages. With the following packages, we can enjoy the linting texts in the editors or IDEs.
+This section introduces the RedPen packages.
+With the following packages, we can enjoy the linting texts in the editors or IDEs.
 
+[suppress='StartWithCapitalCharacter']
 === Atom
 
-Atom is a modern text editor, which works in various platforms such as OS X,
+Atom is a modern text editor which works in various platforms such as OS X,
 Linux, and Windows. https://atom.io/packages/linter-redpen[linter-redpen] is an sophisticated
 Atom package created by https://atom.io/users/griffin-stewie[griffin-stewie]. This provides
 real-time checking of texts.
@@ -22,9 +25,10 @@ https://github.com/rhysd/unite-redpen.vim[A unite.vim integration of redpen for 
 
 === IntelliJ IDEA
 
-image:quick-fix.png[image]
+image:quick-fix.png[Image]
 
-https://intellij-support.jetbrains.com[IntelliJ IDEA] is an IDE for Java provided Jetbrains, but this IDE provides many plugins for supporting markup texts such as AsiiDoc or Markdown.
+https://intellij-support.jetbrains.com[IntelliJ IDEA] is famous Java IDE provided Jetbrains.
+But this IDE also provides many plugins to support editing markup texts such as AsiiDoc or Markdown.
 We have been developing https://plugins.jetbrains.com/plugin/8210[IntelliJ IDEA plugin]. 
 
 

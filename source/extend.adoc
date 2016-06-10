@@ -6,12 +6,12 @@ We can make RedPen extension with Java and JavaScript. In the following sections
 [[extending-with-java]]
 === Extending RedPen with Java
 
-RedPen users can extend RedPen by creating new Validators. This page
-describes how to construct your Validators and covers the basics of the
+RedPen users can extend RedPen by creating new Validators. This section
+describes how we construct Validators and covers the basics of the
 internal document model used by Validators.
 
 RedPen users can create new validators for themselves or their
-organization. Adding validator is simple - just write a class that
+organization. Adding validator is simple - just write a class which
 extends the abstract class **Validator**.
 
 [[extending-validators]]
@@ -56,14 +56,12 @@ different parameters.
   public void validate(Section section)
 ----
 
-Note that the implemented class needs to be in one of the following
-packages: 'cc.redpen.validator', 'cc.redpen.validator.sentence' or
-'cc.redpen.validator.section.'
+NOTE: The implemented class needs to be in one of the packages: 'cc.redpen.validator', 'cc.redpen.validator.sentence' or 'cc.redpen.validator.section.'
 
 [[prevalidate-method]]
 ==== prevalidate method
 
-the preValidate method called before validate method is run. This method
+The preValidate method called before validate method is run. This method
 is useful to create the prerequisite to run validate method. There are
 two prevalidte methods variations which have different parameters.
 
@@ -90,7 +88,7 @@ two prevalidte methods variations which have different parameters.
 ==== Configuration properties
 
 If validator needs Configuration properties, validator constructor can be used to define them.
-This way RedPen will know that your validator supports these properties and various plugins can show them in a GUI.
+This way RedPen will understand that your validator supports these properties and various plugins can show them in a GUI.
 
 [source,java]
 ----
@@ -195,18 +193,18 @@ public class PlainSentenceLengthValidator extends Validator {
 }
 ----
 
-The class has a validate method that takes a Sentence object as its
+The class has a validate method which takes a Sentence object as its
 parameter. When this class is registered in the configuration file,
-RedPen automatically applies the validate method to each sentence in
-each input document.
+RedPen automatically applies the method to each sentence in the input document.
 
 [[include-a-new-validator]]
-===== Include a new Validator
+===== Register a new Validator to configuration file
 
-To include the Validator in your RedPen configuration, add the
-Validator's name, without the "Validator" suffix, to a RedPen
-configuration file. For example, to activate our newly created Validator
-PlainSentenceLengthValidator, include the validator element as follows:
+To register your Validator in the RedPen configuration, add the
+Validator's name, removing the **Validator** suffix, to a configuration file.
+
+For example, to activate our newly created Validator PlainSentenceLengthValidator,
+include the validator element as follows:
 
 [source,xml]
 ----
@@ -227,14 +225,14 @@ We would then run RedPen normally, using this configuration file.
 When creating a Validator plugin, it is often easier to start by using
 another plugin's project as a template.
 
-As an example, I (takahi-i) have written a simple Validator plugin
+As an example, I have written a simple Validator plugin
 https://github.com/takahi-i/hankaku-kana-validator[hankaku_kana_validator].
 
-The most significant file for the plugin is pom.xml which exists at the
+The most significant file for the plugin is `pom.xml` which exists at the
 top of the project. This file is the Maven configuration file, which is
 a popular software project management tool for Java.
 
-The following is the content of pom.xml:
+The following is the content of `pom.xml`:
 
 [source,java]
 ----
@@ -262,11 +260,11 @@ Usually you do not need to change the pom.xml file, except for the
 contents of the *artifact-id* and *name* elements. You should alter the
 name to fit the function of your Validator.
 
-After changing pom.xml, you should delete the the existing validator
-file (HankakuKanaValidator.java) from
-"main/java/cc/redpen/validator/sentence". Then, put your Validator's
+After changing `pom.xml`, you should delete the existing validator
+file (`HankakuKanaValidator.java`) from
+"main/java/cc/redpen/validator/sentence." Then, put your Validator's
 source file in "main/java/cc/redpen/validator/sentence" or
-"main/java/cc/redpen/validator/section". As mentioned above, your
+"main/java/cc/redpen/validator/section." As mentioned above, your
 Validator must extend the RedPen Validator class.
 
 Once you have included your Validator implementation, you can build the
@@ -289,7 +287,7 @@ configuration file as described above. Remember to remove the
 
 [[extending-with-javascript]]
 === Extending RedPen in JavaScript
-For those who are unfamiliar with Java, RedPen v1.3 introduced JavaScriptValidator, which is a special validator that loads Validator implementations written in JavaScript.
+For those who are unfamiliar with Java, RedPen version 1.3 introduced JavaScriptValidator, which is a special validator that loads Validator implementations written in JavaScript.
 
 [[enable-javascript]]
 ==== Enabling JavaScriptValidator
@@ -298,21 +296,21 @@ To enable JavaScriptValidator, simply add `<validator name="JavaScript"/>` in yo
 [source,xml]
 ----
 <redpen-conf lang="en">
-　　<validators>
+  <validators>
        ...snip...
-　　　　<validator name="JavaScript" />
-　　</validators>
+    <validator name="JavaScript" />
+  </validators>
 </redpen-conf>
 ----
 
 [[javascript-validator]]
 ==== Write your own validator in JavaScript
-JavaScriptValidator will load all files with .js suffix from `$REDPEN_HOME/js` directory. This location can be overriden with `script-path` property of JavaScriptValidator. You can set multiple 'script-path' property.
+JavaScriptValidator will load all files with `.js` suffix from `$REDPEN_HOME/js` directory. This location can be overriden with `script-path` property of JavaScriptValidator. You can set multiple 'script-path' property.
 
 [source,javascript]
 ----
 <redpen-conf lang="en">
-　　<validators>
+  <validators>
        ...snip...
      <validator name="JavaScript" >
        <property name="script-path" value="/path/to/your/validator/directory-a" />
@@ -320,7 +318,7 @@ JavaScriptValidator will load all files with .js suffix from `$REDPEN_HOME/js` d
      <validator name="JavaScript" >
        <property name="script-path" value="/path/to/your/validator/directory-b" />
      </validator>
-　　</validators>
+  </validators>
 </redpen-conf>
 ----
 
@@ -373,7 +371,9 @@ The code looks pretty much similar to the Java version. But due to the differenc
 
 [[javascript-run]]
 ==== Run
-Of course, it’s JavaScript and there is no need to compile / package your validator (Actually your JavaScript code will be compiled into Java byte-code by Nashorn, and it runs very fast than you expect). JavaScriptValidator will pick any *.js file located in `$REDPEN_HOME/js` directory.
+Of course, it is JavaScript and there is no need to compile your validator.
+Actually your JavaScript code will be compiled into Java byte-code by Nashorn, and it runs fast than you expect.
+JavaScriptValidator will pick any *.js file located in `$REDPEN_HOME/js` directory.
 You can simply run the redpen command to get your file validated by the js validator.
 
 [source,bash]
