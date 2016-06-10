@@ -1,5 +1,7 @@
 == RedPen FAQ
 
+This section shows the frequent asked questions and the answers.
+
 * Does RedPen check LaTeX documents for common style errors?
 +
 --

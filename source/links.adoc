@@ -1,5 +1,7 @@
 == Links
 
+This section introduces the useful links related with RedPen project.
+
 * https://github.com/redpen-cc/redpen[Source]
 * https://github.com/redpen-cc/redpen/issues?state=open[Issues]
 * https://hub.docker.com/r/ainoya/redpen-server/[Docker Image by Naoki Ainoya]

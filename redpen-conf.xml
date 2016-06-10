@@ -1,10 +1,65 @@
 <redpen-conf lang="en">
-    <validators>
-        <validator name="SentenceLength">
-          <property name="max_len" value="250"/>
-        </validator>
-        <validator name="SectionLength">
-            <property name="max_num" value="2000"/>
-        </validator>
-    </validators>
+	<validators>
+		<validator name="ParagraphNumber">
+			<property name="max_num" value="5"/>
+		</validator>
+		<validator name="ParagraphStartWith">
+			<property name="start_from" value=""/>
+		</validator>
+		<validator name="SectionLength">
+			<property name="max_num" value="1000"/>
+		</validator>
+		<validator name="UnexpandedAcronym">
+			<property name="min_acronym_length" value="3"/>
+		</validator>
+		<validator name="WordFrequency">
+			<property name="deviation_factor" value="3.0"/>
+			<property name="min_word_count" value="200"/>
+		</validator>
+		<validator name="CommaNumber">
+			<property name="max_num" value="3"/>
+		</validator>
+		<validator name="DoubleNegative"/>
+		<validator name="EndOfSentence"/>
+		<validator name="Hyphenation">
+			<property name="dict" value=""/>
+			<property name="list" value=""/>
+		</validator>
+		<validator name="InvalidExpression">
+			<property name="dict" value=""/>
+			<property name="list" value=""/>
+		</validator>
+		<validator name="InvalidSymbol"/>
+		<validator name="InvalidWord">
+			<property name="dict" value=""/>
+			<property name="list" value=""/>
+		</validator>
+		<validator name="NumberFormat">
+			<property name="ignore_years" value="true"/>
+			<property name="decimal_delimiter_is_comma" value="false"/>
+		</validator>
+		<validator name="Quotation">
+			<property name="use_ascii" value="false"/>
+		</validator>
+		<validator name="SentenceLength">
+			<property name="max_len" value="120"/>
+		</validator>
+		<validator name="SpaceBeginningOfSentence"/>
+		<validator name="StartWithCapitalLetter">
+			<property name="dict" value=""/>
+			<property name="list" value=""/>
+		</validator>
+		<validator name="SuccessiveWord"/>
+		<validator name="SuggestExpression">
+			<property name="dict" value=""/>
+		</validator>
+		<validator name="SymbolWithSpace"/>
+		<validator name="WeakExpression"/>
+		<validator name="WordNumber">
+			<property name="max_num" value="30"/>
+		</validator>
+		<validator name="JavaScript">
+			<property name="script-path" value="js"/>
+		</validator>
+	</validators>
 </redpen-conf>
