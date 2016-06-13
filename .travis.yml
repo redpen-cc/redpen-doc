@@ -7,16 +7,17 @@ jdk:
     - oraclejdk8
 
 env:
-  - URL=https://github.com/redpen-cc/redpen/releases/download/v1.4.1
+  - URL=https://github.com/redpen-cc/redpen/releases/download/redpen-1.6.1
 
 install:
-  - wget $URL/redpen-1.4.1.tar.gz
-  - tar xvf redpen-1.4.1.tar.gz
-  - export PATH=$PATH:$PWD/redpen-distribution-1.4.1/bin
+  - wget $URL/redpen-1.6.1.tar.gz
+  - tar xvf redpen-1.6.1.tar.gz
+  - export PATH=$PATH:$PWD/redpen-distribution-1.6.1/bin
 
 script:
   - gem install asciidoctor
+  - gem install coderay
+  - gem install --pre asciidoctor-pdf
   - sudo apt-get update && sudo apt-get install oracle-java8-installer
-  - asciidoctor --version
-  - java -version
-  - make check html
+  - make check     # Apply RedPen
+  - make html      # Generate HTML document
