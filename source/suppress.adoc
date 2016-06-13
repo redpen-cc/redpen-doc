@@ -50,7 +50,7 @@ NOTE: Multi line comments style is not supported.
 
 === Re:VIEW
 
-For Re:VIEW text, writers add the suppress annotation in comments. Specifically Writers add annotation, **@suppress** in Re:VIEW comment "\#@#".
+For Re:VIEW text, writers add the suppress annotation in comments. Specifically Writers add annotation, **@suppress** in Re:VIEW comment **\#@#**.
 For example, the following text suppress all the error in the section.
 
 ```

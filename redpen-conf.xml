@@ -9,12 +9,9 @@
 		<validator name="SectionLength">
 			<property name="max_num" value="1000"/>
 		</validator>
-		<validator name="UnexpandedAcronym">
-			<property name="min_acronym_length" value="3"/>
-		</validator>
 		<validator name="WordFrequency">
-			<property name="deviation_factor" value="3.0"/>
-			<property name="min_word_count" value="200"/>
+			<property name="deviation_factor" value="5.0"/>
+			<property name="min_word_count" value="2000"/>
 		</validator>
 		<validator name="CommaNumber">
 			<property name="max_num" value="3"/>
@@ -42,12 +39,7 @@
 			<property name="use_ascii" value="false"/>
 		</validator>
 		<validator name="SentenceLength">
-			<property name="max_len" value="140"/>
-		</validator>
-		<validator name="SpaceBeginningOfSentence"/>
-		<validator name="StartWithCapitalLetter">
-			<property name="list" value=""/>
-			<property name="dict" value=""/>
+			<property name="max_len" value="150"/>
 		</validator>
 		<validator name="SuccessiveWord"/>
 		<validator name="SuggestExpression">

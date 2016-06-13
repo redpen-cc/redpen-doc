@@ -175,7 +175,7 @@ SuggestExpression can be any of languages but the default dictionaries
 are provided only for English and Japanese.
 
 [[invalidsymbol]]
-[suppress='InvalidSymbol']
+[suppress='InvalidSymbol WeakExpression']
 === InvalidSymbol
 
 Some symbols or characters have alternate characters with the same role.
@@ -193,6 +193,7 @@ InvalidSymbol works for any langugages. See the settings of symbols in
 the <<configuration,Configuration>> section.
 
 [[symbolwithspace]]
+[suppress='WeakExpression']
 === SymbolWithSpace
 
 Some symbols need space before or after them. For example, if we want to
@@ -204,7 +205,7 @@ ensure a space before a left parentheses, we can add the preference to the symbo
 InvalidSymbol works for any language.
 
 [[katakanaendhyphen]]
-[suppress='InvalidSymbol']
+[suppress='InvalidSymbol NumberFormat WeakExpression']
 === KatakanaEndHyphen
 
 KatakanaEndHyphen validator checks the end hyphens of Katakana words in
@@ -228,9 +229,8 @@ KatakanaEndSymbol works only for Japanees texts.
 [[katakanaspellcheck]]
 === KatakanaSpellCheck
 
-KatakanaSpellCheck validator checks if Katakana words have very similar
-words with different spellings in the document. For example, if the
-Katakana word "インデックス" and the variation "インデクス" exist within
+KatakanaSpellCheck validator checks if Katakana words have variational written form.
+For example, if the Katakana word "インデックス" and the variational form "インデクス" exist within
 the same document, this validator will return a warning.
 
 ==== Properties
@@ -309,6 +309,7 @@ beginning of paragraphs conforms to the correct style.
 ParagraphStartWith works for any langugaes.
 
 [[spacebetweenalphabeticalword]]
+[suppress='WeakExpression']
 === SpaceBetweenAlphabeticalWord
 
 SpaceBetweenAlphabeticalWord validator checks that alphabetic words are
@@ -333,7 +334,7 @@ split by white spaces such as Japanese or Chinese.
 [[contraction]]
 === Contraction
 
-Contraction validator throws an error when contractions are used in a
+Contraction throws an error when contractions are used in a
 document in which more than half of the verbs are written in
 non-contracted form.
 
@@ -414,6 +415,7 @@ in a Japanese sentence.
 DoubledJoshi works only for Japanese
 
 [[successiveword]]
+[suppress="SuccessiveWord"]
 === SuccessiveWord
 
 SuccessiveWord validator throws an error if the same word is used twice
@@ -486,6 +488,7 @@ same sequence of words.
 FrequentSentenceStart works for any language.
 
 [[unexpandedacronym]]
+[suppress='WeakExpression']
 === UnexpandedAcronym
 
 This validator ensures that there are candidates for expanded versions
@@ -509,6 +512,7 @@ also exist a sequence of capitalized words such as Axxx Bxx Cxxx.
 UnexpandedAcronym works only for English text.
 
 [[wordfrequency]]
+[suppress='WeakExpression']
 === WordFrequency
 
 This validator ensures that usage of specific words in the document
@@ -534,6 +538,7 @@ Excessive deviation from normal usage generates a validation error.
 WordFrequency works only for English text.
 
 [[hyphenation]]
+[suppress='WeakExpression']
 === Hyphenation
 
 This validator ensures that sequences of words that are hyphenated in
@@ -545,6 +550,7 @@ the dictionary are hyphenated in your document.
 Hyphenation works only for English text.
 
 [[numberformat]]
+[suppress='WeakExpression NumberFormat SymbolWithSpace']
 === NumberFormat
 
 This validator ensures that numbers in a sentence are formatted using
@@ -593,7 +599,7 @@ ParenthesizedSentence works for any langugages.
 === WeakExpression
 
 This validator generates errors if sequences of words form what is
-generally considered to be a "weak expression".
+generally considered to be a "weak expression."
 
 [[supported-languages-21]]
 ==== Supported languages
@@ -713,6 +719,8 @@ This validator generates errors when input documents contains smaller sections t
 SectionLevel works for any languages.
 
 [[japanese-ambiguous-noun-conjunction]]
+
+[suppress='WeakExpression']
 === JapaneseAmbiguousNounConjunction
 
 This validator generates errors when Japanese documents contains the ambiguous noun conjunction pattern.

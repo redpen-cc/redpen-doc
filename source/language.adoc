@@ -10,7 +10,7 @@ specify the language in the configuration file.
 [[override-language]]
 === Override Language
 
-Currently there are two language settings, "en", "ja" and "ru". "en" is for
+Currently there are two language settings, **en**, **ja** and **ru**. **en** is for
 documents written in Latin-based languages such as English and German.
 "ja" is for Japanese documents.
 
@@ -32,19 +32,20 @@ language.
 ----
 
 [[override-symbol-settings]]
+[suppress='Quotation WordNumber']
 === Override Symbol Settings
 
 Depending on the documents and their authors, the characters and symbols
-used may differ. For example, one author might use "'" for a left single
-quotation mark, whereas another author might use "‘" for a left single
+used may differ. For example, one author prefers "'" for a left single
+quotation mark, whereas another author prefers to use "‘" for a left single
 quotation mark.
 
 For such cases, RedPen provides the way to override the default symbols
-(see <<setting-symbols,Setting Symbols>> section) used in the document, and in
-addition, specify which symbols should not used in the input documents.
+(see <<setting-symbols,Setting Symbols>> section) used in the document.
+In addition, specify which symbols should not used in the input documents.
 
 The following overrides the setting for single quotation marks to
-enforce the use of the ascii quotation mark "'".
+enforce the use of the ascii quotation mark (').
 
 [source,xml]
 ----

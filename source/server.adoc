@@ -26,6 +26,7 @@ Clicking the buttom, a RedPen server get started in Heroku. Actually the http://
 
 Return the configuration for available, preconfigured redpens.
 
+[suppress='WeakExpression']
 ===== GET Parameters
 
 * _lang=xx_ restricts the returned configurations to those that match
@@ -171,7 +172,7 @@ $ curl -s --data document="古池や,蛙飛び込む水の音" \
 This POST request processes a redpen validation request, specified in
 JSON, and returns redpen errors in a supported RedPen format.
 
-[suppress='CommaNumber']
+[suppress='CommaNumber WeakExpression']
 ===== Request format
 
 [source,json]
@@ -230,8 +231,7 @@ JSON, and returns redpen errors in a supported RedPen format.
 * The _document_ property specifies the text of the document to validate
 * The _documentParser_ property should contain the name of a valid
 RedPen documentparser (ie: PLAIN, MARKDOWN or WIKI)
-* The _format_ property determines the format for the results. It can be
-one of json, json2, plain, plain2 or xml.
+* The _format_ property determines the format for the results. It can be one of json, json2, plain, plain2 or xml.
 * The _config_ object specifies the validator configuration for the request. This consists of:
 ** A _config_ object, consisting of a series of objects that are named
   after a RedPen validator. If the object is present, the validator will
@@ -340,6 +340,7 @@ Response (json2 format):
 }
 ----
 
+[suppress='WeakExpression']
 ====== Some examples using curl and document/validate/json
 
 [source,bash]

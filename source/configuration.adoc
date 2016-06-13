@@ -117,7 +117,7 @@ The following table describes the properties of the symbol element.
 |====
 
 [[sample-setting-symbols]]
-[suppress='InvalidSymbol']
+[suppress]
 ==== Sample: Setting symbols
 
 In the following example, we can see a symbols section that defines 3
@@ -263,7 +263,7 @@ Japanese text with the "zenkaku2" setting.
 ----
 
 The symbols of "hankaku" variant is the same as the symbol settings as
-"en." The symbols of "zenkaku2" is almost the same as default "zenkaku"
+**en**. The symbols of "zenkaku2" is almost the same as default "zenkaku"
 variant of "ja" with the following exceptions.
 
 [options="header"]

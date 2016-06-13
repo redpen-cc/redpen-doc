@@ -27,8 +27,8 @@ https://github.com/rhysd/unite-redpen.vim[A unite.vim integration of redpen for 
 
 image:quick-fix.png[Image]
 
-https://intellij-support.jetbrains.com[IntelliJ IDEA] is famous Java IDE provided Jetbrains.
-But this IDE also provides many plugins to support editing markup texts such as AsiiDoc or Markdown.
+https://intellij-support.jetbrains.com[IntelliJ IDEA] is famous Java IDE (Integrated Development Environment)
+ provided Jetbrains. But this IDE also provides many plugins to support editing markup texts such as AsiiDoc or Markdown.
 We have been developing https://plugins.jetbrains.com/plugin/8210[IntelliJ IDEA plugin]. 
 
 
