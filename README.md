@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/redpen-cc/redpen-doc.svg?branch=master)](https://travis-ci.org/redpen-cc/redpen-doc)
+
 redpen-doc
 ==========
 
