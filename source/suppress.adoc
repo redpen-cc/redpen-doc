@@ -9,7 +9,7 @@ Currently error suppression is supported for four types of formats (AsciiDoc, Ma
 
 === AsciiDoc
 
-For AsciiDoc text, writers add the suppress annotation in attribute block. The annotation is **[suppress]**. For example, the following AsciiDoc text supporesses the all the erors in the section.
+For AsciiDoc text, writers add the suppress annotation in attribute block. The annotation is **[suppress]**. For example, the following AsciiDoc text suppresses the all the erorrs in the section.
 
 ```
 [suppress]
