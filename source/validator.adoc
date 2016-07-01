@@ -766,3 +766,19 @@ Each style expects the following number expression.
 ==== Supported languages
 
 JapaneseNumberExpression works only for Japanese text.
+
+[[successive-sentence]]
+=== SuccessiveSentence
+
+SuccessiveSentence throws an error when it find almost the same sentences are in succession. This validator is useful to check the human error as follows.
+
+----
+The component is useful for testing. Especially for unit level testing. Especially for unit level testing. Of course we can apply it for higher level testing.
+----
+
+In the above sample, the same sentences are used in succession. This is a human error.
+
+[[supported-language-successive-sentence]]
+==== Supported languages
+
+SuccessiveSentence works for any languages.
