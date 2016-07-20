@@ -11,7 +11,6 @@ This quickstart guide is to help you get started with RedPen. Let's go through s
 RedPen requires the following software.
 
 * Java 1.8.40 or greater
-* Maven 3.0.0 or greater
 
 [[example-run]]
 === Example run
