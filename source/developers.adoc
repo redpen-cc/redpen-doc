@@ -76,6 +76,10 @@ https://twitter.com/redpen_news/
 
 https://github.com/redpen-cc/redpen
 
+* Chat (Gitter)
+
+https://gitter.im/redpen-cc/redpen
+
 * Issue tracker
 
 https://github.com/redpen-cc/redpen/issues
