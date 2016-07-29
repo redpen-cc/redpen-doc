@@ -142,9 +142,10 @@ variables and the default values.
 
 [options="header",]
 |=======================================================================
-|Configuration |Default Value |Description
-|REDPEN_PORT   |8080          |Specify Port number of RedPen server.
-|STOP_KEY      |redpen.stop   |RedPen server is able to stop with Stop key with http access. If you do not want to stop with stop key comment out the value.
+|Configuration    |Default Value |Description
+|REDPEN_PORT      |8080          |Specify Port number of RedPen server.
+|STOP_KEY         |redpen.stop   |RedPen server is able to stop with Stop key with http access. If you do not want to stop with stop key comment out the value.
+|REDPEN_CONF_FILE |              |Specify default redpen config file.
 |=======================================================================
 
 The functionality of the RedPen server is described in the <<server>> section.
