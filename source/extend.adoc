@@ -1,7 +1,7 @@
 [[extending]]
 == Extending RedPen
 
-We can make RedPen extension with Java and JavaScript. In the following sections, we learn the way to make the extensions.
+We can make RedPen extensions with Java and JavaScript. In the following sections, we learn the way to make the extensions.
 
 [[extending-with-java]]
 === Extending RedPen with Java
@@ -385,6 +385,47 @@ You can simply run the redpen command to get your file validated by the js valid
 $ ./bin/redpen -c myredpen-conf.xml 2be-validated.txt
 2be-validated.txt:1: ValidationError[JavaScript], [NumberOfCharacter.js] Sentence is shorter than 100 characters long. at line: very short sentence.
 ----
+
+[[javascript-property]]
+==== Properties of JavaScript based extensions
+
+We can spcify properties to JavaScript based validators. Adding properties, we can change the behaviors of the validators.
+Users specify the prooperties to the configuration block for the JavaScript validator.
+The following exmaple specify the value of propery, **max_char_num** to 5.
+
+----
+<validator name="JavaScript">
+  <property name="max_char_num" value="5" />
+</validator>
+----
+
+Specified properties in JavaScript configuration block are avaiable in JavaScript extensions. For example, the following extension get the value of the property, **max_char_num** with getInt method.
+
+----
+function validateSentence(sentence) {
+  var content = sentence.getContent().split(" ");
+  var limit= getInt("max_char_num");
+
+  for(var i = 0; i<content.length;i++){
+    if(content[i].length >= limit){
+      addError("word [" + content[i] +"] is too long. length: " + content[i].length, sentence);
+    }
+  }
+}
+----
+
+RedPen provides methods for getting values of the properties for various types
+The following table shows the list of provided get methods.
+
+[options="header"]
+|====
+|メソッド名         |Type
+|``getInt``         |Int
+|``getFloat``       |Float
+|``getString``      |String
+|``getBoolean``     |Boolean
+|``getSet``         |Set
+|====
 
 [[model-structure]]
 [suppress='WeakExpression']
