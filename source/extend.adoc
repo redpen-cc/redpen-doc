@@ -419,7 +419,7 @@ The following table shows the list of provided get methods.
 
 [options="header"]
 |====
-|メソッド名         |Type
+|Method name        |Type
 |``getInt``         |Int
 |``getFloat``       |Float
 |``getString``      |String
