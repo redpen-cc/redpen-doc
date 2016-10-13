@@ -131,7 +131,7 @@ WordNumber validator checks the number of words in one setnece.
 [options="header"]
 |====
 |Property        |Default Value  |Description
-|``max_num``     |50             |Maximum number of words in a sentence.
+|``max_num``     |30             |Maximum number of words in a sentence.
 |====
 
 [[supported-languages-3]]
