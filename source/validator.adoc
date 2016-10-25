@@ -691,7 +691,7 @@ In the above example, chapter 1 should have section 1.1 before subsection 1.1.1.
 [options="header"]
 |====
 |Property        |Default Value  |Description
-|``max_len``  |2  |The limit on how many characters are used in succession.
+|``max_len``  |5  |The limit on how many characters are used in succession.
 |====
 
 [[supported-language-long-kanji-chain]]
