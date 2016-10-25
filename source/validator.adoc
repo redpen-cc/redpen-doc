@@ -260,7 +260,7 @@ section.
 [options="header"]
 |====
 |Property        |Default Value  |Description
-|``max_num``     |1000           |Maximum number of words in a section.
+|``max_num``     |1000           |Maximum number of characters in a section.
 |====
 
 [[supported-languages]]
