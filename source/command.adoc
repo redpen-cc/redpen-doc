@@ -103,6 +103,14 @@ The redpen command returns 0 when the number of found errors are less than the s
 option:: -l <LIMIT NUMBER>, --limit  <LIMIT NUMBER>
 ----
 
+===== Specify the input sentences
+
+Commonly users specify input files, but sometimes making files is tidious. For testing purpose redpen command provides the parameter for input sentences.
+
+----
+option:: -s <INPUT SENTENCE>, --sentence  <INPUT SENTENCE>
+----
+
 ===== Display help
 
 ----
