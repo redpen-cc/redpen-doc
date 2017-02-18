@@ -322,7 +322,9 @@ languages such as Japanese or Chinese.
 [options="header"]
 |====
 |Property        |Default Value  |Description
-|``forbidden``  | false          | Speces are enforce (false) or forbidden.
+|``forbidden``   | false         | Speces are enforce (false) or forbidden.
+|``skip_before`` | ""            | Skip errors when there is no space before the specifed characters (symbols).
+|``skip_after``  | ""            | Skip errors when there is no space after the specifed characters (symbols).
 |====
 
 [[supported-languages-spacebetweenalphabeticalword]]
