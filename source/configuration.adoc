@@ -218,10 +218,10 @@ documents.
 |`PLUS_SIGN`                   |'＋'         | false            |  false             |  '+'              |  Plus sign
 |`HYPHEN_SIGN`                 |'ー'         | false            |  false             |  '-'              |  Hyphenation
 |`SLASH`                       |'／'         | false            |  false             |  '/'              |  Slash
-|`COLON`                       |'：'         | false            |  false             |  ':'              |  Colon
-|`SEMICOLON`                   |'；'         | false            |  false             |  ';'              |  Semicolon
-|`LESS_THAN_SIGN`              |'＜'         | false            |  false             |  '<'              |  Less than sign
-|`GREATER_THAN_SIGN`           |'＞'         | false            |  false             |  '>'              |  Greater than sign
+|`COLON`                       |'：'         | false            |  false             |  ''              |  Colon
+|`SEMICOLON`                   |'；'         | false            |  false             |  ''              |  Semicolon
+|`LESS_THAN_SIGN`              |'＜'         | false            |  false             |  ''              |  Less than sign
+|`GREATER_THAN_SIGN`           |'＞'         | false            |  false             |  ''              |  Greater than sign
 |`EQUAL_SIGN`                  |'＝'         | false            |  false             |  '='              |  Equal sign
 |`AT_MARK`                     |'＠'         | false            |  false             |  '@'              |  At mark
 |`LEFT_SQUARE_BRACKET`         |'「'         | true             |  false             |                   |  Left square bracket
@@ -240,10 +240,10 @@ documents.
 |====
 
 [[japanese-symbol-validations]]
-==== Japanese Symbol Validations
+==== Japanese Symbol Variations
 
 Symbols in Japanese has vary by the author and the writing group. RedPen
-provides three default symbol settings for Japanese. The validations are
+provides three default symbol settings for Japanese. The variations are
 specified with *variant* attribute. Currently there are three variants for
 Japanese symbol settings ("zenkaku" (default), "zenkaku2" and "hankaku").
 
