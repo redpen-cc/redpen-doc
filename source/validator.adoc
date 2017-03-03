@@ -653,11 +653,40 @@ This vlaidator works for English or other european langugages.
 
 This validator generates errors if sections in input documents do not have any paragraphs or sentences.
 
+WARNING: VoidSection is deprecated and removed in the future release. Please use EmptySection. 
+
+[[properties-voidsection]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``limit``       |5              |Skip validation to the sections smaller than specified level.
+|====
+
 [[supported-languages-voidsection]]
 ==== Supported languages
 
 VoidSection works for any languages.
 
+[[emptysection]]
+=== EmptySection
+
+This validator generates errors if sections in input documents do not have any paragraphs or sentences.
+
+[[properties-emptysection]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``limit``       |5              |Skip validation to the sections smaller than specified level.
+|====
+
+[[supported-languages-emptysection]]
+==== Supported languages
+
+EmptySection works for any languages.
 
 [[gappedsection]]
 === GappedSection
