@@ -96,6 +96,8 @@ This validator checks if there is a white
 space at the end of sentences (except for the last sentence of paragraph).
 If the input sentence does end with a white space, a warning is given.
 
+WARNING: SpaceBeginningOfSentenceValidator is deprecated.
+
 [[supported-languages-2]]
 ==== Supported languages
 
