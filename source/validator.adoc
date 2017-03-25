@@ -800,6 +800,22 @@ Each style expects the following number expression.
 
 JapaneseNumberExpression works only for Japanese text.
 
+[[japanese-joyo-kanji]]
+=== JapaneseJoyoKanji
+
+This validator generates errors when Japanese documents contains a non-joyo kanji.
+
+The following is a sample of this pattern.
+
+----
+踵を返して出て行った。
+----
+
+[[supported-language-japanese-joyo-kanji]]
+==== Supported languages
+
+JapaneseJoyoKanji works for Japanese.
+
 [[successive-sentence]]
 === SuccessiveSentence
 
