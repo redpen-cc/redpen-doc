@@ -1,0 +1,3 @@
+public SentenceLengthValidator() {
+  super("max_len", 30); // Default maximum length of sentences.
+}

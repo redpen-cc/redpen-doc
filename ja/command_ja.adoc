@@ -1,0 +1,147 @@
+== RedPen コマンド
+
+RedPen は2つのコマンドを提供します。RedPen はコマンドラインツールとサーバコマンドを提供します。
+
+[[command-line-tool]]
+=== コマンドラインツール
+
+RedPen が提供するコマンドラインツールは **redpen** という名前です。
+
+[[usage-redpen]]
+==== redpen の使い方
+
+以下は、redpen コマンドが提供するオプションです。
+
+[source,bash]
+------------------------------------------------
+$ redpen [オプション] 入力ファイル（複数可）
+------------------------------------------------
+
+複数の入力ファイルを指定した際、ファイル間は半角スペースで区切られます。
+
+[[options]]
+==== オプション
+
+redpen コマンドは以下のオプションをサポートしています。
+
+===== RedPen の設定ファイルを指定
+
+----
+-c <CONFIG_FILE>, --conf <CONFIG_FILE>
+----
+
+設定ファイルを指定しない（-c オプション）場合、redpen は候補を走査します。はじめに redpen はカレントディレクトリにある redpen-conf.xml というファイルがあるかチェックします。存在する場合には設定ファイルとしてロードします。もし無い場合にはカレントディレクトリにある redpen-conf-**{lang}**.xml をロードします。ここで {lang} は ISO 639-1 で表されれる言語コードです。言語コードはご利用環境の LOCALE 設定に依存します。redpen-conf-**{lang}**.xml も存在しない場合には、$REDPEN_HOME/conf にある設定ファイルがロードされます。
+
+===== 入力フォーマット [**デフォルト**: plain]
+
+----
+-f <INPUT_FORMAT>, --input_format <INPUT_FORMAT>
+----
+
+以下のフォーマットをサポートします。
+
+[options="header",]
+|====
+|値       |解説
+|plain    |平文
+|wiki     |Wiki (Textile) フォーマット
+|markdown |Markdown フォーマット
+|asciidoc |AsciiDoc フォーマット
+|review   |Re:VIEW フォーマット
+|latex    |LaTeX フォーマット
+|properties |Java プロパティファイルフォーマット
+|====
+
+NOTE: 入力フォーマットの指定がない場合、RedPen はファイル拡張子からフォーマットを推測します。以下は RedPen が理解するファイルフォーマットと拡張子の一覧です。
+
+[options="header",]
+|====
+|値      |拡張子
+|plain      |txt
+|wiki       |wiki
+|markdown   |md, markdown
+|asciidoc   |adoc, asciidoc
+|review     |re, review
+|latex      |tex, latex
+|properties |properties
+|====
+
+
+===== 出力フォーマット [**デフォルト**: plain]
+
+----
+option:: -r <RESULT_FORMAT>, --result_format <RESULT_FORMAT>
+----
+
+redpen は以下の出力フォーマットをサポートします。
+
+[options="header"]
+|====
+|値     |解説
+|plain  |平文
+|plain2 |平文（文ごとのエラーを出力）
+|xml    |xml フォーマット
+|json   |json フォーマット
+|json2  |json フォーマット（文ごとのエラーを出力）
+|====
+
+===== 許容するエラー数の指定
+
+redpen コマンドは入力文書に含まれるエラー数が指定された値以下の場合 0 を返します。
+
+----
+option:: -l <LIMIT NUMBER>, --limit  <LIMIT NUMBER>
+----
+
+===== 入力文を指定
+
+redpen コマンドは指定された文をパラメタとして渡せます。主にテスト目的で利用します。
+
+----
+option:: -s <INPUT SENTENCE>, --sentence  <INPUT SENTENCE>
+----
+
+===== ヘルプの出力
+
+----
+-h, --help
+----
+
+===== バージョンの出力
+----
+--version
+----
+
+[[sample-server]]
+=== RedPen サーバ
+
+RedPen はサーバ機能を提供します。RedPen サーバは UI のほかに、REST API も提供します（<<redpen-server>> 節参照）。
+以下 RedPen サーバ の UI です。
+
+image::redpen-ui.png[width="500", height="300"]
+
+[[usage-redpen-server]]
+==== redpen-server の使い方
+
+RedPen サーバは **redpen-server** コマンドで起動（終了）できます。
+
+[source,bash]
+----------------------------
+$ redpen-server [start|stop]
+----------------------------
+
+[[server-configuration]]
+==== 設定
+
+redpen-server の設定は、 redpen-server コマンドファイル自身に記載されています。設定を変更するにはコマンドファイルを編集します。
+以下が設定できる項目となります。
+
+[options="header",]
+|=======================================================================
+|設定               |デフォルト値  |解説
+|REDPEN_PORT        |8080          |RedPen サーバが利用するポート番号
+|STOP_KEY           |redpen.stop   |RedPen サーバはストップキーを登録すると http 経由で終了できます。http 経由で終了させたくない場合にはコメントアウトしてください。
+|REDPEN_CONF_FILE |なし          |RedPen の設定ファイルです。指定する設定ファイルおよびリソース（JavaScript 拡張など）は RedPen のインストールディレクトリ（REDPEN_HOME）以下に保存してください。ファイルが REDPEN_HOME 以下に無い場合には、設定を読み込めません
+|=======================================================================
+
+サーバが提供する機能については <<redpen-server>> 節を参照してください。

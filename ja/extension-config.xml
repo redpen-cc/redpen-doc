@@ -1,0 +1,7 @@
+<redpen-conf>
+    <validator>
+        ...
+        <validator name="PlainSentenceLength" />
+        ...
+    </validator>
+</redpen-conf>

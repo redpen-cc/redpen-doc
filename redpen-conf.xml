@@ -50,8 +50,5 @@
 		<validator name="WordNumber">
 			<property name="max_num" value="30"/>
 		</validator>
-		<validator name="JavaScript">
-			<property name="script-path" value="js"/>
-		</validator>
 	</validators>
 </redpen-conf>

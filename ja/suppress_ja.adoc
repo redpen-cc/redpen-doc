@@ -1,0 +1,79 @@
+[[suppress-section]]
+[suppress='Okurigana CommaNumber']
+== アノテーションによるエラーの抑制
+
+RedPen から出力されるエラー（規約違反）を修正したくない場合があります。
+RedPen から報告されるエラーを修正したくない状況には、エラーの修正にかかるコストが大きすぎる場合や、明確な理由をもって規約に違反する場合があります。
+エラーを修正したくない場合に対応するために、RedPen はアノテーションによってエラーを抑制する機能（**エラーの抑制機能**）があります。
+エラーを抑制するには、抑制用のアノテーションをエラーを含む節の直前に追加します。
+
+現在、エラーの抑制機能は4つ（AsciiDoc、Markdown、Re:VIEW、LaTeX）のフォーマットで利用できます。
+
+=== AsciiDoc
+
+AsciiDoc でエラーの抑制機能を使うには、アノテーションを AsciiDoc のアトリビュートブロックに追加します。アノテーションは **+++[suppress]+++** です。以下、節に含まれる全てのエラーを抑制する例です。
+
+[source,asciidoc]
+----
+[suppress]
+= Instances
+Some software tools work in more than one machine, and such distributed (cluster)systems can handle huge data or tasks, because such software tools make use of large amount of computer resources, such as CPU, Disk, and Memory.
+----
+
+一部のエラーのみを抑制する場合、アノテーション（**suppress**）につづけて機能（バリデータ）名を追加します。以下の例は、節に含まれる2種類のエラー（Contraction ・ WeakExpression）のみを抑制しています。
+
+[source,asciidoc]
+----
+[suppress='Contraction WeakExpression']
+= Instances
+Some software tools work in more than one machine, and such distributed (cluster)systems can handle huge data or tasks, because such software tools make use of large amount of computer resources, such as CPU, Disk and Memory.
+----
+
+NOTE: エラーの抑制機能は二重行（two line）スタイルの見出に対応していません。
+
+=== Markdown
+
+Markdown フォーマットの文書でエラー抑制機能を使うには、 HTML コメント内に抑制用のアノテーションを追加します。アノテーションは **+++@suppress+++** です。
+以下に示す例では、節内に含まれる全てのエラーを抑制しています。
+
+[source,markdown]
+----
+<!-- @suppress -->
+# Instances
+Some software tools work in more than one machine, and such _distributed_ (cluster)systems can handle huge data or tasks, because such software tools make use of large amount of computer resources, such as CPU, Disk and Memory.
+----
+
+一部のエラーのみを抑制するには、機能名を抑制アノテーション（**+++@suppress+++**）に続けて追加します。次の例では2種類のエラー（Contraction ・ WeakExpression）のみを抑制しています。
+
+[source,markdown]
+----
+<!-- @suppress Contraction WeakExpression -->
+# Instances
+Some software tools work in more than one machine, and such _distributed_ (cluster)systems can handle huge data or tasks, because such software tools make use of large amount of computer resources, such as CPU, Disk and Memory.
+----
+
+NOTE: 複数行にわたる HTML コメントでは抑制用のアノテーションは使用できません。
+
+=== Re:VIEW
+
+Re:VIEW フォーマットの文書でエラー抑制機能を使うには、Re:VIEW コメント（ ``+++#@#+++`` ）内に抑制用のアノテーションを追加します。抑制用のアノテーションは **+++@suppress+++** です。以下の例は、節内に含まれる全てのエラーを抑制しています。
+
+[source]
+----
+#@# @suppress
+= Instances
+Some software tools work in more than one machine, and such distributed (cluster)systems can handle huge data or tasks, because such software tools make use of large amount of computer resources, such as CPU, Disk and Memory.
+----
+
+一部のエラーだけを抑制するには、機能の名前を抑制用のアノテーション（**+++@suppress+++**）に続けて追加します。次の例では2種類のエラー（Contraction ・ WeakExpression）のみを抑制しています。
+
+[source]
+----
+#@# @suppress Contraction WeakExpression
+= Instances
+Some software tools work in more than one machine, and such distributed (cluster)systems can handle huge data or tasks, because such software tools make use of large amount of computer resources, such as CPU, Disk and Memory.
+----
+
+=== LaTeX
+
+LaTeX フォーマットの文書でエラー抑制の機能を使うには、LaTeX コメント（ `+++%+++` ）内に抑制アノテーションを追加します。記述する抑制用のアノテーションは Markdown フォーマットと同じです。

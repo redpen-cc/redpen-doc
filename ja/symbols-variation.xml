@@ -1,0 +1,8 @@
+<redpen-conf lang="ja" type="zenkaku2">
+    <validators>
+        <validator name="InvalidSymbol" />
+        <validator name="SpaceWithSymbol" />
+        <validator name="SectionLength" />
+        <validator name="ParagraphNumber" />
+    </validators>
+</redpen-conf>

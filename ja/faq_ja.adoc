@@ -1,0 +1,59 @@
+[suppress='LongKanjiChain']
+== RedPen FAQ
+
+* RedPen は LaTeX に対応していますか。
++
+--
+はい、バージョン1.4から対応を開始しました。
+
+[source,bash]
+----
+$ redpen -c redpen-conf.xml -f latex content.tex
+----
+--
+
+* RedPen が出力するエラーが多いです。
++
+--
+RedPen はまちがってエラーを出力してしまう箇所があります。アノテーションを利用すると指定したエラーを抑制できます（くわしくは<<suppress-section,こちら>>を参照してください）。
+--
+
+* RedPen の設定方法で参考となる文書プロジェクトはありますか。
++
+--
+以下の文書プロジェクトが参考になります。
+
+* https://github.com/continuous-manual-writing/redpen-doc-ja[本マニュアル（AsciiDoc で記述）]
+* https://github.com/takahi-i/fit-2016-paper[FIT 2016 で RedPen を紹介した記事（LaTeX で記述）]
+* https://github.com/continuous-manual-writing/book-source[書籍、「ドキュメント作成システム構築ガイド」のソースファイル]
+* https://github.com/redpen-cc/redpen-doc[RedPen の英語マニュアル]
+--
+
+* RedPen の拡張を作りたいのですが、参考になる資料はありますか。
++
+--
+まずは "<<redpen-extension>>" をご一読ください。拡張を作る上で、以下の資料とプロジェクトが参考になります。
+
+* 参考になる記事
+** http://www.clear-code.com/blog/2015/8/29.html[RedPen の Validator を JavaScript で書くには（ククログ）]
+** http://atl.recruit-tech.co.jp/blog/3629/[RedPen に JavaScript で機能追加]
+* 参考になるプロジェクト
+** JavaScript
+*** https://github.com/kongou-ae/redpen-validator[redpen-validator（kongou-ae さん）]
+** Java
+*** https://github.com/k--kato/redpen-ms-style-jp-validator[redpen-ms-style-jp-validator（k--kato さん）]
+--
+
+* RedPen の利用方法で参考になる記事はありますか。
++
+--
+以下の記事が参考になります。
+
+* RedPen の利用方法
+** http://gihyo.jp/lifestyle/serial/01/redpen[RedPenを使って技術文書を手軽に校正しよう]
+** https://tech.trileg.net/2016/10/08/auto-check-thesis[論文自動添削 ＆ 自動コンパイルチェック環境の構築（with Wercker ＆ RedPen）]
+** http://mocobeta-backup.tumblr.com/post/151222169812/gitlabci-redpen[GitLab + GitLab CI + RedPen な継続的ドキュメント検査 ]
+* RedPen の設定方法
+** http://qiita.com/takahi-i/items/a8b994ef17fd66fe6237[文書執筆の指南書で解説されている問題点を RedPen で発見する]
+** http://qiita.com/takahi-i/items/f16fd93e2e5061851320[RedPen のおすすめ設定]
+--

@@ -1,0 +1,181 @@
+== RedPen 出力フォーマット
+
+RedPen はいくつかの出力フォーマットをサポートしています。
+
+[[plain-text]]
+=== 平文（plain）
+
+平文を指定すると RedPen が返すエラーは、以下のフォーマットで出力されます。
+
+----
+FILE_NAME:LINE_NUM: ValidationError[ERROR_TYPE], ERROR_MESSAGE at line: SENTENCE
+----
+
+plain2 を指定した場合には、各文ごとのエラーがまとまって出力されます。
+
+[[xml]]
+=== XML（xml）
+
+XML 出力フォーマットの最上位ブロックは *validation-result* です。
+**validation-result** は複数の **error** ブロックを持ちます。**error** ブロック
+は以下の子要素を含んでいます。
+
+[option="header"]
+|====
+|ブロック          |   必須      |    解説
+|`validator`       |   false     |    機能（Validator）名
+|`message`         |   false     |    エラーメッセージ
+|`lineNum`         |   false     |    エラーが検知された行
+|`sentence`        |   false     |    エラーが検知された文
+|`file`            |   true      |    ファイル名
+|====
+
+[[json]]
+=== JSON
+RedPen は二種類の JSON での出力をサポートしています（json と json2）。
+
+==== json
+
+ファイル毎にエラーのリストが出力されます。"document" ブロックにはファイルの名前、"errors" にはファイル内で発見されたエラーが列挙されます。以下は json の出力例です。
+
+----
+[
+    {
+        "document": "sample.txt",
+        "errors": [
+            {
+                "sentence": "これはは嬉しい。",
+                "endPosition": {
+                    "offset": 4,
+                    "lineNum": 1
+                },
+                "validator": "DoubledWord",
+                "lineNum": 1,
+                "sentenceStartColumnNum": 0,
+                "message": "Found repeated word \"は\".",
+                "startPosition": {
+                    "offset": 3,
+                    "lineNum": 1
+                }
+            },
+            {
+                "sentence": "これはは嬉しい。",
+                "endPosition": {
+                    "offset": 4,
+                    "lineNum": 1
+                },
+                "validator": "SuccessiveWord",
+                "lineNum": 1,
+                "sentenceStartColumnNum": 0,
+                "message": "Found word \"は\" repeated twice in succession.",
+                "startPosition": {
+                    "offset": 3,
+                    "lineNum": 1
+                }
+            }
+        ]
+    }
+]
+----
+
+各エラーは以下の要素を保持します。
+
+[option="header"]
+|====
+|ブロック          　|   必須       |   解説
+|`validator`       |   false      |   機能（Validator）名
+|`message`         |   false      |   エラーメッセージ
+|`lineNum`         |   false      |   エラーが発生した行番号（非推奨、startPositionを利用してください）
+|`sentence`        |   false      |   エラーが検知された文
+|`file`            |   true       |   ファイル名
+|`startPosition`   |   true       |   エラーの開始位置
+|`endPosition`     |   true       |   エラーの終了位置
+|`sentenceStartColumnNum`     |   true       |   エラーが発生した列番号（非推奨、startPosition を利用してください）
+|====
+
+==== json2
+
+json2 も RedPen の結果を JSON フォーマットで返します。json2 では出力が文（センテンス）単位に出力されます。json と同様、json2 は各ファイル毎に "document" と "errors" 要素をもつブロックを生成します。以下 json2 フォーマットの出力例です。
+
+----
+[
+    {
+        "document": "sample.txt",
+        "errors": [
+            {
+                "sentence": "これはは嬉しい。",
+                "position": {
+                    "start": {
+                        "offset": 0,
+                        "line": 1
+                    },
+                    "end": {
+                        "offset": 7,
+                        "line": 1
+                    }
+                },
+                "errors": [
+                    {
+                        "subsentence": {
+                            "offset": 3,
+                            "length": 1
+                        },
+                        "validator": "DoubledWord",
+                        "position": {
+                            "start": {
+                                "offset": 3,
+                                "line": 1
+                            },
+                            "end": {
+                                "offset": 4,
+                                "line": 1
+                            }
+                        },
+                        "message": "Found repeated word \"は\"."
+                    },
+                    {
+                        "subsentence": {
+                            "offset": 3,
+                            "length": 1
+                        },
+                        "validator": "SuccessiveWord",
+                        "position": {
+                            "start": {
+                                "offset": 3,
+                                "line": 1
+                            },
+                            "end": {
+                                "offset": 4,
+                                "line": 1
+                            }
+                        },
+                        "message": "Found word \"は\" repeated twice in succession."
+                    }
+                ]
+            }
+        ]
+    }
+]
+----
+
+json2 の errors は3つの要素からなるブロックです。以下、各要素の解説です。
+
+[option="header"]
+|====
+|ブロック          　|   必須       |   解説
+|`sentence`        |   true       |   文（センテンス）
+|`errors`          |   true       |   文に含まれるエラーのリスト
+|`position`        |   true       |   文の位置（開始、終了）
+|====
+
+errors は文に含まれるエラーのリストです。各エラーは以下の要素をもつブロックで表現されます。
+
+[option="header"]
+|====
+|ブロック          　|   必須       |   解説
+|`validator`       |   true       |   機能（Validator）名
+|`message`         |   true       |   エラーメッセージ
+|`subsentence`     |   true       |   エラーが検知された位置（開始位置と長さ）
+|`position`        |   true       |   エラーの位置（開始、終了）
+|`endPosition`     |   true       |   エラーの終了位置
+|====

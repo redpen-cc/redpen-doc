@@ -1,0 +1,23 @@
+/**
+ * validate the input document and returns the invalid points.
+ * {@link cc.redpen.validator.Validator} provides empty implementation. Validator implementation validates documents can override this method.
+ *
+ * @param document input
+ */
+ public void validate(Document document)
+
+ /**
+  * validate the input document and returns the invalid points.
+  * {@link cc.redpen.validator.Validator} provides empty implementation. Validator implementation validates sentences can override this method.
+  *
+  * @param sentence input
+  */
+  public void validate(Sentence sentence)
+
+ /**
+  * validate the input document and returns the invalid points.
+  * {@link cc.redpen.validator.Validator} provides empty implementation. Validator implementation validates sections can override this method.
+  *
+  * @param section input
+  */
+  public void validate(Section section)

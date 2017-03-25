@@ -1,0 +1,454 @@
+[[extending]]
+== Extending RedPen
+
+We can make RedPen extensions with Java and JavaScript. In the following sections, we learn the way to make the extensions.
+
+[[extending-with-java]]
+=== Extending RedPen with Java
+
+RedPen users can extend RedPen by creating new Validators. This section
+describes how we construct Validators and covers the basics of the
+internal document model used by Validators.
+
+RedPen users can create new validators for themselves or their
+organization. Adding validator is simple - just write a class which
+extends the abstract class **Validator**.
+
+[[extending-validators]]
+==== Extending Validators
+
+There are several methods which users can implment for their methods
+(validate, prevalidate and init).
+
+[[validate-methods]]
+==== validate methods
+
+Minimally, we just need to implement the "validate" template method.
+
+Users need to implement the one of validate methods provided by the
+Validator class. Currently there are three validate methods with three
+different parameters.
+
+[source,java]
+----
+/**
+ * validate the input document and returns the invalid points.
+ * {@link cc.redpen.validator.Validator} provides empty implementation. Validator implementation validates documents can override this method.
+ *
+ * @param document input
+ */
+ public void validate(Document document)
+
+ /**
+  * validate the input document and returns the invalid points.
+  * {@link cc.redpen.validator.Validator} provides empty implementation. Validator implementation validates sentences can override this method.
+  *
+  * @param sentence input
+  */
+  public void validate(Sentence sentence)
+
+ /**
+  * validate the input document and returns the invalid points.
+  * {@link cc.redpen.validator.Validator} provides empty implementation. Validator implementation validates sections can override this method.
+  *
+  * @param section input
+  */
+  public void validate(Section section)
+----
+
+NOTE: The implemented class needs to be in one of the packages: 'cc.redpen.validator', 'cc.redpen.validator.sentence' or 'cc.redpen.validator.section.'
+
+[[prevalidate-method]]
+==== prevalidate method
+
+The preValidate method called before validate method is run. This method
+is useful to create the prerequisite to run validate method. There are
+two prevalidte methods variations which have different parameters.
+
+[source,java]
+----
+/**
+ * Process input blocks before run validation. This method is used to store
+ * the information needed to run Validator before the validation process.
+ *
+ * @param sentence input sentence
+ */
+ public void preValidate(Sentence sentence)
+
+ /**
+  * Process input blocks before run validation. This method is used to store
+  * the information needed to run Validator before the validation process.
+  *
+  * @param section input section
+  */
+  public void preValidate(Section section)
+----
+
+[[conf-properties]]
+[suppress='WeakExpression SymbolWithSpace']
+==== Configuration properties
+
+If validator needs Configuration properties, validator constructor can be used to define them.
+This way RedPen will understand that your validator supports these properties and various plugins can show them in a GUI.
+
+[source,java]
+----
+/**
+ * @param keyValues String key and Object value pairs for supported config properties.
+ */
+public Validator(Object...keyValues)
+----
+
+For example, *SentencelengthValidator* has a configuration property **max_len**,
+which to specifies the maximum length of sentences in input documents.
+Following configuration specifies the maximum length to 200.
+
+[source,xml]
+----
+<redpen-conf>
+    <validators>
+        ...
+        <validator name="SentenceLength">
+            <property name="max_len" value="200"/>
+        </validator>
+        ...
+    </validators>
+</redpen-conf>
+----
+
+SentenceLengthValidator loads the value of max_len automatically if it is defined in validator's constructor.
+If max_len is missing from the config, the value is left as default.
+
+[source,java]
+----
+
+public SentenceLengthValidator() {
+  super("max_len", 30); // Default maximum length of sentences.
+}
+
+----
+
+Later configuration value can be accessed via `getInt("max_len")` or similar methods.
+
+In case you need to process config properties before they can be used in `validate()` method, you can override the `init()` method.
+
+[[adding-validators]]
+[suppress='WeakExpression']
+==== Adding Validators
+
+There are two ways to add your Validator to RedPen.
+
+One of the way is to add the Validator source file to the RedPen source tree
+and then build RedPen normally. This method is simple, but involves
+bundling the source code for the Validators with the source code for
+RedPen.
+
+The second way is to create a Validator plugin. Creating a plugin has
+the advantage that you can then independently manage the source code for
+your Validator.
+
+Note that in both cases, your Validator's class name must have the
+suffix **Validator**.
+
+In the next section, we will first explain the way to add a new Validator to
+Redpen's source tree. Then we weil go thourgh the way to construct a Validator plugin.
+
+[[add-a-validator-in-redpen-source]]
+==== Add a Validator to RedPen source
+
+Let's define a plain Validator (SentenceLengthValidator) which check
+if the input sentence is over 100 characters long. Then we will apply it to RedPen's source tree.
+
+[[sentencelengthvalidator]]
+===== SentenceLengthValidator
+
+We create a PlainSentenceLengthValidator class and specify the package
+**cc.redpen.validator.sentence**. Therefore the class is stored in the
+**redpen/redpen-core/src/main/java/cc/redpen/validator/sentence/** directory.
+
+The following is an implementation of this class.
+
+[source,java]
+----
+package cc.redpen.validator.sentence;
+
+/**
+ * Validate input sentences contain more characters more than specified.
+ */
+public class PlainSentenceLengthValidator extends Validator {
+
+  /**
+   * Default constructor initializes properties with their default values.
+   */
+  public PlainSentenceLengthValidator() {
+    super("max_len", 30); // Default maximum length of sentences.
+  }
+
+  @Override
+  public void validate(Sentence sentence) {
+    if (sentence.getContent().length() > getInt("max_len")) {
+      addValidationError(sentence, sentence.getContent().length(), maxLength);
+    }
+  }
+}
+----
+
+The class has a validate method which takes a Sentence object as its
+parameter. When this class is registered in the configuration file,
+RedPen automatically applies the method to each sentence in the input document.
+
+[[include-a-new-validator]]
+===== Register a new Validator to configuration file
+
+To register your Validator in the RedPen configuration, add the
+Validator's name removing the **Validator** suffix, to a configuration file.
+
+For example, to activate our newly created Validator PlainSentenceLengthValidator,
+include the validator element as follows:
+
+[source,xml]
+----
+<redpen-conf>
+    <validator>
+        ...
+        <validator name="PlainSentenceLength" />
+        ...
+    </validator>
+</redpen-conf>
+----
+
+We would then run RedPen normally, using this configuration file.
+
+[[create-a-validator-plugin]]
+[suppress='ParagraphNumber']
+==== Create a Validator plugin
+
+When creating a Validator plugin, it is often easier to start by using
+another plugin's project as a template.
+
+As an example, I have written a simple Validator plugin
+https://github.com/takahi-i/hankaku-kana-validator[hankaku_kana_validator].
+
+The most significant file for the plugin is `pom.xml` which exists at the
+top of the project. This file is the Maven configuration file, which is
+a popular software project management tool for Java.
+
+The following is the content of `pom.xml`:
+
+[source,java]
+----
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>redpen.cc</groupId>
+    <artifactId>hankaku-kana-validator</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>hankaku-kana-validator</name>
+    <url>http://maven.apache.org</url>
+    <dependencies>
+         <dependency>
+             <groupId>redpen.cc</groupId>
+             <artifactId>redpen-core</artifactId>
+             <version>1.2</version>
+             <scope>system</scope>
+             <systemPath>${project.basedir}/lib/redpen-core-0.6.jar</systemPath>
+         </dependency>
+    </dependencies>
+</project>
+----
+
+Usually you do not need to change the `pom.xml` file, except for the
+contents of the *artifact-id* and *name* elements. You should alter the
+name to fit the function of your Validator.
+
+After changing `pom.xml`, you should delete the existing validator
+file (`HankakuKanaValidator.java`) from "main/java/cc/redpen/validator/sentence."
+Then, put your Validator's source file in "main/java/cc/redpen/validator/sentence" or
+"main/java/cc/redpen/validator/section."
+
+Once you have included your Validator implementation, you can build the plugin.
+
+[source,bash]
+----
+$ mvn install
+----
+
+[[including-a-user-defined-validator-plugin]]
+[suppress='SentenceLength']
+===== Including a user-defined Validator plugin
+
+When you have successfully built your Validator plugin,
+you can use the validator plugin in RedPen.
+To deply the plugin, copy the plugin's jar file from the *target* directory to a
+directory in the classpath, such as the library directory ($REDPEN_HOME/lib).
+Once copied, you can add your Validator to the configuration file as described above. Remember to remove the
+*Validator* suffix from the name you enter in redpen-config.xml.
+
+[[extending-with-javascript]]
+[suppress='WeakExpression']
+=== Extending RedPen in JavaScript
+For those who are unfamiliar with Java, RedPen version 1.3 introduced JavaScriptValidator, which is a special validator that loads Validator implementations written in JavaScript.
+
+[[enable-javascript]]
+[suppress='SymbolWithSpace']
+==== Enabling JavaScriptValidator
+To enable JavaScriptValidator, simply add `<validator name="JavaScript"/>` in your `redpen-conf.xml` as follows:
+
+[source,xml]
+----
+<redpen-conf lang="en">
+  <validators>
+       ...snip...
+    <validator name="JavaScript" />
+  </validators>
+</redpen-conf>
+----
+
+[[javascript-validator]]
+==== Write your own validator in JavaScript
+JavaScriptValidator will load all files with `.js` suffix from `$REDPEN_HOME/js` directory. This location can be overriden with `script-path` property of JavaScriptValidator. You can set multiple 'script-path' property.
+
+[source,javascript]
+----
+<redpen-conf lang="en">
+  <validators>
+       ...snip...
+     <validator name="JavaScript" >
+       <property name="script-path" value="/path/to/your/validator/directory-a" />
+     </validator>
+     <validator name="JavaScript" >
+       <property name="script-path" value="/path/to/your/validator/directory-b" />
+     </validator>
+  </validators>
+</redpen-conf>
+----
+
+
+Functions with the following signature will be called upon validation time:
+[source,javascript]
+----
+function preValidateSentence(sentence) {
+}
+
+function preValidateSection(section) {
+}
+
+function validateDocument(document) {
+  // your validation logic for document here
+}
+
+function validateSentence(sentence) {
+  // if(your validation logic for sentence here) {
+  //   addError('validation error message', sentence);
+  // }
+}
+
+function validateSection(section) {
+  // your validation logic for section here
+}
+----
+
+[[javascript-example]]
+[suppress='SuccessiveWord SymbolWithSpace WeakExpression']
+==== Example
+Here is a JavaScript version of NumberOfCharacterValidator:
+
+[source,javascript]
+----
+var MIN_LENGTH = 100;
+var MAX_LENGTH = 1000;
+
+function validateSentence(sentence) {
+  if (sentence.getContent().length() < MIN_LENGTH) {
+    addError("Sentence is shorter than "
+      + MIN_LENGTH + " characters long.", sentence);
+  }
+  if (sentence.getContent().length() > MAX_LENGTH) {
+    addError("Sentence is longer than " + MAX_LENGTH
+      + " characters long.", sentence);
+  }
+}
+----
+
+The code looks pretty much similar to the Java version.
+The main difference is that the callback method `validate(Sentence sentence)` is referred as `validateSentence(sentence)` in the JavaScript version.
+
+[[javascript-run]]
+==== Run
+Of course, it is JavaScript and there is no need to compile your validator.
+Actually your JavaScript code will be compiled into Java byte-code by Nashorn, and it runs fast than you expect.
+JavaScriptValidator will pick any *.js file located in `$REDPEN_HOME/js` directory.
+You can simply run the redpen command to get your file validated by the js validator.
+
+[source,bash]
+----
+$ ./bin/redpen -c myredpen-conf.xml 2be-validated.txt
+2be-validated.txt:1: ValidationError[JavaScript], [NumberOfCharacter.js] Sentence is shorter than 100 characters long. at line: very short sentence.
+----
+
+[[javascript-property]]
+==== Properties of JavaScript based extensions
+
+We can spcify properties to JavaScript based validators. Adding properties, we can change the behaviors of the validators.
+Users specify the prooperties to the configuration block for the JavaScript validator.
+The following exmaple specify the value of propery, **max_char_num** to 5.
+
+----
+<validator name="JavaScript">
+  <property name="max_char_num" value="5" />
+</validator>
+----
+
+Specified properties in JavaScript configuration block are avaiable in JavaScript extensions. For example, the following extension get the value of the property, **max_char_num** with getInt method.
+
+----
+function validateSentence(sentence) {
+  var content = sentence.getContent().split(" ");
+  var limit= getInt("max_char_num");
+
+  for(var i = 0; i<content.length;i++){
+    if(content[i].length >= limit){
+      addError("word [" + content[i] +"] is too long. length: " + content[i].length, sentence);
+    }
+  }
+}
+----
+
+RedPen provides methods for getting values of the properties for various types
+The following table shows the list of provided get methods.
+
+[options="header"]
+|====
+|Method name        |Type
+|``getInt``         |Int
+|``getFloat``       |Float
+|``getString``      |String
+|``getBoolean``     |Boolean
+|``getSet``         |Set
+|====
+
+[[model-structure]]
+[suppress='WeakExpression']
+=== Model Structure
+
+This section describes the internal document model structure generated
+by parser objects.
+
+Generated RedPen documents consist of several blocks, which represent
+the elements of a document.
+
+* *DocumentCollection* represents a set of one or more files that
+contain a Document.
+* *Document* represents a single file which contains one or more
+Sections.
+* *Section* contains several blocks (Header, Paragraph, ListBlock).
+Except for Header, each Section can contain multiple blocks. A Section
+may also specify the section level and its subsections.
+* *Header* represents header sentences that contain a list of Sentence
+objects.
+* *Paragraph* contains one or more sentences.
+* *ListBlock* contains a set of ListElement objects.
+
+The following image shows the document model used by RedPen.
+
+image:model.jpg[image]

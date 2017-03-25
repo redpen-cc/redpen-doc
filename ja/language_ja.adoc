@@ -1,0 +1,40 @@
+[[language]]
+== RedPen における言語の設定
+
+RedPen は入力文書がどのような自然言語（ドイツ語・フランス語・日本語など）で記述されていても処理できます。ただしデフォルトでは英語を代表とする、ラテン系言語用の設定です。そのため、日本語などで書かれた文書を処理するには、設定ファイルで言語を指定する必要があります。
+
+[[override-language]]
+=== 言語設定の修正
+
+言語設定には、現在3つの値が指定できます。指定できる値は "en" 、 "ja"、"ru" です。"en" は英語やドイツ語など、ラテン系の言語で書かれた文書を意味します。"ja" は日本語、"ru" はロシア語を意味します。
+
+言語設定を修正するには、設定ファイルの symbols ブロックにある lang プロパティを変更します。以下は文書の言語設定に日本語（"ja"）を指定する例です。
+
+[source,xml]
+----
+<symbols lang="ja">
+    <symbol name="EXCLAMATION_MARK" value="!" invalid-chars="！" after-space="true" />
+    <symbol name="LEFT_QUOTATION_MARK" value="\'"  invalid-chars="“" before-space="true" />
+    <symbol name="RIGHT_QUOTATION_MARK" value="\'"  invalid-chars="”" after-space="true" />
+    <symbol name="NUMBER_SIGN" value="#" invalid-chars="＃" after-space="true" />
+    <symbol name="FULL_STOP" value="。" invalid-chars="．." after-space="true" />
+    <symbol name="COMMA" value="、" invalid-chars="," after-space="true" />
+</symbols>
+----
+
+[[override-symbol-settings]]
+=== シンボル設定のオーバーライド
+
+文書の内容や著者の好みによって、文書中で使用される文字や記号（シンボル）は異なります。例えば左側のシングルクォーテーションとして、ある著者が「'」を使用するところで、また別の著者は「‘」を使用したいかもしれません。
+
+この問題に対処するために、RedPen は文書中で使用するシンボルの設定（デフォルト設定は<<setting-symbols,シンボル設定>>節を参照）を修正する方法を提供しています。文字の設定では、文書中に出現してはならないシンボルもあわせて指定できます。
+
+以下は、シングルクォーテーションに「'」の使用する設定例です。
+
+[source,xml]
+----
+<symbols>
+  <symbol name="LEFT_SINGLE_QUOTATION_MARK" value="'"  invalid-chars="‘" />
+  <symbol name="RIGHT_SINGLE_QUOTATION_MARK" value="'" invalid-chars="’"/>
+</symbols>
+----

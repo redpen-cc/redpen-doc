@@ -1,0 +1,219 @@
+== RedPen の設定
+RedPen は実行方法（コマンラインツール、サーバ）関係なく、設定ファイルを指定して使用します。
+RedPen が提供する設定ファイルは2つのブロックからなります。1つ目のブロックは利用する
+機能を列挙します。もう1つのブロックは文書内で利用するシンボルを設定します。以下詳しくみていきます。
+
+[[configuration-file]]
+[suppress='JapaneseNumberExpression']
+=== 設定ファイル
+
+RedPen 単一の設定ファイルを持ちます。ファイルは入力ファイルのフォーマットに依存しない設定項目すべてが含まれます。
+設定ファイルは XML フォーマットで記述されます。XML のルート（root）ブロックは "redpen-conf" です。
+"root-conf" ブロックは2つの子ブロック（"validators" と "symbols"）を持ちます。
+
+**validators** には RedPen で利用する機能（validator）を列挙します。**validator** には property を指定できるものがあります。
+property を利用すると、機能の挙動がデフォルトから変更できます。
+
+**symbols** ブロックは**言語ごとに存在するデフォルトのシンボル設定**を上書きます。
+デフォルトのシンボル設定には、redpen-conf ブロックがサポートするプロパティ、**lang** と **variant** を利用します。
+
+以下は設定ファイルの例です。
+
+[source,xml]
+----
+include::redpen-example-conf.xml[]
+----
+
+次節では機能の設定について詳しく解説をおこないます。
+シンボルの設定については <<setting-symbols,シンボル（文字）設定>>節で解説をおこないます。
+
+[[validator-configuration]]
+=== 機能（Validator）設定
+
+RedPen の設定ファイルは **validator** ブロックを持ちます。
+validator ブロックには、RedPen で検査したい機能を列挙します。
+
+以下は **validators** ブロックのサンプルです。
+
+[source,xml]
+----
+include::validator-conf-sample.xml[]
+----
+
+各機能は validator 要素で表現されます。
+validator 要素の "name" で機能を指定します。
+各機能は入力文書がもつ特定の面を検査します。たとえば SentenceLength は
+文書内にふくまれる文の長さが指定した上限よりも短いかを検査します。
+
+提供される機能の中には **property** 要素で設定できるものがあります。
+たとえば、SentenceLength で検査する文長の最大値は **max_num** で指定できます。
+各機能の解説については <<validator,Validator>> を参照してください。
+
+[[setting-symbols]]
+=== シンボル（文字）設定
+
+**redpen-conf** が提供する **lang** 属性で、入力文書の記述言語を指示します。
+lang 属性で記述言語を指定すると、シンボルの基本（デフォルト）設定がロードされます。
+RedPen は二言語（英語 "en" と日本語 "ja"）の基本設定をサポートしています。
+各言語のシンボル設定については <<default-settings-for-english,英語シンボル設定>>
+と<<default-settings-for-japanese,日本語シンボル設定>>を参照してください。
+
+デフォルトシンボル設定は、**symbols** ブロックを設定ファイルに追加すると上書きできます。
+symbols ブロックには **symbol** ブロックを追加します。
+symbol ブロックにはシンボル属性をいくつか記述します。シンボル属性は文書を検査する際に利用されます。
+
+以下の表は、symbol で指定する属性について解説しています。
+
+[options="header"]
+|====
+|プロパティ（属性）   |必須          |デフォルト    |解説
+|`name`               |true          |none          |シンボル名
+|`value`              |true          |none          |シンボルの値（文字）
+|`before-space`       |false         |false         |シンボルの前に半角スペースが必要か
+|`after-space`        |false         |false         |シンボルの後ろに半角スペースが必要か
+|`invalid-chars`      |false         |""            |使いたくない同意文字のリスト
+|====
+
+[[sample-setting-symbols]]
+==== サンプル：シンボル設定
+
+以下はシンボルの設定例です。設定例では三種類のシンボルを定義しています。
+1つはエクスクラメーションマークです。
+2つ目は FULL_STOP です。FULL_STOP には文末文字（ピリオド、句点）を指定します。
+文末文字として半角ピリオドを使用する設定がなされてます。さらにピリオドの後ろには半角スペースを必要と指定しています。
+最後の要素は、コンマに関する設定です。コンマに関する設定では2つのシンボルを利用できない文字として登録しています。
+invalid-chars に登録された文字は InvalidSymbol 機能で利用されます。
+invalid-chars に登録された文字が文中であらわれると、InvalidSymbol はエラーを出力します。
+
+[source,xml]
+----
+include::symbols-setting.xml[]
+----
+
+[[default-settings-for-english]]
+==== 英語：デフォルト（基本）のシンボル設定
+
+以下は英語の基本シンボル（文字）設定を示しています。
+
+[options="header"]
+|====
+|シンボル                      |値            |前スペース         |後ろスペース       |不正文字リスト   |  解説
+|`FULL_STOP`                   |'.'           |false              |true               |'．', '。'       |  Sentence period
+|`SPACE`                       |' '           |false              |false              |'　'             |  White space between words
+|`EXCLAMATION_MARK`            |'!'           |false              |true               |'！'             |  Exclamation mark
+|`NUMBER_SIGN`                 |'#'           |false              |false              |'＃'             |  Number sign
+|`DOLLAR_SIGN`                 |'$'           |false              |false              |'＄'             |  Dollar sign
+|`PERCENT_SIGN`                |'%'           |false              |false              |'％'             |  Percent sign
+|`QUESTION_MARK`               |'?'           |false              |true               |'？'             |  Question mark
+|`AMPERSAND`                   |'&'           |false              |true               |'＆'             |  Ampersand
+|`LEFT_PARENTHESIS`            |'('           |true               |false              |'（'             |  Left parenthesis
+|`RIGHT_PARENTHESIS`           |')'           |false              |true               |'）'             |  Right parenthesis
+|`ASTERISK`                    |'*'           |false              |false              |'＊'             |  Asterrisk
+|`COMMA`                       |','           |false              |true               |'、','，'        |  Comma
+|`PLUS_SIGN`                   |'+'           |false              |false              |'＋'             |  Plus sign
+|`HYPHEN_SIGN`                 |'-'           |false              |false              |'ー'             |  Hyphenation
+|`SLASH`                       |'/'           |false              |false              |'／'             |  Slash
+|`COLON`                       |':'           |false              |true               |'：'             |  Colon
+|`SEMICOLON`                   |';'           |false              |true               |'；'             |  Semicolon
+|`LESS_THAN_SIGN`              |'<'           |false              |false              |'＜'             |  Less than sign
+|`GREATER_THAN_SIGN`           |'>'           |false              |false              |'＞'             |  Greater than sign
+|`EQUAL_SIGN`                  |'='           |false              |false              |'＝'             |  Equal sign
+|`AT_MARK`                     |'@'           |false              |false              |'＠'             |  At mark
+|`LEFT_SQUARE_BRACKET`         |'['           |true               |false              |                 |  Left square bracket
+|`RIGHT_SQUARE_BRACKET`        |']'           |false              |true               |                 |  Right square bracket
+|`BACKSLASH`                   |'\'           |false              |false              |                 |  Backslash
+|`CIRCUMFLEX_ACCENT`           |'^'           |false              |false              |'＾'             |  Circumflex accent
+|`LOW_LINE`                    |'_'           |false              |false              |'＿'             |  Low line (under bar)
+|`LEFT_CURLY_BRACKET`          |'{'           |true               |false              |'｛'             |  Left curly bracket
+|`RIGHT_CURLY_BRACKET`         |'}'           |true               |false              |'｝'             |  Right curly bracket
+|`VERTICAL_BAR`                |'|'           |false              |false              |'｜'             |  Vertical bar
+|`TILDE`                       |'~'           |false              |false              |'〜'             |  Tilde
+|`LEFT_SINGLE_QUOTATION_MARK`  |'''           |false              |false              |                 |  Left single quotation mark
+|`RIGHT_SINGLE_QUOTATION_MARK` |'''           |false              |false              |                 |  Right single quotation mark
+|`LEFT_DOUBLE_QUOTATION_MARK`  |'"'           |false              |false              |                 |  Left double quotation mark
+|`RIGHT_DOUBLE_QUOTATION_MARK` |'"'           |false              |false              |                 |  Right double quotation mark
+|====
+
+以下、各列の意味をしめしています。
+
+* 一列目 シンボル名
+* 二列目 シンボルの値（文字）
+* 三列目 文字の前に半角スペースが必要かを表しています。
+* 四列目 文字の後ろにスペースが必要かを示しています。
+* 五列目 各シンボルの同意シンボルで使用してはいけないものを列挙しています。
+
+上記シンボルは文（センテンス）の切り出しと、一部機能で利用されます。
+たとえば、InvalidSymbol は不正文字リストに登録されたシンボルが入力文で発見されるとエラーを出力します。
+SymbolWithSpace は前スペースもしくは後ろスペースの設定と異なる用法が存在した場合にエラーを出力します。
+デフォルト設定から変更したい場合は設定ファイルに **symbols** ブロックを追加します。
+追加した symbols ブロック内に変更したい文字の設定を記述します。
+くわしくは<<setting-symbols,シンボル（文字）設定>>節を参照してください。
+
+[[default-settings-for-japanese]]
+====  デフォルトのシンボル設定（日本語）
+
+下表では日本語用のデフォルトシンボル設定が示されています。
+表内に存在する各列は英語用シンボル設定の表と同一です。
+
+[options="header"]
+|====
+|シンボル                      |値            |前スペース         |後ろスペース       |不正文字リスト   |  解説
+|`FULL_STOP`                   |'。'         | false            |  false             |  '．','.'         |  Sentence period
+|`SPACE`                       |'　'         | false            |  false             |                   |  White space between words
+|`EXCLAMATION_MARK`            |'！'         | false            |  false             |  '!'              |  Exclamation mark
+|`NUMBER_SIGN`                 |'＃'         | false            |  false             |  '#'              |  Number sign
+|`DOLLAR_SIGN`                 |'＄'         | false            |  false             |  '$'              |  Dollar sign
+|`PERCENT_SIGN`                |'％'         | false            |  false             |  '%'              |  Percent sign
+|`QUESTION_MARK`               |'？'         | false            |  false             |  '?'              |  Question mark
+|`AMPERSAND`                   |'＆'         | false            |  false             |  '&'              |  Ampersand
+|`LEFT_PARENTHESIS`            |'（'         | false            |  false             |  '('              |  Left parenthesis
+|`RIGHT_PARENTHESIS`           |'）'         | false            |  false             |  ')'              |  Right parenthesis
+|`ASTERISK`                    |'＊'         | false            |  false             |  '*'              |  Asterrisk
+|`COMMA`                       |'、'         | false            |  false             |  '，',','         |  Comma
+|`PLUS_SIGN`                   |'＋'         | false            |  false             |  '+'              |  Plus sign
+|`HYPHEN_SIGN`                 |'ー'         | false            |  false             |  '-'              |  Hyphenation
+|`SLASH`                       |'／'         | false            |  false             |  '/'              |  Slash
+|`COLON`                       |'：'         | false            |  false             |                   |  Colon
+|`SEMICOLON`                   |'；'         | false            |  false             |                   |  Semicolon
+|`LESS_THAN_SIGN`              |'＜'         | false            |  false             |                   |  Less than sign
+|`GREATER_THAN_SIGN`           |'＞'         | false            |  false             |                   |  Greater than sign
+|`EQUAL_SIGN`                  |'＝'         | false            |  false             |  '='              |  Equal sign
+|`AT_MARK`                     |'＠'         | false            |  false             |  '@'              |  At mark
+|`LEFT_SQUARE_BRACKET`         |'「'         | true             |  false             |                   |  Left square bracket
+|`RIGHT_SQUARE_BRACKET`        |'」'         | false            |  false             |                   |  Right square bracket
+|`BACKSLASH`                   |'￥'         | false            |  false             |                   |  Backslash
+|`CIRCUMFLEX_ACCENT`           |'＾'         | false            |  false             |  '^'              |  Circumflex accent
+|`LOW_LINE`                    |'＿'         | false            |  false             |  '_'              |  Low line (under bar)
+|`LEFT_CURLY_BRACKET`          |'｛'         | true             |  false             |  '{'              |  Left curly bracket
+|`RIGHT_CURLY_BRACKET`         |'｝'         | true             |  false             |  '}'              |  Right curly bracket
+|`VERTICAL_VAR`                |'｜'         | false            |  false             |  '\|'             |  Vertical bar
+|`TILDE`                       |'〜'         | false            |  false             |  '~'              |  Tilde
+|`LEFT_SINGLE_QUOTATION_MARK`  |'‘'          | false            |  false             |                   |  Left single quotation mark
+|`RIGHT_SINGLE_QUOTATION_MARK` |'’'          | false            |  false             |                   |  Right single quotation mark
+|`LEFT_DOUBLE_QUOTATION_MARK`  |'“'          | false            |  false             |                   |  Left double quotation mark
+|`RIGHT_DOUBLE_QUOTATION_MARK` |'”'          | false            |  false             |                   |  Right double quotation mark
+|====
+
+[[japanese-symbol-validations]]
+==== 日本語における文字設定のバリエーション
+
+日本語の文書で使用される文字は著者や執筆グループによって大きくことなります。
+そこで RedPen は日本語用に二種類のバリエーション（"zenkaku2" と "hankaku"）を提供しています。
+文字設定のバリエーションは *type* もしくは *variant* 属性で指定します。下記の設定例ではバリエーション、"zenkaku2"を指定しています。
+
+NOTE: **type** と **variant** 属性には同一の効果があります。現在の RedPen（v1.x）は **type** を利用できますが、将来的には **variant** に統一されます。そのため、今のうちから **variant** 属性の利用をおすすめします。
+
+[source,xml]
+----
+include::symbols-variation.xml[]
+----
+
+**hankaku** は英語の設定と同一です。*zenkaku2* は、ほぼ日本語のデフォルト文字設定と同一です。
+以下のシンボルについてのみデフォルトと設定が異なります。
+
+[options="header"]
+|====
+|シンボル  |値    |前スペース      |後ろスペース   |不正文字リスト   |  解説
+|FULL_STOP |'．'  |false           |false          |' .', '。'   |Sentence period
+|COMMA     |'，'  |false           |false          |',','、'     |Comma
+|====
