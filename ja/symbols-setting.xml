@@ -1,0 +1,5 @@
+<symbols>
+    <symbol name="EXCLAMATION_MARK" value="!" />
+    <symbol name="FULL_STOP" value="." after-space="true" />
+    <symbol name="COMMA" value="," invalid-chars="、，" after-space="true" />
+</symbols>

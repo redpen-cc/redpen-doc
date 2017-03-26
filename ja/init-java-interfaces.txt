@@ -1,0 +1,4 @@
+/**
+ * @param keyValues String key and Object value pairs for supported config properties.
+ */
+public Validator(Object...keyValues)

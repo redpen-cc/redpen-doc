@@ -1,0 +1,81 @@
+== RedPen の開発について
+
+GitHub を通したフィーチャリクエストを歓迎しています。開発に参加したい方は以下の情報を参考にしてください。
+RedPen の開発環境を構築するために必要な情報を記載しています。修正はプルリクエストの形でいただけると master ブランチにマージしやすくなります。
+
+=== 準備
+
+RedPen をビルドするには、次のツールをインストールします。
+
+* http://www.oracle.com/technetwork/java/javase/downloads/index.html[JDK]
+* https://git-scm.com/book/en/v2/Getting-Started-Installing-Git[Git クライアント]
+* http://www.dowdandassociates.com/blog/content/howto-install-maven/[Maven （v3 以降）]
+* http://phantomjs.org/download.html[PhantomJS]
+
+=== 開発ポリシー
+
+RedPen の開発ポリシーは、「ゆっくりと着実に」です。そのため大きな変更が予想される提案は、受け入れできない場合があります。ご了承ください。
+
+=== RedPen のビルド
+
+RedPen パッケージのビルドでは Maven を使用します。パッケージ全体をビルドするには以下のコマンドを実行します。
+
+....
+$ mvn install
+....
+
+ビルドされるとパッケージが出力されます。出力される場所は `redpen/redpen-distribution/target/redpen-distribution-*.*.*-SNAPSHOT-assembled.tar.gz` です。
+出力されたパッケージを使用するまえに、パッケージを展開します。以下はパッケージを展開する例です。
+
+....
+$ cd redpen/redpen-distribution/target
+$ tar xvf redpen-distribution-*.*.*-SNAPSHOT-assembled.tar.gz
+x redpen-distribution-*.*.*-SNAPSHOT/bin/
+x redpen-distribution-*.*.*-SNAPSHOT/conf/
+x redpen-distribution-*.*.*-SNAPSHOT/js/
+x redpen-distribution-*.*.*-SNAPSHOT/js/test/
+x redpen-distribution-*.*.*-SNAPSHOT/lib/
+...
+....
+
+これでパッケージを使用する準備が整いました。以下はパッケージに含まれる `redpen` コマンドを使用する例です。
+
+....
+$cd redpen-distribution-*.*.*-SNAPSHOT
+$bin/redpen -h
+usage: redpen-cli [Options] [<INPUT FILE>]
+  -c,--conf <CONF FILE>                Configuration file (REQUIRED)
+  -f,--format <FORMAT>                 Input file format
+                                       (markdown,plain,wiki,asciidoc,latex)
+  -h,--help                            Displays this help information and exits
+  -l,--limit <LIMIT NUMBER>            error limit number
+  -r,--result-format <RESULT FORMAT>   Output result format
+                                       (json,json2,plain,plain2,xml)
+  -v,--version                         Displays version information and exits
+....
+
+=== RedPen のテスト
+
+RedPen のソースコードを変更する場合、必ず対応するテストケースを追加してください。レビューアが期待される挙動をテストから推測できます。加えて、プルリクエストを作成するにあたり（変更した箇所だけでなく）全テストケースが正常に実行されることを確認してください。RedPen の全テストケースを実行するコマンドを次に示します。
+
+....
+$mvn test
+....
+
+=== その他の情報
+
+* Twitter アカウント
+
+https://twitter.com/redpen_news/
+
+* ソースコードリポジトリ（git）
+
+https://github.com/redpen-cc/redpen
+
+* チャット（日本語）
+
+https://gitter.im/redpen-cc/redpen/redpen-ja
+
+* Issue トラッカー
+
+https://github.com/redpen-cc/redpen/issues

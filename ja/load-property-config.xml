@@ -1,0 +1,10 @@
+<redpen-conf>
+    <validators>
+        ...
+        <validator name="SentenceLength">
+            <property name="max_len" value="200"/>
+    </validator>
+        ...
+    </validators>
+</redpen-conf>
+
