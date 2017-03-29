@@ -52,7 +52,7 @@ $ bin/redpen -c conf/redpen-conf-en.xml sample-doc/en/sampledoc-en.txt
 [2015-11-16 15:13:03.454][INFO ] cc.redpen.validator.Validator - min_word_count is not set. Use default value of 200
 [2015-11-16 15:13:03.462][INFO ] cc.redpen.util.DictionaryLoader - Succeeded to load word frequencies.
 [2015-11-16 15:13:03.498][INFO ] cc.redpen.validator.Validator - decimal_delimiter_is_comma is not set. Use default value of false
-[2015-11-16 15:13:03.499][INFO ] cc.redpen.validator.Validator - ignore_years is not set. Use default value of false
+[2015-11-16 15:13:03.499][INFO ] cc.redpen.validator.Validator - ignore_years is not set. Use default value of true
 [2015-11-16 15:13:03.499][INFO ] cc.redpen.validator.Validator - max_nesting_level is not set. Use default value of 1
 [2015-11-16 15:13:03.499][INFO ] cc.redpen.validator.Validator - max_count is not set. Use default value of 1
 [2015-11-16 15:13:03.500][INFO ] cc.redpen.validator.Validator - max_length is not set. Use default value of 3

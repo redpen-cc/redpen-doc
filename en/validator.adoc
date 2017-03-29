@@ -568,7 +568,7 @@ points.
 |====
 |Property        |Default Value  |Description
 |``decimal_delimiter_is_comma``  |  false          |Change the decimal delimiter from . to , (as in Europe)
-|``ignore_years``                |  false          |Ignore 4 digit integers (2015, 1998)
+|``ignore_years``                |  true           |Ignore 4 digit integers (2015, 1998)
 |====
 
 [[supported-languages-19]]
