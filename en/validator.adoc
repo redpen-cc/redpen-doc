@@ -827,6 +827,17 @@ The component is useful for testing. Especially for unit level testing. Especial
 
 In the above sample, the same sentences are used in succession. This is a human error.
 
+
+[[properties-successive-sentence]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``dist``        |3              |Threshold of minimum distance in https://en.wikipedia.org/wiki/Edit_distance[Edit Distance]
+|``min_len``     |5              |Minimum sentence length to compute
+|====
+
 [[supported-language-successive-sentence]]
 ==== Supported languages
 

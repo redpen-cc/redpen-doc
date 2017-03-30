@@ -855,6 +855,16 @@ SuccessiveSentence は同一の文が二回連続で使用されるとエラー�
 
 上記のパラグラフには同一の文 "日本語はよい言語だ。" が二回連続で出現しています。
 
+[[properties-successive-sentence]]
+==== Properties
+
+[options="header"]
+|====
+|プロパティ      |デフォルト     |解説
+|``dist``        |3              |文書中で連続する二文から計算される https://en.wikipedia.org/wiki/Edit_distance[編集距離] のしきい値。算出された距離がしきい値よりも小さな場合にエラーを出力する
+|``min_len``     |5              |本機能が対象とする文長の最小値
+|====
+
 [[supported-languages-successivesentence]]
 ==== 対応言語
 
