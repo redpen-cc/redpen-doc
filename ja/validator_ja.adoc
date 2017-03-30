@@ -516,7 +516,7 @@ NumberFormat は文中の数値表現が一般的な記法に従っているか�
 |====
 |プロパティ                      |デフォルト       |解説
 |``decimal_delimiter_is_comma``  |  false          |数値のデリミタを . から , に変更する（ヨーロッパ方式）
-|``ignore_years``                |  false          |四桁の数値を無視する（2015, 1998など）
+|``ignore_years``                |  true           |四桁の数値を無視する（2015, 1998など）
 |====
 
 [[supported-languages-19]]
