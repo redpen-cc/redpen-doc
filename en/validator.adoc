@@ -842,3 +842,33 @@ In the above sample, the same sentences are used in succession. This is a human 
 ==== Supported languages
 
 SuccessiveSentence works for any languages.
+
+[[list-level]]
+=== ListLevel
+
+ListLevel checks the level of list items. This validator generates errors when input sections contain list items nested too deeply.
+
+[[properties-list-leve]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``max_level``   |5              |The maximum level of list items
+|====
+
+The following example generates an error at the six list item if ``max_level`` is five.
+
+----
+* one
+** two
+*** three
+**** four
+***** five
+****** six
+----
+
+[[supported-languages-list-level]]
+==== Supported languages
+
+ListLevel works for any languages.

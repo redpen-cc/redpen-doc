@@ -883,3 +883,33 @@ SuccessiveSentence は同一の文が二回連続で使用されるとエラー�
 ==== 対象言語
 
 日本語のみサポートしています。
+
+[[list-level]]
+=== ListLevel
+
+ListLevel は入力文書内に含まれるリスト項目の階層を検査します。 リスト項目の階層が指定された最大値よりも深い場合、エラーを出力します。
+
+[[properties-list-level]]
+==== Properties
+
+[options="header"]
+|====
+|プロパティ      |デフォルト     |解説
+|``max_level``   |5              |リスト項目の最大深度
+|====
+
+例えば ``max_level`` を 5 に設定して以下の入力を与えた場合、六番目のリスト項目に対しエラーが出力されます。
+
+----
+* one
+** two
+*** three
+**** four
+***** five
+****** six
+----
+
+[[supported-languages-list-level]]
+==== 対応言語
+
+どの言語にも対応しています。
