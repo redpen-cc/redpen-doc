@@ -10,19 +10,19 @@ include::quickstart.adoc[]
 
 include::command.adoc[]
 
-include::output.adoc[]
+include::format.adoc[]
 
-include::validator.adoc[]
+include::output.adoc[]
 
 include::configuration.adoc[]
 
-include::format.adoc[]
+include::language.adoc[]
+
+include::validator.adoc[]
 
 include::suppress.adoc[]
 
 include::extend.adoc[]
-
-include::language.adoc[]
 
 include::server.adoc[]
 
