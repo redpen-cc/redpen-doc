@@ -648,7 +648,7 @@ This validator generates errors if input sentence start with a capital character
 [[supported-languages-startwithcapitalcharacter]]
 ==== Supported languages
 
-This vlaidator works for English or other european langugages.
+This validator works for English or other european langugages.
 
 [[voidsection]]
 === VoidSection
