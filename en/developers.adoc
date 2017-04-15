@@ -10,7 +10,6 @@ To build RedPen, you need to install the following tools.
 
 * http://www.oracle.com/technetwork/java/javase/downloads/index.html[JDK]
 * https://git-scm.com/book/en/v2/Getting-Started-Installing-Git[Git client]
-* http://www.dowdandassociates.com/blog/content/howto-install-maven/[Maven (v3 or later)]
 * http://phantomjs.org/download.html[PhantomJS]
 
 === Development Policy
@@ -23,7 +22,7 @@ accept the proposal containing drastic changes, even when the proposed change is
 Building all the RedPen package is simple. You just run the following command.
 
 ....
-$ mvn install
+$./mvnw clean install
 ....
 
 The built RedPen package is flushed in `redpen/redpen-distribution/target`.
@@ -63,7 +62,7 @@ the expected behaviors. In addition run whole test cases before making the Pull 
 RedPen test cases are run with the following command.
 
 ....
-$mvn test
+ ./mvnw test
 ....
 
 === Misc Information
