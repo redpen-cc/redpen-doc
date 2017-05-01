@@ -103,6 +103,14 @@ The redpen command returns 0 when the number of found errors are less than the s
 option:: -l <LIMIT NUMBER>, --limit  <LIMIT NUMBER>
 ----
 
+===== Specify the language of error messages  [**default**: depends on the locale settings of the machine]
+
+For selecting language of errors, we specify the language code (en or ja).
+
+----
+option:: -L <LANGUAGE>,--lang <LANGUAGE>
+----
+
 ===== Specify the input sentences
 
 Commonly users specify input files, but sometimes making files is tidious. For testing purpose redpen command provides the parameter for input sentences.
