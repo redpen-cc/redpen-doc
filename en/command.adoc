@@ -75,6 +75,7 @@ The followings table shows the list of file extensions, which redpen command und
 |review     |re, review
 |latex      |tex, latex
 |properties |properties
+|rest       |reStructuredText
 |====
 
 ===== Result format [**default**: plain]

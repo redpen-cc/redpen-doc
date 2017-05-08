@@ -10,6 +10,7 @@ RedPen supports several types of input formats:
 - LaTeX
 - Re:VIEW
 - Java Properties
+- reStructuredText
 
 [[plain-text]]
 === Plain text
@@ -245,3 +246,10 @@ Properties files or Resource Bundles are commonly used for internalization in Ja
 RedPen treats every property as a section, which can have one or more sentences. Comments and values, but not keys are validated.
 
 See the https://docs.oracle.com/javase/7/docs/api/java/util/Properties.html#load(java.io.Reader)[Properties Javadoc] for more information on file format.
+
+[[restuucturedtext]]
+=== reStructuredText
+
+NOTE: currently RedPen only supports basic notations
+
+See A http://docutils.sourceforge.net/docs/user/rst/quickstart.html#structure[ReStructuredText Primer]
