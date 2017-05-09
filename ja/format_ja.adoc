@@ -124,3 +124,11 @@ Java プロパティファイルやリソースバンドルは Java プロジェ
 RedPen は各プロパティを、複数の文からなる節として取り扱います。コメントと設定値が検査の対象です。キーは検査されません。
 
 Java プロパティファイルのフォーマットについて、詳しくは https://docs.oracle.com/javase/7/docs/api/java/util/Properties.html#load(java.io.Reader)[Java プロパティに関する Javadoc] をご参照ください。
+
+
+[[restucturedtext]]
+=== reStructuredText
+
+NOTE: 現在 RedPen ではベーシックな記法のみをサポートしています。
+
+詳しくは http://docutils.sourceforge.net/docs/user/rst/quickstart.html#structure[ReStructuredText Primer] を参照してください。

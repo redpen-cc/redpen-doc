@@ -50,6 +50,7 @@ redpen コマンドは以下のオプションをサポートしています。
 |review   |Re:VIEW フォーマット
 |latex    |LaTeX フォーマット
 |properties |Java プロパティファイルフォーマット
+|rest       |reStructuredTextフォーマット
 |====
 
 NOTE: 入力フォーマットの指定がない場合、RedPen はファイル拡張子からフォーマットを推測します。以下は RedPen が理解するファイルフォーマットと拡張子の一覧です。
