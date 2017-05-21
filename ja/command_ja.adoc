@@ -151,7 +151,8 @@ redpen-server の設定は、 redpen-server コマンドファイル自身に記
 |設定               |デフォルト値  |解説
 |REDPEN_PORT        |8080          |RedPen サーバが利用するポート番号
 |STOP_KEY           |redpen.stop   |RedPen サーバはストップキーを登録すると http 経由で終了できます。http 経由で終了させたくない場合にはコメントアウトしてください。
-|REDPEN_CONF_FILE |なし          |RedPen の設定ファイルです。指定する設定ファイルおよびリソース（JavaScript 拡張など）は RedPen のインストールディレクトリ（REDPEN_HOME）以下に保存してください。ファイルが REDPEN_HOME 以下に無い場合には、設定を読み込めません
+|REDPEN_CONF_FILE   |なし          |RedPen の設定ファイルです。指定する設定ファイルおよびリソース（JavaScript 拡張など）は RedPen のインストールディレクトリ（REDPEN_HOME）以下に保存してください。ファイルが REDPEN_HOME 以下に無い場合には、設定を読み込めません
+|REDPEN_LANGUAGE    |環境のロケール設定に依存  | RedPen から出力されるエラーメッセージの言語を選択します。
 |=======================================================================
 
 サーバが提供する機能については <<redpen-server>> 節を参照してください。
