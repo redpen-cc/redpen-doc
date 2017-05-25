@@ -65,8 +65,8 @@ NOTE: 入力フォーマットの指定がない場合、RedPen はファイル�
 |review     |re, review
 |latex      |tex, latex
 |properties |properties
+|rest       |rest, rst
 |====
-
 
 ===== 出力フォーマット [**デフォルト**: plain]
 
