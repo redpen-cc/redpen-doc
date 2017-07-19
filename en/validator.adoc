@@ -158,6 +158,7 @@ expression.
 |====
 |Property        |Default Value  |Description
 |``dict``        |None           |File name of dictionary.
+|``map``         |None           |List of pairs of elements. e.g. `{SVM,Support Vector Machine},{like,such as}`
 |====
 
 The dictionary is a TSV file with two columns. First column contains the
