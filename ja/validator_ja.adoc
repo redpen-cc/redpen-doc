@@ -154,6 +154,7 @@ SuggestExpression は InvalidExpression と同様に動作します。
 |====
 |プロパティ      |デフォルト     |記述
 |``dict``        |None           |ユーザ辞書
+|``map``         |None           |ペア要素からなるリスト. 例: `{SVM,Support Vector Machine},{like,such as}`
 |====
 
 辞書は二カラムのタブ区切り（TSV）フォーマットです。
