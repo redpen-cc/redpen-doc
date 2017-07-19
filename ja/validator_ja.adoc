@@ -623,7 +623,7 @@ DoubledJoshi は同一の助詞が一文で二回以上、利用されている�
 日本語のみ動作します。
 
 [[startwithcapitalcharacter]]
-=== StartWithCapitalLetterValidator
+=== StartWithCapitalLetter
 
 文が小文字から始まっている場合にエラーを出力します。
 
