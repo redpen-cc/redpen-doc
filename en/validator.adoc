@@ -642,7 +642,7 @@ This validator generates errors if input sentence uses invalid Okurigana Style (
 Okurigana works for Japanese.
 
 [[startwithcapitalcharacter]]
-=== StartWithCapitalLetterValidator
+=== StartWithCapitalLetter
 
 This validator generates errors if input sentence start with a capital character.
 
