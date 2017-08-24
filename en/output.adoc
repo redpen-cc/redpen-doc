@@ -9,7 +9,7 @@ RedPen supports three basic output formats - **Plain text**, **XML**, and **JSON
 Plain text output format consists of the following lines.
 
 ----
-FILE_NAME:LINE_NUM: ValidationError[ERROR_TYPE], ERROR_MESSAGE at line: SENTENCE
+FILE_NAME:LINE_NUM: Validation[Error|Info|Warn][ERROR_TYPE], ERROR_MESSAGE at line: SENTENCE
 ----
 
 An alternate plain text form (plain2) prints each sentence, followed by
@@ -30,6 +30,7 @@ following sub-elements.
 |`lineNum`         |   false     |    Line Number
 |`sentence`        |   false     |    Sentence containing error
 |`file`            |   true      |    File name
+|`level`           |   String    |    Error level (info, warn, error)
 |====
 
 [[json]]
@@ -44,6 +45,7 @@ following sub-elements.
 |`lineNum`         |   false      |   Line Number
 |`sentence`        |   false      |   Sentence containing error
 |`file`            |   true       |   File name
+|`level`           |   String    |    Error level (info, warn, error)
 |====
 
 The alternative JSON output format (json2) collates each error by the
