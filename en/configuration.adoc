@@ -54,9 +54,7 @@ greater detail. The settings for the symbols section are described in the
 
 The RedPen configuration file contains a "validators" section for
 registering Validators. RedPen will apply each validator specified in
-this section to the to the input document.
-
-The following is a sample "validators" section.
+this section to the to the input document. The following is a sample "validators" section.
 
 [source,xml]
 ----
@@ -87,7 +85,7 @@ validators also have "sub-validators" which can also be configured
 within the validator section.
 
 Users can specify the severity of errors from each validator using level attribute.
-For example, the error level of "InvalidSymbo" in the above example is set as "info" level.
+For example, the error level of "InvalidSymbol" in the above example is set as "info" level.
 For details, please refert to <<redpen-output-format,RedPen Output Format>> section.
 
 We cover all supported validators in the <<validator,Validator>> section.
