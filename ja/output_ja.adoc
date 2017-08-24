@@ -3,7 +3,7 @@
 
 RedPen はいくつかの出力フォーマットをサポートしています。
 
-NOTE: RedPen v1.10  からエラーのレベルを指定できるようになりました（default は *error*）。
+NOTE: RedPen v1.10  からエラーのレベルを指定できるようになりました（default は *error*）。設定法については節、<<validator-configuration,機能（Validator）設定>>を参照してください。
 
 [[plain-text]]
 === 平文（plain）
