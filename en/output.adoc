@@ -1,7 +1,9 @@
-[[output]]
+[[redpen-output-format]]
 == RedPen Output Formats
 
 RedPen supports three basic output formats - **Plain text**, **XML**, and **JSON**.
+
+NOTE: From v1.10, RedPen supports2 error level (default is *error*).
 
 [[plain-text]]
 === Plain text

@@ -64,9 +64,9 @@ The following is a sample "validators" section.
     <validator name="SentenceLength">
         <property name="max_len" value="200"/>
     </validator>
-    <validator name="InvalidSymbol" />
+    <validator name="InvalidSymbol" level="info"/>
     <validator name="SpaceWithSymbol" />
-    <validator name="SectionLength">
+    <validator name="SectionLength" level="warn">
         <property name="max_num" value="2000"/>
     </validator>
     <validator name="ParagraphNumber" />
@@ -85,6 +85,10 @@ For example, you can override the maximum character count in the
 "SectionLength" validator by specifying a "max_num" property. Some
 validators also have "sub-validators" which can also be configured
 within the validator section.
+
+Users can specify the severity of errors from each validator using level attribute.
+For example, the error level of "InvalidSymbo" in the above example is set as "info" level.
+For details, please refert to <<redpen-output-format,RedPen Output Format>> section.
 
 We cover all supported validators in the <<validator,Validator>> section.
 

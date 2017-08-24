@@ -1,6 +1,9 @@
+[[redpen-output-format]]
 == RedPen 出力フォーマット
 
 RedPen はいくつかの出力フォーマットをサポートしています。
+
+NOTE: RedPen v1.10  からエラーのレベルを指定できるようになりました（default は *error*）。
 
 [[plain-text]]
 === 平文（plain）
