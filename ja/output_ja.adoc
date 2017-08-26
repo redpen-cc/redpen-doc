@@ -1,6 +1,9 @@
+[[redpen-output-format]]
 == RedPen 出力フォーマット
 
 RedPen はいくつかの出力フォーマットをサポートしています。
+
+NOTE: RedPen v1.10  からエラーのレベルを指定できるようになりました（default は *error*）。設定法については節、<<validator-configuration,機能（Validator）設定>>を参照してください。
 
 [[plain-text]]
 === 平文（plain）
@@ -8,7 +11,7 @@ RedPen はいくつかの出力フォーマットをサポートしています�
 平文を指定すると RedPen が返すエラーは、以下のフォーマットで出力されます。
 
 ----
-FILE_NAME:LINE_NUM: ValidationError[ERROR_TYPE], ERROR_MESSAGE at line: SENTENCE
+FILE_NAME:LINE_NUM: Validation[Error|Info|Warn][ERROR_TYPE], ERROR_MESSAGE at line: SENTENCE
 ----
 
 plain2 を指定した場合には、各文ごとのエラーがまとまって出力されます。
@@ -28,6 +31,7 @@ XML 出力フォーマットの最上位ブロックは *validation-result* で�
 |`lineNum`         |   false     |    エラーが検知された行
 |`sentence`        |   false     |    エラーが検知された文
 |`file`            |   true      |    ファイル名
+|`level`           |   String    |    エラーレベル（Info、Warn、Error）
 |====
 
 [[json]]
@@ -51,6 +55,7 @@ RedPen は二種類の JSON での出力をサポートしています（json �
                 },
                 "validator": "DoubledWord",
                 "lineNum": 1,
+                "level" : "Error",
                 "sentenceStartColumnNum": 0,
                 "message": "Found repeated word \"は\".",
                 "startPosition": {
@@ -66,6 +71,7 @@ RedPen は二種類の JSON での出力をサポートしています（json �
                 },
                 "validator": "SuccessiveWord",
                 "lineNum": 1,
+                "level" : "Error",
                 "sentenceStartColumnNum": 0,
                 "message": "Found word \"は\" repeated twice in succession.",
                 "startPosition": {
@@ -90,6 +96,7 @@ RedPen は二種類の JSON での出力をサポートしています（json �
 |`file`            |   true       |   ファイル名
 |`startPosition`   |   true       |   エラーの開始位置
 |`endPosition`     |   true       |   エラーの終了位置
+|`level`           |   String    |    エラーレベル（Info、Warn、Error）
 |`sentenceStartColumnNum`     |   true       |   エラーが発生した列番号（非推奨、startPosition を利用してください）
 |====
 
@@ -121,6 +128,7 @@ json2 も RedPen の結果を JSON フォーマットで返します。json2 で
                             "length": 1
                         },
                         "validator": "DoubledWord",
+                        "level" : "Error",
                         "position": {
                             "start": {
                                 "offset": 3,
@@ -139,6 +147,7 @@ json2 も RedPen の結果を JSON フォーマットで返します。json2 で
                             "length": 1
                         },
                         "validator": "SuccessiveWord",
+                        "level" : "Error",
                         "position": {
                             "start": {
                                 "offset": 3,
@@ -158,7 +167,7 @@ json2 も RedPen の結果を JSON フォーマットで返します。json2 で
 ]
 ----
 
-json2 の errors は3つの要素からなるブロックです。以下、各要素の解説です。
+json2 の errors は3つの要素からなるブロックです。以下は各要素の解説です。
 
 [option="header"]
 |====
@@ -168,7 +177,7 @@ json2 の errors は3つの要素からなるブロックです。以下、各�
 |`position`        |   true       |   文の位置（開始、終了）
 |====
 
-errors は文に含まれるエラーのリストです。各エラーは以下の要素をもつブロックで表現されます。
+errors は文に含まれるエラーのリストです。各エラーは以下の要素をふくむブロックで表現されます。
 
 [option="header"]
 |====
@@ -178,4 +187,5 @@ errors は文に含まれるエラーのリストです。各エラーは以下�
 |`subsentence`     |   true       |   エラーが検知された位置（開始位置と長さ）
 |`position`        |   true       |   エラーの位置（開始、終了）
 |`endPosition`     |   true       |   エラーの終了位置
+|`level`           |   String    |    エラーレベル（Info、Warn、Error）
 |====

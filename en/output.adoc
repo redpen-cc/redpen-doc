@@ -1,7 +1,9 @@
-[[output]]
+[[redpen-output-format]]
 == RedPen Output Formats
 
 RedPen supports three basic output formats - **Plain text**, **XML**, and **JSON**.
+
+NOTE: From v1.10, RedPen supports2 error level (default is *error*). For the configuration, please refer to the <<validator-configuration, Validator configuration>> section.
 
 [[plain-text]]
 === Plain text
@@ -9,7 +11,7 @@ RedPen supports three basic output formats - **Plain text**, **XML**, and **JSON
 Plain text output format consists of the following lines.
 
 ----
-FILE_NAME:LINE_NUM: ValidationError[ERROR_TYPE], ERROR_MESSAGE at line: SENTENCE
+FILE_NAME:LINE_NUM: Validation[Error|Info|Warn][ERROR_TYPE], ERROR_MESSAGE at line: SENTENCE
 ----
 
 An alternate plain text form (plain2) prints each sentence, followed by
@@ -30,6 +32,7 @@ following sub-elements.
 |`lineNum`         |   false     |    Line Number
 |`sentence`        |   false     |    Sentence containing error
 |`file`            |   true      |    File name
+|`level`           |   String    |    Error level (Info, Warn, Error)
 |====
 
 [[json]]
@@ -44,6 +47,7 @@ following sub-elements.
 |`lineNum`         |   false      |   Line Number
 |`sentence`        |   false      |   Sentence containing error
 |`file`            |   true       |   File name
+|`level`           |   String    |    Error level (Info, Warn, Error)
 |====
 
 The alternative JSON output format (json2) collates each error by the
