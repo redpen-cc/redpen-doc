@@ -31,7 +31,7 @@ XML 出力フォーマットの最上位ブロックは *validation-result* で�
 |`lineNum`         |   false     |    エラーが検知された行
 |`sentence`        |   false     |    エラーが検知された文
 |`file`            |   true      |    ファイル名
-|`level`           |   String    |    エラーレベル（info、warn、error）
+|`level`           |   String    |    エラーレベル（Info、Warn、Error）
 |====
 
 [[json]]
@@ -71,6 +71,7 @@ RedPen は二種類の JSON での出力をサポートしています（json �
                 },
                 "validator": "SuccessiveWord",
                 "lineNum": 1,
+                "level" : "Error",
                 "sentenceStartColumnNum": 0,
                 "message": "Found word \"は\" repeated twice in succession.",
                 "startPosition": {
@@ -95,7 +96,7 @@ RedPen は二種類の JSON での出力をサポートしています（json �
 |`file`            |   true       |   ファイル名
 |`startPosition`   |   true       |   エラーの開始位置
 |`endPosition`     |   true       |   エラーの終了位置
-|`level`           |   String    |    エラーレベル（info、warn、error）
+|`level`           |   String    |    エラーレベル（Info、Warn、Error）
 |`sentenceStartColumnNum`     |   true       |   エラーが発生した列番号（非推奨、startPosition を利用してください）
 |====
 
@@ -127,6 +128,7 @@ json2 も RedPen の結果を JSON フォーマットで返します。json2 で
                             "length": 1
                         },
                         "validator": "DoubledWord",
+                        "level" : "Error",
                         "position": {
                             "start": {
                                 "offset": 3,
@@ -145,6 +147,7 @@ json2 も RedPen の結果を JSON フォーマットで返します。json2 で
                             "length": 1
                         },
                         "validator": "SuccessiveWord",
+                        "level" : "Error",
                         "position": {
                             "start": {
                                 "offset": 3,
@@ -184,5 +187,5 @@ errors は文に含まれるエラーのリストです。各エラーは以下�
 |`subsentence`     |   true       |   エラーが検知された位置（開始位置と長さ）
 |`position`        |   true       |   エラーの位置（開始、終了）
 |`endPosition`     |   true       |   エラーの終了位置
-|`level`           |   String    |    エラーレベル（info、warn、error）
+|`level`           |   String    |    エラーレベル（Info、Warn、Error）
 |====
