@@ -24,7 +24,7 @@ We download and build the manual with the following steps.
 2. clone the source code with git command
 
 ```bash
-    $ git clone git@github.com:recruit-tech/redpen-doc
+    $ git clone git@github.com:redpen-cc/redpen-doc
 ```
 
 3. compile the user manual

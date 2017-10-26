@@ -1,0 +1,134 @@
+== 入力フォーマット
+
+RedPen は数種類のテキストフォーマットに対応しています。以下は対応するテキストフォーマットの一覧です。
+
+- 平文（プレーンテキスト）
+- Markdown
+- AsciiDoc
+- Wiki
+- Re:VIEW
+- LaTeX
+- Java プロパティ
+
+[[plain-text-in]]
+=== プレーンテキスト
+
+プレーンテキストはパラグラフをサポートしています。
+パラグラフは連続する2つの改行によって区切られます。たとえば以下は2つのパラグラフを含んでいます。
+
+----
+include::sample-en-paragraph.txt[]
+----
+
+[[asciidoc]]
+=== AsciiDoc
+
+http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/[AsciiDoctor リファレンス]を参照。
+
+[[latex]]
+=== LaTeX
+
+NOTE: 自作マクロには対応していません
+
+[[wiki-format]]
+=== Wiki
+
+RedPen は Wiki 記法の一部に対応しています。以下対応した記法の解説となります。
+
+NOTE: エラー箇所のポジション情報を出力できません。
+
+[[headings]]
+==== 見出し
+
+見出しを "h[1234]. " で表現します。**h** につづく数で見出しのレベルを表現します。
+
+[[inline-formatting]]
+==== インライン表記
+
+いくつかのインライン表記に対応しています。
+
+[[bold]]
+==== 太字
+
+----
+**this is a Bold sentence.**
+----
+
+[[italic]]
+==== イタリック
+
+----
+//this is an italic sentence.//
+----
+
+[[underline]]
+==== アンダーライン
+
+----
+__this is an underlined sentence.__
+----
+
+[[strikethrough]]
+==== 削除線
+
+----
+--this is a strikethrough sentence.--
+----
+
+[[lists]]
+==== リスト
+
+パーサは2つのリスト記法に対応しています。
+
+[[bulleted-lists]]
+===== Bulleted リスト
+
+----
+* List
+* List
+** Sub List
+----
+
+[[numbered-list]]
+===== Numbered リスト
+
+----
+include::wiki-numbered-list-sample.txt[]
+----
+
+[[comments]]
+==== コメント
+
+----
+include::wiki-comment.txt[]
+----
+
+[[paragraphs]]
+==== パラグラフ
+
+[[markdown]]
+=== Markdown
+
+https://daringfireball.net/projects/markdown/syntax[Markdown リファレンスを参照]
+
+[[review-format]]
+=== Re:VIEW format
+
+https://github.com/kmuto/review/blob/master/doc/format.md[Re:VIEW リファレンスを参照]
+
+
+[[java-properties]]
+=== Java プロパティ
+
+Java プロパティファイルやリソースバンドルは Java プロジェクトを国際化するために使われます。
+RedPen は各プロパティを、複数の文からなる節として取り扱います。コメントと設定値が検査の対象です。キーは検査されません。
+
+Java プロパティファイルのフォーマットについて、詳しくは https://docs.oracle.com/javase/7/docs/api/java/util/Properties.html#load(java.io.Reader)[Java プロパティに関する Javadoc] をご参照ください。
+
+
+[[restucturedtext]]
+=== reStructuredText
+
+NOTE: 現在 RedPen ではベーシックな記法のみをサポートしています。
+
+詳しくは http://docutils.sourceforge.net/docs/user/rst/quickstart.html#structure[ReStructuredText Primer] を参照してください。

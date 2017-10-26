@@ -1,0 +1,61 @@
+<redpen-conf lang="ja">
+  <validators>
+    <!-- Rules on sentence length -->
+    <validator name="SentenceLength">
+      <property name="max_len" value="100"/>
+    </validator>
+    <validator name="CommaNumber" />
+
+    <!-- Rules on expressions -->
+    <validator name="KatakanaEndHyphen">
+    <validator name="KatakanaSpellCheck" />      
+      <property name="list" value="ポリシー,トラッカー" />
+    </validator>
+    <validator name="SuggestExpression">
+      <property name="dict" value="redpen_resources/terminologies.txt" />
+    </validator>
+    <validator name="JapaneseStyle" />
+    <validator name="InvalidExpression" />
+    <validator name="DoubleNegative" />
+    <validator name="FrequentSentenceStart" />
+    <validator name="Okurigana"/>
+    <validator name="JapaneseNumberExpression"/>
+    <validator name="JapaneseAnchorExpression"/>
+    <validator name="JapaneseAmbiguousNounConjunction" />
+    <validator name="LongKanjiChain" />
+
+    <!-- Rules on human errors -->
+    <validator name="SuccessiveWord" />
+
+    <!-- Rules on sections -->
+    <validator name="SectionLength">
+      <property name="max_num" value="1500"/>
+    </validator>
+    <validator name="ParagraphNumber"/>
+    <validator name="SectionLevel" />
+
+    <!-- Rules on symbols -->
+    <validator name="InvalidSymbol"/>
+    <validator name="SpaceBetweenAlphabeticalWord" />
+    <validator name="ParenthesizedSentence">
+      <property name="max_count" value="2"/>
+      <property name="max_nesting_level" value="1"/>
+      <property name="max_length" value="10"/>
+    </validator>
+
+    <!-- Load JavaScript based Validators --> 
+    <validator name="JavaScript">
+      <property name="script-path" value="js"/>
+    </validator>
+  </validators>
+  <symbols>
+    <symbol name="FULL_STOP" value="。" invalid-chars="．" />
+    <symbol name="QUESTION_MARK" value="？" />
+    <symbol name="COMMA" value="、" invalid-chars="，"/>
+    <symbol name="COLON" value="：" />
+    <symbol name="DOLLAR_SIGN" value="＄" />
+    <symbol name="LESS_THAN_SIGN" value="＜" />
+    <symbol name="GREATER_THAN_SIGN" value="＜" />
+    <symbol name="VERTICAL_BAR" value="｜" />
+  </symbols>
+</redpen-conf>

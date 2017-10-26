@@ -1,0 +1,16 @@
+/**
+ * Process input blocks before run validation. This method is used to store
+ * the information needed to run Validator before the validation process.
+ *
+ * @param sentence input sentence
+ */
+ public void preValidate(Sentence sentence)
+
+ /**
+  * Process input blocks before run validation. This method is used to store
+  * the information needed to run Validator before the validation process.
+  *
+  * @param section input section
+  */
+  public void preValidate(Section section)
+ 

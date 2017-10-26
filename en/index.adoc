@@ -1,0 +1,35 @@
+[[index]]
+= RedPen {target-version} Documentation
+:toc: right
+:stylesheet: redpen.css
+
+== Overview
+RedPen is an open source proofreading tool to check if your technical documents meet writing standards.
+
+include::quickstart.adoc[]
+
+include::command.adoc[]
+
+include::format.adoc[]
+
+include::output.adoc[]
+
+include::configuration.adoc[]
+
+include::language.adoc[]
+
+include::validator.adoc[]
+
+include::suppress.adoc[]
+
+include::extend.adoc[]
+
+include::server.adoc[]
+
+include::developers.adoc[]
+
+include::editor.adoc[]
+
+include::faq.adoc[]
+
+include::links.adoc[]

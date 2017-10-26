@@ -1,0 +1,33 @@
+= RedPen {target-version} ドキュメント
+:stylesheet: redpen.css
+:pdf-style: redpen.yml
+:toc: right
+
+== 概要
+RedPen はオープンソースの校正ツールです。RedPen は技術文書が文書規約に従って書かれているかを自動検査します。
+
+include::quickstart_ja.adoc[]
+
+include::command_ja.adoc[]
+
+include::output_ja.adoc[]
+
+include::validator_ja.adoc[]
+
+include::configuration_ja.adoc[]
+
+include::format_ja.adoc[]
+
+include::suppress_ja.adoc[]
+
+include::extend_ja.adoc[]
+
+include::language_ja.adoc[]
+
+include::server_ja.adoc[]
+
+include::developers_ja.adoc[]
+
+include::faq_ja.adoc[]
+
+include::links_ja.adoc[]

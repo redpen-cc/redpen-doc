@@ -1,0 +1,68 @@
+== RedPen クィックスタート
+
+本節では RedPen をダウンロードしてから利用するところまで解説します。
+
+[[requirements]]
+=== 準備
+
+RedPen を利用するには、以下のソフトウェアが必要です。
+
+* Java 1.8.40 以上
+
+[[example-run]]
+=== 実行例
+
+はじめに RedPen パッケージを以下のリリースページからダウンロードします。
+
+https://github.com/redpen-cc/redpen/releases/[release page]
+
+次に以下のコマンドで RedPen パッケージを解凍してください。
+
+[source,bash]
+----
+$ tar xvf redpen-*.tar.gz
+$ cd redpen-*
+----
+
+これで RedPen を利用する準備が整いました。以下のコマンドを実行すると RedPen が動作します。
+
+[source,bash]
+----
+$ bin/redpen -c conf/redpen-conf-en.xml sample-doc/en/sampledoc-en.txt
+<distribution-1.4.1/bin/redpen -c ~/IdeaProjects/redpen/redpen-cli/sample/conf/redpen-conf-en.xml  ~/IdeaProjects/redpen/redpen-cli/sample/sample-doc/en/sampledoc-en.txt
+[2015-11-16 15:13:03.272][INFO ] cc.redpen.Main - Configuration file: /Users/takahi-i/IdeaProjects/redpen/redpen-cli/sample/conf/redpen-conf-en.xml
+[2015-11-16 15:13:03.277][INFO ] cc.redpen.ConfigurationLoader - Loading config from specified config file: "/Users/takahi-i/IdeaProjects/redpen/redpen-cli/sample/conf/redpen-conf-en.xml"
+[2015-11-16 15:13:03.285][INFO ] cc.redpen.ConfigurationLoader - Succeeded to load configuration file
+[2015-11-16 15:13:03.285][INFO ] cc.redpen.ConfigurationLoader - Language is set to "en"
+[2015-11-16 15:13:03.285][WARN ] cc.redpen.ConfigurationLoader - No type configuration...
+[2015-11-16 15:13:03.286][INFO ] cc.redpen.ConfigurationLoader - No "symbols" block found in the configuration
+[2015-11-16 15:13:03.331][INFO ] cc.redpen.config.SymbolTable - Default symbol settings are loaded
+[2015-11-16 15:13:03.334][INFO ] cc.redpen.parser.SentenceExtractor - "[., ?, !]" are added as a end of sentence characters
+[2015-11-16 15:13:03.335][INFO ] cc.redpen.parser.SentenceExtractor - "[', "]" are added as a right quotation characters
+[2015-11-16 15:13:03.346][INFO ] cc.redpen.validator.Validator - max_len is set to 100
+[2015-11-16 15:13:03.349][INFO ] cc.redpen.validator.Validator - max_num is not set. Use default value of 1000
+[2015-11-16 15:13:03.350][INFO ] cc.redpen.validator.Validator - max_num is not set. Use default value of 5
+[2015-11-16 15:13:03.439][INFO ] cc.redpen.util.DictionaryLoader - Succeeded to load spell dictionary.
+[2015-11-16 15:13:03.444][INFO ] cc.redpen.util.DictionaryLoader - Succeeded to load doubled word skip list.
+[2015-11-16 15:13:03.449][INFO ] cc.redpen.validator.Validator - leading_word_limit is not set. Use default value of 3
+[2015-11-16 15:13:03.449][INFO ] cc.redpen.validator.Validator - percentage_threshold is not set. Use default value of 25
+[2015-11-16 15:13:03.449][INFO ] cc.redpen.validator.Validator - min_sentence_count is not set. Use default value of 5
+[2015-11-16 15:13:03.451][INFO ] cc.redpen.validator.Validator - min_acronym_length is not set. Use default value of 3
+[2015-11-16 15:13:03.453][INFO ] cc.redpen.validator.Validator - deviation_factor is not set. Use default value of 3.0
+[2015-11-16 15:13:03.454][INFO ] cc.redpen.validator.Validator - min_word_count is not set. Use default value of 200
+[2015-11-16 15:13:03.462][INFO ] cc.redpen.util.DictionaryLoader - Succeeded to load word frequencies.
+[2015-11-16 15:13:03.498][INFO ] cc.redpen.validator.Validator - decimal_delimiter_is_comma is not set. Use default value of false
+[2015-11-16 15:13:03.499][INFO ] cc.redpen.validator.Validator - ignore_years is not set. Use default value of true
+[2015-11-16 15:13:03.499][INFO ] cc.redpen.validator.Validator - max_nesting_level is not set. Use default value of 1
+[2015-11-16 15:13:03.499][INFO ] cc.redpen.validator.Validator - max_count is not set. Use default value of 1
+[2015-11-16 15:13:03.500][INFO ] cc.redpen.validator.Validator - max_length is not set. Use default value of 3
+[2015-11-16 15:13:03.501][INFO ] cc.redpen.util.DictionaryLoader - Succeeded to load weak expressions.
+sampledoc-en.txt:1: ValidationError[SymbolWithSpace], Need whitespace before or after symbol "80". at line: Some software tools work in more than one machine, and such distributed (cluster)systems can handle huge data or tasks , because such software tools make use of large amount of computer resources.
+sampledoc-en.txt:3: ValidationError[Spelling], Found possibly misspelled word "distriubuted". at line: Such distriubuted systems need a component to merge the preliminary results from member instnaces.
+sampledoc-en.txt:3: ValidationError[Spelling], Found possibly misspelled word "instnaces". at line: Such distriubuted systems need a component to merge the preliminary results from member instnaces.
+sampledoc-en.txt:2: ValidationError[Contraction], Found contraction "we'll". at line: In this article, we'll call a computer server that works as a member of a cluster an "instance".
+sampledoc-en.txt:1: ValidationError[DoubledWord], Found repeated word "such". at line: Some software tools work in more than one machine, and such distributed (cluster)systems can handle huge data or tasks, because such softwa re tools make use of large amount of computer resources.
+...
+----
+
+上記のコマンドにおいて、 -c で指定されている値は設定ファイルパスです。

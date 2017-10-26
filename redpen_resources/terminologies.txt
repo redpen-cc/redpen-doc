@@ -1,0 +1,4 @@
+ユニコード	Unicode
+prevalidte	prevalidate
+vaildate	validate
+セクション	節

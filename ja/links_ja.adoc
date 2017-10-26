@@ -1,0 +1,8 @@
+== リンク集
+
+* https://github.com/redpen-cc/redpen[RedPen ソース]
+* https://hub.docker.com/r/ainoya/redpen-server/[Docker イメージ by Naoki Ainoya]
+* https://rubygems.org/gems/redpen_ruby[Ruby Gem by Akino Murasame]
+* https://atom.io/packages/redpen/[Atom パッケージ by griffin-stewie]
+* https://libraries.io/emacs/redpen-paragraph/[Emacs redpen-paragraph by karronoli]
+* http://brewformulas.org/Redpen[Homebrew formula by Kozo Nishida]

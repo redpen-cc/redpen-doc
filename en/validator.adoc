@@ -1,0 +1,875 @@
+[[validator]]
+== RedPen Supported Validators
+
+RedPen supports the following validators.
+
+[[sentencelength]]
+=== SentenceLength
+
+SentenceLength validator checks the length of sentences in the input
+document. If the length of the sentence is greater than the specified
+maximum length, the validator generates a warning.
+
+[[properties]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``max_len``     |50             |Maximum length of sentence.
+|====
+
+[[supported-languages]]
+==== Supported languages
+
+SentenceLength can be applied to any language.
+
+[[invalidexpression]]
+=== InvalidExpression
+
+InvalidExpression validator checks if input sentences contain invalid
+expressions (words or phrases). If the input sentence contains invalid
+expressions, the validator generates a warning.
+
+[[properties-1]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``dict``        |None           |File name of dictionary.
+|``list``        |None           |List of invalid expressions delimited by commas.
+|====
+
+The dictionary is a set of words or expressions. The following is an
+example of a dictionary.
+
+----
+like
+you know
+hey
+kidding
+...
+----
+
+[[supported-languages-1]]
+==== Supported languages
+
+InvalidExpression can be applied to any language.
+
+[[invalidword]]
+=== InvalidWord
+
+InvalidWord validator checks if input sentences contain invalid words.
+If the input sentence contains invalid words, the validator generates a
+warning.
+
+[[properties-2]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``dict``        |None           |File name of dictionary.
+|``list``        |None           |List of invalid expressions delimited by commas.
+|====
+
+The dictionary is a set of words. The following is an example of a dictionary.
+
+----
+like
+hey
+wow
+...
+----
+
+[[supported-languages]]
+==== Supported Languages
+
+InvalidWord can be any of languages (but the default dictionaries are
+supplied only for English and Japanese).
+
+[[spacebeginningofsentencevalidator]]
+=== SpaceBeginningOfSentenceValidator
+
+This validator checks if there is a white
+space at the end of sentences (except for the last sentence of paragraph).
+If the input sentence does end with a white space, a warning is given.
+
+WARNING: SpaceBeginningOfSentenceValidator is deprecated.
+
+[[supported-languages-2]]
+==== Supported languages
+
+SpaceBeginningOfSentenceValidator can be applied to any language.
+
+[[commanumber]]
+=== CommaNumber
+
+CommaNumber validator checks the number of commas in a sentence.
+
+[[properties-3]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``max_num``     |3              |Maximum number of commas in a sentence.
+|====
+
+[[supported-languages-1]]
+==== Supported languages
+
+CommaNumber can be applied to any language.
+
+[[wordnumber]]
+=== WordNumber
+
+WordNumber validator checks the number of words in one setnece.
+
+[[properties-4]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``max_num``     |30             |Maximum number of words in a sentence.
+|====
+
+[[supported-languages-3]]
+==== Supported languages
+
+WordNumber can be applied to any languages except for several Asian
+languages (Chinese or Thai). RedPen does not have the tokenizer
+for the languages.
+
+[[suggestexpression]]
+=== SuggestExpression
+
+SuggestExpression validator works in a similar way to the
+InvalidExpression validator. If the input sentence contains invalid
+expressions, this validator returns a warning suggesting the correct
+expression.
+
+[[properties-5]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``dict``        |None           |File name of dictionary.
+|``map``         |None           |List of pairs of elements. e.g. `{SVM,Support Vector Machine},{like,such as}`
+|====
+
+The dictionary is a TSV file with two columns. First column contains the
+invalid expression, and the second column contains a suggested
+replacement expression.
+
+----
+SVM    Support Vector Machine
+LLVM   Low Level Virtual Machine
+...
+----
+
+[[supported-languages-4]]
+==== Supported languages
+
+SuggestExpression can be any of languages but the default dictionaries
+are provided only for English and Japanese.
+
+[[invalidsymbol]]
+[suppress='InvalidSymbol WeakExpression']
+=== InvalidSymbol
+
+Some symbols or characters have alternate characters with the same role.
+For example question mark **? (0x003F)** has another unicode variation
+**？(0xFF1F)**. InvalidSymbol checks if input sentences contains invalid
+characters or symbols. The symbols settings are added
+into the character setting block int the configuration file.
+In this file, we write the symbols we should use in the document and their invalid
+counterparts. The details of these settings is described in the next section.
+
+[[supported-languages-2]]
+==== Supported languages
+
+InvalidSymbol works for any langugages. See the settings of symbols in
+the <<configuration,Configuration>> section.
+
+[[symbolwithspace]]
+[suppress='WeakExpression']
+=== SymbolWithSpace
+
+Some symbols need space before or after them. For example, if we want to
+ensure a space before a left parentheses, we can add the preference to the symbol setting block (see <<setting-symbols>>)
+
+[[supported-languages-3]]
+==== Supported languages
+
+InvalidSymbol works for any language.
+
+[[katakanaendhyphen]]
+[suppress='InvalidSymbol NumberFormat WeakExpression']
+=== KatakanaEndHyphen
+
+KatakanaEndHyphen validator checks the end hyphens of Katakana words in
+*Japanese* documents. Japanese Katakana words have variations in their
+end hyphen. For example, "computer" is written in Katakana as
+"コンピュータ" (without hyphen), and "コンピューター" (with hypen). This
+validator checks to ensure that Katakana words match the predefined
+standard. See JIS Z8301, G.6.2.2 b) G.3.
+
+* a: Words of 3 characters or more cannot have an end hyphen.
+* b: Words of 2 characters or less can have an end hyphen.
+* c: A compound word should apply *a* and *b* to each component word.
+* d: In the cases from *a* to **c**, the length of a syllable which is
+represented by a hyphen is 1 except for Youon.
+
+[[supported-languages-4]]
+==== Supported languages
+
+KatakanaEndSymbol works only for Japanees texts.
+
+[[katakanaspellcheck]]
+=== KatakanaSpellCheck
+
+KatakanaSpellCheck validator checks if Katakana words have variational written form.
+For example, if the Katakana word "インデックス" and the variational form "インデクス" exist within
+the same document, this validator will return a warning.
+
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``dict``        |None           |File name of dictionary.
+|``min_ratio``   |0.2            |Threshold of the minimum similarity. KatakanaSpellCheck reports an error when there is a pair of words of which the similarity is more than the min_ratio.
+|``min_freq``    |5              |Threshold of the minimum word frequency. KatakanaSpellCheck checks words of which frequencies are less than min_freq.
+|====
+
+[[supported-languages-5]]
+==== Supported languages
+
+KatakanaSpellCheck works only for Japanese texts.
+
+[[sectionlength]]
+=== SectionLength
+
+SectionLength validator checks the maximum number of words allowed in an
+section.
+
+[[properties-6]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``max_num``     |1000           |Maximum number of characters in a section.
+|====
+
+[[supported-languages]]
+==== Supported languages
+
+SectionLength works for any language.
+
+[[paragraphnumber]]
+=== ParagraphNumber
+
+ParagraphNumber validator checks the maximum number of paragraphs
+allowed in one section.
+
+[[properties]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``max_num``     |5           |Maximum number of paragraphs in a section.
+|====
+
+[[supported-languages-1]]
+==== Supported languages
+
+ParagraphNumber works for any language.
+
+[[paragraphstartwith]]
+=== ParagraphStartWith
+
+ParagraphStartWith validator checks to see if the characters at the
+beginning of paragraphs conforms to the correct style.
+
+[[properties-7]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``start_with``  |" "            |Characters in the beginning of paragraphs.
+|====
+
+[[supported-languages-6]]
+==== Supported languages
+
+ParagraphStartWith works for any langugaes.
+
+[[spacebetweenalphabeticalword]]
+[suppress='WeakExpression']
+=== SpaceBetweenAlphabeticalWord
+
+SpaceBetweenAlphabeticalWord validator checks that alphabetic words are
+surrounded with whitespace. This validator is used in non-latin
+languages such as Japanese or Chinese.
+
+[[properties-spacebetweenalphabeticalword]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``forbidden``   | false         | Speces are enforce (false) or forbidden.
+|``skip_before`` | ""            | Skip errors when there is no space before the specifed characters (symbols).
+|``skip_after``  | ""            | Skip errors when there is no space after the specifed characters (symbols).
+|====
+
+[[supported-languages-spacebetweenalphabeticalword]]
+==== Supported languages
+
+SpaceBetweenAlphabeticalWord works for languages whose words are not
+split by white spaces such as Japanese or Chinese.
+
+[[contraction]]
+=== Contraction
+
+Contraction throws an error when contractions are used in a
+document in which more than half of the verbs are written in
+non-contracted form.
+
+[[supported-languages-8]]
+==== Supported languages
+
+Contraction works only for English texts.
+
+[[spelling]]
+=== Spelling
+
+Spelling validator throws an error if there are spelling mistakes in the
+input documents. This validator only works for English documents.
+
+[[properties-spelling]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``dict``        |None           |File name of known word dictionary.
+|``list``        |None           |List of known words delimited by commas.
+|====
+
+[[supported-languages-9]]
+==== Supported languages
+
+Spelling works only for English texts.
+
+[[doubledword]]
+=== DoubledWord
+
+DoubledWord validator throws an error if a word is used more than once
+in a sentence. For example, if an input document contains the following
+sentence, the validator will report an error since *good* is used twice.
+
+----
+this good item is very good.
+----
+
+[[properties-8]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``dict``        |None           |File name of skip list dictionary.
+|``list``        |None           |List of skip words delimited by commas.
+|====
+
+[[supported-languages-10]]
+==== Supported languages
+
+DoubledWord works for any langages except for Chiense or other Asian
+languages.
+
+NOTE: The default dictionaries are supplied only for Japanese and English.
+
+[[doubledjoshi]]
+=== DoubledJoshi
+
+DoubledJoshi throws an error if a Joshi (Japanese part-of-speech) is used more than once
+in a Japanese sentence.
+
+[[properties-doubled-joshi]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``dict``        |None           |File name of skip list dictionary.
+|``list``        |None           |List of skip words delimited by commas.
+|====
+
+[[supported-languages-doubled-joshi]]
+==== Supported languages
+
+DoubledJoshi works only for Japanese
+
+[[successiveword]]
+[suppress="SuccessiveWord"]
+=== SuccessiveWord
+
+SuccessiveWord validator throws an error if the same word is used twice
+in succession. For example, if an input document contains the following
+sentence, the validator will report an error since *is* is used twice in
+succession.
+
+----
+the item is is very good. 
+----
+
+[[supported-languages-11]]
+==== Supported languages
+
+SuccessiveWord works for any langages except for Chiense or other Asian
+languages.
+
+[[duplicatedsection]]
+=== DuplicatedSection
+
+DuplicatedSection validator throws an error if there are section pairs
+which have almost the same content.
+
+[[supported-languages-12]]
+==== Supported languages
+
+DuplicatedSection works for any language.
+
+[[japanesestyle]]
+=== JapaneseStyle
+
+JapaneseStyle validator reports errors if the input file contains both
+"dearu" and "desu-masu" style.
+
+[[supported-languages-13]]
+==== Supported languages
+
+JapaneseStyle works only for Japanese
+
+[[doublenegative]]
+=== DoubleNegative
+
+DoubleNegative validator reports errors when input sentence contains
+double negative expression.
+
+[[supported-languages-14]]
+==== Supported languages
+
+DoubleNegative works only for English and Japanese texts.
+
+[[frequentsentencestart]]
+=== FrequentSentenceStart
+
+This validator reports an error if too many sentences start with the
+same sequence of words.
+
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``leading_word_limit``      |3              |Number of words starting each sentence to consider.
+|``percentage_threshold``    |25             |Maximum percentage of sentences that can start with the same words.
+|``min_sentence_count``      |5              |Minimum number of sentences required for the validator to report errors.
+|====
+
+[[supported-languages-15]]
+==== Supported languages
+
+FrequentSentenceStart works for any language.
+
+[[unexpandedacronym]]
+[suppress='WeakExpression']
+=== UnexpandedAcronym
+
+This validator ensures that there are candidates for expanded versions
+of acronyms somewhere in the document.
+
+That is, if there exists an acronym ABC in the document, then there must
+also exist a sequence of capitalized words such as Axxx Bxx Cxxx.
+
+[[properties-9]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``min_acronym_length``    |3             |Minimum size for the acronym
+|====
+
+[[supported-languages-16]]
+==== Supported languages
+
+UnexpandedAcronym works only for English text.
+
+[[wordfrequency]]
+[suppress='WeakExpression']
+=== WordFrequency
+
+This validator ensures that usage of specific words in the document
+don't occur too frequently. It calculates the frequency that words are
+used and compares them the a reference histogram of word frequency for
+written English.
+
+Excessive deviation from normal usage generates a validation error.
+
+[[properties-10]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``deviation_factor``   |      3       |      Permitted factor of deviation from the norm. So if a word is normally used 3% of the time, your document can use it up to 9% of the time.
+|``min_word_count``     |      200     |      Minimum number of words in a document before this validator starts to validate
+|====
+
+[[supported-languages-17]]
+==== Supported languages
+
+WordFrequency works only for English text.
+
+[[hyphenation]]
+[suppress='WeakExpression']
+=== Hyphenation
+
+This validator ensures that sequences of words that are hyphenated in
+the dictionary are hyphenated in your document.
+
+[[supported-languages-18]]
+==== Supported languages
+
+Hyphenation works only for English text.
+
+[[numberformat]]
+[suppress='WeakExpression NumberFormat SymbolWithSpace']
+=== NumberFormat
+
+This validator ensures that numbers in a sentence are formatted using
+commas (ie: 12,000 instead of 120000), and don't have excessive decimal
+points.
+
+[[properties-11]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``decimal_delimiter_is_comma``  |  false          |Change the decimal delimiter from . to , (as in Europe)
+|``ignore_years``                |  true           |Ignore 4 digit integers (2015, 1998)
+|====
+
+[[supported-languages-19]]
+==== Supported languages
+
+NumberFormat works for texts written in European languages such as
+English or French.
+
+[[parenthesizedsentence]]
+=== ParenthesizedSentence
+
+This validator generates errors if parenthesized sentences (such as
+this) are used too frequently, or are nested too heavily.
+
+[[properties-12]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``max_nesting_level``  |2  |The limit on how many parenthesized expressions are permitted
+|``max_count``          |1  |The number of parenthesized expressions allowed
+|``max_length``         |4  |The maximum number of words in a parenthesized expression
+|====
+
+[[supported-languages-20]]
+==== Supported languages
+
+ParenthesizedSentence works for any langugages.
+
+[[weakexpression]]
+=== WeakExpression
+
+This validator generates errors if sequences of words form what is
+generally considered to be a "weak expression."
+
+[[supported-languages-21]]
+==== Supported languages
+
+WeakExpression works only for English.
+
+[[endofsentence]]
+=== EndOfSentenceSentence
+
+This validator generates errors if the style end of sentence is American style.
+
+[[supported-languages-end-of-sentence]]
+==== Supported languages
+
+EndOfSentence works for English.
+
+[[HankakuKana]]
+=== HankakuKana
+
+This validator generates errors if the Hankaku Kana characters are used in input document.
+
+[[supported-languages-hankaku-kana]]
+==== Supported languages
+
+HanakakuKana works only for Japanese.
+
+[[okurigana]]
+=== Okurigana
+
+This validator generates errors if input sentence uses invalid Okurigana Style (Japanese).
+
+[[supported-languages-okurigana]]
+==== Supported languages
+
+Okurigana works for Japanese.
+
+[[startwithcapitalcharacter]]
+=== StartWithCapitalLetter
+
+This validator generates errors if input sentence start with a capital character.
+
+[[supported-languages-startwithcapitalcharacter]]
+==== Supported languages
+
+This validator works for English or other european langugages.
+
+[[voidsection]]
+=== VoidSection
+
+This validator generates errors if sections in input documents do not have any paragraphs or sentences.
+
+WARNING: VoidSection is deprecated and removed in the future release. Please use EmptySection. 
+
+[[properties-voidsection]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``limit``       |5              |Skip validation to the sections smaller than specified level.
+|====
+
+[[supported-languages-voidsection]]
+==== Supported languages
+
+VoidSection works for any languages.
+
+[[emptysection]]
+=== EmptySection
+
+This validator generates errors if sections in input documents do not have any paragraphs or sentences.
+
+[[properties-emptysection]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``limit``       |5              |Skip validation to the sections smaller than specified level.
+|====
+
+[[supported-languages-emptysection]]
+==== Supported languages
+
+EmptySection works for any languages.
+
+[[gappedsection]]
+=== GappedSection
+
+This validator generates errors when the level of child sections (chapters) has the gap.
+For example, The following is a misplaced section sample.
+
+----
+= chapter 1
+...
+=== section 1.1.1
+=== section 1.1.2
+...
+----
+
+In the above example, chapter 1 should have section 1.1 before subsection 1.1.1.
+
+[[supported-languages-gappedsection]]
+==== Supported languages
+
+GappedSection works for any languages.
+
+[[long-kanji-chain]]
+=== LongKanjiChain
+
+This validator generates errors when input sentences has a words consist of too many Kanji characters.
+
+In the above example, chapter 1 should have section 1.1 before subsection 1.1.1.
+
+[[properties-long-kanji-chain]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``max_len``  |5  |The limit on how many characters are used in succession.
+|====
+
+[[supported-language-long-kanji-chain]]
+==== Supported languages
+
+GappedSection works for Japanese text.
+
+[[section-level]]
+=== SectionLevel
+
+This validator generates errors when input documents contains smaller sections than specified.
+
+[[properties-section-level]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``max_num``     |5              |The limit of the sub-section level.
+|====
+
+[[supported-language-section-level]]
+==== Supported languages
+
+SectionLevel works for any languages.
+
+[[japanese-ambiguous-noun-conjunction]]
+
+[suppress='WeakExpression']
+=== JapaneseAmbiguousNounConjunction
+
+This validator generates errors when Japanese documents contains the ambiguous noun conjunction pattern.
+The ambigous pattern is that two nouns are conjuncted with Joshi, **no (の)**.
+
+The following is a sample of this pattern.
+
+----
+弊社の経営方針の説明を受けた。
+----
+
+[[supported-language-japanese-ambiguous-noun-conjunction]]
+==== Supported languages
+
+JapaneseAmbigousNounConjunction works for Japanese.
+
+[[japanese-number-expression]]
+=== JapaneseNumberExpression
+
+JapaneseNumberExpression checks if the number expressions in the input text are in the consistent style.
+
+[[properties-section-level]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``mode``        |numeric        |Style of number expression. There is four types of styles ("numeric", "numeric-zenkaku", "kansuji", "hiragana").
+|====
+
+Each style expects the following number expression.
+
+[options="header"]
+|====
+|Style                | Sample
+|``numeric``          | 1つ、2つ
+|``numeric-zenkaku``  | １つ、２つ
+|``kansuji``          | 一つ、二つ
+|``hiragana``         | ひとつ、ふたつ
+|====
+
+[[supported-language-japanese-number-expression]]
+==== Supported languages
+
+JapaneseNumberExpression works only for Japanese text.
+
+[[japanese-joyo-kanji]]
+=== JapaneseJoyoKanji
+
+This validator generates errors when Japanese documents contains a non-joyo kanji.
+
+The following is a sample of this pattern.
+
+----
+踵を返して出て行った。
+----
+
+[[supported-language-japanese-joyo-kanji]]
+==== Supported languages
+
+JapaneseJoyoKanji works for Japanese.
+
+[[successive-sentence]]
+=== SuccessiveSentence
+
+SuccessiveSentence throws an error when it find almost the same sentences are in succession. This validator is useful to check the human error as follows.
+
+----
+The component is useful for testing. Especially for unit level testing. Especially for unit level testing. Of course we can apply it for higher level testing.
+----
+
+In the above sample, the same sentences are used in succession. This is a human error.
+
+
+[[properties-successive-sentence]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``dist``        |3              |Threshold of minimum distance in https://en.wikipedia.org/wiki/Edit_distance[Edit Distance]
+|``min_len``     |5              |Minimum sentence length to compute
+|====
+
+[[supported-language-successive-sentence]]
+==== Supported languages
+
+SuccessiveSentence works for any languages.
+
+[[list-level]]
+=== ListLevel
+
+ListLevel checks the level of list items. This validator generates errors when input sections contain list items nested too deeply.
+
+[[properties-list-leve]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``max_level``   |5              |The maximum level of list items
+|====
+
+The following example generates an error at the six list item if ``max_level`` is five.
+
+----
+* one
+** two
+*** three
+**** four
+***** five
+****** six
+----
+
+[[supported-languages-list-level]]
+==== Supported languages
+
+ListLevel works for any languages.
