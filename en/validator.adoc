@@ -817,6 +817,28 @@ The following is a sample of this pattern.
 
 JapaneseJoyoKanji works for Japanese.
 
+
+[[japanese-expression-variation]]
+=== JapaneseExpressionVariation
+
+JapaneseExpressionVariation checks spelling variation of Japanese words.
+The function is similar to KatakanaSpellCheck. This validator covers all types of Japanese words consist of not only Katakana but also Hiragana or Kanji.
+
+[[properties-japanese-expression-variation]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``dict``        |None           |File name of dictionary.
+|``map``         |None           |List of pairs of elements. e.g. `{smart,スマート},{distributed,ディストリビューテッド}`
+|====
+
+[[supported-language-japanese-number-expression]]
+==== Supported languages
+
+JapaneseNumberExpression works only for Japanese text.
+
 [[successive-sentence]]
 === SuccessiveSentence
 

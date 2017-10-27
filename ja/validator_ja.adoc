@@ -154,7 +154,7 @@ SuggestExpression は InvalidExpression と同様に動作します。
 |====
 |プロパティ      |デフォルト     |記述
 |``dict``        |None           |ユーザ辞書
-|``map``         |None           |ペア要素からなるリスト. 例: `{SVM,Support Vector Machine},{like,such as}`
+|``map``         |None           |ペア要素からなるリスト。 例: `{SVM,Support Vector Machine},{like,such as}`
 |====
 
 辞書は二カラムのタブ区切り（TSV）フォーマットです。
@@ -783,6 +783,29 @@ GappedSection は節（章）の大きさにギャップがあるとエラーを
 ==== Supported languages
 
 日本語のみサポートしています。
+
+[[japanese-expression-variation]]
+=== JapaneseExpressionVariation
+
+JapaneseExpressionVariation は表記ゆれの可能性を検知します。
+この機能は KatakanaSpellCheck と同様です。両者違いは JapaneseExpressionVariation がカタカナ単語だけでなるあらゆる種類の単語を対象に表記ゆれを検知する点です。
+
+WARNING: この機能からの出力には問題ない点も含まれます。エラーレベルを `info` に設定して、出力は参考情報としてお使いください。
+
+[[properties-japanese-expression-variation]]
+==== Properties
+
+[options="header"]
+|====
+|Property        |Default Value  |Description
+|``dict``        |None           |ユーザ辞書
+|``map``         |None           |ペア要素からなるリスト。 e.g. `{smart,スマート},{distributed,ディストリビューテッド}`
+|====
+
+[[supported-language-japanese-number-expression]]
+==== Supported languages
+
+JapaneseNumberExpression は日本語のみに対応しています。
 
 [[japanese-number-expression]]
 === JapaneseNumberExpression
