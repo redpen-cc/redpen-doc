@@ -66,3 +66,13 @@ sampledoc-en.txt:1: ValidationError[DoubledWord], Found repeated word "such". at
 ----
 
 上記のコマンドにおいて、 -c で指定されている値は設定ファイルパスです。
+
+
+[[further-usage]]
+=== エラーの意図
+
+前節までで RedPen を起動して入力文書に含まれる悪い点（エラー）を出力する方法について学びました。
+しかし RedPen から出力されるエラーをみても、エラーの意図がわからないかもしれません。
+そこで RedPen を本格的に利用する前に、エラーの意図について理解する必要があります。
+
+RedPen が提供するエラーの意図について理解するには参考文書、 http://qiita.com/takahi-i/items/a8b994ef17fd66fe6237[文書執筆の指南書で解説されている問題点を RedPen で発見する] を読むとよいでしょう。
