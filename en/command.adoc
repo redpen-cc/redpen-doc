@@ -60,6 +60,7 @@ This argument specifies the input format. Currently RedPen supports the followin
 |review     |Re:VIEW format
 |latex      |LaTeX format
 |properties |Java property file format
+|rest       |reStructuredText format
 |====
 
 NOTE: When users do not specify the input format with `-f`, redpen command guess the format from file extensions.
