@@ -6,3 +6,4 @@
 * https://atom.io/packages/redpen/[Atom パッケージ by griffin-stewie]
 * https://libraries.io/emacs/redpen-paragraph/[Emacs redpen-paragraph by karronoli]
 * http://brewformulas.org/Redpen[Homebrew formula by Kozo Nishida]
+* https://github.com/w0rp/ale[ALE（Vim linter プラグイン）Redpen サポート by rhysd]

@@ -9,3 +9,4 @@ This section introduces the useful links related with RedPen project.
 * https://atom.io/packages/redpen/[Atom Editor package by griffin-stewie]
 * https://libraries.io/emacs/redpen-paragraph/[Emacs redpen-paragraph by karronoli]
 * http://brewformulas.org/Redpen[Homebrew formula by Kozo Nishida]
+* https://github.com/w0rp/ale[ALE (Vim linter plugin) Redpen integration by rhysd]

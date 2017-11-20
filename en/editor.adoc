@@ -21,7 +21,9 @@ https://github.com/karronoli[karronoli].
 
 === Vim
 
-https://github.com/rhysd/unite-redpen.vim[A unite.vim integration of redpen for automatic proofreading] is created by https://github.com/rhysd[rhysd]
+https://github.com/rhysd/unite-redpen.vim[A unite.vim integration of redpen for automatic proofreading] is created by https://github.com/rhysd[rhysd].
+
+Famous linter plugin https://github.com/w0rp/ale[ale] provides Redpen integration for automatic proofreading.
 
 === IntelliJ IDEA
 
