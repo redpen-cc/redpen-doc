@@ -45,7 +45,7 @@ When there is no localized setting file, RedPen try to load the configuration fi
 ===== Input file format [**default**: plain]
 
 ----
--f <INPUT_FORMAT>, --input_format <INPUT_FORMAT>
+-f <INPUT_FORMAT>, --format <INPUT_FORMAT>
 ----
 
 This argument specifies the input format. Currently RedPen supports the following formats.
