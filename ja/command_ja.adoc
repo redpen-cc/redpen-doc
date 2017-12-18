@@ -35,7 +35,7 @@ redpen コマンドは以下のオプションをサポートしています。
 ===== 入力フォーマット [**デフォルト**: plain]
 
 ----
--f <INPUT_FORMAT>, --input_format <INPUT_FORMAT>
+-f <INPUT_FORMAT>, --format <INPUT_FORMAT>
 ----
 
 以下のフォーマットをサポートします。
