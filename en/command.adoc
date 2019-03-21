@@ -8,6 +8,8 @@ RedPen provides both a simple standalone command line tool and a server.
 
 RedPen provides a simple command line tool called 'redpen' to check documents.
 
+NOTE: When you download RedPen `tar.gz` file from release page, plese execute the following commands in the top of expanded directory and adding `bin/` prefix.
+
 [[usage-redpen]]
 ==== Using redpen
 
