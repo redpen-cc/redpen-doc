@@ -8,6 +8,8 @@ RedPen provides both a simple standalone command line tool and a server.
 
 RedPen provides a simple command line tool called 'redpen' to check documents.
 
+NOTE: When you download RedPen `tar.gz` file from release page, plese execute the following commands in the top of expanded directory and adding `bin/` prefix.
+
 [[usage-redpen]]
 ==== Using redpen
 
@@ -45,7 +47,7 @@ When there is no localized setting file, RedPen try to load the configuration fi
 ===== Input file format [**default**: plain]
 
 ----
--f <INPUT_FORMAT>, --input_format <INPUT_FORMAT>
+-f <INPUT_FORMAT>, --format <INPUT_FORMAT>
 ----
 
 This argument specifies the input format. Currently RedPen supports the following formats.
