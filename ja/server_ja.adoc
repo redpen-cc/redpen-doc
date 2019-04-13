@@ -119,7 +119,7 @@ lang を指定しない場合には、対応する言語の設定すべてが返
 [source,bash]
 ----
 $ curl --data document="Twas brillig and the slithy toves did gyre and gimble in the wabe" \
-     --data lang=en --data format=PLAIN2 \
+     --data lang=en --data format=plain2 \
      --data config="`cat ./redpen-server/target/classes/conf/redpen-conf.xml`" \
      localhost:8080/rest/document/validate/
 Line: 1, Offset: 0
