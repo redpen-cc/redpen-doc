@@ -2,22 +2,22 @@
 [suppress='WeakExpression']
 == RedPen Quickstart
 
-This quickstart guide is to help you get started with RedPen. Let's go through some of the basics.
+The purpose of this guide is to help you get started with RedPen.
 
 [[requirements]]
 [suppress]
 === Requirements
 
-RedPen requires the following software.
+RedPen requires the following software:
 
-* Java 1.8.40 or greater
+* Java 1.8.40 or later
 
 [[example-run]]
 === Example run
 
-First, download the RedPen package from
+First, download the RedPen package from the 
 https://github.com/redpen-cc/redpen/releases/[release page], and then
-decompress the package with the following commands.
+decompress the package using the following commands:
 
 [source,bash]
 ----
@@ -25,8 +25,7 @@ $ tar xvf redpen-*-assembled.tar.gz
 $ cd redpen-*
 ----
 
-Then, run the redpen command with the supplied sample document and
-configuration file.
+Next, run the redpen command with the supplied sample document and configuration file.
 
 [source,bash]
 ----

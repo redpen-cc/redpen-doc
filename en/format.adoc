@@ -1,7 +1,7 @@
 [[formats]]
 == RedPen Input Formats
 
-RedPen supports several types of input formats:
+RedPen supports the following types of input format:
 
 - Plain Text
 - Markdown
@@ -15,14 +15,14 @@ RedPen supports several types of input formats:
 [[plain-text]]
 === Plain text
 
-Plain text supports a set of paragraphs. Paragraphs are separated by two
-new lines. For example, the following article has two paragraphs.
+Plain text consists of a series of paragraphs. Paragraphs are separated by two
+line breaks. For example, the following article has two paragraphs:
 
 ----
-This is a first paragraph. This paragraph is the introduction of this article.
+This is the first paragraph. This paragraph is the introduction of this article.
 It introduces the central issue discussed throughout the rest of the article.
 
-Second paragraph describes the details of the issue and attempts to present a solution.
+The second paragraph describes the details of the issue and attempts to present a solution.
 ----
 
 [[asciidoc]]
@@ -33,13 +33,13 @@ See the http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/[AsciiDoctor
 [[latex]]
 === LaTeX
 
-NOTE: RedPen does not supports Macros defined by writers.
+NOTE: RedPen does not support macros defined by writers.
 
 [[wiki-format]]
 === Wiki format
 
 RedPen supports a subset of Wiki syntax. Currently, the supported
-elements of Wiki syntax are as follows.
+elements of Wiki syntax are as follows:
 
 [[headings]]
 ==== Headings
@@ -49,50 +49,50 @@ To create a heading, add a line starting with **h[1234]**. The number after h re
 [[inline-formatting]]
 ==== Inline Formatting
 
-RedPen supports the following inline formatting.
+RedPen supports the following inline formatting:
 
 [[bold]]
 ==== Bold
 
 ----
-**this is a Bold sentence.**
+**This is a sentence in bold font.**
 ----
 
 [[italic]]
 ==== Italic
 
 ----
-//this is an italic sentence.//
+//This is a sentence in italic font.//
 ----
 
 [[underline]]
 ==== Underline
 
 ----
-__this is an underlined sentence.__
+__This is an underlined sentence.__
 ----
 
 [[strikethrough]]
 ==== Strikethrough
 
 ----
---this is a strikethrough sentence.--
+--This is a strikethrough sentence.--
 ----
 
 [[links]]
 ==== Links
 
-Links elements are included in Wiki formatted documents.
+Link elements are included in Wiki formatted documents.
 
 [[lists]]
 ==== Lists
 
-Wiki syntax supports two types of lists.
+Wiki syntax supports the following two types of list:
 
 [[bulleted-lists]]
 ===== Bulleted Lists
 
-To enter a bulleted list, start a line with an asterisk. The number of
+To add a bulleted list, start each line with an asterisk. The number of
 asterisks denotes the indent level of the list.
 
 ----
@@ -102,16 +102,16 @@ asterisks denotes the indent level of the list.
 ----
 
 [[numbered-list]]
-===== Numbered List
+===== Numbered Lists
 
-If you want to add numbered lists, use the hash/pound symbol (#) instead
-of the asterisk used by Bulleted Lists.
+To add a numbered list, use the hash/pound symbol (#) instead
+of the asterisk used for a bulleted list.
 
 [[comments]]
 ==== Comments
 
 To add a comment to the wiki source, add a ``[!-- ... --]`` block. The
-following shows a sample comment.
+following shows a sample comment:
 
 ----
 [!--
@@ -122,22 +122,22 @@ following shows a sample comment.
 [[paragraphs]]
 ==== Paragraphs
 
-Paragraphs are separated by two new lines. This syntax is the same as
+Paragraphs are separated by two consecutive line breaks. This syntax is the same as
 for plain text.
 
 [[markdown]]
 === Markdown
 
-RedPen currently supports the following Markdown elements.
+RedPen currently supports the following Markdown elements:
 
 [[headings-1]]
 ==== Headings
 
-Two styles of headings are supported.
+The following two styles of heading are supported:
 
 * Underlined headings
 
-First and second level headings can be specified using underlines.
+You can specify first and second level headings by using underlines, as shown below.
 
 ----
 First-level headings
@@ -145,13 +145,13 @@ First-level headings
 ----
 
 ----
-second-level headings
+Second-level headings
 ---------------------
 ----
 
 * Atx style headings
 
-1-6 hash or pound characters (#) at the beginning of a line.
+You can specify up to six levels of heading by adding 1-6 hash or pound characters (#) at the beginning of a line.
 
 For example:
 
@@ -164,35 +164,35 @@ For example:
 [[inline-formatting-1]]
 ==== Inline Formatting
 
-RedPen supports the following inline formatting.
+RedPen supports the following inline formatting:
 
 [[bold-1]]
 ===== Bold
 
-Wrap characters with double asterisks or underscores for bold. The
-following are samples of bold sentences.
+To display a sentence in bold font, enclose the sentence in double asterisks or double underscores. The
+following are examples of sentences in bold font:
 
 ----
-**this is a Bold sentence.**
-__this is also a Bold sentence.__
+**This is a sentence in bold font.**
+__This is also a sentence in bold font.__
 ----
 
 [[italic-1]]
 ===== Italic
 
-Wrap characters with a single asterisk or underscore for italics. The
-following are samples of italic sentences.
+To display a sentence in bold font, enclose the sentence in single asterisks or single underscores. The
+following are examples of sentences in italic font:
 
 ----
-*this is a italic syntax.*
-_this is also a italic syntax._
+*This is a sentence in italic font.*
+_This is also a sentence in italic font._
 ----
 
 [[links-1]]
 ==== Links
 
-To create a link, wrap square brackets around the link's label and
-parentheses around the URL. For example.
+To create a link, enclose the link text in square brackets and enclose
+the URL in parentheses, as shown below.
 
 ----
 [label](url)
@@ -201,15 +201,15 @@ parentheses around the URL. For example.
 [[lists-1]]
 ==== Lists
 
-The Markdown parser used by RedPen supports two types of lists -
-Bulleted lists and Numbered lists.
+The Markdown parser used by RedPen supports two types of list:
+Bulleted and Numbered.
 
 [[bulleted-lists-1]]
 ===== Bulleted Lists
 
-To create a bulleted list, start a line with an asterisk or a hyphen.
+To add a bulleted list, start each line with an asterisk or a hyphen.
 The lists are nested according to how many leading spaces there are. The
-following is a example of a bulleted list using asterisks.
+following is an example of a bulleted list using asterisks:
 
 ----
 * List
@@ -219,10 +219,10 @@ following is a example of a bulleted list using asterisks.
 ----
 
 [[numbered-list-1]]
-===== Numbered List
+===== Numbered Lists
 
-If you want to create a numbered list, use a number followed by a
-period, as in the following example.
+To add a numbered list, start each line with a number followed by a
+period, as shown below.
 
 ----
 1. List
@@ -232,24 +232,24 @@ period, as in the following example.
 [[paragraphs-1]]
 ==== Paragraphs
 
-Paragraphs are separated by two new lines. This syntax is the same as for plain text.
+Paragraphs are separated by two consecutive line breaks. This syntax is the same as for plain text.
 
 [[review-format]]
 === Re:VIEW format
 
-See the https://github.com/kmuto/review/blob/master/doc/format.md[Re:VIEW reference]
+For details, refer to the https://github.com/kmuto/review/blob/master/doc/format.md[Re:VIEW reference].
 
 [[java-properties]]
 === Java Properties
 
 Properties files or Resource Bundles are commonly used for internalization in Java.
-RedPen treats every property as a section, which can have one or more sentences. Comments and values, but not keys are validated.
+RedPen treats each property as a section, which can have one or more sentences. Comments and values are validated, but keys are not.
 
-See the https://docs.oracle.com/javase/7/docs/api/java/util/Properties.html#load(java.io.Reader)[Properties Javadoc] for more information on file format.
+For details on file format, refer to the https://docs.oracle.com/javase/7/docs/api/java/util/Properties.html#load(java.io.Reader)[Properties Javadoc].
 
 [[restuucturedtext]]
 === reStructuredText
 
-NOTE: currently RedPen only supports basic notations
+NOTE: Currently, RedPen only supports basic notations.
 
-See A http://docutils.sourceforge.net/docs/user/rst/quickstart.html#structure[ReStructuredText Primer]
+For details, refer to the http://docutils.sourceforge.net/docs/user/rst/quickstart.html#structure[ReStructuredText Primer].

@@ -13,44 +13,36 @@ NOTE: When you download RedPen `tar.gz` file from release page, plese execute th
 [[usage-redpen]]
 ==== Using redpen
 
-We use the redpen command as follows.
+Use the redpen command as follows:
 
 [source,bash]
 ------------------------------
 $ redpen [options] input-files
 ------------------------------
 
-By default, input files are delimited by whitespace and then analysed.
-The redpen command supports the following options.
+You can specify more than one file. Separate the file names with single-byte spaces.
 
 [[options]]
 ==== Options
 
-The redpen command has the following options.
+The redpen command has the following options:
 
 [suppress]
-===== Specify the RedPen configuration file
+===== To specify the RedPen configuration file
 
 ----
 -c <CONFIG_FILE>, --configuration <CONFIG_FILE>
 ----
 
-RedPen CLI (redpen command) search the configuration file when users do not
-specify the configuration file with -c option.
-First RedPen loads ``redpen-conf.xml`` in the current directory.
-If ``redpen-conf.xml`` does not exist in the current directory,
-RedPen loads the localized setting file, ``redpen-conf-**{lang}**.xml`` in current directory,
-where {lang} is language code in  ISO 639-1.
-The language codes are selected with the locale setting of the users computer.
-When there is no localized setting file, RedPen try to load the configuration file in ``$REDPEN_HOME/conf``.
+If you do not specify a configuration file with the -c option, RedPen first searches for and loads the configuration file ``redpen-conf.xml`` in the current directory. If ``redpen-conf.xml`` does not exist in the current directory, RedPen loads the localized setting file ``redpen-conf-**{lang}**.xml`` in the current directory, where {lang} is the language code as defined in ISO 639-1. The language codes are determined by the locale setting of the user’s computer. If there is no localized setting file, RedPen loads the configuration file in ``$REDPEN_HOME/conf``.
 
-===== Input file format [**default**: plain]
+===== To specify the input file format [**default**: plain]
 
 ----
 -f <INPUT_FORMAT>, --format <INPUT_FORMAT>
 ----
 
-This argument specifies the input format. Currently RedPen supports the following formats.
+This argument specifies the input format. Currently, RedPen supports the following formats:
 
 [options="header",]
 |====
@@ -65,8 +57,7 @@ This argument specifies the input format. Currently RedPen supports the followin
 |rest       |reStructuredText format
 |====
 
-NOTE: When users do not specify the input format with `-f`, redpen command guess the format from file extensions.
-The followings table shows the list of file extensions, which redpen command understand.
+NOTE: If you do not specify the input format with `-f`, RedPen determines the format from the file extensions. The table below shows the list of file extensions recognised by RedPen.
 
 [options="header",]
 |====
@@ -81,55 +72,55 @@ The followings table shows the list of file extensions, which redpen command und
 |rest       |reStructuredText
 |====
 
-===== Result format [**default**: plain]
+===== To specify the result format [**default**: plain]
 
 ----
 option:: -r <RESULT_FORMAT>, --result_format <RESULT_FORMAT>
 ----
 
-This argument determines the output format. Currently RedPen supports the following output formats.
+This option determines the output format. Currently RedPen supports the following output formats:
 
 [options="header"]
 |====
 |Value  |Description
-|plain  |plain text format
-|plain2 |an alternate plain text format collated by sentence
+|plain  |Plain text format
+|plain2 |Alternative plain text format with errors collated by sentence
 |xml    |xml format
 |json   |json format
-|json2  |an alternate json format collated by sentence
+|json2  |Alternative json format with errors collated by sentence
 |====
 
-===== Specify the limit of error number [**default**: 1]
+===== To specify the permitted number of errors [**default**: 1]
 
-The redpen command returns 0 when the number of found errors are less than the specified limit.
+The redpen command returns 0 if the number of errors is lower than the specified number.
 
 ----
 option:: -l <LIMIT NUMBER>, --limit  <LIMIT NUMBER>
 ----
 
-===== Specify the language of error messages  [**default**: depends on the locale settings of the machine]
+===== To specify the language of error messages  [**default**: locale setting of the machine]
 
-For selecting language of errors, we specify the language code (en or ja).
+You can choose to display error messages in English (en) or Japanese (ja).
 
 ----
 option:: -L <LANGUAGE>,--lang <LANGUAGE>
 ----
 
-===== Specify the input sentences
+===== To specify input sentences
 
-Commonly users specify input files, but sometimes making files is tidious. For testing purpose redpen command provides the parameter for input sentences.
+You can check an individual sentence rather than a whole file.
 
 ----
 option:: -s <INPUT SENTENCE>, --sentence  <INPUT SENTENCE>
 ----
 
-===== Display help
+===== To display help
 
 ----
 -h, --help
 ----
 
-===== Show the redpen version
+===== To display the RedPen version
 
 ----
 --version
@@ -138,15 +129,15 @@ option:: -s <INPUT SENTENCE>, --sentence  <INPUT SENTENCE>
 [[sample-server]]
 === RedPen server
 
-RedPen also provides the server. RedPen server provides not only UI but also practical REST API (see <<server>> section).
-The following is an image of RedPen server UI.
+RedPen also provides a server function. RedPen server provides a UI and a practical REST API (see the <<server>> section for details).
+The following is a screenshot of the RedPen server UI:
 
 image:redpen-ui.png[Image]
 
 [[usage-redpen-server]]
-==== Usage: redpen-server
+==== To use redpen-server
 
-We can start and stop the redpen server with the following command.
+You can start and stop RedPen server by using the following command:
 
 [source,bash]
 ----------------------------
@@ -156,17 +147,17 @@ $ redpen-server [start|stop]
 [[configuration]]
 ==== Configuration
 
-The redpen-server command is able to be configured with editing the variables in
-*redpen-server* file itself. The following table shows the configuration
-variables and the default values.
+You can configure the redpen-server command by editing the variables in the 
+*redpen-server* file. The following table shows the configurable settings
+and their default values:
 
 [options="header",]
 |=======================================================================
 |Configuration    |Default Value |Description
-|REDPEN_PORT      |8080          |Specify Port number of RedPen server.
-|STOP_KEY         |redpen.stop   |RedPen server is able to stop with Stop key with http access. If you do not want to stop with stop key comment out the value.
-|REDPEN_CONF_FILE |              |Specify default redpen config file.
-|REDPEN_LANGUAGE  |Depends on locale settings |Specify the language of error messages from RedPen.
+|REDPEN_PORT      |8080          |Specifies the port number of RedPen server.
+|STOP_KEY         |redpen.stop   |Specifies a stop key for RedPen server. This means that you can stop the server via http. If you do not want to allow this, comment out this setting.
+|REDPEN_CONF_FILE |              |Specifies the default redpen config file.
+|REDPEN_LANGUAGE  |Depends on locale setting |Specifies the language in which RedPen error messages are displayed.
 |=======================================================================
 
-The functionality of the RedPen server is described in the <<server>> section.
+For more details on RedPen server functions, refer to the <<server>> section.
