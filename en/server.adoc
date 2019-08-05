@@ -1,36 +1,39 @@
 [[server]]
 == RedPen Server
 
-The RedPen server delivers the majority of RedPen's functionality via a
-simple HTTP REST API.
+RedPen server provides almost all of RedPen's functionality via an
+HTTP REST API.
 
 [[starting-the-redpen-server]]
-=== Starting and stopping the RedPen server
+=== Starting and stopping RedPen Server
 
-Please refer to the <<commands,Commands>> section for details on how-to start the RedPen server.
+For details on how to start the RedPen Server, refer to <<commands,Commands>>.
 
 [[heroku-button]]
-=== Heroku Button
-RedPen server is also launch in the Heroku environment with few clicks. In the bottom of https://github.com/redpen-cc/redpen[RedPen README], there is a Heroku Button.
+=== Using the Heroku button to start RedPen Server
+You can run RedPen Server in the Heroku environment by clicking the Heroku button at the bottom of the https://github.com/redpen-cc/redpen[RedPen README].
 
 image:heroku-button.png[Image]
 
-Clicking the buttom, a RedPen server get started in Heroku. Actually the http://redpen.herokuapp.com/[RedPen sample server] in the RedPen home page is working in Heroku environment.
+Click this button to start RedPen server in Heroku.
+
+NOTE: You must register as a user in order to use Heroku.
+
+The http://redpen.herokuapp.com/[sample RedPen Server] provided on the RedPen homepage runs in Heroku.
+
 [[redpen-server-api]]
 === RedPen Server API
 
 [[configuration]]
 ==== Configuration
 
-*/rest/config/redpens*
-
-Return the configuration for available, preconfigured redpens.
+*/rest/config/redpens* returns the settings that you can use with the preconfigured *redpens* method.
 
 [suppress='WeakExpression']
 ===== GET Parameters
 
-* _lang=xx_ restricts the returned configurations to those that match
-the specified language. By default, all configurations are returned.
+* Specify *_lang=xx_* to return only the configurations that match the specified language.
+If you do not specify *_lang=xx_*, all configurations are returned.
 
 The JSON response is as follows:
 
@@ -52,7 +55,6 @@ The JSON response is as follows:
          "InvalidSymbol": { "languages": [], "properties": {} },
          "InvalidWord": { "languages": ["en"], "properties": {} },
          "ParagraphNumber": { "languages": [], "properties": {} },
-         "Quotation": { "languages": ["en"], "properties": {} },
          "SectionLength": { "languages": [], "properties": {"max_char_num": "2000"} },
          "SentenceLength": { "languages": [], "properties": {"max_len": "200"} },
          "SpaceBetweenAlphabeticalWord": { "languages": [], "properties": {} },
@@ -84,50 +86,55 @@ The JSON response is as follows:
 }
 ----
 
-* The _version_ property indicates the version of RedPen.
-* The _documentParsers_ array contains all supported document parsers
-* The _redpens_ object shows the available pre-configured redpens and
+* The *_version_* property indicates the version of RedPen.
+* The *_documentParsers_* array contains all supported document parsers.
+* The *_redpens_* object shows the available pre-configured redpens and
 how they are configured. Within each object:
-** _lang_ specifies the language the redpen is designed for
-** _tokenizer_ specifies the tokenizer class used by the redpen
-** _validators_ shows which validators are configured within the redpen.
-This object is in a format suitable for the _document/validate/json_
-request below. For each validator:
-*** The _languages_ array indicates which languages for which the
-validator is suitable. An empty array indicates all languages.
-*** The _properties_ object specifies the currently configured
-properties for this validator, as described in validator
+** *_lang_* specifies the target language.
+** *_tokenizer_* specifies the tokenizer class to use.
+** *_validators_* shows which validators are configured.
+This object is in a format suitable for the *_document/validate/json_* request below.
+For each validator:
+*** The *_languages_* array indicates the languages for which the validator is suitable.
+An empty array denotes all languages.
+*** The *_properties_* object denotes the property values specified for this validator.
 
 [[document-validation]]
-==== Document Validation
+==== Validating documents
 
 */rest/document/validate*
 
 This POST request validates a document and returns the errors.
 
 [suppress=='CommaNumber']
-===== POST Parameters
+===== POST parameters
 
-* _document_ contains the text of the document RedPen is to validate
-* _documentParser_ specifies which parser should be used to parse the
-document. Valid options are:::
-  ** PLAIN
+* _document_ contains the text of the document to be validated.
+* _documentParser_ specifies which parser should be used to parse the document.
+The valid options are:::
+  ** ASCIIDOC
+  ** LATEX
   ** MARKDOWN
+  ** PLAIN
   ** WIKI
-* _lang_ specifies the language used to tokenize the document.
-Currently, values of *ja* (Japanese) and *en* (English/Whitespace) are
-supported.
-* The optional _format_ field determines the format for the results. It
-can be one of json (the default), json2, plain, plain2 or xml.
-* The optional _config_ field contains the contents of a RedPen XML
-configuration file
+* *_lang_* specifies the language used to tokenize the document.
+Currently, values of *ja* (Japanese) and *en* (English/Whitespace) are supported.
+* The optional *_format_* field specifies the output format of the validation result.
+The valid options are:::
+  ** json (default)
+  ** json2
+  ** plain
+  ** plain2
+  ** xml.
+* The optional *_config_* field can be used to specify RedPen configuration elements,
+as in a RedPen configuration file.
 
 ====== Examples using curl and document/validate
 
 [source,bash]
 ----
 $ curl --data document="Twas brillig and the slithy toves did gyre and gimble in the wabe" \
-     --data lang=en --data format=plain2 \
+     --data lang=en --data format=PLAIN2 \
      --data config="`cat ./redpen-server/target/classes/conf/redpen-conf.xml`" \
      localhost:8080/rest/document/validate/
 Line: 1, Offset: 0
@@ -169,8 +176,8 @@ $ curl -s --data document="古池や,蛙飛び込む水の音" \
 
 */rest/document/validate/json*
 
-This POST request processes a redpen validation request, specified in
-JSON, and returns redpen errors in a supported RedPen format.
+This POST request processes a validation request specified in JSON,
+and returns any errors in a supported RedPen format.
 
 [suppress='CommaNumber WeakExpression']
 ===== Request format
@@ -192,7 +199,6 @@ JSON, and returns redpen errors in a supported RedPen format.
       "InvalidSymbol": {},
       "InvalidWord": {},
       "ParagraphNumber": {},
-      "Quotation": {},
       "SectionLength": {
         "properties": {
           "max_char_num": "2000"
@@ -228,20 +234,34 @@ JSON, and returns redpen errors in a supported RedPen format.
 }
 ----
 
-* The _document_ property specifies the text of the document to validate
-* The _documentParser_ property should contain the name of a valid
-RedPen documentparser (ie: PLAIN, MARKDOWN or WIKI)
-* The _format_ property determines the format for the results. It can be one of json, json2, plain, plain2 or xml.
-* The _config_ object specifies the validator configuration for the request. This consists of:
-** A _config_ object, consisting of a series of objects that are named
-  after a RedPen validator. If the object is present, the validator will
-  be configured. Within this named object, a _properties_ object can be
-  used to set the name and values of any property used by the validator.
-** The _lang_ property indicates the language of the document. It determines how the document will be tokenized by RedPen.
-** A _symbols_ object containing overridden symbols, as described in configuration. Each entry must be a validate symbol name, and can contain the following elements:
-*** _value_ specifies the Symbol's value
-*** _invalid_chars_ is a string of invalid alternatives for this Symbol
-*** _before_space_ and _after_space_ specify if a space is required before or after the Symbol.
+* The *_document_* property specifies the text of the document to validate.
+* The *_documentParser_* property specifies the name of a valid RedPen document parser.
+The valid options are:::
+  ** ASCIIDOC
+  ** LATEX
+  ** MARKDOWN
+  ** PLAIN
+  ** WIKI
+* The *_format_* property specifies the output format of the validation result.
+The valid options are:::
+  ** json (default)
+  ** json2
+  ** plain
+  ** plain2
+  ** xml.
+* The *_config_* object specifies the validator configuration for the request in JSON.
+This consists of:
+** A *_config_* object that contains a series of objects with the same name as a RedPen validator.
+The validators specified here are used in the validation.
+Each validator object can include a *_properties_* object,
+which specifies the name and value of any properties used by the validator.
+** A *_lang_* property that specifies the language of the document.
+This specifies how the document will be tokenized by RedPen.
+** A *_symbols_* object that contains details of default symbols to be overridden.
+Each entry must be a valid symbol name, and can contain the following elements:
+*** *_value_* specifies the symbol's value
+*** *_invalid_chars_* specifies one or more invalid alternatives for this symbol
+*** *_before_space_* and *_after_space_* specify if a space is required before or after the symbol.
 
 Response (json2 format):
 

@@ -1,14 +1,33 @@
 == RedPen FAQ
 
-This section shows the frequent asked questions and the answers.
+This section lists and answers some frequently asked questions about RedPen.
 
-* Does RedPen check LaTeX documents for common style errors?
+* Can I use RedPen to check LaTeX documents?
 +
 --
-RedPen supports LaTex format from version 1.4. The following is a sample usage of the redpen command.
+Yes. The following is an example of how to use the redpen command to check a document in LaTeX format:
 
 [source,bash]
 ----
 $ redpen -c redpen-conf.xml -f latex content.tex
 ----
 --
+
+* RedPen finds too many errors. How can I reduce the number?
++
+--
+In some cases, a validator finds too many errors, or finds errors that are not in fact errors.
+There are three ways to reduce the number of errors.
+
+** Delete the validator from the config file.
+This means that the validator is ignored for the whole checked document.
+** Suppress the validator for part of a document.
+This means that the validator is only ignored for a particular section of the document.
+For more information, refer to <<suppress-section,Error Suppression>>.
+** Change the properties of the validator in the config file.
+This means that the validator is still applied when checking the document,
+but the standard by which it checks the document is different.
+For information on which validators have which properties, refer to <<validator,RedPen Validators>>.
+--
+
+

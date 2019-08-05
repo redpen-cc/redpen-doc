@@ -2,79 +2,85 @@
 [suppress='CommaNumber']
 == Error Suppression
 
-Sometimes writers do not want to fix errors from RedPen.
-The reason is the cost to remove error is high or writer intend to break the writing standard at particular points.
-For such cases, RedPen support **error suppression by annotation**. The annotations are added just before the section containing the errors.
-Currently error suppression is supported for four types of formats (AsciiDoc, Markdown, Re:VIEW, LaTeX).
+In some cases, you may not want to fix errors pointed out by RedPen.
+For example, if the cost of removing the errors is high,
+or if you intentionally want to ignore a particular writing standard at particular point.
+For such cases, RedPen provides a function for **suppressing errors by annotation**.
+You add the annotation immediately before the section containing the errors that you want to ignore.
+You can suppress errors in files in AsciiDoc, Markdown, Re:VIEW or LaTeX format,
+as described below.
 
 === AsciiDoc
 
-For AsciiDoc text, writers add the suppress annotation in attribute block. The annotation is **[suppress]**. For example, the following AsciiDoc text suppresses the all the erorrs in the section.
+For files in AsciiDoc format, you add the suppress annotation in an attribute block. The annotation is **[suppress]**.
+In the example below, all errors in the "Instances" section are suppressed.
 
 ```
 [suppress]
 = Instances
-Some software tools work in more than one machine, and such distributed (cluster)systems can handle huge data or tasks, because such software tools make use of large amount of computer resources, such as CPU, Disk, and Memory.
+Some software tools work in more than one machine, and such distributed (cluster) systems can handle huge data or tasks, because such software tools make use of large amounts of computer resources, such as CPU, Disk, and Memory.
 ```
 
-When the writers want to suppress only the specified errors, they add Validator names after **suppress**. For example, the following example suppresses only two types of errors (Contraction WeakExpression).
+If you want to suppress only specific types of error, add the relevant validator names after **suppress**.
+In the example below, two types of error are suppressed (Contraction and WeakExpression).
 
 ```
 [suppress='Contraction WeakExpression']
 = Instances
-Some software tools work in more than one machine, and such distributed (cluster)systems can handle huge data or tasks, because such software tools make use of large amount of computer resources, such as CPU, Disk and Memory.
+Some software tools work in more than one machine, and such distributed (cluster) systems can handle huge data or tasks, because such software tools make use of large amounts of computer resources, such as CPU, Disk and Memory.
 ```
 
-NOTE: Multi line section is not supported for suppression error with annotation.
+NOTE: Multi-line comments are not allowed.
 
 === Markdown
 
-For Markdown text, writers add the suppress annotation in HTML comments. Specifically Writers add annotation, **@suppress** in HTML comments.
-For example, the following text suppress all the error in the section.
+For files in Markdown format, you add the suppress annotation in an HTML comment. The annotation is **@suppress**.
+In the example below, all errors in the "Instances" section are suppressed.
 
 ```
 <!-- @suppress -->
 # Instances
-Some software tools work in more than one machine, and such _distributed_ (cluster)systems can handle huge data or tasks, because such software tools make use of large amount of computer resources, such as CPU, Disk and Memory.
+Some software tools work in more than one machine, and such distributed (cluster) systems can handle huge data or tasks, because such software tools make use of large amounts of computer resources, such as CPU, Disk and Memory.
 ```
 
-To suppress only specific errors, writers add the Validator names following @suppress annotation. The following sample suppresses the two type errors (Contraction WeakExpression).
+If you want to suppress only specific types of error, add the relevant validator names after **@suppress**.
+In the example below, two types of error are suppressed (Contraction and WeakExpression).
 
 ```
 <!-- @suppress Contraction WeakExpression -->
 # Instances
-Some software tools work in more than one machine, and such _distributed_ (cluster)systems can handle huge data or tasks, because such software tools make use of large amount of computer resources, such as CPU, Disk and Memory.
+Some software tools work in more than one machine, and such distributed (cluster) systems can handle huge data or tasks, because such software tools make use of large amounts of computer resources, such as CPU, Disk and Memory.
 ```
 
-NOTE: Multi line comments style is not supported.
+NOTE: Multi-line comments are not allowed.
 
 === Re:VIEW
 
-For Re:VIEW text, writers add the suppress annotation in comments. Specifically Writers add annotation, **@suppress** in Re:VIEW comment **\#@#**.
-For example, the following text suppress all the error in the section.
+For files in Re:VIEW format, you add the suppress annotation in a Re:VIEW comment. The annotation is **@suppress**.
+In the example below, all errors in the "Instances" section are suppressed.
 
 ```
 #@# @suppress
 = Instances
-Some software tools work in more than one machine, and such distributed (cluster)systems can handle huge data or tasks, because such software tools make use of large amount of computer resources, such as CPU, Disk and Memory.
+Some software tools work in more than one machine, and such distributed (cluster) systems can handle huge data or tasks, because such software tools make use of large amounts of computer resources, such as CPU, Disk and Memory.
 ```
 
-To suppress only specific errors, writers add the Validator names following @suppress annotation. The following sample suppresses the two type errors (Contraction WeakExpression).
+To suppress only specific errors, writers add the Validator names following @suppress annotation. In the example below, two types of error are suppressed (Contraction and WeakExpression).
 
 ```
 #@# @suppress Contraction WeakExpression
 = Instances
-Some software tools work in more than one machine, and such distributed (cluster)systems can handle huge data or tasks, because such software tools make use of large amount of computer resources, such as CPU, Disk and Memory.
+Some software tools work in more than one machine, and such distributed (cluster) systems can handle huge data or tasks, because such software tools make use of large amount of computer resources, such as CPU, Disk and Memory.
 ```
 
 === LaTeX
 
-For LaTeX texts, writers can add Markdown style annotation in LaTeX comment (%).
+For files in LaTeX format, you add Markdown style annotation in LaTeX comments (%).
 
 
 === reStructuredText
 
-For reStructuredText texts, writers can add suppress annotation in inline comments as follows.
+For files in reStructuredText format, you add the suppress annotation in inline comments as shown below.
 
 ```
 .. @suppress Contraction WeakExpression
@@ -82,5 +88,7 @@ For reStructuredText texts, writers can add suppress annotation in inline commen
 Distributed system
 ##################
 
-Some software tools work in more than one machine, and such distributed (cluster)systems can handle huge data or tasks, because such software tools make use of large amount of computer resources.
+Some software tools work in more than one machine, and such distributed (cluster) systems can handle huge data or tasks, because such software tools make use of large amounts of computer resources, such as CPU, Disk and Memory.
 ```
+
+
