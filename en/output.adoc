@@ -3,52 +3,54 @@
 
 RedPen supports three basic output formats - **Plain text**, **XML**, and **JSON**.
 
-NOTE: From v1.10, RedPen supports2 error level (default is *error*). For the configuration, please refer to the <<validator-configuration, Validator configuration>> section.
+NOTE: RedPen supports three different error levels:
+*error*, *warn* and *info* (the default is *error*).
+For details on how to set the error level, refer to <<validator-configuration, Configuring validators>>.
 
 [[plain-text]]
 === Plain text
 
-Plain text output format consists of the following lines.
+If you specify plain text as the output format, errors are output as follows:
 
 ----
 FILE_NAME:LINE_NUM: Validation[Error|Info|Warn][ERROR_TYPE], ERROR_MESSAGE at line: SENTENCE
 ----
 
-An alternate plain text form (plain2) prints each sentence, followed by
-all of the errors found in the sentence.
+An alternative plain text format (plain2) outputs each sentence followed by all of the errors found in that sentence.
+
 
 [[xml]]
 === XML
 
-The top section of the XML output format is *validation-result* element
-which contains multiple *error* sections. Each error section has the
-following sub-elements.
+If you specify xml as the output format, errors are output in xml with *validation-result* as the top level element. This contains multiple *error* elements. Each error element has the following sub-elements:
 
 [option="header"]
 |====
 |Block             |   Optional  |    Description
-|`validator`       |   false     |    Validator name
-|`message`         |   false     |    Error message
-|`lineNum`         |   false     |    Line Number
-|`sentence`        |   false     |    Sentence containing error
-|`file`            |   true      |    File name
-|`level`           |   String    |    Error level (Info, Warn, Error)
+|`validator`       |   No     |    Validator name
+|`message`         |   No     |    Error message
+|`lineNum`         |   No     |    Line number
+|`sentence`        |   No     |    Sentence containing error
+|`file`            |   Yes      |    File name
+|`level`           |   Yes    |    Error level (Info, Warning, Error)
 |====
 
 [[json]]
 [suppress='UnexpandedAcronym']
 === JSON
 
+If you specify json as the output format, errors are output in JSON as a list of errors for each file.
+Each error consists of the following elements:
+
 [option="header"]
 |====
 |Block             |   Optional   |   Description
-|`validator`       |   false      |   Validator name
-|`message`         |   false      |   Error message
-|`lineNum`         |   false      |   Line Number
-|`sentence`        |   false      |   Sentence containing error
-|`file`            |   true       |   File name
-|`level`           |   String    |    Error level (Info, Warn, Error)
+|`validator`       |   No      |   Validator name
+|`message`         |   No      |   Error message
+|`lineNum`         |   No      |   Line number
+|`sentence`        |   No      |   Sentence containing error
+|`file`            |   Yes       |   File name
+|`level`           |   Yes    |    Error level (Info, Warning, Error)
 |====
 
-The alternative JSON output format (json2) collates each error by the
-sentence it relates to.
+An alternative JSON format (json2) outputs each sentence followed by all of the errors found in that sentence.

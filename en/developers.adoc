@@ -1,32 +1,36 @@
 == For Developers
 
-Feature requests are warm welcome through the GitHub. If you are interested in joining the development team.
-The following instructions help you to understand building RedPen development environment. Contributions in the
-form of pull requests are easy to integrate to the master branch.
+You are welcome to send us feature requests via our https://github.com/redpen-cc/redpen[GitHub page].
 
-=== Preliminary
+We also welcome development contributions.
+Contributions in the form of pull requests are easy to integrate to the master branch.
+If you are interested in joining the development team,
+refer to the information below for details on how to set up a suitable RedPen development environment.
 
-To build RedPen, you need to install the following tools.
+=== Preparation
+
+To build RedPen, you must install the following tools:
 
 * http://www.oracle.com/technetwork/java/javase/downloads/index.html[JDK]
 * https://git-scm.com/book/en/v2/Getting-Started-Installing-Git[Git client]
 * http://phantomjs.org/download.html[PhantomJS]
 
-=== Development Policy
+=== Development policy
 
-We will develop this tiny tool slowly but steadily. Therefore we would not be able to
-accept the proposal containing drastic changes, even when the proposed change is useful for the project.
+Our development motto is "slowly but surely"!
+This means that, sometimes, we cannot accept proposals containing drastic changes,
+even if we can see that the proposal could be useful for the project.
 
-=== Build RedPen
+=== Building RedPen
 
-Building all the RedPen package is simple. You just run the following command.
+Build RedPen in Maven by executing the following command:
 
 ....
 $./mvnw clean install
 ....
 
-The built RedPen package is flushed in `redpen/redpen-distribution/target`.
-After you get the built RedPen package, you unzip it with the following command.
+The built RedPen package is output to: `redpen/redpen-distribution/target`.
+Unzip the package by executing the following command:
 
 ....
 $ cd redpen/redpen-distribution/target
@@ -39,7 +43,8 @@ x redpen-distribution-*.*.*-SNAPSHOT/lib/
 ...
 ....
 
-Now the RedPen package is ready to use.
+Your RedPen package is now ready to use.
+The following is an example of how to use the redpen commands in the package:
 
 ....
 $cd redpen-distribution-*.*.*-SNAPSHOT
@@ -57,15 +62,16 @@ usage: redpen-cli [Options] [<INPUT FILE>]
 
 === Testing
 
-When you modify RedPen source files, please make sure to add the test cases to make the reviewer understand
-the expected behaviors. In addition run whole test cases before making the Pull Request.
-RedPen test cases are run with the following command.
+When you modify RedPen source files, be sure to add test cases
+so that the reviewer can understand the expected behavior.
+Before making a pull request, confirm that all test cases execute correctly.
+The command for running RedPen test cases is as follows:
 
 ....
  ./mvnw test
 ....
 
-=== Misc Information
+=== Miscellaneous information
 
 * Twitter account
 

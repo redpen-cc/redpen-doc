@@ -4,7 +4,7 @@ rvm:
   - 2.3.3
 
 jdk:
-  - oraclejdk8
+  - oraclejdk9
 
 env:
   - URL=https://github.com/redpen-cc/redpen/releases/download/redpen-1.6.1

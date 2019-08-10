@@ -1,30 +1,27 @@
 [[language]]
 == RedPen Language Settings
 
-RedPen processes documents written in any language, such as German,
-French or Japanese. RedPen default configuration will process documents
-written in English or other Latin-based languages. Therefore, to make
-RedPen process documents written in other languages, users need to
-specify the language in the configuration file.
+RedPen can check documents written in a variety of languages, such as German,
+French or Japanese. By default, RedPen is set up to check documents written in
+English or other Latin-based languages. Therefore, to enable RedPen to check
+documents written in other languages, you must change the language setting in
+the configuration file.
 
 [[override-language]]
-=== Override Language
+=== Changing the language setting
 
-Currently there are two language settings, **en**, **ja** and **ru**. **en** is for
+There are three language settings: **en**, **ja** and **ru**. **en** is for
 documents written in Latin-based languages such as English and German.
-"ja" is for Japanese documents.
+**ja**" is for documents written in Japanese. **ru** is for documents written in Russian.
 
-In order to override the language, you must change the "lang" property
-of the "symbols" section of the configuration file. In the following
-example, the config file specifies Japanese ("ja") as the document
-language.
+To change the language setting, you change the value of the *lang* property
+in the *symbols* section of the configuration file. In the example below,
+the language is set to Japanese ("ja").
 
 [source,xml]
 ----
 <symbols lang="ja">
     <symbol name="EXCLAMATION_MARK" value="!" invalid-chars="！" after-space="true" />
-    <symbol name="LEFT_QUOTATION_MARK" value="\'"  invalid-chars="“" before-space="true" />
-    <symbol name="RIGHT_QUOTATION_MARK" value="\'"  invalid-chars="”" after-space="true" />
     <symbol name="NUMBER_SIGN" value="#" invalid-chars="＃" after-space="true" />
     <symbol name="FULL_STOP" value="。" invalid-chars="．." after-space="true" />
     <symbol name="COMMA" value="、" invalid-chars="," after-space="true" />
@@ -33,24 +30,25 @@ language.
 
 [[override-symbol-settings]]
 [suppress='Quotation WordNumber']
-=== Override Symbol Settings
+=== Changing the symbol setting
 
-Depending on the documents and their authors, the characters and symbols
-used may differ. For example, one author prefers "'" for a left single
-quotation mark, whereas another author prefers to use "‘" for a left single
-quotation mark.
+Depending on author preference and the type of document being created,
+the characters and symbols that are used may differ. For example, 
+one author might prefer to use " ' " for a left single quotation mark,
+whereas another might prefer to use " ‘ ".
 
-For such cases, RedPen provides the way to override the default symbols
-(see <<setting-symbols,Setting Symbols>> section) used in the document.
-In addition, specify which symbols should not used in the input documents.
+For such cases, RedPen provides a way to change the expected default symbols
+when checking documents.
+You can also specify which symbols should not be used in the checked documents.
+For more details, refer to <<setting-symbols,Setting symbols>>.
 
-The following overrides the setting for single quotation marks to
+In the example below, the setting for single quotation marks is changed to
 enforce the use of the ascii quotation mark (').
 
 [source,xml]
 ----
 <symbols>
-  <symbol name="LEFT_SINGLE_QUOTATION_MARK" value="'"  invalid-chars="‘" />
+  <symbol name="LEFT_SINGLE_QUOTATION_MARK" value="'" invalid-chars="‘" />
   <symbol name="RIGHT_SINGLE_QUOTATION_MARK" value="'" invalid-chars="’"/>
 </symbols>
 ----
