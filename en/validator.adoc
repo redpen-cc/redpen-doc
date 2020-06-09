@@ -214,7 +214,7 @@ InvalidSymbol works for any language.
 KatakanaEndHyphen validator checks the end hyphens of Katakana words in
 *Japanese* documents. Japanese Katakana words have variations in their
 end hyphen. For example, "computer" is written in Katakana as
-"コンピュータ" (without hyphen), and "コンピューター" (with hypen). This
+"コンピュータ" (without hyphen), and "コンピューター" (with hyphen). This
 validator checks to ensure that Katakana words match the predefined
 standard. See JIS Z8301, G.6.2.2 b) G.3.
 
@@ -326,8 +326,8 @@ languages such as Japanese or Chinese.
 |====
 |Property        |Default Value  |Description
 |``forbidden``   | false         | Speces are enforce (false) or forbidden.
-|``skip_before`` | ""            | Skip errors when there is no space before the specifed characters (symbols).
-|``skip_after``  | ""            | Skip errors when there is no space after the specifed characters (symbols).
+|``skip_before`` | ""            | Skip errors when there is no space before the specified characters (symbols).
+|``skip_after``  | ""            | Skip errors when there is no space after the specified characters (symbols).
 |====
 
 [[supported-languages-spacebetweenalphabeticalword]]
@@ -758,7 +758,7 @@ SectionLevel works for any languages.
 === JapaneseAmbiguousNounConjunction
 
 This validator generates errors when Japanese documents contains the ambiguous noun conjunction pattern.
-The ambigous pattern is that two nouns are conjuncted with Joshi, **no (の)**.
+The ambiguous pattern is that two nouns are conjuncted with Joshi, **no (の)**.
 
 The following is a sample of this pattern.
 

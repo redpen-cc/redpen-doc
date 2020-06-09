@@ -184,8 +184,8 @@ Wrap characters with a single asterisk or underscore for italics. The
 following are samples of italic sentences.
 
 ----
-*this is a italic syntax.*
-_this is also a italic syntax._
+*this is an italic syntax.*
+_this is also an italic syntax._
 ----
 
 [[links-1]]
@@ -209,7 +209,7 @@ Bulleted lists and Numbered lists.
 
 To create a bulleted list, start a line with an asterisk or a hyphen.
 The lists are nested according to how many leading spaces there are. The
-following is a example of a bulleted list using asterisks.
+following is an example of a bulleted list using asterisks.
 
 ----
 * List
